@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on DEVIN 0x01</title>
+    <link>https://devin0x01.github.io/post/</link>
+    <description>Recent content in Posts on DEVIN 0x01</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 13 May 2023 14:05:25 +0800</lastBuildDate><atom:link href="https://devin0x01.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>配置github pages教程</title>
+      <link>https://devin0x01.github.io/post/%E9%85%8D%E7%BD%AEgithub-pages%E6%95%99%E7%A8%8B/</link>
+      <pubDate>Sat, 13 May 2023 14:05:25 +0800</pubDate>
+      
+      <guid>https://devin0x01.github.io/post/%E9%85%8D%E7%BD%AEgithub-pages%E6%95%99%E7%A8%8B/</guid>
+      <description>参考文档 github-style theme
+github actions 教程
+基础配置 mkdir myblog &amp;amp;&amp;amp; cd myblog hugo new site . git init git submodule add git@github.com:MeiK2333/github-style.git themes/github-style vim .gitignore git add . git push -u origin master 更新主题 cd themes/github-style git pull 编辑readme hugo new readme.md echo &amp;#39;`Hello World!`&amp;#39; &amp;gt; content/readme.md 新增帖子 Hugo will create a post with draft: true, change it to false in order for it to show in the website.
+hugo new post/title_of_the_post.</description>
+    </item>
+    
+  </channel>
+</rss>
