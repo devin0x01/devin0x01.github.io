@@ -186,7 +186,7 @@ hugo new post/title_of_the_post." />
                         </div>
                       </div>
                     </details-menu>
-                      633 Words
+                      687 Words
                     
 
                   </div>
@@ -210,10 +210,10 @@ git submodule add git@github.com:MeiK2333/github-style.git themes/github-style
 vim .gitignore
 git add .
 git push -u origin master
-</code></pre><h2 id="更新主题">更新主题</h2>
+</code></pre><h3 id="更新主题">更新主题</h3>
 <pre tabindex="0"><code>cd themes/github-style
 git pull
-</code></pre><h2 id="编辑readme">编辑readme</h2>
+</code></pre><h3 id="编辑readme">编辑readme</h3>
 <pre tabindex="0"><code>hugo new readme.md
 echo &#39;`Hello World!`&#39; &gt; content/readme.md
 </code></pre><h2 id="新增帖子">新增帖子</h2>
@@ -250,13 +250,16 @@ schedule，定时执行 GitHub Action，主要是使用一些自动化统计 CI 
 <blockquote>
 <p>jobs 表示 GitHub Action 中的任务，我们设置了一个 build 任务，runs-on 表示 GitHub Action 运行环境，我们选择了 ubuntu-latest。
 我们的 build 任务包含了 Checkout、Setup Hugo、Build Web 和 Deploy Web 四个主要步骤，其中 run 是执行的命令，uses 是 GitHub Action 中的一个插件，我们使用了 peaceiris/actions-hugo@v2 和 peaceiris/actions-gh-pages@v3 这两个插件。其中 Checkout 步骤中 with 中配置 submodules 值为 true 可以同步博客源仓库的子模块，即我们的主题模块。
-EXTERNAL_REPOSITORY 需要改为自己的 GitHub Pages 仓库</p>
+另外，EXTERNAL_REPOSITORY 需要改为自己的 GitHub Pages 仓库</p>
 </blockquote>
 </li>
 </ul>
 <h2 id="图床设置">图床设置</h2>
-<p><a href="http://www.duheweb.com/post/20210421125522.html">图床设置教程</a><br>
-picgo自带的github图床删除图片操作不能同步到github，使用 picgo-plugin-github-plus 插件可以在picgo相册中删除图片时自动把github上的图片也删除了。</p>
+<p><a href="http://www.duheweb.com/post/20210421125522.html">图床设置教程</a></p>
+<ul>
+<li>picgo-plugin-github-plus: picgo自带的github图床删除图片时不能同步到github，使用此插件可以在picgo相册中删除图片时自动把github图床内的图片也删除了。</li>
+<li>picgo-plugin-rename-file: 此插件可以对上传的文件按指定格式重命名，比如按照md5值等。</li>
+</ul>
 </article>
               </div>
             </div>
