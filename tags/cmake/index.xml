@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>CMake on DEVIN 0x01</title>
+    <link>https://devin0x01.github.io/tags/cmake/</link>
+    <description>Recent content in CMake on DEVIN 0x01</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 26 Jul 2023 14:05:25 +0800</lastBuildDate><atom:link href="https://devin0x01.github.io/tags/cmake/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>CMake语法基础</title>
+      <link>https://devin0x01.github.io/post/cmake%E8%AF%AD%E6%B3%95%E5%9F%BA%E7%A1%80/</link>
+      <pubDate>Wed, 26 Jul 2023 14:05:25 +0800</pubDate>
+      
+      <guid>https://devin0x01.github.io/post/cmake%E8%AF%AD%E6%B3%95%E5%9F%BA%E7%A1%80/</guid>
+      <description>基本表达式 if — CMake 3.27.1 Documentation
+Cmake中的条件判断if/elseif/else - 简书
+if(&amp;lt;constant&amp;gt;) True if the constant is 1, ON, YES, TRUE, Y, or a non-zero number (including floating point numbers). False if the constant is 0, OFF, NO, FALSE, N, IGNORE, NOTFOUND, the empty string, or ends in the suffix -NOTFOUND. Named boolean constants are case-insensitive. If the argument is not one of these specific constants, it is treated as a variable or string (see Variable Expansion further below) and one of the following two forms applies.</description>
+    </item>
+    
+    <item>
+      <title>target_link_libraries中的PRIVATE INTERFACE PUBLIC.md</title>
+      <link>https://devin0x01.github.io/post/target_link_libraries%E4%B8%AD%E7%9A%84private-interface-public/</link>
+      <pubDate>Mon, 24 Jul 2023 18:05:25 +0800</pubDate>
+      
+      <guid>https://devin0x01.github.io/post/target_link_libraries%E4%B8%AD%E7%9A%84private-interface-public/</guid>
+      <description>CMake target_link_libraries Interface Dependencies - Stack Overflow CMake的链接选项：PRIVATE，INTERFACE，PUBLIC - 知乎
+If you are creating a shared library and your source cpp files #include the headers of another library (Say, QtNetwork for example), but your header files don&amp;rsquo;t include QtNetwork headers, then QtNetwork is a PRIVATE dependency.
+If your source files and your headers include the headers of another library, then it is a PUBLIC dependency.
+If your header files other than your source files include the headers of another library, then it is an INTERFACE dependency.</description>
+    </item>
+    
+  </channel>
+</rss>

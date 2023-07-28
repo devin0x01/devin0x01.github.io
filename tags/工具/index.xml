@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>工具 on DEVIN 0x01</title>
+    <link>https://devin0x01.github.io/tags/%E5%B7%A5%E5%85%B7/</link>
+    <description>Recent content in 工具 on DEVIN 0x01</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 18 Jun 2023 14:05:25 +0800</lastBuildDate><atom:link href="https://devin0x01.github.io/tags/%E5%B7%A5%E5%85%B7/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Notepad&#43;&#43;替换</title>
+      <link>https://devin0x01.github.io/post/notepad&#43;&#43;%E6%9B%BF%E6%8D%A2/</link>
+      <pubDate>Sun, 18 Jun 2023 14:05:25 +0800</pubDate>
+      
+      <guid>https://devin0x01.github.io/post/notepad&#43;&#43;%E6%9B%BF%E6%8D%A2/</guid>
+      <description>\1表示匹配的第一组括号</description>
+    </item>
+    
+    <item>
+      <title>Terminal快捷键</title>
+      <link>https://devin0x01.github.io/post/terminal%E5%BF%AB%E6%8D%B7%E9%94%AE/</link>
+      <pubDate>Sun, 18 Jun 2023 14:05:25 +0800</pubDate>
+      
+      <guid>https://devin0x01.github.io/post/terminal%E5%BF%AB%E6%8D%B7%E9%94%AE/</guid>
+      <description>命令行快速移动光标 Ctrl+A/E 行首/行末 Alt+F/B 按单词前后移动 Alt . 上条命令行的最后一个参数 Ctrl+W/K 删除光标前后的内容</description>
+    </item>
+    
+    <item>
+      <title>配置github pages教程</title>
+      <link>https://devin0x01.github.io/post/%E9%85%8D%E7%BD%AEgithub-pages%E6%95%99%E7%A8%8B/</link>
+      <pubDate>Sat, 13 May 2023 14:05:25 +0800</pubDate>
+      
+      <guid>https://devin0x01.github.io/post/%E9%85%8D%E7%BD%AEgithub-pages%E6%95%99%E7%A8%8B/</guid>
+      <description>参考文档 github-style theme
+github actions 教程
+基础配置 mkdir myblog &amp;amp;&amp;amp; cd myblog hugo new site . git init git submodule add git@github.com:MeiK2333/github-style.git themes/github-style vim .gitignore git add . git push -u origin master 更新主题 cd themes/github-style git pull 编辑readme hugo new readme.md echo &amp;#39;`Hello World!`&amp;#39; &amp;gt; content/readme.md 新增帖子 Hugo will create a post with draft: true, change it to false in order for it to show in the website.
+hugo new post/title_of_the_post.</description>
+    </item>
+    
+  </channel>
+</rss>
