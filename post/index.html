@@ -154,7 +154,7 @@
                 </path>
               </svg>
               Posts
-              <span class="Counter">22</span>
+              <span class="Counter">23</span>
             </a>
           </nav>
           <div class="profile-color-modes js-promo-color-modes-banner-profile isInitialToggle">
@@ -388,7 +388,7 @@
         </path>
       </svg>
       Posts
-      <span class="Counter ">22</span>
+      <span class="Counter ">23</span>
     </a>
   </nav>
 </div>
@@ -496,6 +496,52 @@
         
       
       <ul>
+        
+        <li class="col-12 d-flex width-full py-4 border-bottom color-border-secondary public source">
+          <div class="col-12 d-inline-block">
+            <div class="d-inline-block mb-1">
+              <h3 class="wb-break-all">
+                <a href="https://devin0x01.github.io/post/docker%E5%86%85%E6%98%BE%E7%A4%BA%E5%9B%BE%E5%BD%A2%E7%95%8C%E9%9D%A2/">Docker内显示图形界面</a>
+              </h3>
+            </div>
+
+            <div>
+              <div class="col-12 d-inline-block text-gray mb-2 pr-4">
+                关于X11 x(7) - Linux man page
+Cygwin系列（十二）：了解X - 知乎
+X11采用了C/S的架构，在其设计下，整个图形视窗系统主要分为3个部分：
+1.X Server（X服务器）。X Server一方面负责和设备驱动交互，监听显示器和键盘鼠标，另一方面响应X Client需求传递键盘、鼠标事件、（通过设备驱动）绘制图形文字等。反直觉之一，X Server运行在本地。
+2.X Client（X客户端）。X Client也叫X应用程序，负责实现程序逻辑，在收到设备事件后计算出绘图数据，由于本身没有绘制能力，只能向X Server发送绘制请求和绘图数据，告诉X Server在哪里绘制一个什么样的图形。X Client可以和X Server在同一个主机上，也可以通过TCP/IP网络连接。
+3.Window Manager（窗口管理器，简称WM），或者叫合成器（Compositor）。多个X Client向X Server发送绘制请求时，各X Client程序并不知道彼此的存在，绘制图形出现重叠、颜色干扰等问题是大概率事件，这就需要一个管理者统一协调，即Window Manager，它掌管各X Client的Window（窗口）视觉外观，如形状、排列、移动、重叠渲染等。反直觉之二，Window Manager并非X Server的一部分，而是一个特殊的X Client程序。
+3个部分， X Server是整个X Window System的中心，协调X客户端和窗口管理器的通信。
+常用命令 xorg - What does $DISPLAY environment variable mean - Ask Ubuntu
+x11 forwarding - How to fix &ldquo;MobaXterm X11 proxy: Unsupported authorisation protocol&rdquo; - Super User
+echo $DISPLAY # 注意：`xauth add` 之后可能需要重新连接才能生效!! xauth add $DISPLAY .
+              </div>
+            </div>
+
+            <div class="f6 text-gray mt-2">
+              
+              
+              <a class="muted-link mr-3" href="/tags/linux%E5%BC%80%E5%8F%91">
+                <svg class="octicon octicon-tag" viewBox="0 0 16 16" version="1.1" width="16" height="16">
+                  <path fill-rule="evenodd"
+                    d="M2.5 7.775V2.75a.25.25 0 01.25-.25h5.025a.25.25 0 01.177.073l6.25 6.25a.25.25 0 010 .354l-5.025 5.025a.25.25 0 01-.354 0l-6.25-6.25a.25.25 0 01-.073-.177zm-1.5 0V2.75C1 1.784 1.784 1 2.75 1h5.025c.464 0 .91.184 1.238.513l6.25 6.25a1.75 1.75 0 010 2.474l-5.026 5.026a1.75 1.75 0 01-2.474 0l-6.25-6.25A1.75 1.75 0 011 7.775zM6 5a1 1 0 100 2 1 1 0 000-2z">
+                  </path>
+                </svg>
+                Linux开发
+              </a>
+              
+              
+
+              Created
+              <relative-time datetime=" Sat, 29 Jul 2023 00:05:25 &#43;0800" class="no-wrap"
+                title=" Sat, 29 Jul 2023 00:05:25 &#43;0800">
+                Sat, 29 Jul 2023 00:05:25 &#43;0800
+              </relative-time>
+            </div>
+          </div>
+        </li>
         
         <li class="col-12 d-flex width-full py-4 border-bottom color-border-secondary public source">
           <div class="col-12 d-inline-block">
@@ -835,44 +881,6 @@ Q3: 基类的析构函数非虚，派生类的析构函数是虚函数。delete�
                   </path>
                 </svg>
                 编译调试
-              </a>
-              
-              
-
-              Created
-              <relative-time datetime=" Sun, 18 Jun 2023 14:05:25 &#43;0800" class="no-wrap"
-                title=" Sun, 18 Jun 2023 14:05:25 &#43;0800">
-                Sun, 18 Jun 2023 14:05:25 &#43;0800
-              </relative-time>
-            </div>
-          </div>
-        </li>
-        
-        <li class="col-12 d-flex width-full py-4 border-bottom color-border-secondary public source">
-          <div class="col-12 d-inline-block">
-            <div class="d-inline-block mb-1">
-              <h3 class="wb-break-all">
-                <a href="https://devin0x01.github.io/post/expect%E5%AE%9E%E7%8E%B0%E4%BA%A4%E4%BA%92%E5%BC%8F%E8%BE%93%E5%85%A5/">expect实现交互式输入</a>
-              </h3>
-            </div>
-
-            <div>
-              <div class="col-12 d-inline-block text-gray mb-2 pr-4">
-                1.常用命令 选项： -c:执行脚本前先执行的命令，可多次使用。 -d:debug模式，可以在运行时输出一些诊断信息，与在脚本开始处使用exp_internal 1相似。 -D:启用交换调式器,可设一整数参数。 -f:从文件读取命令，仅用于使用#!时。如果文件名为&quot;-&quot;，则从stdin读取(使用&quot;./-&ldquo;从文件名为-的文件读取)。 -i:交互式输入命令，使用&quot;exit&quot;或&quot;EOF&quot;退出输入状态。 &ndash;:标示选项结束(如果你需要传递与expect选项相似的参数给脚本时)，可放到#!行:#!/usr/bin/expect &ndash;。 -v:显示expect版本信息。
-# 命令行参数 # $argv，参数数组，使用[lindex $argv n]获取，$argv 0为脚本名字 # $argc，参数个数 set username [lindex $argv 1] # 获取第1个参数 set passwd [lindex $argv 2] # 获取第2个参数 set timeout 30 # 设置超时 # spawn是expect内部命令，开启ssh连接 spawn ssh -l username 192.168.1.1 # 判断上次输出结果里是否包含“password:”的字符串，如果有则立即返回，否则就等待一段时间(timeout)后返回 expect &#34;password:&#34; # 发送内容ispass(密码、命令等) send &#34;ispass\r&#34; # 发送内容给用户 send_user &#34;$argv0 [lrange $argv 0 2]\n&#34; send_user &#34;It&#39;s OK\r&#34; # 执行完成后保持交互状态，控制权交给控制台(手工操作)。否则会完成后会退出。 interact 2.例子 2.1自动telnet会话 #!
-              </div>
-            </div>
-
-            <div class="f6 text-gray mt-2">
-              
-              
-              <a class="muted-link mr-3" href="/tags/shell">
-                <svg class="octicon octicon-tag" viewBox="0 0 16 16" version="1.1" width="16" height="16">
-                  <path fill-rule="evenodd"
-                    d="M2.5 7.775V2.75a.25.25 0 01.25-.25h5.025a.25.25 0 01.177.073l6.25 6.25a.25.25 0 010 .354l-5.025 5.025a.25.25 0 01-.354 0l-6.25-6.25a.25.25 0 01-.073-.177zm-1.5 0V2.75C1 1.784 1.784 1 2.75 1h5.025c.464 0 .91.184 1.238.513l6.25 6.25a1.75 1.75 0 010 2.474l-5.026 5.026a1.75 1.75 0 01-2.474 0l-6.25-6.25A1.75 1.75 0 011 7.775zM6 5a1 1 0 100 2 1 1 0 000-2z">
-                  </path>
-                </svg>
-                Shell
               </a>
               
               
