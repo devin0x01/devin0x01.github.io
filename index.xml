@@ -6,23 +6,52 @@
     <description>Recent content on DEVIN 0x01</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 13 May 2023 14:05:25 +0800</lastBuildDate><atom:link href="https://devin0x01.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 26 Jul 2023 14:05:25 +0800</lastBuildDate><atom:link href="https://devin0x01.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>配置github pages教程</title>
-      <link>https://devin0x01.github.io/post/%E9%85%8D%E7%BD%AEgithub-pages%E6%95%99%E7%A8%8B/</link>
-      <pubDate>Sat, 13 May 2023 14:05:25 +0800</pubDate>
+      <title>CMake语法基础</title>
+      <link>https://devin0x01.github.io/post/cmake%E8%AF%AD%E6%B3%95%E5%9F%BA%E7%A1%80/</link>
+      <pubDate>Wed, 26 Jul 2023 14:05:25 +0800</pubDate>
       
-      <guid>https://devin0x01.github.io/post/%E9%85%8D%E7%BD%AEgithub-pages%E6%95%99%E7%A8%8B/</guid>
-      <description>参考文档 github-style theme
-github actions 教程
-基础配置 mkdir myblog &amp;amp;&amp;amp; cd myblog hugo new site . git init git submodule add git@github.com:MeiK2333/github-style.git themes/github-style vim .gitignore git add . git push -u origin master 更新主题 cd themes/github-style git pull 编辑readme hugo new readme.md echo &amp;#39;`Hello World!`&amp;#39; &amp;gt; content/readme.md 新增帖子 Hugo will create a post with draft: true, change it to false in order for it to show in the website.
-hugo new post/title_of_the_post.</description>
+      <guid>https://devin0x01.github.io/post/cmake%E8%AF%AD%E6%B3%95%E5%9F%BA%E7%A1%80/</guid>
+      <description>基本表达式 if — CMake 3.27.1 Documentation
+Cmake中的条件判断if/elseif/else - 简书
+if(&amp;lt;constant&amp;gt;) True if the constant is 1, ON, YES, TRUE, Y, or a non-zero number (including floating point numbers). False if the constant is 0, OFF, NO, FALSE, N, IGNORE, NOTFOUND, the empty string, or ends in the suffix -NOTFOUND. Named boolean constants are case-insensitive. If the argument is not one of these specific constants, it is treated as a variable or string (see Variable Expansion further below) and one of the following two forms applies.</description>
     </item>
     
     <item>
-      <title></title>
+      <title>调用成员模板</title>
+      <link>https://devin0x01.github.io/post/%E8%B0%83%E7%94%A8%E6%88%90%E5%91%98%E6%A8%A1%E6%9D%BF/</link>
+      <pubDate>Thu, 20 Jul 2023 14:05:25 +0800</pubDate>
+      
+      <guid>https://devin0x01.github.io/post/%E8%B0%83%E7%94%A8%E6%88%90%E5%91%98%E6%A8%A1%E6%9D%BF/</guid>
+      <description>C++访问成员模板需要加template关键字
+#include &amp;lt;iostream&amp;gt; using namespace std; class A { public: template &amp;lt;typename TypeNum&amp;gt; int getSize() { return sizeof(TypeNum); } }; // 调用成员模板函数需要加template template &amp;lt;typename T&amp;gt; void f1() { T t1; cout &amp;lt;&amp;lt; (t1.template getSize&amp;lt;float&amp;gt;()) &amp;lt;&amp;lt; endl; cout &amp;lt;&amp;lt; (t1.template getSize&amp;lt;double&amp;gt;()) &amp;lt;&amp;lt; endl; } // 调用成员模板函数不需要加template void f2() { A a1; cout &amp;lt;&amp;lt; (a1.getSize&amp;lt;long&amp;gt;()) &amp;lt;&amp;lt; endl; cout &amp;lt;&amp;lt; (a1.getSize&amp;lt;long long&amp;gt;()) &amp;lt;&amp;lt; endl; } int main() { f1&amp;lt;A&amp;gt;(); f2(); return 0; } </description>
+    </item>
+    
+    <item>
+      <title>vector的push_back与emplace_back.md</title>
+      <link>https://devin0x01.github.io/post/vector%E7%9A%84push_back%E4%B8%8Eemplace_back/</link>
+      <pubDate>Mon, 17 Jul 2023 14:05:25 +0800</pubDate>
+      
+      <guid>https://devin0x01.github.io/post/vector%E7%9A%84push_back%E4%B8%8Eemplace_back/</guid>
+      <description>push_back与emplace_back #include &amp;lt;iostream&amp;gt; #include &amp;lt;vector&amp;gt; using namespace std; class A { public: A() = default; A(string name) : _name(name) { cout &amp;lt;&amp;lt; &amp;#34;ctor: &amp;#34; &amp;lt;&amp;lt; _name &amp;lt;&amp;lt; endl; } ~A() { cout &amp;lt;&amp;lt; &amp;#34;dtor: &amp;#34; &amp;lt;&amp;lt; _name &amp;lt;&amp;lt; endl; } // 拷贝构造函数 A(const A &amp;amp;other) { _name += &amp;#34;cp-&amp;#34; + other._name; cout &amp;lt;&amp;lt; &amp;#34;cp-ctor: &amp;#34; &amp;lt;&amp;lt; _name &amp;lt;&amp;lt; endl; } // 赋值运算符 A&amp;amp; operator=(const A &amp;amp;other) { if (this != &amp;amp;other) { _name += &amp;#34;cp-&amp;#34; + other.</description>
+    </item>
+    
+    <item>
+      <title>位域用法</title>
+      <link>https://devin0x01.github.io/post/%E4%BD%8D%E5%9F%9F%E7%94%A8%E6%B3%95/</link>
+      <pubDate>Thu, 13 Jul 2023 14:05:25 +0800</pubDate>
+      
+      <guid>https://devin0x01.github.io/post/%E4%BD%8D%E5%9F%9F%E7%94%A8%E6%B3%95/</guid>
+      <description>[toc]
+如果有字段定义为int类型的话，那么符号位的判断需要特别注意。 例如：下面的 B::f2 字段是有符号类型，其符号位是f2的最高位，可以表示的范围是-64~63
+#include &amp;lt;iostream&amp;gt; struct B { unsigned int f1:1; int f2:7; }; int main() { B b1 = {0, 10}; B b2 = {0, 127}; std::cout &amp;lt;&amp;lt; std::boolalpha &amp;lt;&amp;lt; (b1.f2 &amp;gt;= 0) &amp;lt;&amp;lt; std::endl; // true std::cout &amp;lt;&amp;lt; std::boolalpha &amp;lt;&amp;lt; (b2.f2 &amp;gt;= 0) &amp;lt;&amp;lt; std::endl; // false } </description>
+    </item>
+    
+    <item>
+      <title>C&#43;&#43;17特性</title>
       <link>https://devin0x01.github.io/post/c&#43;&#43;17%E7%89%B9%E6%80%A7/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <pubDate>Sun, 18 Jun 2023 14:05:25 +0800</pubDate>
       
       <guid>https://devin0x01.github.io/post/c&#43;&#43;17%E7%89%B9%E6%80%A7/</guid>
       <description>构造函数模板推导 在C++17前构造一个模板类对象需要指明类型：
@@ -31,9 +60,9 @@ pair p(1, 2.2); // c++17 自动推导 vector v = {1, 2, 3}; // c++17 结构化�
     </item>
     
     <item>
-      <title></title>
+      <title>C&#43;&#43;练习题</title>
       <link>https://devin0x01.github.io/post/c&#43;&#43;%E7%BB%83%E4%B9%A0%E9%A2%98/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <pubDate>Sun, 18 Jun 2023 14:05:25 +0800</pubDate>
       
       <guid>https://devin0x01.github.io/post/c&#43;&#43;%E7%BB%83%E4%B9%A0%E9%A2%98/</guid>
       <description>多态 判断 Q1: 虚函数可以是内联的？ A1: 错误。内联是编译时刻决定的，虚函数是运行时刻动态决定的，所以虚函数不能是内联函数。虚函数前加上inline不会报错，但是会被忽略。
@@ -48,56 +77,27 @@ Q3: 基类的析构函数非虚，派生类的析构函数是虚函数。delete�
     </item>
     
     <item>
-      <title></title>
+      <title>cgdb配置</title>
       <link>https://devin0x01.github.io/post/cgdb%E9%85%8D%E7%BD%AE/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <pubDate>Sun, 18 Jun 2023 14:05:25 +0800</pubDate>
       
       <guid>https://devin0x01.github.io/post/cgdb%E9%85%8D%E7%BD%AE/</guid>
       <description>1.安装 git clone git://github.com/cgdb/cgdb.git cd cgdb ./autogen.sh ./configure --prefix=/usr/local make sudo make install # 报错解决方法 sudo apt-get install automake libncurses5-dev flex texinfo libreadline-dev 2.配置 vim ~/.cgdb/cgdbrc set ignorecaseset ts=4 set wso=vertical set eld=shortarrow set hls map &amp;lt;F9&amp;gt; :until&amp;lt;cr&amp;gt; 3.快捷键 F5 - Send a run command to GDB. F6 - Send a continue command to GDB. F7 - Send a finish command to GDB. F8 - Send a next command to GDB.</description>
     </item>
     
     <item>
-      <title></title>
-      <link>https://devin0x01.github.io/post/cmake%E8%AF%AD%E6%B3%95%E5%9F%BA%E7%A1%80/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://devin0x01.github.io/post/cmake%E8%AF%AD%E6%B3%95%E5%9F%BA%E7%A1%80/</guid>
-      <description>基本表达式 if — CMake 3.27.1 Documentation
-Cmake中的条件判断if/elseif/else - 简书
-if(&amp;lt;constant&amp;gt;) True if the constant is 1, ON, YES, TRUE, Y, or a non-zero number (including floating point numbers). False if the constant is 0, OFF, NO, FALSE, N, IGNORE, NOTFOUND, the empty string, or ends in the suffix -NOTFOUND. Named boolean constants are case-insensitive. If the argument is not one of these specific constants, it is treated as a variable or string (see Variable Expansion further below) and one of the following two forms applies.</description>
-    </item>
-    
-    <item>
-      <title></title>
+      <title>coredump配置</title>
       <link>https://devin0x01.github.io/post/coreddump%E9%85%8D%E7%BD%AE/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <pubDate>Sun, 18 Jun 2023 14:05:25 +0800</pubDate>
       
       <guid>https://devin0x01.github.io/post/coreddump%E9%85%8D%E7%BD%AE/</guid>
       <description>ulimit -c unlimited echo &amp;#34;1&amp;#34; &amp;gt; /proc/sys/kernel/core_uses_pid mkdir -p /opt/debug echo &amp;#34;/opt/debug/core-%e-%p-%t&amp;#34; &amp;gt; /proc/sys/kernel/core_pattern gdb &amp;lt;program&amp;gt; -c &amp;lt;coredump_file&amp;gt; up &amp;lt;n&amp;gt; #调用栈向上n次 </description>
     </item>
     
     <item>
-      <title></title>
-      <link>https://devin0x01.github.io/post/docker%E5%86%85%E6%98%BE%E7%A4%BA%E5%9B%BE%E5%BD%A2%E7%95%8C%E9%9D%A2/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://devin0x01.github.io/post/docker%E5%86%85%E6%98%BE%E7%A4%BA%E5%9B%BE%E5%BD%A2%E7%95%8C%E9%9D%A2/</guid>
-      <description>关于X11 x(7) - Linux man page
-Cygwin系列（十二）：了解X - 知乎
-X11采用了C/S的架构，在其设计下，整个图形视窗系统主要分为3个部分：
-1.X Server（X服务器）。X Server一方面负责和设备驱动交互，监听显示器和键盘鼠标，另一方面响应X Client需求传递键盘、鼠标事件、（通过设备驱动）绘制图形文字等。反直觉之一，X Server运行在本地。
-2.X Client（X客户端）。X Client也叫X应用程序，负责实现程序逻辑，在收到设备事件后计算出绘图数据，由于本身没有绘制能力，只能向X Server发送绘制请求和绘图数据，告诉X Server在哪里绘制一个什么样的图形。X Client可以和X Server在同一个主机上，也可以通过TCP/IP网络连接。
-3.Window Manager（窗口管理器，简称WM），或者叫合成器（Compositor）。多个X Client向X Server发送绘制请求时，各X Client程序并不知道彼此的存在，绘制图形出现重叠、颜色干扰等问题是大概率事件，这就需要一个管理者统一协调，即Window Manager，它掌管各X Client的Window（窗口）视觉外观，如形状、排列、移动、重叠渲染等。反直觉之二，Window Manager并非X Server的一部分，而是一个特殊的X Client程序。
-3个部分， X Server是整个X Window System的中心，协调X客户端和窗口管理器的通信。
-常用命令 xorg - What does $DISPLAY environment variable mean - Ask Ubuntu
-x11 forwarding - How to fix &amp;ldquo;MobaXterm X11 proxy: Unsupported authorisation protocol&amp;rdquo; - Super User
-echo $DISPLAY # 注意：`xauth add` 之后可能需要重新连接才能生效!! xauth add $DISPLAY .</description>
-    </item>
-    
-    <item>
-      <title></title>
+      <title>expect实现交互式输入</title>
       <link>https://devin0x01.github.io/post/expect%E5%AE%9E%E7%8E%B0%E4%BA%A4%E4%BA%92%E5%BC%8F%E8%BE%93%E5%85%A5/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <pubDate>Sun, 18 Jun 2023 14:05:25 +0800</pubDate>
       
       <guid>https://devin0x01.github.io/post/expect%E5%AE%9E%E7%8E%B0%E4%BA%A4%E4%BA%92%E5%BC%8F%E8%BE%93%E5%85%A5/</guid>
       <description>1.常用命令 选项： -c:执行脚本前先执行的命令，可多次使用。 -d:debug模式，可以在运行时输出一些诊断信息，与在脚本开始处使用exp_internal 1相似。 -D:启用交换调式器,可设一整数参数。 -f:从文件读取命令，仅用于使用#!时。如果文件名为&amp;quot;-&amp;quot;，则从stdin读取(使用&amp;quot;./-&amp;ldquo;从文件名为-的文件读取)。 -i:交互式输入命令，使用&amp;quot;exit&amp;quot;或&amp;quot;EOF&amp;quot;退出输入状态。 &amp;ndash;:标示选项结束(如果你需要传递与expect选项相似的参数给脚本时)，可放到#!行:#!/usr/bin/expect &amp;ndash;。 -v:显示expect版本信息。
@@ -105,27 +105,27 @@ echo $DISPLAY # 注意：`xauth add` 之后可能需要重新连接才能生效!
     </item>
     
     <item>
-      <title></title>
+      <title>Git常用命令</title>
       <link>https://devin0x01.github.io/post/git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <pubDate>Sun, 18 Jun 2023 14:05:25 +0800</pubDate>
       
       <guid>https://devin0x01.github.io/post/git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</guid>
       <description>1.git remote 关联远端仓库 git remote add origin git@github.com:git_username/repository_name.git git remote remove origin git remote -v 2.git branch 本地分支关联远程分支(目的是在执行git pull/push操作时就不需要指定对应的远程分支) git branch --set-upstream-to=origin/master git branch -u origin/master 切换分支 git checkout -b &amp;lt;new_branch&amp;gt; 查看所有分支 git branch -a 更改分支名称 git branch -m br_old br_new 3.git push 删除远程分支 git push origin --delete &amp;lt;branch&amp;gt; 同步到远程分支 git push -u origin &amp;lt;local_branch&amp;gt;:&amp;lt;remote_branch&amp;gt; 4.git diff 查看当前没有add的内容修改 git diff 查看已经add没有commit的改动 git diff --cached 查看当前没有add和commit的改动 git diff HEAD 或者 git status 再查看任意连个版本之间的改动 git diff &amp;lt;版本号码1&amp;gt; &amp;lt;版本号码2&amp;gt; 比较两个版本号src文件夹的差异 git diff &amp;lt;版本号码1&amp;gt; &amp;lt;版本号码2&amp;gt; src 5.</description>
     </item>
     
     <item>
-      <title></title>
+      <title>Java基础</title>
       <link>https://devin0x01.github.io/post/java%E5%9F%BA%E7%A1%80/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <pubDate>Sun, 18 Jun 2023 14:05:25 +0800</pubDate>
       
       <guid>https://devin0x01.github.io/post/java%E5%9F%BA%E7%A1%80/</guid>
       <description>数据类型 INFINITY和NaN // INFINITY定义 public static final double POSITIVE_INFINITY = 1.0 / 0.0; public static final double NEGATIVE_INFINITY = -1.0 / 0.0; public static final float POSITIVE_INFINITY = 1.0f / 0.0f; public static final float NEGATIVE_INFINITY = -1.0f / 0.0f; // 无穷大*0=NAN System.out.println(Float.POSITIVE_INFINITY * 0); // output: NAN // 无穷大 System.out.println((Float.POSITIVE_INFINITY / 0) == Float.POSITIVE_INFINITY); // output: true System.out.println(Float.POSITIVE_INFINITY == (Float.POSITIVE_INFINITY + 10000)); // output: true System.out.println(Float.POSITIVE_INFINITY == (Float.POSITIVE_INFINITY / 10000)); // output: true // 判断是否为INFINITY System.</description>
     </item>
     
     <item>
-      <title></title>
+      <title>Linux网络编程</title>
       <link>https://devin0x01.github.io/post/linux%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <pubDate>Sun, 18 Jun 2023 14:05:25 +0800</pubDate>
       
       <guid>https://devin0x01.github.io/post/linux%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/</guid>
       <description>查看端口占用情况 netstat -tunlp
@@ -144,18 +144,18 @@ shutdown优雅的断开TCP连接 /* Shut down all or part of the connection open
     </item>
     
     <item>
-      <title></title>
+      <title>Notepad&#43;&#43;替换</title>
       <link>https://devin0x01.github.io/post/notepad&#43;&#43;%E6%9B%BF%E6%8D%A2/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <pubDate>Sun, 18 Jun 2023 14:05:25 +0800</pubDate>
       
       <guid>https://devin0x01.github.io/post/notepad&#43;&#43;%E6%9B%BF%E6%8D%A2/</guid>
       <description>\1表示匹配的第一组括号</description>
     </item>
     
     <item>
-      <title></title>
+      <title>Qt开发总结篇一</title>
       <link>https://devin0x01.github.io/post/qt%E5%BC%80%E5%8F%91%E6%80%BB%E7%BB%93%E7%AF%87%E4%B8%80/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <pubDate>Sun, 18 Jun 2023 14:05:25 +0800</pubDate>
       
       <guid>https://devin0x01.github.io/post/qt%E5%BC%80%E5%8F%91%E6%80%BB%E7%BB%93%E7%AF%87%E4%B8%80/</guid>
       <description>GUI界面 限制输入的内容 QValidator *validator = new QIntValidator(100, 999, this); // 这样文本框只能输入100~999之间的数字 ui-&amp;gt;lineEdit-&amp;gt;setValidator(validator); 显示格式控制 ui-&amp;gt;textEdit-&amp;gt;setWordWrapMode(QTextOption::WrapAnywhere); // 任意地方换行 ui-&amp;gt;tableWidget-&amp;gt;setTextElideMode(Qt::ElideMode); // 不显示省略号 Qt序列化 通过全局流操作运算符重载实现，可以序列化到文件等设备中，也可以序列化到QByteArray中。
@@ -163,50 +163,18 @@ shutdown优雅的断开TCP连接 /* Shut down all or part of the connection open
     </item>
     
     <item>
-      <title></title>
-      <link>https://devin0x01.github.io/post/target_link_libraries%E4%B8%AD%E7%9A%84private-interface-public/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://devin0x01.github.io/post/target_link_libraries%E4%B8%AD%E7%9A%84private-interface-public/</guid>
-      <description>CMake target_link_libraries Interface Dependencies - Stack Overflow CMake的链接选项：PRIVATE，INTERFACE，PUBLIC - 知乎
-If you are creating a shared library and your source cpp files #include the headers of another library (Say, QtNetwork for example), but your header files don&amp;rsquo;t include QtNetwork headers, then QtNetwork is a PRIVATE dependency.
-If your source files and your headers include the headers of another library, then it is a PUBLIC dependency.
-If your header files other than your source files include the headers of another library, then it is an INTERFACE dependency.</description>
-    </item>
-    
-    <item>
-      <title></title>
+      <title>Terminal快捷键</title>
       <link>https://devin0x01.github.io/post/terminal%E5%BF%AB%E6%8D%B7%E9%94%AE/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <pubDate>Sun, 18 Jun 2023 14:05:25 +0800</pubDate>
       
       <guid>https://devin0x01.github.io/post/terminal%E5%BF%AB%E6%8D%B7%E9%94%AE/</guid>
       <description>命令行快速移动光标 Ctrl+A/E 行首/行末 Alt+F/B 按单词前后移动 Alt . 上条命令行的最后一个参数 Ctrl+W/K 删除光标前后的内容</description>
     </item>
     
     <item>
-      <title></title>
-      <link>https://devin0x01.github.io/post/vector%E7%9A%84push_back%E4%B8%8Eemplace_back/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://devin0x01.github.io/post/vector%E7%9A%84push_back%E4%B8%8Eemplace_back/</guid>
-      <description>push_back与emplace_back #include &amp;lt;iostream&amp;gt; #include &amp;lt;vector&amp;gt; using namespace std; class A { public: A() = default; A(string name) : _name(name) { cout &amp;lt;&amp;lt; &amp;#34;ctor: &amp;#34; &amp;lt;&amp;lt; _name &amp;lt;&amp;lt; endl; } ~A() { cout &amp;lt;&amp;lt; &amp;#34;dtor: &amp;#34; &amp;lt;&amp;lt; _name &amp;lt;&amp;lt; endl; } // 拷贝构造函数 A(const A &amp;amp;other) { _name += &amp;#34;cp-&amp;#34; + other._name; cout &amp;lt;&amp;lt; &amp;#34;cp-ctor: &amp;#34; &amp;lt;&amp;lt; _name &amp;lt;&amp;lt; endl; } // 赋值运算符 A&amp;amp; operator=(const A &amp;amp;other) { if (this != &amp;amp;other) { _name += &amp;#34;cp-&amp;#34; + other.</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://devin0x01.github.io/post/%E4%BD%8D%E5%9F%9F%E7%94%A8%E6%B3%95/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://devin0x01.github.io/post/%E4%BD%8D%E5%9F%9F%E7%94%A8%E6%B3%95/</guid>
-      <description>[toc]
-如果有字段定义为int类型的话，那么符号位的判断需要特别注意。 例如：下面的 B::f2 字段是有符号类型，其符号位是f2的最高位，可以表示的范围是-64~63
-#include &amp;lt;iostream&amp;gt; struct B { unsigned int f1:1; int f2:7; }; int main() { B b1 = {0, 10}; B b2 = {0, 127}; std::cout &amp;lt;&amp;lt; std::boolalpha &amp;lt;&amp;lt; (b1.f2 &amp;gt;= 0) &amp;lt;&amp;lt; std::endl; // true std::cout &amp;lt;&amp;lt; std::boolalpha &amp;lt;&amp;lt; (b2.f2 &amp;gt;= 0) &amp;lt;&amp;lt; std::endl; // false } </description>
-    </item>
-    
-    <item>
-      <title></title>
+      <title>共享库搜索路径</title>
       <link>https://devin0x01.github.io/post/%E5%85%B1%E4%BA%AB%E5%BA%93%E6%90%9C%E7%B4%A2%E8%B7%AF%E5%BE%84/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <pubDate>Sun, 18 Jun 2023 14:05:25 +0800</pubDate>
       
       <guid>https://devin0x01.github.io/post/%E5%85%B1%E4%BA%AB%E5%BA%93%E6%90%9C%E7%B4%A2%E8%B7%AF%E5%BE%84/</guid>
       <description>基本原理 -L编译选项是编译期间使用
@@ -218,9 +186,9 @@ LD_LIBRARY_PATH是个环境变量，优先级高于系统默认的。 RPATH是EL
     </item>
     
     <item>
-      <title></title>
+      <title>函数重载及其匹配顺序</title>
       <link>https://devin0x01.github.io/post/%E5%87%BD%E6%95%B0%E9%87%8D%E8%BD%BD%E5%8F%8A%E5%85%B6%E5%8C%B9%E9%85%8D%E9%A1%BA%E5%BA%8F/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <pubDate>Sun, 18 Jun 2023 14:05:25 +0800</pubDate>
       
       <guid>https://devin0x01.github.io/post/%E5%87%BD%E6%95%B0%E9%87%8D%E8%BD%BD%E5%8F%8A%E5%85%B6%E5%8C%B9%E9%85%8D%E9%A1%BA%E5%BA%8F/</guid>
       <description>1.函数重载 概念：同一个作用域内，同名函数，参数列表不同(参数个数、类型或顺序不同)。
@@ -229,9 +197,9 @@ LD_LIBRARY_PATH是个环境变量，优先级高于系统默认的。 RPATH是EL
     </item>
     
     <item>
-      <title></title>
+      <title>字符集与编码</title>
       <link>https://devin0x01.github.io/post/%E5%AD%97%E7%AC%A6%E9%9B%86%E4%B8%8E%E7%BC%96%E7%A0%81/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <pubDate>Sun, 18 Jun 2023 14:05:25 +0800</pubDate>
       
       <guid>https://devin0x01.github.io/post/%E5%AD%97%E7%AC%A6%E9%9B%86%E4%B8%8E%E7%BC%96%E7%A0%81/</guid>
       <description>术语 字符(character)是具有语义值的文本的最小单位。 字符集(character set)是可能由多种语言使用的字符的集合。例：拉丁语字符集由英语和大多数欧洲语言使用，但希腊语字符集仅由希腊语使用。 编码字符集(coded character set)是一个字符集，其中每个字符对应于一个唯一的数字。 一个编码字符集的编码点(code point)是字符集中或编码空间中允许的任何值。 编码空间(code space)是一个整数范围，其值为编码点。 编码单元(code unit)是一个位序列，用于在给定的编码表单中对库的每个字符进行编码。有的文档中称之为编码值(code value)。
@@ -245,19 +213,9 @@ String(byte[] bytes)通过使用平台的默认字符集解码指定的 byte 数
     </item>
     
     <item>
-      <title></title>
-      <link>https://devin0x01.github.io/post/%E8%B0%83%E7%94%A8%E6%88%90%E5%91%98%E6%A8%A1%E6%9D%BF/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://devin0x01.github.io/post/%E8%B0%83%E7%94%A8%E6%88%90%E5%91%98%E6%A8%A1%E6%9D%BF/</guid>
-      <description>C++访问成员模板需要加template关键字
-#include &amp;lt;iostream&amp;gt; using namespace std; class A { public: template &amp;lt;typename TypeNum&amp;gt; int getSize() { return sizeof(TypeNum); } }; // 调用成员模板函数需要加template template &amp;lt;typename T&amp;gt; void f1() { T t1; cout &amp;lt;&amp;lt; (t1.template getSize&amp;lt;float&amp;gt;()) &amp;lt;&amp;lt; endl; cout &amp;lt;&amp;lt; (t1.template getSize&amp;lt;double&amp;gt;()) &amp;lt;&amp;lt; endl; } // 调用成员模板函数不需要加template void f2() { A a1; cout &amp;lt;&amp;lt; (a1.getSize&amp;lt;long&amp;gt;()) &amp;lt;&amp;lt; endl; cout &amp;lt;&amp;lt; (a1.getSize&amp;lt;long long&amp;gt;()) &amp;lt;&amp;lt; endl; } int main() { f1&amp;lt;A&amp;gt;(); f2(); return 0; } </description>
-    </item>
-    
-    <item>
-      <title></title>
+      <title>调用拷贝构造函数的场景</title>
       <link>https://devin0x01.github.io/post/%E8%B0%83%E7%94%A8%E6%8B%B7%E8%B4%9D%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0%E7%9A%84%E5%9C%BA%E6%99%AF/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <pubDate>Sun, 18 Jun 2023 14:05:25 +0800</pubDate>
       
       <guid>https://devin0x01.github.io/post/%E8%B0%83%E7%94%A8%E6%8B%B7%E8%B4%9D%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0%E7%9A%84%E5%9C%BA%E6%99%AF/</guid>
       <description>1.默认构造函数 默认构造函数是一个系统生成的，参数列表和函数体都为空的函数。 如果类中声明了默认构造函数（无论是否有参数），编译器便不再会为之生成隐含的构造函数。
@@ -268,9 +226,9 @@ Point fun() { Point a(1, 2); return a; // 调用复制构造函数 } b = fun(); 
     </item>
     
     <item>
-      <title></title>
+      <title>重载、覆盖、隐藏</title>
       <link>https://devin0x01.github.io/post/%E9%87%8D%E8%BD%BD%E8%A6%86%E7%9B%96%E9%9A%90%E8%97%8F/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <pubDate>Sun, 18 Jun 2023 14:05:25 +0800</pubDate>
       
       <guid>https://devin0x01.github.io/post/%E9%87%8D%E8%BD%BD%E8%A6%86%E7%9B%96%E9%9A%90%E8%97%8F/</guid>
       <description>C++类层次中的同名函数，有三种关系：
@@ -283,12 +241,36 @@ class Base { public: virtual void f(int) { std::cout &amp;lt;&amp;lt; &amp;#34;B
     </item>
     
     <item>
+      <title>配置github pages教程</title>
+      <link>https://devin0x01.github.io/post/%E9%85%8D%E7%BD%AEgithub-pages%E6%95%99%E7%A8%8B/</link>
+      <pubDate>Sat, 13 May 2023 14:05:25 +0800</pubDate>
+      
+      <guid>https://devin0x01.github.io/post/%E9%85%8D%E7%BD%AEgithub-pages%E6%95%99%E7%A8%8B/</guid>
+      <description>参考文档 github-style theme
+github actions 教程
+基础配置 mkdir myblog &amp;amp;&amp;amp; cd myblog hugo new site . git init git submodule add git@github.com:MeiK2333/github-style.git themes/github-style vim .gitignore git add . git push -u origin master 更新主题 cd themes/github-style git pull 编辑readme hugo new readme.md echo &amp;#39;`Hello World!`&amp;#39; &amp;gt; content/readme.md 新增帖子 Hugo will create a post with draft: true, change it to false in order for it to show in the website.
+hugo new post/title_of_the_post.</description>
+    </item>
+    
+    <item>
       <title></title>
       <link>https://devin0x01.github.io/readme/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://devin0x01.github.io/readme/</guid>
       <description>Hello World!</description>
+    </item>
+    
+    <item>
+      <title>target_link_libraries中的PRIVATE INTERFACE PUBLIC.md</title>
+      <link>https://devin0x01.github.io/post/target_link_libraries%E4%B8%AD%E7%9A%84private-interface-public/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://devin0x01.github.io/post/target_link_libraries%E4%B8%AD%E7%9A%84private-interface-public/</guid>
+      <description>CMake target_link_libraries Interface Dependencies - Stack Overflow CMake的链接选项：PRIVATE，INTERFACE，PUBLIC - 知乎
+If you are creating a shared library and your source cpp files #include the headers of another library (Say, QtNetwork for example), but your header files don&amp;rsquo;t include QtNetwork headers, then QtNetwork is a PRIVATE dependency.
+If your source files and your headers include the headers of another library, then it is a PUBLIC dependency.
+If your header files other than your source files include the headers of another library, then it is an INTERFACE dependency.</description>
     </item>
     
   </channel>

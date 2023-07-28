@@ -10,7 +10,7 @@
     <link rel="stylesheet" href='https://devin0x01.github.io/css/light.css' />
     <link rel="stylesheet" href='https://devin0x01.github.io/css/dark.css' />
     <link rel="stylesheet" href='https://devin0x01.github.io/css/syntax.css' />
-    <title> - DEVIN 0x01</title>
+    <title>调用成员模板 - DEVIN 0x01</title>
     
     <link rel="icon" type="image/x-icon" href='https://devin0x01.github.io/images/favicon.ico'>
     
@@ -27,7 +27,7 @@
 
 
 <meta name="twitter:card" content="summary" />
-<meta name="twitter:title" content=" - DEVIN 0x01" />
+<meta name="twitter:title" content="调用成员模板 - DEVIN 0x01" />
 <meta name="twitter:description"
   content="C&#43;&#43;访问成员模板需要加template关键字
 #include &amp;lt;iostream&amp;gt; using namespace std; class A { public: template &amp;lt;typename TypeNum&amp;gt; int getSize() { return sizeof(TypeNum); } }; // 调用成员模板函数需要加template template &amp;lt;typename T&amp;gt; void f1() { T t1; cout &amp;lt;&amp;lt; (t1.template getSize&amp;lt;float&amp;gt;()) &amp;lt;&amp;lt; endl; cout &amp;lt;&amp;lt; (t1.template getSize&amp;lt;double&amp;gt;()) &amp;lt;&amp;lt; endl; } // 调用成员模板函数不需要加template void f2() { A a1; cout &amp;lt;&amp;lt; (a1.getSize&amp;lt;long&amp;gt;()) &amp;lt;&amp;lt; endl; cout &amp;lt;&amp;lt; (a1.getSize&amp;lt;long long&amp;gt;()) &amp;lt;&amp;lt; endl; } int main() { f1&amp;lt;A&amp;gt;(); f2(); return 0; } " />
@@ -38,16 +38,18 @@
 
 
 <meta property="og:type" content="article" />
-<meta property="og:title" content=" - DEVIN 0x01">
+<meta property="og:title" content="调用成员模板 - DEVIN 0x01">
 <meta property="og:description"
   content="C&#43;&#43;访问成员模板需要加template关键字
 #include &amp;lt;iostream&amp;gt; using namespace std; class A { public: template &amp;lt;typename TypeNum&amp;gt; int getSize() { return sizeof(TypeNum); } }; // 调用成员模板函数需要加template template &amp;lt;typename T&amp;gt; void f1() { T t1; cout &amp;lt;&amp;lt; (t1.template getSize&amp;lt;float&amp;gt;()) &amp;lt;&amp;lt; endl; cout &amp;lt;&amp;lt; (t1.template getSize&amp;lt;double&amp;gt;()) &amp;lt;&amp;lt; endl; } // 调用成员模板函数不需要加template void f2() { A a1; cout &amp;lt;&amp;lt; (a1.getSize&amp;lt;long&amp;gt;()) &amp;lt;&amp;lt; endl; cout &amp;lt;&amp;lt; (a1.getSize&amp;lt;long long&amp;gt;()) &amp;lt;&amp;lt; endl; } int main() { f1&amp;lt;A&amp;gt;(); f2(); return 0; } " />
 <meta property="og:url" content="https://devin0x01.github.io/post/%E8%B0%83%E7%94%A8%E6%88%90%E5%91%98%E6%A8%A1%E6%9D%BF/" />
-<meta property="og:site_name" content="" />
+<meta property="og:site_name" content="调用成员模板" />
 <meta property="og:image"
   content="https://devin0x01.github.io">
 <meta property="og:image:width" content="2048">
 <meta property="og:image:height" content="1024">
+
+<meta property="article:published_time" content="2023-07-20 14:05:25 &#43;0800 &#43;0800" />
 
 
 
@@ -142,12 +144,12 @@
                   <span class="author">
                     <a href="https://devin0x01.github.io"></a></span><span
                     class="path-divider">/</span><strong class="css-truncate-target mr-1" style="max-width: 410px"><a
-                      href="https://devin0x01.github.io/post/%E8%B0%83%E7%94%A8%E6%88%90%E5%91%98%E6%A8%A1%E6%9D%BF/"></a></strong>
+                      href="https://devin0x01.github.io/post/%E8%B0%83%E7%94%A8%E6%88%90%E5%91%98%E6%A8%A1%E6%9D%BF/">调用成员模板</a></strong>
                 </h1>
                 <div class="note m-0">
-                  Created <relative-time datetime="Mon, 01 Jan 0001 00:00:00 &#43;0000"
+                  Created <relative-time datetime="Thu, 20 Jul 2023 14:05:25 &#43;0800"
                     class="no-wrap">
-                    Mon, 01 Jan 0001 00:00:00 &#43;0000</relative-time>
+                    Thu, 20 Jul 2023 14:05:25 &#43;0800</relative-time>
 
                   
                 </div>

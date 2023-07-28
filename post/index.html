@@ -154,7 +154,7 @@
                 </path>
               </svg>
               Posts
-              <span class="Counter">23</span>
+              <span class="Counter">22</span>
             </a>
           </nav>
           <div class="profile-color-modes js-promo-color-modes-banner-profile isInitialToggle">
@@ -388,7 +388,7 @@
         </path>
       </svg>
       Posts
-      <span class="Counter ">23</span>
+      <span class="Counter ">22</span>
     </a>
   </nav>
 </div>
@@ -407,16 +407,15 @@
           <div class="col-12 d-inline-block">
             <div class="d-inline-block mb-1">
               <h3 class="wb-break-all">
-                <a href="https://devin0x01.github.io/post/%E9%85%8D%E7%BD%AEgithub-pages%E6%95%99%E7%A8%8B/">配置github pages教程</a>
+                <a href="https://devin0x01.github.io/post/cmake%E8%AF%AD%E6%B3%95%E5%9F%BA%E7%A1%80/">CMake语法基础</a>
               </h3>
             </div>
 
             <div>
               <div class="col-12 d-inline-block text-gray mb-2 pr-4">
-                参考文档 github-style theme
-github actions 教程
-基础配置 mkdir myblog &amp;&amp; cd myblog hugo new site . git init git submodule add git@github.com:MeiK2333/github-style.git themes/github-style vim .gitignore git add . git push -u origin master 更新主题 cd themes/github-style git pull 编辑readme hugo new readme.md echo &#39;`Hello World!`&#39; &gt; content/readme.md 新增帖子 Hugo will create a post with draft: true, change it to false in order for it to show in the website.
-hugo new post/title_of_the_post.
+                基本表达式 if — CMake 3.27.1 Documentation
+Cmake中的条件判断if/elseif/else - 简书
+if(&lt;constant&gt;) True if the constant is 1, ON, YES, TRUE, Y, or a non-zero number (including floating point numbers). False if the constant is 0, OFF, NO, FALSE, N, IGNORE, NOTFOUND, the empty string, or ends in the suffix -NOTFOUND. Named boolean constants are case-insensitive. If the argument is not one of these specific constants, it is treated as a variable or string (see Variable Expansion further below) and one of the following two forms applies.
               </div>
             </div>
 
@@ -424,9 +423,9 @@ hugo new post/title_of_the_post.
               
 
               Created
-              <relative-time datetime=" Sat, 13 May 2023 14:05:25 &#43;0800" class="no-wrap"
-                title=" Sat, 13 May 2023 14:05:25 &#43;0800">
-                Sat, 13 May 2023 14:05:25 &#43;0800
+              <relative-time datetime=" Wed, 26 Jul 2023 14:05:25 &#43;0800" class="no-wrap"
+                title=" Wed, 26 Jul 2023 14:05:25 &#43;0800">
+                Wed, 26 Jul 2023 14:05:25 &#43;0800
               </relative-time>
             </div>
           </div>
@@ -436,7 +435,88 @@ hugo new post/title_of_the_post.
           <div class="col-12 d-inline-block">
             <div class="d-inline-block mb-1">
               <h3 class="wb-break-all">
-                <a href="https://devin0x01.github.io/post/c&#43;&#43;17%E7%89%B9%E6%80%A7/"></a>
+                <a href="https://devin0x01.github.io/post/%E8%B0%83%E7%94%A8%E6%88%90%E5%91%98%E6%A8%A1%E6%9D%BF/">调用成员模板</a>
+              </h3>
+            </div>
+
+            <div>
+              <div class="col-12 d-inline-block text-gray mb-2 pr-4">
+                C++访问成员模板需要加template关键字
+#include &lt;iostream&gt; using namespace std; class A { public: template &lt;typename TypeNum&gt; int getSize() { return sizeof(TypeNum); } }; // 调用成员模板函数需要加template template &lt;typename T&gt; void f1() { T t1; cout &lt;&lt; (t1.template getSize&lt;float&gt;()) &lt;&lt; endl; cout &lt;&lt; (t1.template getSize&lt;double&gt;()) &lt;&lt; endl; } // 调用成员模板函数不需要加template void f2() { A a1; cout &lt;&lt; (a1.getSize&lt;long&gt;()) &lt;&lt; endl; cout &lt;&lt; (a1.getSize&lt;long long&gt;()) &lt;&lt; endl; } int main() { f1&lt;A&gt;(); f2(); return 0; } 
+              </div>
+            </div>
+
+            <div class="f6 text-gray mt-2">
+              
+
+              Created
+              <relative-time datetime=" Thu, 20 Jul 2023 14:05:25 &#43;0800" class="no-wrap"
+                title=" Thu, 20 Jul 2023 14:05:25 &#43;0800">
+                Thu, 20 Jul 2023 14:05:25 &#43;0800
+              </relative-time>
+            </div>
+          </div>
+        </li>
+        
+        <li class="col-12 d-flex width-full py-4 border-bottom color-border-secondary public source">
+          <div class="col-12 d-inline-block">
+            <div class="d-inline-block mb-1">
+              <h3 class="wb-break-all">
+                <a href="https://devin0x01.github.io/post/vector%E7%9A%84push_back%E4%B8%8Eemplace_back/">vector的push_back与emplace_back.md</a>
+              </h3>
+            </div>
+
+            <div>
+              <div class="col-12 d-inline-block text-gray mb-2 pr-4">
+                push_back与emplace_back #include &lt;iostream&gt; #include &lt;vector&gt; using namespace std; class A { public: A() = default; A(string name) : _name(name) { cout &lt;&lt; &#34;ctor: &#34; &lt;&lt; _name &lt;&lt; endl; } ~A() { cout &lt;&lt; &#34;dtor: &#34; &lt;&lt; _name &lt;&lt; endl; } // 拷贝构造函数 A(const A &amp;other) { _name += &#34;cp-&#34; + other._name; cout &lt;&lt; &#34;cp-ctor: &#34; &lt;&lt; _name &lt;&lt; endl; } // 赋值运算符 A&amp; operator=(const A &amp;other) { if (this != &amp;other) { _name += &#34;cp-&#34; + other.
+              </div>
+            </div>
+
+            <div class="f6 text-gray mt-2">
+              
+
+              Created
+              <relative-time datetime=" Mon, 17 Jul 2023 14:05:25 &#43;0800" class="no-wrap"
+                title=" Mon, 17 Jul 2023 14:05:25 &#43;0800">
+                Mon, 17 Jul 2023 14:05:25 &#43;0800
+              </relative-time>
+            </div>
+          </div>
+        </li>
+        
+        <li class="col-12 d-flex width-full py-4 border-bottom color-border-secondary public source">
+          <div class="col-12 d-inline-block">
+            <div class="d-inline-block mb-1">
+              <h3 class="wb-break-all">
+                <a href="https://devin0x01.github.io/post/%E4%BD%8D%E5%9F%9F%E7%94%A8%E6%B3%95/">位域用法</a>
+              </h3>
+            </div>
+
+            <div>
+              <div class="col-12 d-inline-block text-gray mb-2 pr-4">
+                [toc]
+如果有字段定义为int类型的话，那么符号位的判断需要特别注意。 例如：下面的 B::f2 字段是有符号类型，其符号位是f2的最高位，可以表示的范围是-64~63
+#include &lt;iostream&gt; struct B { unsigned int f1:1; int f2:7; }; int main() { B b1 = {0, 10}; B b2 = {0, 127}; std::cout &lt;&lt; std::boolalpha &lt;&lt; (b1.f2 &gt;= 0) &lt;&lt; std::endl; // true std::cout &lt;&lt; std::boolalpha &lt;&lt; (b2.f2 &gt;= 0) &lt;&lt; std::endl; // false } 
+              </div>
+            </div>
+
+            <div class="f6 text-gray mt-2">
+              
+
+              Created
+              <relative-time datetime=" Thu, 13 Jul 2023 14:05:25 &#43;0800" class="no-wrap"
+                title=" Thu, 13 Jul 2023 14:05:25 &#43;0800">
+                Thu, 13 Jul 2023 14:05:25 &#43;0800
+              </relative-time>
+            </div>
+          </div>
+        </li>
+        
+        <li class="col-12 d-flex width-full py-4 border-bottom color-border-secondary public source">
+          <div class="col-12 d-inline-block">
+            <div class="d-inline-block mb-1">
+              <h3 class="wb-break-all">
+                <a href="https://devin0x01.github.io/post/c&#43;&#43;17%E7%89%B9%E6%80%A7/">C&#43;&#43;17特性</a>
               </h3>
             </div>
 
@@ -452,9 +532,9 @@ pair p(1, 2.2); // c++17 自动推导 vector v = {1, 2, 3}; // c++17 结构化�
               
 
               Created
-              <relative-time datetime=" Mon, 01 Jan 0001 00:00:00 &#43;0000" class="no-wrap"
-                title=" Mon, 01 Jan 0001 00:00:00 &#43;0000">
-                Mon, 01 Jan 0001 00:00:00 &#43;0000
+              <relative-time datetime=" Sun, 18 Jun 2023 14:05:25 &#43;0800" class="no-wrap"
+                title=" Sun, 18 Jun 2023 14:05:25 &#43;0800">
+                Sun, 18 Jun 2023 14:05:25 &#43;0800
               </relative-time>
             </div>
           </div>
@@ -464,7 +544,7 @@ pair p(1, 2.2); // c++17 自动推导 vector v = {1, 2, 3}; // c++17 结构化�
           <div class="col-12 d-inline-block">
             <div class="d-inline-block mb-1">
               <h3 class="wb-break-all">
-                <a href="https://devin0x01.github.io/post/c&#43;&#43;%E7%BB%83%E4%B9%A0%E9%A2%98/"></a>
+                <a href="https://devin0x01.github.io/post/c&#43;&#43;%E7%BB%83%E4%B9%A0%E9%A2%98/">C&#43;&#43;练习题</a>
               </h3>
             </div>
 
@@ -486,9 +566,9 @@ Q3: 基类的析构函数非虚，派生类的析构函数是虚函数。delete�
               
 
               Created
-              <relative-time datetime=" Mon, 01 Jan 0001 00:00:00 &#43;0000" class="no-wrap"
-                title=" Mon, 01 Jan 0001 00:00:00 &#43;0000">
-                Mon, 01 Jan 0001 00:00:00 &#43;0000
+              <relative-time datetime=" Sun, 18 Jun 2023 14:05:25 &#43;0800" class="no-wrap"
+                title=" Sun, 18 Jun 2023 14:05:25 &#43;0800">
+                Sun, 18 Jun 2023 14:05:25 &#43;0800
               </relative-time>
             </div>
           </div>
@@ -498,7 +578,7 @@ Q3: 基类的析构函数非虚，派生类的析构函数是虚函数。delete�
           <div class="col-12 d-inline-block">
             <div class="d-inline-block mb-1">
               <h3 class="wb-break-all">
-                <a href="https://devin0x01.github.io/post/cgdb%E9%85%8D%E7%BD%AE/"></a>
+                <a href="https://devin0x01.github.io/post/cgdb%E9%85%8D%E7%BD%AE/">cgdb配置</a>
               </h3>
             </div>
 
@@ -512,9 +592,9 @@ Q3: 基类的析构函数非虚，派生类的析构函数是虚函数。delete�
               
 
               Created
-              <relative-time datetime=" Mon, 01 Jan 0001 00:00:00 &#43;0000" class="no-wrap"
-                title=" Mon, 01 Jan 0001 00:00:00 &#43;0000">
-                Mon, 01 Jan 0001 00:00:00 &#43;0000
+              <relative-time datetime=" Sun, 18 Jun 2023 14:05:25 &#43;0800" class="no-wrap"
+                title=" Sun, 18 Jun 2023 14:05:25 &#43;0800">
+                Sun, 18 Jun 2023 14:05:25 &#43;0800
               </relative-time>
             </div>
           </div>
@@ -524,35 +604,7 @@ Q3: 基类的析构函数非虚，派生类的析构函数是虚函数。delete�
           <div class="col-12 d-inline-block">
             <div class="d-inline-block mb-1">
               <h3 class="wb-break-all">
-                <a href="https://devin0x01.github.io/post/cmake%E8%AF%AD%E6%B3%95%E5%9F%BA%E7%A1%80/"></a>
-              </h3>
-            </div>
-
-            <div>
-              <div class="col-12 d-inline-block text-gray mb-2 pr-4">
-                基本表达式 if — CMake 3.27.1 Documentation
-Cmake中的条件判断if/elseif/else - 简书
-if(&lt;constant&gt;) True if the constant is 1, ON, YES, TRUE, Y, or a non-zero number (including floating point numbers). False if the constant is 0, OFF, NO, FALSE, N, IGNORE, NOTFOUND, the empty string, or ends in the suffix -NOTFOUND. Named boolean constants are case-insensitive. If the argument is not one of these specific constants, it is treated as a variable or string (see Variable Expansion further below) and one of the following two forms applies.
-              </div>
-            </div>
-
-            <div class="f6 text-gray mt-2">
-              
-
-              Created
-              <relative-time datetime=" Mon, 01 Jan 0001 00:00:00 &#43;0000" class="no-wrap"
-                title=" Mon, 01 Jan 0001 00:00:00 &#43;0000">
-                Mon, 01 Jan 0001 00:00:00 &#43;0000
-              </relative-time>
-            </div>
-          </div>
-        </li>
-        
-        <li class="col-12 d-flex width-full py-4 border-bottom color-border-secondary public source">
-          <div class="col-12 d-inline-block">
-            <div class="d-inline-block mb-1">
-              <h3 class="wb-break-all">
-                <a href="https://devin0x01.github.io/post/coreddump%E9%85%8D%E7%BD%AE/"></a>
+                <a href="https://devin0x01.github.io/post/coreddump%E9%85%8D%E7%BD%AE/">coredump配置</a>
               </h3>
             </div>
 
@@ -566,9 +618,9 @@ if(&lt;constant&gt;) True if the constant is 1, ON, YES, TRUE, Y, or a non-zero 
               
 
               Created
-              <relative-time datetime=" Mon, 01 Jan 0001 00:00:00 &#43;0000" class="no-wrap"
-                title=" Mon, 01 Jan 0001 00:00:00 &#43;0000">
-                Mon, 01 Jan 0001 00:00:00 &#43;0000
+              <relative-time datetime=" Sun, 18 Jun 2023 14:05:25 &#43;0800" class="no-wrap"
+                title=" Sun, 18 Jun 2023 14:05:25 &#43;0800">
+                Sun, 18 Jun 2023 14:05:25 &#43;0800
               </relative-time>
             </div>
           </div>
@@ -578,42 +630,7 @@ if(&lt;constant&gt;) True if the constant is 1, ON, YES, TRUE, Y, or a non-zero 
           <div class="col-12 d-inline-block">
             <div class="d-inline-block mb-1">
               <h3 class="wb-break-all">
-                <a href="https://devin0x01.github.io/post/docker%E5%86%85%E6%98%BE%E7%A4%BA%E5%9B%BE%E5%BD%A2%E7%95%8C%E9%9D%A2/"></a>
-              </h3>
-            </div>
-
-            <div>
-              <div class="col-12 d-inline-block text-gray mb-2 pr-4">
-                关于X11 x(7) - Linux man page
-Cygwin系列（十二）：了解X - 知乎
-X11采用了C/S的架构，在其设计下，整个图形视窗系统主要分为3个部分：
-1.X Server（X服务器）。X Server一方面负责和设备驱动交互，监听显示器和键盘鼠标，另一方面响应X Client需求传递键盘、鼠标事件、（通过设备驱动）绘制图形文字等。反直觉之一，X Server运行在本地。
-2.X Client（X客户端）。X Client也叫X应用程序，负责实现程序逻辑，在收到设备事件后计算出绘图数据，由于本身没有绘制能力，只能向X Server发送绘制请求和绘图数据，告诉X Server在哪里绘制一个什么样的图形。X Client可以和X Server在同一个主机上，也可以通过TCP/IP网络连接。
-3.Window Manager（窗口管理器，简称WM），或者叫合成器（Compositor）。多个X Client向X Server发送绘制请求时，各X Client程序并不知道彼此的存在，绘制图形出现重叠、颜色干扰等问题是大概率事件，这就需要一个管理者统一协调，即Window Manager，它掌管各X Client的Window（窗口）视觉外观，如形状、排列、移动、重叠渲染等。反直觉之二，Window Manager并非X Server的一部分，而是一个特殊的X Client程序。
-3个部分， X Server是整个X Window System的中心，协调X客户端和窗口管理器的通信。
-常用命令 xorg - What does $DISPLAY environment variable mean - Ask Ubuntu
-x11 forwarding - How to fix &ldquo;MobaXterm X11 proxy: Unsupported authorisation protocol&rdquo; - Super User
-echo $DISPLAY # 注意：`xauth add` 之后可能需要重新连接才能生效!! xauth add $DISPLAY .
-              </div>
-            </div>
-
-            <div class="f6 text-gray mt-2">
-              
-
-              Created
-              <relative-time datetime=" Mon, 01 Jan 0001 00:00:00 &#43;0000" class="no-wrap"
-                title=" Mon, 01 Jan 0001 00:00:00 &#43;0000">
-                Mon, 01 Jan 0001 00:00:00 &#43;0000
-              </relative-time>
-            </div>
-          </div>
-        </li>
-        
-        <li class="col-12 d-flex width-full py-4 border-bottom color-border-secondary public source">
-          <div class="col-12 d-inline-block">
-            <div class="d-inline-block mb-1">
-              <h3 class="wb-break-all">
-                <a href="https://devin0x01.github.io/post/expect%E5%AE%9E%E7%8E%B0%E4%BA%A4%E4%BA%92%E5%BC%8F%E8%BE%93%E5%85%A5/"></a>
+                <a href="https://devin0x01.github.io/post/expect%E5%AE%9E%E7%8E%B0%E4%BA%A4%E4%BA%92%E5%BC%8F%E8%BE%93%E5%85%A5/">expect实现交互式输入</a>
               </h3>
             </div>
 
@@ -628,9 +645,9 @@ echo $DISPLAY # 注意：`xauth add` 之后可能需要重新连接才能生效!
               
 
               Created
-              <relative-time datetime=" Mon, 01 Jan 0001 00:00:00 &#43;0000" class="no-wrap"
-                title=" Mon, 01 Jan 0001 00:00:00 &#43;0000">
-                Mon, 01 Jan 0001 00:00:00 &#43;0000
+              <relative-time datetime=" Sun, 18 Jun 2023 14:05:25 &#43;0800" class="no-wrap"
+                title=" Sun, 18 Jun 2023 14:05:25 &#43;0800">
+                Sun, 18 Jun 2023 14:05:25 &#43;0800
               </relative-time>
             </div>
           </div>
@@ -640,7 +657,7 @@ echo $DISPLAY # 注意：`xauth add` 之后可能需要重新连接才能生效!
           <div class="col-12 d-inline-block">
             <div class="d-inline-block mb-1">
               <h3 class="wb-break-all">
-                <a href="https://devin0x01.github.io/post/git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/"></a>
+                <a href="https://devin0x01.github.io/post/git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">Git常用命令</a>
               </h3>
             </div>
 
@@ -654,35 +671,9 @@ echo $DISPLAY # 注意：`xauth add` 之后可能需要重新连接才能生效!
               
 
               Created
-              <relative-time datetime=" Mon, 01 Jan 0001 00:00:00 &#43;0000" class="no-wrap"
-                title=" Mon, 01 Jan 0001 00:00:00 &#43;0000">
-                Mon, 01 Jan 0001 00:00:00 &#43;0000
-              </relative-time>
-            </div>
-          </div>
-        </li>
-        
-        <li class="col-12 d-flex width-full py-4 border-bottom color-border-secondary public source">
-          <div class="col-12 d-inline-block">
-            <div class="d-inline-block mb-1">
-              <h3 class="wb-break-all">
-                <a href="https://devin0x01.github.io/post/java%E5%9F%BA%E7%A1%80/"></a>
-              </h3>
-            </div>
-
-            <div>
-              <div class="col-12 d-inline-block text-gray mb-2 pr-4">
-                数据类型 INFINITY和NaN // INFINITY定义 public static final double POSITIVE_INFINITY = 1.0 / 0.0; public static final double NEGATIVE_INFINITY = -1.0 / 0.0; public static final float POSITIVE_INFINITY = 1.0f / 0.0f; public static final float NEGATIVE_INFINITY = -1.0f / 0.0f; // 无穷大*0=NAN System.out.println(Float.POSITIVE_INFINITY * 0); // output: NAN // 无穷大 System.out.println((Float.POSITIVE_INFINITY / 0) == Float.POSITIVE_INFINITY); // output: true System.out.println(Float.POSITIVE_INFINITY == (Float.POSITIVE_INFINITY + 10000)); // output: true System.out.println(Float.POSITIVE_INFINITY == (Float.POSITIVE_INFINITY / 10000)); // output: true // 判断是否为INFINITY System.
-              </div>
-            </div>
-
-            <div class="f6 text-gray mt-2">
-              
-
-              Created
-              <relative-time datetime=" Mon, 01 Jan 0001 00:00:00 &#43;0000" class="no-wrap"
-                title=" Mon, 01 Jan 0001 00:00:00 &#43;0000">
-                Mon, 01 Jan 0001 00:00:00 &#43;0000
+              <relative-time datetime=" Sun, 18 Jun 2023 14:05:25 &#43;0800" class="no-wrap"
+                title=" Sun, 18 Jun 2023 14:05:25 &#43;0800">
+                Sun, 18 Jun 2023 14:05:25 &#43;0800
               </relative-time>
             </div>
           </div>
