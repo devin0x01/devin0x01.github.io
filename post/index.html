@@ -154,7 +154,7 @@
                 </path>
               </svg>
               Posts
-              <span class="Counter">1</span>
+              <span class="Counter">23</span>
             </a>
           </nav>
           <div class="profile-color-modes js-promo-color-modes-banner-profile isInitialToggle">
@@ -388,7 +388,7 @@
         </path>
       </svg>
       Posts
-      <span class="Counter ">1</span>
+      <span class="Counter ">23</span>
     </a>
   </nav>
 </div>
@@ -432,6 +432,262 @@ hugo new post/title_of_the_post.
           </div>
         </li>
         
+        <li class="col-12 d-flex width-full py-4 border-bottom color-border-secondary public source">
+          <div class="col-12 d-inline-block">
+            <div class="d-inline-block mb-1">
+              <h3 class="wb-break-all">
+                <a href="https://devin0x01.github.io/post/c&#43;&#43;17%E7%89%B9%E6%80%A7/"></a>
+              </h3>
+            </div>
+
+            <div>
+              <div class="col-12 d-inline-block text-gray mb-2 pr-4">
+                构造函数模板推导 在C++17前构造一个模板类对象需要指明类型：
+pair&lt;int, double&gt; p(1, 2.2); // before c++17 C++17就不需要特殊指定，直接可以推导出类型，代码如下：
+pair p(1, 2.2); // c++17 自动推导 vector v = {1, 2, 3}; // c++17 结构化绑定 1.获取值 // 绑定tuple std::tuple&lt;int, double&gt; func() { return std::tuple(1, 2.2); } int main() { auto[i, d] = func(); cout &lt;&lt; i &lt;&lt; endl; cout &lt;&lt; d &lt;&lt; endl; } // 绑定map void f() { map&lt;int, string&gt; m = {{0, &#34;a&#34;}, {1, &#34;b&#34;}}; for (const auto &amp;[i, s] : m) { cout &lt;&lt; i &lt;&lt; &#34; &#34; &lt;&lt; s &lt;&lt; endl; } } // 绑定pair int main() { std::pair a(1, 2.
+              </div>
+            </div>
+
+            <div class="f6 text-gray mt-2">
+              
+
+              Created
+              <relative-time datetime=" Mon, 01 Jan 0001 00:00:00 &#43;0000" class="no-wrap"
+                title=" Mon, 01 Jan 0001 00:00:00 &#43;0000">
+                Mon, 01 Jan 0001 00:00:00 &#43;0000
+              </relative-time>
+            </div>
+          </div>
+        </li>
+        
+        <li class="col-12 d-flex width-full py-4 border-bottom color-border-secondary public source">
+          <div class="col-12 d-inline-block">
+            <div class="d-inline-block mb-1">
+              <h3 class="wb-break-all">
+                <a href="https://devin0x01.github.io/post/c&#43;&#43;%E7%BB%83%E4%B9%A0%E9%A2%98/"></a>
+              </h3>
+            </div>
+
+            <div>
+              <div class="col-12 d-inline-block text-gray mb-2 pr-4">
+                多态 判断 Q1: 虚函数可以是内联的？ A1: 错误。内联是编译时刻决定的，虚函数是运行时刻动态决定的，所以虚函数不能是内联函数。虚函数前加上inline不会报错，但是会被忽略。
+Q2: 一个类内部，可以同时声明 static void fun() 和 virutal void fun() 两个函数？ A2: 错误。虽然静态函数不存在this指针，但是还是不能声明同参的虚函数和静态函数。
+Q3: 基类的析构函数非虚，派生类的析构函数是虚函数。delete派生类指针(指向派生类对象)会调用基类析构函数？ A3: 正确。
+通过派生类指针，删除派生类对象时，无论父类析构函数是不是虚函数，都会调用基类析构函数。
+通过基类指针，删除派生类对象时，是否调用基类析构函数，取决于基类析构函数是否是virtual函数
+知识点 可以通过对象名主动调用析构函数，主动调用构造函数会出错。
+如果类中声明了构造函数（无论是否有参数），编译器便不会再为之生成隐含的构造函数。
+构造函数不能是虚函数，析构函数可以是虚函数。
+编程 析构函数需要声明为virtual #include &lt;iostream&gt; using namespace std; int g_num = 0; class Base { public: Base() {} ~Base() { g_num += 1; } }; class Derived:public Base { public: Derived() {} ~Derived() { g_num += 2; } }; int main() { Base *p = new Derived(); delete p; cout &lt;&lt; g_num &lt;&lt; endl; return 0; } // 输出：1 动态绑定依赖于指针或者引用 #include &lt;iostream&gt; using namespace std; class Base { public: virtual void fun() {cout &lt;&lt; &#34;base&#34; &lt;&lt; endl;} }; class Derived:public Base { public: virtual void fun() { cout &lt;&lt; &#34;derived&#34; &lt;&lt; endl;} }; void func1(Base &amp;obj) { obj.
+              </div>
+            </div>
+
+            <div class="f6 text-gray mt-2">
+              
+
+              Created
+              <relative-time datetime=" Mon, 01 Jan 0001 00:00:00 &#43;0000" class="no-wrap"
+                title=" Mon, 01 Jan 0001 00:00:00 &#43;0000">
+                Mon, 01 Jan 0001 00:00:00 &#43;0000
+              </relative-time>
+            </div>
+          </div>
+        </li>
+        
+        <li class="col-12 d-flex width-full py-4 border-bottom color-border-secondary public source">
+          <div class="col-12 d-inline-block">
+            <div class="d-inline-block mb-1">
+              <h3 class="wb-break-all">
+                <a href="https://devin0x01.github.io/post/cgdb%E9%85%8D%E7%BD%AE/"></a>
+              </h3>
+            </div>
+
+            <div>
+              <div class="col-12 d-inline-block text-gray mb-2 pr-4">
+                1.安装 git clone git://github.com/cgdb/cgdb.git cd cgdb ./autogen.sh ./configure --prefix=/usr/local make sudo make install # 报错解决方法 sudo apt-get install automake libncurses5-dev flex texinfo libreadline-dev 2.配置 vim ~/.cgdb/cgdbrc set ignorecaseset ts=4 set wso=vertical set eld=shortarrow set hls map &lt;F9&gt; :until&lt;cr&gt; 3.快捷键 F5 - Send a run command to GDB. F6 - Send a continue command to GDB. F7 - Send a finish command to GDB. F8 - Send a next command to GDB.
+              </div>
+            </div>
+
+            <div class="f6 text-gray mt-2">
+              
+
+              Created
+              <relative-time datetime=" Mon, 01 Jan 0001 00:00:00 &#43;0000" class="no-wrap"
+                title=" Mon, 01 Jan 0001 00:00:00 &#43;0000">
+                Mon, 01 Jan 0001 00:00:00 &#43;0000
+              </relative-time>
+            </div>
+          </div>
+        </li>
+        
+        <li class="col-12 d-flex width-full py-4 border-bottom color-border-secondary public source">
+          <div class="col-12 d-inline-block">
+            <div class="d-inline-block mb-1">
+              <h3 class="wb-break-all">
+                <a href="https://devin0x01.github.io/post/cmake%E8%AF%AD%E6%B3%95%E5%9F%BA%E7%A1%80/"></a>
+              </h3>
+            </div>
+
+            <div>
+              <div class="col-12 d-inline-block text-gray mb-2 pr-4">
+                基本表达式 if — CMake 3.27.1 Documentation
+Cmake中的条件判断if/elseif/else - 简书
+if(&lt;constant&gt;) True if the constant is 1, ON, YES, TRUE, Y, or a non-zero number (including floating point numbers). False if the constant is 0, OFF, NO, FALSE, N, IGNORE, NOTFOUND, the empty string, or ends in the suffix -NOTFOUND. Named boolean constants are case-insensitive. If the argument is not one of these specific constants, it is treated as a variable or string (see Variable Expansion further below) and one of the following two forms applies.
+              </div>
+            </div>
+
+            <div class="f6 text-gray mt-2">
+              
+
+              Created
+              <relative-time datetime=" Mon, 01 Jan 0001 00:00:00 &#43;0000" class="no-wrap"
+                title=" Mon, 01 Jan 0001 00:00:00 &#43;0000">
+                Mon, 01 Jan 0001 00:00:00 &#43;0000
+              </relative-time>
+            </div>
+          </div>
+        </li>
+        
+        <li class="col-12 d-flex width-full py-4 border-bottom color-border-secondary public source">
+          <div class="col-12 d-inline-block">
+            <div class="d-inline-block mb-1">
+              <h3 class="wb-break-all">
+                <a href="https://devin0x01.github.io/post/coreddump%E9%85%8D%E7%BD%AE/"></a>
+              </h3>
+            </div>
+
+            <div>
+              <div class="col-12 d-inline-block text-gray mb-2 pr-4">
+                ulimit -c unlimited echo &#34;1&#34; &gt; /proc/sys/kernel/core_uses_pid mkdir -p /opt/debug echo &#34;/opt/debug/core-%e-%p-%t&#34; &gt; /proc/sys/kernel/core_pattern gdb &lt;program&gt; -c &lt;coredump_file&gt; up &lt;n&gt; #调用栈向上n次 
+              </div>
+            </div>
+
+            <div class="f6 text-gray mt-2">
+              
+
+              Created
+              <relative-time datetime=" Mon, 01 Jan 0001 00:00:00 &#43;0000" class="no-wrap"
+                title=" Mon, 01 Jan 0001 00:00:00 &#43;0000">
+                Mon, 01 Jan 0001 00:00:00 &#43;0000
+              </relative-time>
+            </div>
+          </div>
+        </li>
+        
+        <li class="col-12 d-flex width-full py-4 border-bottom color-border-secondary public source">
+          <div class="col-12 d-inline-block">
+            <div class="d-inline-block mb-1">
+              <h3 class="wb-break-all">
+                <a href="https://devin0x01.github.io/post/docker%E5%86%85%E6%98%BE%E7%A4%BA%E5%9B%BE%E5%BD%A2%E7%95%8C%E9%9D%A2/"></a>
+              </h3>
+            </div>
+
+            <div>
+              <div class="col-12 d-inline-block text-gray mb-2 pr-4">
+                关于X11 x(7) - Linux man page
+Cygwin系列（十二）：了解X - 知乎
+X11采用了C/S的架构，在其设计下，整个图形视窗系统主要分为3个部分：
+1.X Server（X服务器）。X Server一方面负责和设备驱动交互，监听显示器和键盘鼠标，另一方面响应X Client需求传递键盘、鼠标事件、（通过设备驱动）绘制图形文字等。反直觉之一，X Server运行在本地。
+2.X Client（X客户端）。X Client也叫X应用程序，负责实现程序逻辑，在收到设备事件后计算出绘图数据，由于本身没有绘制能力，只能向X Server发送绘制请求和绘图数据，告诉X Server在哪里绘制一个什么样的图形。X Client可以和X Server在同一个主机上，也可以通过TCP/IP网络连接。
+3.Window Manager（窗口管理器，简称WM），或者叫合成器（Compositor）。多个X Client向X Server发送绘制请求时，各X Client程序并不知道彼此的存在，绘制图形出现重叠、颜色干扰等问题是大概率事件，这就需要一个管理者统一协调，即Window Manager，它掌管各X Client的Window（窗口）视觉外观，如形状、排列、移动、重叠渲染等。反直觉之二，Window Manager并非X Server的一部分，而是一个特殊的X Client程序。
+3个部分， X Server是整个X Window System的中心，协调X客户端和窗口管理器的通信。
+常用命令 xorg - What does $DISPLAY environment variable mean - Ask Ubuntu
+x11 forwarding - How to fix &ldquo;MobaXterm X11 proxy: Unsupported authorisation protocol&rdquo; - Super User
+echo $DISPLAY # 注意：`xauth add` 之后可能需要重新连接才能生效!! xauth add $DISPLAY .
+              </div>
+            </div>
+
+            <div class="f6 text-gray mt-2">
+              
+
+              Created
+              <relative-time datetime=" Mon, 01 Jan 0001 00:00:00 &#43;0000" class="no-wrap"
+                title=" Mon, 01 Jan 0001 00:00:00 &#43;0000">
+                Mon, 01 Jan 0001 00:00:00 &#43;0000
+              </relative-time>
+            </div>
+          </div>
+        </li>
+        
+        <li class="col-12 d-flex width-full py-4 border-bottom color-border-secondary public source">
+          <div class="col-12 d-inline-block">
+            <div class="d-inline-block mb-1">
+              <h3 class="wb-break-all">
+                <a href="https://devin0x01.github.io/post/expect%E5%AE%9E%E7%8E%B0%E4%BA%A4%E4%BA%92%E5%BC%8F%E8%BE%93%E5%85%A5/"></a>
+              </h3>
+            </div>
+
+            <div>
+              <div class="col-12 d-inline-block text-gray mb-2 pr-4">
+                1.常用命令 选项： -c:执行脚本前先执行的命令，可多次使用。 -d:debug模式，可以在运行时输出一些诊断信息，与在脚本开始处使用exp_internal 1相似。 -D:启用交换调式器,可设一整数参数。 -f:从文件读取命令，仅用于使用#!时。如果文件名为&quot;-&quot;，则从stdin读取(使用&quot;./-&ldquo;从文件名为-的文件读取)。 -i:交互式输入命令，使用&quot;exit&quot;或&quot;EOF&quot;退出输入状态。 &ndash;:标示选项结束(如果你需要传递与expect选项相似的参数给脚本时)，可放到#!行:#!/usr/bin/expect &ndash;。 -v:显示expect版本信息。
+# 命令行参数 # $argv，参数数组，使用[lindex $argv n]获取，$argv 0为脚本名字 # $argc，参数个数 set username [lindex $argv 1] # 获取第1个参数 set passwd [lindex $argv 2] # 获取第2个参数 set timeout 30 # 设置超时 # spawn是expect内部命令，开启ssh连接 spawn ssh -l username 192.168.1.1 # 判断上次输出结果里是否包含“password:”的字符串，如果有则立即返回，否则就等待一段时间(timeout)后返回 expect &#34;password:&#34; # 发送内容ispass(密码、命令等) send &#34;ispass\r&#34; # 发送内容给用户 send_user &#34;$argv0 [lrange $argv 0 2]\n&#34; send_user &#34;It&#39;s OK\r&#34; # 执行完成后保持交互状态，控制权交给控制台(手工操作)。否则会完成后会退出。 interact 2.例子 2.1自动telnet会话 #!
+              </div>
+            </div>
+
+            <div class="f6 text-gray mt-2">
+              
+
+              Created
+              <relative-time datetime=" Mon, 01 Jan 0001 00:00:00 &#43;0000" class="no-wrap"
+                title=" Mon, 01 Jan 0001 00:00:00 &#43;0000">
+                Mon, 01 Jan 0001 00:00:00 &#43;0000
+              </relative-time>
+            </div>
+          </div>
+        </li>
+        
+        <li class="col-12 d-flex width-full py-4 border-bottom color-border-secondary public source">
+          <div class="col-12 d-inline-block">
+            <div class="d-inline-block mb-1">
+              <h3 class="wb-break-all">
+                <a href="https://devin0x01.github.io/post/git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/"></a>
+              </h3>
+            </div>
+
+            <div>
+              <div class="col-12 d-inline-block text-gray mb-2 pr-4">
+                1.git remote 关联远端仓库 git remote add origin git@github.com:git_username/repository_name.git git remote remove origin git remote -v 2.git branch 本地分支关联远程分支(目的是在执行git pull/push操作时就不需要指定对应的远程分支) git branch --set-upstream-to=origin/master git branch -u origin/master 切换分支 git checkout -b &lt;new_branch&gt; 查看所有分支 git branch -a 更改分支名称 git branch -m br_old br_new 3.git push 删除远程分支 git push origin --delete &lt;branch&gt; 同步到远程分支 git push -u origin &lt;local_branch&gt;:&lt;remote_branch&gt; 4.git diff 查看当前没有add的内容修改 git diff 查看已经add没有commit的改动 git diff --cached 查看当前没有add和commit的改动 git diff HEAD 或者 git status 再查看任意连个版本之间的改动 git diff &lt;版本号码1&gt; &lt;版本号码2&gt; 比较两个版本号src文件夹的差异 git diff &lt;版本号码1&gt; &lt;版本号码2&gt; src 5.
+              </div>
+            </div>
+
+            <div class="f6 text-gray mt-2">
+              
+
+              Created
+              <relative-time datetime=" Mon, 01 Jan 0001 00:00:00 &#43;0000" class="no-wrap"
+                title=" Mon, 01 Jan 0001 00:00:00 &#43;0000">
+                Mon, 01 Jan 0001 00:00:00 &#43;0000
+              </relative-time>
+            </div>
+          </div>
+        </li>
+        
+        <li class="col-12 d-flex width-full py-4 border-bottom color-border-secondary public source">
+          <div class="col-12 d-inline-block">
+            <div class="d-inline-block mb-1">
+              <h3 class="wb-break-all">
+                <a href="https://devin0x01.github.io/post/java%E5%9F%BA%E7%A1%80/"></a>
+              </h3>
+            </div>
+
+            <div>
+              <div class="col-12 d-inline-block text-gray mb-2 pr-4">
+                数据类型 INFINITY和NaN // INFINITY定义 public static final double POSITIVE_INFINITY = 1.0 / 0.0; public static final double NEGATIVE_INFINITY = -1.0 / 0.0; public static final float POSITIVE_INFINITY = 1.0f / 0.0f; public static final float NEGATIVE_INFINITY = -1.0f / 0.0f; // 无穷大*0=NAN System.out.println(Float.POSITIVE_INFINITY * 0); // output: NAN // 无穷大 System.out.println((Float.POSITIVE_INFINITY / 0) == Float.POSITIVE_INFINITY); // output: true System.out.println(Float.POSITIVE_INFINITY == (Float.POSITIVE_INFINITY + 10000)); // output: true System.out.println(Float.POSITIVE_INFINITY == (Float.POSITIVE_INFINITY / 10000)); // output: true // 判断是否为INFINITY System.
+              </div>
+            </div>
+
+            <div class="f6 text-gray mt-2">
+              
+
+              Created
+              <relative-time datetime=" Mon, 01 Jan 0001 00:00:00 &#43;0000" class="no-wrap"
+                title=" Mon, 01 Jan 0001 00:00:00 &#43;0000">
+                Mon, 01 Jan 0001 00:00:00 &#43;0000
+              </relative-time>
+            </div>
+          </div>
+        </li>
+        
       </ul>
       <div class="paginate-container">
         <div class="BtnGroup">
@@ -439,7 +695,7 @@ hugo new post/title_of_the_post.
           <button class="btn btn-outline BtnGroup-item" disabled="disabled">Previous</button>
           
           
-          <button class="btn btn-outline BtnGroup-item" disabled="disabled">Next</button>
+          <a rel="nofollow" class="btn btn-outline BtnGroup-item" href="/post/page/2/">Next</a>
           
         </div>
       </div>

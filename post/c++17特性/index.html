@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <script type="application/javascript" src='https://devin0x01.github.io/js/theme-mode.js'></script>
+    <link rel="stylesheet" href='https://devin0x01.github.io/css/frameworks.min.css' />
+    <link rel="stylesheet" href='https://devin0x01.github.io/css/github.min.css' />
+    <link rel="stylesheet" href='https://devin0x01.github.io/css/github-style.css' />
+    <link rel="stylesheet" href='https://devin0x01.github.io/css/light.css' />
+    <link rel="stylesheet" href='https://devin0x01.github.io/css/dark.css' />
+    <link rel="stylesheet" href='https://devin0x01.github.io/css/syntax.css' />
+    <title> - DEVIN 0x01</title>
+    
+    <link rel="icon" type="image/x-icon" href='https://devin0x01.github.io/images/favicon.ico'>
+    
+    <meta name="theme-color" content="#1e2327">
+
+    
+    <meta name="description"
+  content="构造函数模板推导 在C&#43;&#43;17前构造一个模板类对象需要指明类型：
+pair&amp;lt;int, double&amp;gt; p(1, 2.2); // before c&#43;&#43;17 C&#43;&#43;17就不需要特殊指定，直接可以推导出类型，代码如下：
+pair p(1, 2.2); // c&#43;&#43;17 自动推导 vector v = {1, 2, 3}; // c&#43;&#43;17 结构化绑定 1.获取值 // 绑定tuple std::tuple&amp;lt;int, double&amp;gt; func() { return std::tuple(1, 2.2); } int main() { auto[i, d] = func(); cout &amp;lt;&amp;lt; i &amp;lt;&amp;lt; endl; cout &amp;lt;&amp;lt; d &amp;lt;&amp;lt; endl; } // 绑定map void f() { map&amp;lt;int, string&amp;gt; m = {{0, &amp;#34;a&amp;#34;}, {1, &amp;#34;b&amp;#34;}}; for (const auto &amp;amp;[i, s] : m) { cout &amp;lt;&amp;lt; i &amp;lt;&amp;lt; &amp;#34; &amp;#34; &amp;lt;&amp;lt; s &amp;lt;&amp;lt; endl; } } // 绑定pair int main() { std::pair a(1, 2." />
+<meta name="keywords"
+  content='' />
+<meta name="robots" content="noodp" />
+<link rel="canonical" href="https://devin0x01.github.io/post/c&#43;&#43;17%E7%89%B9%E6%80%A7/" />
+
+
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content=" - DEVIN 0x01" />
+<meta name="twitter:description"
+  content="构造函数模板推导 在C&#43;&#43;17前构造一个模板类对象需要指明类型：
+pair&amp;lt;int, double&amp;gt; p(1, 2.2); // before c&#43;&#43;17 C&#43;&#43;17就不需要特殊指定，直接可以推导出类型，代码如下：
+pair p(1, 2.2); // c&#43;&#43;17 自动推导 vector v = {1, 2, 3}; // c&#43;&#43;17 结构化绑定 1.获取值 // 绑定tuple std::tuple&amp;lt;int, double&amp;gt; func() { return std::tuple(1, 2.2); } int main() { auto[i, d] = func(); cout &amp;lt;&amp;lt; i &amp;lt;&amp;lt; endl; cout &amp;lt;&amp;lt; d &amp;lt;&amp;lt; endl; } // 绑定map void f() { map&amp;lt;int, string&amp;gt; m = {{0, &amp;#34;a&amp;#34;}, {1, &amp;#34;b&amp;#34;}}; for (const auto &amp;amp;[i, s] : m) { cout &amp;lt;&amp;lt; i &amp;lt;&amp;lt; &amp;#34; &amp;#34; &amp;lt;&amp;lt; s &amp;lt;&amp;lt; endl; } } // 绑定pair int main() { std::pair a(1, 2." />
+<meta name="twitter:site" content="https://devin0x01.github.io" />
+<meta name="twitter:creator" content="" />
+<meta name="twitter:image"
+  content="https://devin0x01.github.io">
+
+
+<meta property="og:type" content="article" />
+<meta property="og:title" content=" - DEVIN 0x01">
+<meta property="og:description"
+  content="构造函数模板推导 在C&#43;&#43;17前构造一个模板类对象需要指明类型：
+pair&amp;lt;int, double&amp;gt; p(1, 2.2); // before c&#43;&#43;17 C&#43;&#43;17就不需要特殊指定，直接可以推导出类型，代码如下：
+pair p(1, 2.2); // c&#43;&#43;17 自动推导 vector v = {1, 2, 3}; // c&#43;&#43;17 结构化绑定 1.获取值 // 绑定tuple std::tuple&amp;lt;int, double&amp;gt; func() { return std::tuple(1, 2.2); } int main() { auto[i, d] = func(); cout &amp;lt;&amp;lt; i &amp;lt;&amp;lt; endl; cout &amp;lt;&amp;lt; d &amp;lt;&amp;lt; endl; } // 绑定map void f() { map&amp;lt;int, string&amp;gt; m = {{0, &amp;#34;a&amp;#34;}, {1, &amp;#34;b&amp;#34;}}; for (const auto &amp;amp;[i, s] : m) { cout &amp;lt;&amp;lt; i &amp;lt;&amp;lt; &amp;#34; &amp;#34; &amp;lt;&amp;lt; s &amp;lt;&amp;lt; endl; } } // 绑定pair int main() { std::pair a(1, 2." />
+<meta property="og:url" content="https://devin0x01.github.io/post/c&#43;&#43;17%E7%89%B9%E6%80%A7/" />
+<meta property="og:site_name" content="" />
+<meta property="og:image"
+  content="https://devin0x01.github.io">
+<meta property="og:image:width" content="2048">
+<meta property="og:image:height" content="1024">
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body>
+  <div style="position: relative">
+  <header class="Header js-details-container Details px-3 px-md-4 px-lg-5 flex-wrap flex-md-nowrap open Details--on">
+    <div class="Header-item mobile-none" style="margin-top: -4px; margin-bottom: -4px;">
+      <a class="Header-link" href="https://devin0x01.github.io">
+        <svg class="octicon" height="32" viewBox="0 0 16 16" version="1.1" width="32">
+          <path fill-rule="evenodd"
+            d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z">
+          </path>
+        </svg>
+      </a>
+    </div>
+    <div class="Header-item d-md-none">
+      <button class="Header-link btn-link js-details-target" type="button"
+        onclick="document.querySelector('#header-search').style.display = document.querySelector('#header-search').style.display == 'none'? 'block': 'none'">
+        <svg height="24" class="octicon octicon-three-bars" viewBox="0 0 16 16" version="1.1" width="24">
+          <path fill-rule="evenodd"
+            d="M1 2.75A.75.75 0 011.75 2h12.5a.75.75 0 110 1.5H1.75A.75.75 0 011 2.75zm0 5A.75.75 0 011.75 7h12.5a.75.75 0 110 1.5H1.75A.75.75 0 011 7.75zM1.75 12a.75.75 0 100 1.5h12.5a.75.75 0 100-1.5H1.75z">
+          </path>
+        </svg>
+      </button>
+    </div>
+    <div style="display: none;" id="header-search"
+      class="Header-item Header-item--full flex-column flex-md-row width-full flex-order-2 flex-md-order-none mr-0 mr-md-3 mt-3 mt-md-0 Details-content--hidden-not-important d-md-flex">
+      <div
+        class="Header-search header-search flex-auto js-site-search position-relative flex-self-stretch flex-md-self-auto mb-3 mb-md-0 mr-0 mr-md-3 scoped-search site-scoped-search js-jump-to">
+        <div class="position-relative">
+          <form target="_blank" action="https://www.google.com/search" accept-charset="UTF-8" method="get"
+            autocomplete="off">
+            <label
+              class="Header-search-label form-control input-sm header-search-wrapper p-0 js-chromeless-input-container header-search-wrapper-jump-to position-relative d-flex flex-justify-between flex-items-center">
+              <input type="text"
+                class="Header-search-input form-control input-sm header-search-input jump-to-field js-jump-to-field js-site-search-focus js-site-search-field is-clearable"
+                name="q" value="" placeholder="Search" autocomplete="off">
+              <input type="hidden" name="q" value="site:https://devin0x01.github.io">
+            </label>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <div class="Header-item Header-item--full flex-justify-center d-md-none position-relative">
+      <a class="Header-link " href="https://devin0x01.github.io">
+        <svg class="octicon octicon-mark-github v-align-middle" height="32" viewBox="0 0 16 16" version="1.1"
+          width="32">
+          <path fill-rule="evenodd"
+            d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z">
+          </path>
+        </svg>
+      </a>
+    </div>
+    <div class="Header-item" style="margin-right: 0;">
+      <a href="javascript:void(0)" class="Header-link no-select" onclick="switchTheme()">
+        <svg style="fill: var(--color-profile-color-modes-toggle-moon);" class="no-select" viewBox="0 0 16 16"
+          version="1.1" width="16" height="16">
+          <path fill-rule="evenodd" clip-rule="evenodd"
+            d="M4.52208 7.71754C7.5782 7.71754 10.0557 5.24006 10.0557 2.18394C10.0557 1.93498 10.0392 1.68986 10.0074 1.44961C9.95801 1.07727 10.3495 0.771159 10.6474 0.99992C12.1153 2.12716 13.0615 3.89999 13.0615 5.89383C13.0615 9.29958 10.3006 12.0605 6.89485 12.0605C3.95334 12.0605 1.49286 10.001 0.876728 7.24527C0.794841 6.87902 1.23668 6.65289 1.55321 6.85451C2.41106 7.40095 3.4296 7.71754 4.52208 7.71754Z">
+          </path>
+        </svg>
+      </a>
+    </div>
+  </header>
+</div>
+  
+<div>
+  <main>
+    <div class="gisthead pagehead bg-gray-light pb-0 pt-3 mb-4">
+      <div class="px-0">
+        <div class="mb-3 d-flex px-3 px-md-3 px-lg-5">
+          <div class="flex-auto min-width-0 width-fit mr-3">
+            <div class="d-flex">
+              <div class="d-none d-md-block">
+                <a class="avatar mr-2 flex-shrink-0" href="https://devin0x01.github.io">
+                  <img class=" avatar-user"
+                    src="https://devin0x01.github.io/images/avatar.png"
+                    width="32" height="32"></a>
+              </div>
+              <div class="d-flex flex-column">
+                <h1 class="break-word f3 text-normal mb-md-0 mb-1">
+                  <span class="author">
+                    <a href="https://devin0x01.github.io"></a></span><span
+                    class="path-divider">/</span><strong class="css-truncate-target mr-1" style="max-width: 410px"><a
+                      href="https://devin0x01.github.io/post/c&#43;&#43;17%E7%89%B9%E6%80%A7/"></a></strong>
+                </h1>
+                <div class="note m-0">
+                  Created <relative-time datetime="Mon, 01 Jan 0001 00:00:00 &#43;0000"
+                    class="no-wrap">
+                    Mon, 01 Jan 0001 00:00:00 &#43;0000</relative-time>
+
+                  
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-lg px-3 new-discussion-timeline">
+      <div class="repository-content gist-content">
+        <div>
+          <div class="js-gist-file-update-container js-task-list-container file-box">
+            <div id="file-pytest" class="file my-2">
+              <div id="post-header" class="file-header d-flex flex-md-items-center flex-items-start sticky-header" style="z-index: 2">
+                <div class="file-info d-flex flex-md-items-center flex-items-start flex-order-1 flex-auto">
+                  <div class="text-mono f6 flex-auto pr-3 flex-order-2 flex-md-order-1 mt-2 mt-md-0">
+                    
+                    <summary id="toc-toggle" onclick="clickToc()" class="btn btn-octicon m-0 mr-2 p-2">
+                      <svg aria-hidden="true" viewBox="0 0 16 16" height="16" width="16" class="octicon octicon-list-unordered">
+                        <path fill-rule="evenodd" d="M2 4a1 1 0 100-2 1 1 0 000 2zm3.75-1.5a.75.75 0 000 1.5h8.5a.75.75 0 000-1.5h-8.5zm0 5a.75.75 0 000 1.5h8.5a.75.75 0 000-1.5h-8.5zm0 5a.75.75 0 000 1.5h8.5a.75.75 0 000-1.5h-8.5zM3 8a1 1 0 11-2 0 1 1 0 012 0zm-1 6a1 1 0 100-2 1 1 0 000 2z"></path>
+                      </svg>
+                    </summary>
+                    <details-menu class="SelectMenu" id="toc-details" style="display: none;">
+                      <div class="SelectMenu-modal rounded-3 mt-1" style="max-height: 340px;">
+                        <div class="SelectMenu-list SelectMenu-list--borderless p-2" style="overscroll-behavior: contain;" id="toc-list">
+                        </div>
+                      </div>
+                    </details-menu>
+                      2720 Words
+                    
+
+                  </div>
+                  <div class="file-actions flex-order-2 pt-0">
+                    
+                  </div>
+                </div>
+              </div>
+
+
+              <div class="Box-body px-5 pb-5" style="z-index: 1">
+                <article class="markdown-body entry-content container-lg"><h2 id="构造函数模板推导">构造函数模板推导</h2>
+<p>在C++17前构造一个模板类对象需要指明类型：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span>pair<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span>, <span style="color:#66d9ef">double</span><span style="color:#f92672">&gt;</span> p(<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2.2</span>); <span style="color:#75715e">// before c++17
+</span></span></span></code></pre></div><p>C++17就不需要特殊指定，直接可以推导出类型，代码如下：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span>pair <span style="color:#a6e22e">p</span>(<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2.2</span>); <span style="color:#75715e">// c++17 自动推导
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>vector v <span style="color:#f92672">=</span> {<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>}; <span style="color:#75715e">// c++17
+</span></span></span></code></pre></div><h2 id="结构化绑定">结构化绑定</h2>
+<h3 id="1获取值">1.获取值</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#75715e">// 绑定tuple
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>std<span style="color:#f92672">::</span>tuple<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span>, <span style="color:#66d9ef">double</span><span style="color:#f92672">&gt;</span> func() {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> std<span style="color:#f92672">::</span>tuple(<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2.2</span>);
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">auto</span>[i, d] <span style="color:#f92672">=</span> func();
+</span></span><span style="display:flex;"><span>    cout <span style="color:#f92672">&lt;&lt;</span> i <span style="color:#f92672">&lt;&lt;</span> endl;
+</span></span><span style="display:flex;"><span>    cout <span style="color:#f92672">&lt;&lt;</span> d <span style="color:#f92672">&lt;&lt;</span> endl;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 绑定map
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">f</span>() {
+</span></span><span style="display:flex;"><span>    map<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span>, string<span style="color:#f92672">&gt;</span> m <span style="color:#f92672">=</span> {{<span style="color:#ae81ff">0</span>, <span style="color:#e6db74">&#34;a&#34;</span>}, {<span style="color:#ae81ff">1</span>, <span style="color:#e6db74">&#34;b&#34;</span>}};
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">const</span> <span style="color:#66d9ef">auto</span> <span style="color:#f92672">&amp;</span>[i, s] <span style="color:#f92672">:</span> m) {
+</span></span><span style="display:flex;"><span>        cout <span style="color:#f92672">&lt;&lt;</span> i <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34; &#34;</span> <span style="color:#f92672">&lt;&lt;</span> s <span style="color:#f92672">&lt;&lt;</span> endl;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 绑定pair
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>() {
+</span></span><span style="display:flex;"><span>    std<span style="color:#f92672">::</span>pair a(<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2.3f</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">auto</span>[i, f] <span style="color:#f92672">=</span> a;
+</span></span><span style="display:flex;"><span>    cout <span style="color:#f92672">&lt;&lt;</span> i <span style="color:#f92672">&lt;&lt;</span> endl; <span style="color:#75715e">// 1
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    cout <span style="color:#f92672">&lt;&lt;</span> f <span style="color:#f92672">&lt;&lt;</span> endl; <span style="color:#75715e">// 2.3f
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 绑定数组
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">int</span> array[<span style="color:#ae81ff">3</span>] <span style="color:#f92672">=</span> {<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>};
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">auto</span> [a, b, c] <span style="color:#f92672">=</span> array;
+</span></span><span style="display:flex;"><span>cout <span style="color:#f92672">&lt;&lt;</span> a <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34; &#34;</span> <span style="color:#f92672">&lt;&lt;</span> b <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34; &#34;</span> <span style="color:#f92672">&lt;&lt;</span> c <span style="color:#f92672">&lt;&lt;</span> endl;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 绑定结构体(注意这里的struct的成员一定要是public的)
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">Point</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> x;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> y;
+</span></span><span style="display:flex;"><span>};
+</span></span><span style="display:flex;"><span>Point <span style="color:#a6e22e">func</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> {<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>};
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#66d9ef">auto</span> [x, y] <span style="color:#f92672">=</span> func();
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#75715e">// 实现自定义类的结构化绑定
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// 需要实现相关的tuple_size和tuple_element和get&lt;N&gt;方法。
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>class Entry {
+</span></span><span style="display:flex;"><span>public:
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">Init</span>() {
+</span></span><span style="display:flex;"><span>        name_ <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;name&#34;</span>;
+</span></span><span style="display:flex;"><span>        age_ <span style="color:#f92672">=</span> <span style="color:#ae81ff">10</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    std<span style="color:#f92672">::</span>string <span style="color:#a6e22e">GetName</span>() <span style="color:#66d9ef">const</span> { <span style="color:#66d9ef">return</span> name_; }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">GetAge</span>() <span style="color:#66d9ef">const</span> { <span style="color:#66d9ef">return</span> age_; }
+</span></span><span style="display:flex;"><span>private:
+</span></span><span style="display:flex;"><span>    std<span style="color:#f92672">::</span>string name_;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> age_;
+</span></span><span style="display:flex;"><span>};
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>template <span style="color:#f92672">&lt;</span><span style="color:#66d9ef">size_t</span> I<span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">auto</span> <span style="color:#a6e22e">get</span>(<span style="color:#66d9ef">const</span> Entry<span style="color:#f92672">&amp;</span> e) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">constexpr</span> (I <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>) <span style="color:#66d9ef">return</span> e.<span style="color:#a6e22e">GetName</span>();
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">constexpr</span> (I <span style="color:#f92672">==</span> <span style="color:#ae81ff">1</span>) <span style="color:#66d9ef">return</span> e.<span style="color:#a6e22e">GetAge</span>();
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>namespace std {
+</span></span><span style="display:flex;"><span>    template<span style="color:#f92672">&lt;&gt;</span> <span style="color:#66d9ef">struct</span> tuple_size<span style="color:#f92672">&lt;</span>Entry<span style="color:#f92672">&gt;</span> <span style="color:#f92672">:</span> integral_constant<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">size_t</span>, <span style="color:#ae81ff">2</span><span style="color:#f92672">&gt;</span> {};
+</span></span><span style="display:flex;"><span>    template<span style="color:#f92672">&lt;&gt;</span> <span style="color:#66d9ef">struct</span> tuple_element<span style="color:#f92672">&lt;</span><span style="color:#ae81ff">0</span>, Entry<span style="color:#f92672">&gt;</span> { using type <span style="color:#f92672">=</span> std<span style="color:#f92672">::</span>string; };
+</span></span><span style="display:flex;"><span>    template<span style="color:#f92672">&lt;&gt;</span> <span style="color:#66d9ef">struct</span> tuple_element<span style="color:#f92672">&lt;</span><span style="color:#ae81ff">1</span>, Entry<span style="color:#f92672">&gt;</span> { using type <span style="color:#f92672">=</span> <span style="color:#66d9ef">int</span>; };
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>() {
+</span></span><span style="display:flex;"><span>    Entry e;
+</span></span><span style="display:flex;"><span>    e.<span style="color:#a6e22e">Init</span>();
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">auto</span> [name, age] <span style="color:#f92672">=</span> e;
+</span></span><span style="display:flex;"><span>    cout <span style="color:#f92672">&lt;&lt;</span> name <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34; &#34;</span> <span style="color:#f92672">&lt;&lt;</span> age <span style="color:#f92672">&lt;&lt;</span> endl; <span style="color:#75715e">// name 10
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="2改变值">2.改变值</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#75715e">// 可以通过结构化绑定改变对象的值
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>() {
+</span></span><span style="display:flex;"><span>    std<span style="color:#f92672">::</span>pair a(<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2.3f</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">auto</span><span style="color:#f92672">&amp;</span> [i, f] <span style="color:#f92672">=</span> a;
+</span></span><span style="display:flex;"><span>    i <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>;
+</span></span><span style="display:flex;"><span>    cout <span style="color:#f92672">&lt;&lt;</span> a.first <span style="color:#f92672">&lt;&lt;</span> endl; <span style="color:#75715e">// 2 
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 注意结构化绑定不能应用于constexpr
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">constexpr</span> <span style="color:#66d9ef">auto</span>[x, y] <span style="color:#f92672">=</span> std<span style="color:#f92672">::</span>pair(<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2.3f</span>); <span style="color:#75715e">// compile error, C++20可以
+</span></span></span></code></pre></div><h2 id="if-switch语句初始化">if-switch语句初始化</h2>
+<p>C++17前if语句需要这样写代码：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#66d9ef">int</span> a <span style="color:#f92672">=</span> GetValue();
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> (a <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">101</span>) {
+</span></span><span style="display:flex;"><span>    cout <span style="color:#f92672">&lt;&lt;</span> a;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>C++17之后可以这样：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#75715e">// if (init; condition)
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">if</span> (<span style="color:#66d9ef">int</span> a <span style="color:#f92672">=</span> GetValue()); a <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">101</span>) {
+</span></span><span style="display:flex;"><span>    cout <span style="color:#f92672">&lt;&lt;</span> a;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>string str <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Hi World&#34;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> (<span style="color:#66d9ef">auto</span> [pos, size] <span style="color:#f92672">=</span> pair(str.find(<span style="color:#e6db74">&#34;Hi&#34;</span>), str.size()); pos <span style="color:#f92672">!=</span> string<span style="color:#f92672">::</span>npos) {
+</span></span><span style="display:flex;"><span>    std<span style="color:#f92672">::</span>cout <span style="color:#f92672">&lt;&lt;</span> pos <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34; Hello, size is &#34;</span> <span style="color:#f92672">&lt;&lt;</span> size;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="内联变量定义静态成员变量">内联变量(定义静态成员变量)</h2>
+<p>在头文件中定义类的静态成员变量</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#75715e">// a.h
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">struct</span> A {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">const</span> <span style="color:#66d9ef">int</span> value;  
+</span></span><span style="display:flex;"><span>};
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">inline</span> <span style="color:#66d9ef">int</span> <span style="color:#66d9ef">const</span> A<span style="color:#f92672">::</span>value <span style="color:#f92672">=</span> <span style="color:#ae81ff">10</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 或者
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">struct</span> A {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">inline</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">const</span> <span style="color:#66d9ef">int</span> value <span style="color:#f92672">=</span> <span style="color:#ae81ff">10</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="namespace嵌套">namespace嵌套</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#66d9ef">namespace</span> A {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">namespace</span> B {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">namespace</span> C {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">func</span>();
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// c++17，更方便更舒适
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">namespace</span> A<span style="color:#f92672">::</span>B<span style="color:#f92672">::</span>C {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">func</span>();)
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="在lambda表达式用this捕获对象副本">在lambda表达式用*this捕获对象副本</h2>
+<p>正常情况下，lambda表达式中访问类的对象成员变量需要捕获this，但是这里捕获的是this指针，指向的是对象的引用，正常情况下可能没问题，但是如果多线程情况下，函数的作用域超过了对象的作用域，对象已经被析构了，还访问了成员变量，就会有问题。</p>
+<p>所以C++17增加了新特性，捕获*this，不持有this指针，而是持有对象的拷贝，这样生命周期就与对象的生命周期不相关啦。在并行或异步操作中执行时，按值捕获非常有用，尤其是在某些硬件体系结构（如NUMA）上。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">A</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> a;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">func</span>() {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">auto</span> f <span style="color:#f92672">=</span> [<span style="color:#f92672">*</span><span style="color:#66d9ef">this</span>] { <span style="color:#75715e">// 这里
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>            cout <span style="color:#f92672">&lt;&lt;</span> a <span style="color:#f92672">&lt;&lt;</span> endl;
+</span></span><span style="display:flex;"><span>        };
+</span></span><span style="display:flex;"><span>        f();
+</span></span><span style="display:flex;"><span>    }  
+</span></span><span style="display:flex;"><span>};
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>() {
+</span></span><span style="display:flex;"><span>    A a;
+</span></span><span style="display:flex;"><span>    a.func();
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="constexpr-lambda表达式">constexpr lambda表达式</h2>
+<p>C++17前lambda表达式只能在运行时使用，C++17引入了constexpr lambda表达式，可以用于在编译期进行计算。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>() { <span style="color:#75715e">// c++17可编译
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">constexpr</span> <span style="color:#66d9ef">auto</span> lamb <span style="color:#f92672">=</span> [] (<span style="color:#66d9ef">int</span> n) { <span style="color:#66d9ef">return</span> n <span style="color:#f92672">*</span> n; };
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">static_assert</span>(lamb(<span style="color:#ae81ff">3</span>) <span style="color:#f92672">==</span> <span style="color:#ae81ff">9</span>, <span style="color:#e6db74">&#34;a&#34;</span>);
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="折叠表达式简化模板">折叠表达式(简化模板)</h2>
+<p>C++11增加了一个新特性变参模板（variadic template）,它可以接受任意个模版参数，参数包不能直接展开，需要通过一些特殊的方法，比如函数参数包的展开可以使用递归方式或者逗号表达式，在使用的时候有点难度。C++17解决了这个问题，通过fold expression（折叠表达式）简化对参数包的展开。<a href="https://cloud.tencent.com/developer/article/1347876">C++17 fold expression - 腾讯云</a></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#66d9ef">template</span> <span style="color:#f92672">&lt;</span><span style="color:#66d9ef">typename</span> ... Ts<span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">auto</span> sum(Ts ... ts) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> (ts <span style="color:#f92672">+</span> ...);
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> a {sum(<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">4</span>, <span style="color:#ae81ff">5</span>)}; <span style="color:#75715e">// 15
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>std<span style="color:#f92672">::</span>string a{<span style="color:#e6db74">&#34;hello &#34;</span>};
+</span></span><span style="display:flex;"><span>std<span style="color:#f92672">::</span>string b{<span style="color:#e6db74">&#34;world&#34;</span>};
+</span></span><span style="display:flex;"><span>cout <span style="color:#f92672">&lt;&lt;</span> sum(a, b) <span style="color:#f92672">&lt;&lt;</span> endl; <span style="color:#75715e">// hello world
+</span></span></span></code></pre></div><h2 id="标准库">标准库</h2>
+<h3 id="stdfrom_charsto_chars">std::from_chars/to_chars</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;charconv&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> std<span style="color:#f92672">::</span>string str{<span style="color:#e6db74">&#34;123456098&#34;</span>};
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> value <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> <span style="color:#66d9ef">auto</span> res <span style="color:#f92672">=</span> std<span style="color:#f92672">::</span>from_chars(str.data(), str.data() <span style="color:#f92672">+</span> <span style="color:#ae81ff">4</span>, value);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (res.ec <span style="color:#f92672">==</span> std<span style="color:#f92672">::</span>errc()) {
+</span></span><span style="display:flex;"><span>        cout <span style="color:#f92672">&lt;&lt;</span> value <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;, distance &#34;</span> <span style="color:#f92672">&lt;&lt;</span> res.ptr <span style="color:#f92672">-</span> str.data() <span style="color:#f92672">&lt;&lt;</span> endl;
+</span></span><span style="display:flex;"><span>    } <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span> (res.ec <span style="color:#f92672">==</span> std<span style="color:#f92672">::</span>errc<span style="color:#f92672">::</span>invalid_argument) {
+</span></span><span style="display:flex;"><span>        cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;invalid&#34;</span> <span style="color:#f92672">&lt;&lt;</span> endl;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    str <span style="color:#f92672">=</span> std<span style="color:#f92672">::</span>string(<span style="color:#e6db74">&#34;12.34);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">double</span> val <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> <span style="color:#66d9ef">auto</span> format <span style="color:#f92672">=</span> std<span style="color:#f92672">::</span>chars_format<span style="color:#f92672">::</span>general;
+</span></span><span style="display:flex;"><span>    res <span style="color:#f92672">=</span> std<span style="color:#f92672">::</span>from_chars(str.data(), str.data() <span style="color:#f92672">+</span> str.size(), value, format);
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    str <span style="color:#f92672">=</span> std<span style="color:#f92672">::</span>string(<span style="color:#e6db74">&#34;xxxxxxxx&#34;</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> <span style="color:#66d9ef">int</span> v <span style="color:#f92672">=</span> <span style="color:#ae81ff">1234</span>;
+</span></span><span style="display:flex;"><span>    res <span style="color:#f92672">=</span> std<span style="color:#f92672">::</span>to_chars(str.data(), str.data() <span style="color:#f92672">+</span> str.size(), v);
+</span></span><span style="display:flex;"><span>    cout <span style="color:#f92672">&lt;&lt;</span> str <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;, filled &#34;</span> <span style="color:#f92672">&lt;&lt;</span> res.ptr <span style="color:#f92672">-</span> str.data() <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34; characters </span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 1234xxxx, filled 4 characters
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>}
+</span></span></code></pre></div><h3 id="stdvariant">std::variant</h3>
+<p>C++17增加std::variant实现类似union的功能，但却比union更高级，举个例子union里面不能有string这种类型，但std::variant却可以，还可以支持更多复杂类型，如map等</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>() { <span style="color:#75715e">// c++17可编译
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    std<span style="color:#f92672">::</span>variant<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span>, std<span style="color:#f92672">::</span>string<span style="color:#f92672">&gt;</span> var(<span style="color:#e6db74">&#34;hello&#34;</span>);
+</span></span><span style="display:flex;"><span>    cout <span style="color:#f92672">&lt;&lt;</span> var.index() <span style="color:#f92672">&lt;&lt;</span> endl; <span style="color:#75715e">// 1
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    var <span style="color:#f92672">=</span> <span style="color:#ae81ff">123</span>;
+</span></span><span style="display:flex;"><span>    cout <span style="color:#f92672">&lt;&lt;</span> var.index() <span style="color:#f92672">&lt;&lt;</span> endl; <span style="color:#75715e">// 0
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">try</span> {
+</span></span><span style="display:flex;"><span>        var <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;world&#34;</span>;
+</span></span><span style="display:flex;"><span>        std<span style="color:#f92672">::</span>string str <span style="color:#f92672">=</span> std<span style="color:#f92672">::</span>get<span style="color:#f92672">&lt;</span>std<span style="color:#f92672">::</span>string<span style="color:#f92672">&gt;</span>(var); <span style="color:#75715e">// 通过类型获取值
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        var <span style="color:#f92672">=</span> <span style="color:#ae81ff">3</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> std<span style="color:#f92672">::</span>get<span style="color:#f92672">&lt;</span><span style="color:#ae81ff">0</span><span style="color:#f92672">&gt;</span>(var); <span style="color:#75715e">// 通过index获取对应值
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        cout <span style="color:#f92672">&lt;&lt;</span> str <span style="color:#f92672">&lt;&lt;</span> endl; <span style="color:#75715e">// &#34;world&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        cout <span style="color:#f92672">&lt;&lt;</span> i <span style="color:#f92672">&lt;&lt;</span> endl; <span style="color:#75715e">// 3
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    } <span style="color:#66d9ef">catch</span>(...) {
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// xxx;
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>注意：一般情况下variant的第一个类型一般要有对应的构造函数，否则编译失败：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">A</span> {
+</span></span><span style="display:flex;"><span>    A(<span style="color:#66d9ef">int</span> i){}  
+</span></span><span style="display:flex;"><span>};
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>() {
+</span></span><span style="display:flex;"><span>    std<span style="color:#f92672">::</span>variant<span style="color:#f92672">&lt;</span>A, <span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> var; <span style="color:#75715e">// 编译失败
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>}
+</span></span></code></pre></div><p>如何避免这种情况呢，可以使用std::monostate来打个桩，模拟一个空状态。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span>std<span style="color:#f92672">::</span>variant<span style="color:#f92672">&lt;</span>std<span style="color:#f92672">::</span>monostate, A<span style="color:#f92672">&gt;</span> var; <span style="color:#75715e">// 可以编译成功
+</span></span></span></code></pre></div><h3 id="stdoptional">std::optional</h3>
+<p>我们有时候可能会有需求，让函数返回一个对象，如下：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">A</span> {};
+</span></span><span style="display:flex;"><span>A <span style="color:#a6e22e">func</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (flag) <span style="color:#66d9ef">return</span> A();
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">else</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// 异常情况下，怎么返回异常值呢，想返回个空呢
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>有一种办法是返回对象指针，异常情况下就可以返回nullptr啦，但是这就涉及到了内存管理，也许你会使用智能指针，但这里其实有更方便的办法就是std::optional。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span>std<span style="color:#f92672">::</span>optional<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> StoI(<span style="color:#66d9ef">const</span> std<span style="color:#f92672">::</span>string <span style="color:#f92672">&amp;</span>s) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">try</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> std<span style="color:#f92672">::</span>stoi(s);
+</span></span><span style="display:flex;"><span>    } <span style="color:#66d9ef">catch</span>(...) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> std<span style="color:#f92672">::</span>nullopt;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">func</span>() {
+</span></span><span style="display:flex;"><span>    std<span style="color:#f92672">::</span>string s{<span style="color:#e6db74">&#34;123&#34;</span>};
+</span></span><span style="display:flex;"><span>    std<span style="color:#f92672">::</span>optional<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> o <span style="color:#f92672">=</span> StoI(s);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (o) {
+</span></span><span style="display:flex;"><span>        cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#f92672">*</span>o <span style="color:#f92672">&lt;&lt;</span> endl;
+</span></span><span style="display:flex;"><span>    } <span style="color:#66d9ef">else</span> {
+</span></span><span style="display:flex;"><span>        cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;error&#34;</span> <span style="color:#f92672">&lt;&lt;</span> endl;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="stdany">std::any</h3>
+<p>C++17引入了any可以存储任何类型的单个值</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>() { <span style="color:#75715e">// c++17可编译
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    std<span style="color:#f92672">::</span>any a <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>    cout <span style="color:#f92672">&lt;&lt;</span> a.type().name() <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34; &#34;</span> <span style="color:#f92672">&lt;&lt;</span> std<span style="color:#f92672">::</span>any_cast<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span>(a) <span style="color:#f92672">&lt;&lt;</span> endl;
+</span></span><span style="display:flex;"><span>    a <span style="color:#f92672">=</span> <span style="color:#ae81ff">2.2f</span>;
+</span></span><span style="display:flex;"><span>    cout <span style="color:#f92672">&lt;&lt;</span> a.type().name() <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34; &#34;</span> <span style="color:#f92672">&lt;&lt;</span> std<span style="color:#f92672">::</span>any_cast<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">float</span><span style="color:#f92672">&gt;</span>(a) <span style="color:#f92672">&lt;&lt;</span> endl;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (a.has_value()) {
+</span></span><span style="display:flex;"><span>        cout <span style="color:#f92672">&lt;&lt;</span> a.type().name();
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    a.reset();
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (a.has_value()) {
+</span></span><span style="display:flex;"><span>        cout <span style="color:#f92672">&lt;&lt;</span> a.type().name();
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    a <span style="color:#f92672">=</span> std<span style="color:#f92672">::</span>string(<span style="color:#e6db74">&#34;a&#34;</span>);
+</span></span><span style="display:flex;"><span>    cout <span style="color:#f92672">&lt;&lt;</span> a.type().name() <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34; &#34;</span> <span style="color:#f92672">&lt;&lt;</span> std<span style="color:#f92672">::</span>any_cast<span style="color:#f92672">&lt;</span>std<span style="color:#f92672">::</span>string<span style="color:#f92672">&gt;</span>(a) <span style="color:#f92672">&lt;&lt;</span> endl;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="stdapply">std::apply</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">add</span>(<span style="color:#66d9ef">int</span> first, <span style="color:#66d9ef">int</span> second) { <span style="color:#66d9ef">return</span> first <span style="color:#f92672">+</span> second; }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">auto</span> add_lambda <span style="color:#f92672">=</span> [](<span style="color:#66d9ef">auto</span> first, <span style="color:#66d9ef">auto</span> second) { <span style="color:#66d9ef">return</span> first <span style="color:#f92672">+</span> second; };
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>() {
+</span></span><span style="display:flex;"><span>    std<span style="color:#f92672">::</span>cout <span style="color:#f92672">&lt;&lt;</span> std<span style="color:#f92672">::</span>apply(add, std<span style="color:#f92672">::</span>pair(<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>)) <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#39;\n&#39;</span>;
+</span></span><span style="display:flex;"><span>    std<span style="color:#f92672">::</span>cout <span style="color:#f92672">&lt;&lt;</span> add(std<span style="color:#f92672">::</span>pair(<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>)) <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>; <span style="color:#75715e">// error
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    std<span style="color:#f92672">::</span>cout <span style="color:#f92672">&lt;&lt;</span> std<span style="color:#f92672">::</span>apply(add_lambda, std<span style="color:#f92672">::</span>tuple(<span style="color:#ae81ff">2.0f</span>, <span style="color:#ae81ff">3.0f</span>)) <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#39;\n&#39;</span>; <span style="color:#75715e">// 将tuple展开作为函数的参数传入
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>}
+</span></span></code></pre></div><h3 id="stdmake_from_tuple">std::make_from_tuple</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">Foo</span> {
+</span></span><span style="display:flex;"><span>    Foo(<span style="color:#66d9ef">int</span> first, <span style="color:#66d9ef">float</span> second, <span style="color:#66d9ef">int</span> third) {
+</span></span><span style="display:flex;"><span>        std<span style="color:#f92672">::</span>cout <span style="color:#f92672">&lt;&lt;</span> first <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;, &#34;</span> <span style="color:#f92672">&lt;&lt;</span> second <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;, &#34;</span> <span style="color:#f92672">&lt;&lt;</span> third <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>};
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>() {
+</span></span><span style="display:flex;"><span>   <span style="color:#66d9ef">auto</span> tuple <span style="color:#f92672">=</span> std<span style="color:#f92672">::</span>make_tuple(<span style="color:#ae81ff">42</span>, <span style="color:#ae81ff">3.14f</span>, <span style="color:#ae81ff">0</span>);
+</span></span><span style="display:flex;"><span>   std<span style="color:#f92672">::</span>make_from_tuple<span style="color:#f92672">&lt;</span>Foo<span style="color:#f92672">&gt;</span>(std<span style="color:#f92672">::</span>move(tuple)); <span style="color:#75715e">// 使用make_from_tuple可以将tuple展开作为构造函数参数
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>}
+</span></span></code></pre></div><h3 id="stdas_const">std::as_const</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span>std<span style="color:#f92672">::</span>string str <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;str&#34;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> std<span style="color:#f92672">::</span>string<span style="color:#f92672">&amp;</span> constStr <span style="color:#f92672">=</span> std<span style="color:#f92672">::</span>as_const(str); <span style="color:#75715e">// C++17使用as_const可以将左值转成const类型
+</span></span></span></code></pre></div><blockquote>
+<p>Qt中有对应的qAsConst函数：大概意思是非const类型迭代，在多线程中可能会拷贝一份容器的副本？</p>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/devin0x01/myimages@master/githubpages/image_56ed5f4d320ef7a970a3671002c06501.png" alt=""></p>
+<h3 id="stdstring_view">std::string_view</h3>
+<p>通常我们传递一个string时会触发对象的拷贝操作，大字符串的拷贝赋值操作会触发堆内存分配，很影响运行效率，有了string_view就可以避免拷贝操作，平时传递过程中传递string_view即可。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">func</span>(std<span style="color:#f92672">::</span>string_view stv) { cout <span style="color:#f92672">&lt;&lt;</span> stv <span style="color:#f92672">&lt;&lt;</span> endl; }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>(<span style="color:#66d9ef">void</span>) {
+</span></span><span style="display:flex;"><span>    std<span style="color:#f92672">::</span>string str <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Hello World&#34;</span>;
+</span></span><span style="display:flex;"><span>    std<span style="color:#f92672">::</span>cout <span style="color:#f92672">&lt;&lt;</span> str <span style="color:#f92672">&lt;&lt;</span> std<span style="color:#f92672">::</span>endl;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    std<span style="color:#f92672">::</span>string_view stv(str.c_str(), str.size());
+</span></span><span style="display:flex;"><span>    cout <span style="color:#f92672">&lt;&lt;</span> stv <span style="color:#f92672">&lt;&lt;</span> endl;
+</span></span><span style="display:flex;"><span>    func(stv);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="stdfile_system">std::file_system</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#66d9ef">namespace</span> fs <span style="color:#f92672">=</span> std<span style="color:#f92672">::</span>filesystem;
+</span></span><span style="display:flex;"><span>fs<span style="color:#f92672">::</span>create_directory(dir_path);
+</span></span><span style="display:flex;"><span>fs<span style="color:#f92672">::</span>copy_file(src, dst, fs<span style="color:#f92672">::</span>copy_options<span style="color:#f92672">::</span>skip_existing);
+</span></span><span style="display:flex;"><span>fs<span style="color:#f92672">::</span>exists(filename);
+</span></span><span style="display:flex;"><span>fs<span style="color:#f92672">::</span>current_path(err_code);
+</span></span></code></pre></div><h3 id="stdshared_mutex">std::shared_mutex</h3>
+<p>实现读写锁</p>
+<h2 id="新增attribute">新增Attribute</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#75715e">// C++11引入
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">[[carries_dependency]]</span> <span style="color:#75715e">// 让编译期跳过不必要的内存栅栏指令
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">[[noreturn]]</span> <span style="color:#75715e">// 函数不会返回
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">[[deprecated]]</span> <span style="color:#75715e">// 函数将弃用的警告
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// C++17引入
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">[[fallthrough]]</span> <span style="color:#75715e">// 用在switch中提示不需要break，让编译期忽略警告
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">[[nodiscard]]</span> <span style="color:#75715e">// 表示修饰的内容不能被忽略，可用于修饰函数，标明返回值一定要被处理
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">[[maybe_unused]]</span> <span style="color:#75715e">// 提示编译器修饰的内容可能暂时没有使用，避免产生警告
+</span></span></span></code></pre></div><p>例子：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#a6e22e">[[noreturn]]</span> <span style="color:#66d9ef">void</span> terminate() <span style="color:#66d9ef">noexcept</span>;
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">[[deprecated(&#34;use new func instead&#34;)]]</span> <span style="color:#66d9ef">void</span> func() {}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">switch</span> (i) {}
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">case</span> <span style="color:#ae81ff">1</span><span style="color:#f92672">:</span>
+</span></span><span style="display:flex;"><span>        xxx; <span style="color:#75715e">// warning
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">case</span> <span style="color:#ae81ff">2</span><span style="color:#f92672">:</span>
+</span></span><span style="display:flex;"><span>        xxx; 
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">[[fallthrough]]</span>;      <span style="color:#75715e">// 警告消除
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">case</span> <span style="color:#ae81ff">3</span><span style="color:#f92672">:</span>
+</span></span><span style="display:flex;"><span>        xxx;
+</span></span><span style="display:flex;"><span>       <span style="color:#66d9ef">break</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">[[nodiscard]]</span> <span style="color:#66d9ef">int</span> func();
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">F</span>() {
+</span></span><span style="display:flex;"><span>    func(); <span style="color:#75715e">// warning 没有处理函数返回值
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">func1</span>() {}
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">[[maybe_unused]]</span> <span style="color:#66d9ef">void</span> func2() {} <span style="color:#75715e">// 警告消除
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">func3</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> x <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">[[maybe_unused]]</span> <span style="color:#66d9ef">int</span> y <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>; <span style="color:#75715e">// 警告消除
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>}
+</span></span></code></pre></div><h2 id="预处理表达式__has_include">预处理表达式__has_include</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#75715e">// 可以判断是否有某个头文件
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#75715e">#if defined __has_include
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#if __has_include(&lt;charconv&gt;)
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#define has_charconv 1
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;charconv&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#endif
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#endif
+</span></span></span></code></pre></div></article>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+<script type="application/javascript" src='https://devin0x01.github.io/js/toc.js'></script>
+<link rel="stylesheet" href='https://devin0x01.github.io/css/toc.css' />
+
+
+  <div class="footer container-xl width-full p-responsive">
+  <div
+    class="position-relative d-flex flex-row-reverse flex-lg-row flex-wrap flex-lg-nowrap flex-justify-center flex-lg-justify-between flex-sm-items-center pt-6 pb-2 mt-6 f6 text-gray border-top border-gray-light ">
+    <a aria-label="Homepage" title="GitHub" class="footer-octicon d-none d-lg-block mr-lg-4" href="https://devin0x01.github.io">
+      <svg height="24" class="octicon octicon-mark-github" viewBox="0 0 16 16" version="1.1" width="24">
+        <path fill-rule="evenodd"
+          d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z">
+        </path>
+      </svg>
+    </a>
+    <ul class="list-style-none d-flex flex-wrap col-12 flex-justify-center flex-lg-justify-between mb-2 mb-lg-0">
+      
+      <li class="mr-3 mr-lg-0">Theme by <a href='https://github.com/MeiK2333/github-style'>github-style</a></li>
+      
+    </ul>
+  </div>
+  <div class="d-flex flex-justify-center pb-6">
+    <span class="f6 text-gray-light"></span>
+  </div>
+
+
+</div>
+</body>
+
+<script type="application/javascript" src="https://devin0x01.github.io/js/github-style.js"></script>
+
+
+
+
+</html>
