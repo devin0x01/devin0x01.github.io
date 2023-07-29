@@ -10,9 +10,9 @@
     <link rel="stylesheet" href='https://devin0x01.github.io/css/light.css' />
     <link rel="stylesheet" href='https://devin0x01.github.io/css/dark.css' />
     <link rel="stylesheet" href='https://devin0x01.github.io/css/syntax.css' />
-    <title>共享库搜索路径 - DEVIN 0x01</title>
+    <title>共享库搜索路径 - DEVIN&#39;s BLOG</title>
     
-    <link rel="icon" type="image/x-icon" href='https://devin0x01.github.io/images/favicon.ico'>
+    <link rel="icon" type="image/x-icon" href='/images/github.png'>
     
     <meta name="theme-color" content="#1e2327">
 
@@ -25,13 +25,13 @@ RPATH和RUNPATH是ELF格式里面的一个数据，rpath编译选项实际上是
 其实这三者的关系概括起来没有几点：
 LD_LIBRARY_PATH是个环境变量，优先级高于系统默认的。 RPATH是ELF格式里面的一个数据，他的优先级比LD_LIBRARY_PATH还要高 RUNPATH很特殊，如果他出现了RPATH就躲起来了，LD_LIBRARY_PATH 又成了首选?? ELF 中 RPATH ELF 中 RUNPATH LD_LIBRARY_PATH 变量 尝试加载目录的顺序 未设置 未设置 未设置 /lib =&amp;gt; /usr/lib 未设置 未设置 设置 ${LD_LIBRARY_PATH} =&amp;gt; /lib =&amp;gt; /usr/lib 设置 未设置 未设置 ${RPATH} =&amp;gt; /lib =&amp;gt; /usr/lib 设置 未设置 设置 ${RPATH} =&amp;gt; ${LD_LIBRARY_PATH} =&amp;gt; /lib =&amp;gt; /usr/lib 设置 或 未设置 设置 设置 ${LD_LIBRARY_PATH} =&amp;gt; ${RUN_PATH} =&amp;gt; /lib =&amp;gt; /usr/lib 设置 或 未设置 设置 未设置 ${RUN_PATH} =&amp;gt; /lib =&amp;gt; /usr/lib LD_LIBRARY_PATH 例子 // a." />
 <meta name="keywords"
-  content='' />
+  content='blog, google analytics' />
 <meta name="robots" content="noodp" />
 <link rel="canonical" href="https://devin0x01.github.io/post/%E5%85%B1%E4%BA%AB%E5%BA%93%E6%90%9C%E7%B4%A2%E8%B7%AF%E5%BE%84/" />
 
 
 <meta name="twitter:card" content="summary" />
-<meta name="twitter:title" content="共享库搜索路径 - DEVIN 0x01" />
+<meta name="twitter:title" content="共享库搜索路径 - DEVIN&#39;s BLOG" />
 <meta name="twitter:description"
   content="基本原理 -L编译选项是编译期间使用
 LD_LIBRARY_PATH环境变量是运行期间使用，可以用来指定so的加载路径，并且优先级高于系统默认的。
@@ -46,7 +46,7 @@ LD_LIBRARY_PATH是个环境变量，优先级高于系统默认的。 RPATH是EL
 
 
 <meta property="og:type" content="article" />
-<meta property="og:title" content="共享库搜索路径 - DEVIN 0x01">
+<meta property="og:title" content="共享库搜索路径 - DEVIN&#39;s BLOG">
 <meta property="og:description"
   content="基本原理 -L编译选项是编译期间使用
 LD_LIBRARY_PATH环境变量是运行期间使用，可以用来指定so的加载路径，并且优先级高于系统默认的。
@@ -154,7 +154,7 @@ LD_LIBRARY_PATH是个环境变量，优先级高于系统默认的。 RPATH是EL
               <div class="d-flex flex-column">
                 <h1 class="break-word f3 text-normal mb-md-0 mb-1">
                   <span class="author">
-                    <a href="https://devin0x01.github.io"></a></span><span
+                    <a href="https://devin0x01.github.io">DEVIN</a></span><span
                     class="path-divider">/</span><strong class="css-truncate-target mr-1" style="max-width: 410px"><a
                       href="https://devin0x01.github.io/post/%E5%85%B1%E4%BA%AB%E5%BA%93%E6%90%9C%E7%B4%A2%E8%B7%AF%E5%BE%84/">共享库搜索路径</a></strong>
                 </h1>
@@ -163,6 +163,11 @@ LD_LIBRARY_PATH是个环境变量，优先级高于系统默认的。 RPATH是EL
                     class="no-wrap">
                     Sun, 18 Jun 2023 14:05:25 &#43;0800</relative-time>
 
+                  
+                  <span class="file-info-divider"></span>
+                  Modified <relative-time datetime="Sat, 29 Jul 2023 06:21:41 &#43;0000"
+                    class="no-wrap">
+                    Sat, 29 Jul 2023 06:21:41 &#43;0000</relative-time>
                   
                 </div>
               </div>
@@ -277,73 +282,73 @@ LD_LIBRARY_PATH是个环境变量，优先级高于系统默认的。 RPATH是EL
 </tbody>
 </table>
 <h2 id="ld_library_path-例子">LD_LIBRARY_PATH 例子</h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#75715e">// a.c
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">extern</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">test_b</span>();
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">test_a</span>()
-</span></span><span style="display:flex;"><span>{
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">test_b</span>();
-</span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>()
-</span></span><span style="display:flex;"><span>{
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">test_a</span>();
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
-</span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// b.c
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">test_b</span>()
-</span></span><span style="display:flex;"><span>{
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>root@ubuntu:/usr1/tmp/2# gcc b.c -shared -fPIC -o lib/libmyb.so
-</span></span><span style="display:flex;"><span>root@ubuntu:/usr1/tmp/2# gcc -o a a.c -Llib -lmyb
-</span></span><span style="display:flex;"><span>root@ubuntu:/usr1/tmp/2# 
-</span></span><span style="display:flex;"><span>root@ubuntu:/usr1/tmp/2# ./a
-</span></span><span style="display:flex;"><span>./a: error <span style="color:#66d9ef">while</span> loading shared libraries: libmyb.so: cannot open shared object file: No such file or directory
-</span></span><span style="display:flex;"><span>root@ubuntu:/usr1/tmp/2# 
-</span></span><span style="display:flex;"><span>root@ubuntu:/usr1/tmp/2# export LD_LIBRARY_PATH<span style="color:#f92672">=</span>lib
-</span></span><span style="display:flex;"><span>root@ubuntu:/usr1/tmp/2# ./a
-</span></span><span style="display:flex;"><span>root@ubuntu:/usr1/tmp/2# 
-</span></span><span style="display:flex;"><span>root@ubuntu:/usr1/tmp/2# tree
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="c1">// a.c
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl"><span class="k">extern</span> <span class="kt">void</span> <span class="nf">test_b</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">test_a</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">test_b</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">test_a</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// b.c
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">test_b</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">root@ubuntu:/usr1/tmp/2# gcc b.c -shared -fPIC -o lib/libmyb.so
+</span></span><span class="line"><span class="cl">root@ubuntu:/usr1/tmp/2# gcc -o a a.c -Llib -lmyb
+</span></span><span class="line"><span class="cl">root@ubuntu:/usr1/tmp/2# 
+</span></span><span class="line"><span class="cl">root@ubuntu:/usr1/tmp/2# ./a
+</span></span><span class="line"><span class="cl">./a: error <span class="k">while</span> loading shared libraries: libmyb.so: cannot open shared object file: No such file or directory
+</span></span><span class="line"><span class="cl">root@ubuntu:/usr1/tmp/2# 
+</span></span><span class="line"><span class="cl">root@ubuntu:/usr1/tmp/2# <span class="nb">export</span> <span class="nv">LD_LIBRARY_PATH</span><span class="o">=</span>lib
+</span></span><span class="line"><span class="cl">root@ubuntu:/usr1/tmp/2# ./a
+</span></span><span class="line"><span class="cl">root@ubuntu:/usr1/tmp/2# 
+</span></span><span class="line"><span class="cl">root@ubuntu:/usr1/tmp/2# tree
 </span></span></code></pre></div><p><img src="https://cdn.jsdelivr.net/gh/devin0x01/myimages@master/githubpages/image_3c2893ebe71c39dfdc4af7dbaa26f2ad.png" alt=""></p>
 <h2 id="rpath和runpath-例子">RPATH和RUNPATH 例子</h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#75715e">// a.c
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">extern</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">test_b</span>();
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">test_a</span>()
-</span></span><span style="display:flex;"><span>{
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">test_b</span>();
-</span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>()
-</span></span><span style="display:flex;"><span>{
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">test_a</span>();
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
-</span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// b1.c, b2.c
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">test_b</span>()
-</span></span><span style="display:flex;"><span>{
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">printf</span>(<span style="color:#e6db74">&#34;test_b in: %s</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, __FILE__);
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>unset LD_LIBRARY_PATH
-</span></span><span style="display:flex;"><span>gcc b1.c -shared -fPIC -o lib1/libmyb.so
-</span></span><span style="display:flex;"><span>gcc b2.c -shared -fPIC -o lib2/libmyb.so
-</span></span><span style="display:flex;"><span>gcc -o a a.c -Llib1 -lmyb -Wl,-rpath<span style="color:#f92672">=</span>lib2
-</span></span><span style="display:flex;"><span>tree
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>ldd ./a
-</span></span><span style="display:flex;"><span>readelf -d ./a | grep PATH
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>export LD_LIBRARY_PATH<span style="color:#f92672">=</span>lib1
-</span></span><span style="display:flex;"><span>ldd ./a
-</span></span><span style="display:flex;"><span>readelf -d ./a | grep PATH
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="c1">// a.c
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl"><span class="k">extern</span> <span class="kt">void</span> <span class="nf">test_b</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">test_a</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">test_b</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">test_a</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// b1.c, b2.c
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">test_b</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">printf</span><span class="p">(</span><span class="s">&#34;test_b in: %s</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">__FILE__</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="nb">unset</span> LD_LIBRARY_PATH
+</span></span><span class="line"><span class="cl">gcc b1.c -shared -fPIC -o lib1/libmyb.so
+</span></span><span class="line"><span class="cl">gcc b2.c -shared -fPIC -o lib2/libmyb.so
+</span></span><span class="line"><span class="cl">gcc -o a a.c -Llib1 -lmyb -Wl,-rpath<span class="o">=</span>lib2
+</span></span><span class="line"><span class="cl">tree
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">ldd ./a
+</span></span><span class="line"><span class="cl">readelf -d ./a <span class="p">|</span> grep PATH
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">LD_LIBRARY_PATH</span><span class="o">=</span>lib1
+</span></span><span class="line"><span class="cl">ldd ./a
+</span></span><span class="line"><span class="cl">readelf -d ./a <span class="p">|</span> grep PATH
 </span></span></code></pre></div><p><img src="https://cdn.jsdelivr.net/gh/devin0x01/myimages@master/githubpages/image_7ae7dbbcb1732ae63fe6a483fca71f82.png" alt=""></p>
 <h2 id="参考文档">参考文档</h2>
 <p><a href="https://www.jianshu.com/p/0f25748e6ac7">RPATH和RUNPATH区别 - 简书 (jianshu.com)</a></p>

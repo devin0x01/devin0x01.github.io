@@ -10,9 +10,9 @@
     <link rel="stylesheet" href='https://devin0x01.github.io/css/light.css' />
     <link rel="stylesheet" href='https://devin0x01.github.io/css/dark.css' />
     <link rel="stylesheet" href='https://devin0x01.github.io/css/syntax.css' />
-    <title>字符集与编码 - DEVIN 0x01</title>
+    <title>字符集与编码 - DEVIN&#39;s BLOG</title>
     
-    <link rel="icon" type="image/x-icon" href='https://devin0x01.github.io/images/favicon.ico'>
+    <link rel="icon" type="image/x-icon" href='/images/github.png'>
     
     <meta name="theme-color" content="#1e2327">
 
@@ -27,13 +27,13 @@ Java中的编码 首先Java的String使用的编码是Unicode，但是当String�
 所以Java里面String是不带编码格式的，而String.toByteArray(String charsetName)得到的byteArray是带编码格式的，格式就是你传入的charsetName，我们不妨把toByteArray的这个过程叫做==编码==；另外，new String(byte bytes[], String charsetName)是把一个byte数组(带编码格式)以charsetName指定的编码格式翻译为一个不带编码格式的String对象，我们不妨把这个过程叫==解码==。
 String(byte[] bytes)通过使用平台的默认字符集解码指定的 byte 数组，构造一个新的 String。 String(byte[] bytes, Charset charset)通过使用指定的 charset 解码指定的 byte 数组，构造一个新的 String。" />
 <meta name="keywords"
-  content='' />
+  content='blog, google analytics' />
 <meta name="robots" content="noodp" />
 <link rel="canonical" href="https://devin0x01.github.io/post/%E5%AD%97%E7%AC%A6%E9%9B%86%E4%B8%8E%E7%BC%96%E7%A0%81/" />
 
 
 <meta name="twitter:card" content="summary" />
-<meta name="twitter:title" content="字符集与编码 - DEVIN 0x01" />
+<meta name="twitter:title" content="字符集与编码 - DEVIN&#39;s BLOG" />
 <meta name="twitter:description"
   content="术语 字符(character)是具有语义值的文本的最小单位。 字符集(character set)是可能由多种语言使用的字符的集合。例：拉丁语字符集由英语和大多数欧洲语言使用，但希腊语字符集仅由希腊语使用。 编码字符集(coded character set)是一个字符集，其中每个字符对应于一个唯一的数字。 一个编码字符集的编码点(code point)是字符集中或编码空间中允许的任何值。 编码空间(code space)是一个整数范围，其值为编码点。 编码单元(code unit)是一个位序列，用于在给定的编码表单中对库的每个字符进行编码。有的文档中称之为编码值(code value)。
 编码单元例子：US-ASCII: 7 bits，UTF-8, GB18030: 8 bits，UTF-16: 16 bits，UTF-32: 32 bits
@@ -50,7 +50,7 @@ String(byte[] bytes)通过使用平台的默认字符集解码指定的 byte 数
 
 
 <meta property="og:type" content="article" />
-<meta property="og:title" content="字符集与编码 - DEVIN 0x01">
+<meta property="og:title" content="字符集与编码 - DEVIN&#39;s BLOG">
 <meta property="og:description"
   content="术语 字符(character)是具有语义值的文本的最小单位。 字符集(character set)是可能由多种语言使用的字符的集合。例：拉丁语字符集由英语和大多数欧洲语言使用，但希腊语字符集仅由希腊语使用。 编码字符集(coded character set)是一个字符集，其中每个字符对应于一个唯一的数字。 一个编码字符集的编码点(code point)是字符集中或编码空间中允许的任何值。 编码空间(code space)是一个整数范围，其值为编码点。 编码单元(code unit)是一个位序列，用于在给定的编码表单中对库的每个字符进行编码。有的文档中称之为编码值(code value)。
 编码单元例子：US-ASCII: 7 bits，UTF-8, GB18030: 8 bits，UTF-16: 16 bits，UTF-32: 32 bits
@@ -160,7 +160,7 @@ String(byte[] bytes)通过使用平台的默认字符集解码指定的 byte 数
               <div class="d-flex flex-column">
                 <h1 class="break-word f3 text-normal mb-md-0 mb-1">
                   <span class="author">
-                    <a href="https://devin0x01.github.io"></a></span><span
+                    <a href="https://devin0x01.github.io">DEVIN</a></span><span
                     class="path-divider">/</span><strong class="css-truncate-target mr-1" style="max-width: 410px"><a
                       href="https://devin0x01.github.io/post/%E5%AD%97%E7%AC%A6%E9%9B%86%E4%B8%8E%E7%BC%96%E7%A0%81/">字符集与编码</a></strong>
                 </h1>
@@ -169,6 +169,11 @@ String(byte[] bytes)通过使用平台的默认字符集解码指定的 byte 数
                     class="no-wrap">
                     Sun, 18 Jun 2023 14:05:25 &#43;0800</relative-time>
 
+                  
+                  <span class="file-info-divider"></span>
+                  Modified <relative-time datetime="Sat, 29 Jul 2023 06:21:41 &#43;0000"
+                    class="no-wrap">
+                    Sat, 29 Jul 2023 06:21:41 &#43;0000</relative-time>
                   
                 </div>
               </div>
@@ -248,36 +253,36 @@ String(byte[] bytes)通过使用平台的默认字符集解码指定的 byte 数
 <p><code>byte[] getBytes()</code>使用平台的默认字符集将此 String 编码为 byte 序列，并将结果存储到一个新的 byte数组中。
 <code>byte[] getBytes(Charset charset)</code>使用给定的 charset 将此 String 编码到 byte 序列，并将结果存储到新的 byte 数组。</p>
 </blockquote>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Test</span> <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String<span style="color:#f92672">[]</span> args<span style="color:#f92672">)</span> <span style="color:#66d9ef">throws</span> UnsupportedEncodingException <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>        String str1<span style="color:#f92672">;</span>
-</span></span><span style="display:flex;"><span>        String str2<span style="color:#f92672">;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">byte</span><span style="color:#f92672">[]</span> bytes<span style="color:#f92672">;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>        str1 <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;你好&#34;</span><span style="color:#f92672">;</span>
-</span></span><span style="display:flex;"><span>        bytes <span style="color:#f92672">=</span> str1<span style="color:#f92672">.</span><span style="color:#a6e22e">getBytes</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;UTF-8&#34;</span><span style="color:#f92672">);</span> <span style="color:#75715e">// 用UTF-8编码序列化到字节数组中
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        str2 <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> String<span style="color:#f92672">(</span>bytes<span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;UTF-8&#34;</span><span style="color:#f92672">);</span> <span style="color:#75715e">// 使用UTF-8方式解码
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>str2 <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;123&#34;</span><span style="color:#f92672">);</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>        bytes <span style="color:#f92672">=</span> str1<span style="color:#f92672">.</span><span style="color:#a6e22e">getBytes</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;GBK&#34;</span><span style="color:#f92672">);</span>
-</span></span><span style="display:flex;"><span>        str2 <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> String<span style="color:#f92672">(</span>bytes<span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;GBK&#34;</span><span style="color:#f92672">);</span>
-</span></span><span style="display:flex;"><span>        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>str2 <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;123&#34;</span><span style="color:#f92672">);</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>        bytes <span style="color:#f92672">=</span> str1<span style="color:#f92672">.</span><span style="color:#a6e22e">getBytes</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;UTF-8&#34;</span><span style="color:#f92672">);</span>
-</span></span><span style="display:flex;"><span>        str2 <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> String<span style="color:#f92672">(</span>bytes<span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;GBK&#34;</span><span style="color:#f92672">);</span>
-</span></span><span style="display:flex;"><span>        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>str2 <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;123&#34;</span><span style="color:#f92672">);</span> <span style="color:#75715e">// UTF-8编码，GBK解码
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
-</span></span><span style="display:flex;"><span>        str1 <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;浣犲ソ&#34;</span><span style="color:#f92672">;</span> <span style="color:#75715e">// 这是&#34;你好&#34;的GBK编码的字符串
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        str2 <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> String<span style="color:#f92672">(</span>str1<span style="color:#f92672">.</span><span style="color:#a6e22e">getBytes</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;GBK&#34;</span><span style="color:#f92672">),</span> <span style="color:#e6db74">&#34;UTF-8&#34;</span><span style="color:#f92672">);</span>
-</span></span><span style="display:flex;"><span>        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>str2 <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;123&#34;</span><span style="color:#f92672">);</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// 输出：
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// 你好123
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// 你好123
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// 浣犲ソ123
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// 你好123
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Test</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">UnsupportedEncodingException</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">String</span> <span class="n">str1</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">String</span> <span class="n">str2</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">byte</span><span class="o">[]</span> <span class="n">bytes</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="n">str1</span> <span class="o">=</span> <span class="s">&#34;你好&#34;</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">bytes</span> <span class="o">=</span> <span class="n">str1</span><span class="o">.</span><span class="na">getBytes</span><span class="o">(</span><span class="s">&#34;UTF-8&#34;</span><span class="o">);</span> <span class="c1">// 用UTF-8编码序列化到字节数组中
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">str2</span> <span class="o">=</span> <span class="k">new</span> <span class="n">String</span><span class="o">(</span><span class="n">bytes</span><span class="o">,</span> <span class="s">&#34;UTF-8&#34;</span><span class="o">);</span> <span class="c1">// 使用UTF-8方式解码
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">str2</span> <span class="o">+</span> <span class="s">&#34;123&#34;</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="n">bytes</span> <span class="o">=</span> <span class="n">str1</span><span class="o">.</span><span class="na">getBytes</span><span class="o">(</span><span class="s">&#34;GBK&#34;</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">str2</span> <span class="o">=</span> <span class="k">new</span> <span class="n">String</span><span class="o">(</span><span class="n">bytes</span><span class="o">,</span> <span class="s">&#34;GBK&#34;</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">str2</span> <span class="o">+</span> <span class="s">&#34;123&#34;</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="n">bytes</span> <span class="o">=</span> <span class="n">str1</span><span class="o">.</span><span class="na">getBytes</span><span class="o">(</span><span class="s">&#34;UTF-8&#34;</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">str2</span> <span class="o">=</span> <span class="k">new</span> <span class="n">String</span><span class="o">(</span><span class="n">bytes</span><span class="o">,</span> <span class="s">&#34;GBK&#34;</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">str2</span> <span class="o">+</span> <span class="s">&#34;123&#34;</span><span class="o">);</span> <span class="c1">// UTF-8编码，GBK解码
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl">        <span class="n">str1</span> <span class="o">=</span> <span class="s">&#34;浣犲ソ&#34;</span><span class="o">;</span> <span class="c1">// 这是&#34;你好&#34;的GBK编码的字符串
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">str2</span> <span class="o">=</span> <span class="k">new</span> <span class="n">String</span><span class="o">(</span><span class="n">str1</span><span class="o">.</span><span class="na">getBytes</span><span class="o">(</span><span class="s">&#34;GBK&#34;</span><span class="o">),</span> <span class="s">&#34;UTF-8&#34;</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">str2</span> <span class="o">+</span> <span class="s">&#34;123&#34;</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 输出：
+</span></span></span><span class="line"><span class="cl"><span class="c1">// 你好123
+</span></span></span><span class="line"><span class="cl"><span class="c1">// 你好123
+</span></span></span><span class="line"><span class="cl"><span class="c1">// 浣犲ソ123
+</span></span></span><span class="line"><span class="cl"><span class="c1">// 你好123
 </span></span></span></code></pre></div><h2 id="参考资料">参考资料</h2>
 <p><a href="https://www.zhihu.com/question/20361462">java中GBK编码格式转成UTF8，用一段方法实现怎么做？ - 知乎 (zhihu.com)</a></p>
 </article>

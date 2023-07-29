@@ -10,9 +10,9 @@
     <link rel="stylesheet" href='https://devin0x01.github.io/css/light.css' />
     <link rel="stylesheet" href='https://devin0x01.github.io/css/dark.css' />
     <link rel="stylesheet" href='https://devin0x01.github.io/css/syntax.css' />
-    <title>Java基础 - DEVIN 0x01</title>
+    <title>Java基础 - DEVIN&#39;s BLOG</title>
     
-    <link rel="icon" type="image/x-icon" href='https://devin0x01.github.io/images/favicon.ico'>
+    <link rel="icon" type="image/x-icon" href='/images/github.png'>
     
     <meta name="theme-color" content="#1e2327">
 
@@ -20,13 +20,13 @@
     <meta name="description"
   content="数据类型 INFINITY和NaN // INFINITY定义 public static final double POSITIVE_INFINITY = 1.0 / 0.0; public static final double NEGATIVE_INFINITY = -1.0 / 0.0; public static final float POSITIVE_INFINITY = 1.0f / 0.0f; public static final float NEGATIVE_INFINITY = -1.0f / 0.0f; // 无穷大*0=NAN System.out.println(Float.POSITIVE_INFINITY * 0); // output: NAN // 无穷大 System.out.println((Float.POSITIVE_INFINITY / 0) == Float.POSITIVE_INFINITY); // output: true System.out.println(Float.POSITIVE_INFINITY == (Float.POSITIVE_INFINITY &#43; 10000)); // output: true System.out.println(Float.POSITIVE_INFINITY == (Float.POSITIVE_INFINITY / 10000)); // output: true // 判断是否为INFINITY System." />
 <meta name="keywords"
-  content='' />
+  content='blog, google analytics' />
 <meta name="robots" content="noodp" />
 <link rel="canonical" href="https://devin0x01.github.io/post/java%E5%9F%BA%E7%A1%80/" />
 
 
 <meta name="twitter:card" content="summary" />
-<meta name="twitter:title" content="Java基础 - DEVIN 0x01" />
+<meta name="twitter:title" content="Java基础 - DEVIN&#39;s BLOG" />
 <meta name="twitter:description"
   content="数据类型 INFINITY和NaN // INFINITY定义 public static final double POSITIVE_INFINITY = 1.0 / 0.0; public static final double NEGATIVE_INFINITY = -1.0 / 0.0; public static final float POSITIVE_INFINITY = 1.0f / 0.0f; public static final float NEGATIVE_INFINITY = -1.0f / 0.0f; // 无穷大*0=NAN System.out.println(Float.POSITIVE_INFINITY * 0); // output: NAN // 无穷大 System.out.println((Float.POSITIVE_INFINITY / 0) == Float.POSITIVE_INFINITY); // output: true System.out.println(Float.POSITIVE_INFINITY == (Float.POSITIVE_INFINITY &#43; 10000)); // output: true System.out.println(Float.POSITIVE_INFINITY == (Float.POSITIVE_INFINITY / 10000)); // output: true // 判断是否为INFINITY System." />
 <meta name="twitter:site" content="https://devin0x01.github.io" />
@@ -36,7 +36,7 @@
 
 
 <meta property="og:type" content="article" />
-<meta property="og:title" content="Java基础 - DEVIN 0x01">
+<meta property="og:title" content="Java基础 - DEVIN&#39;s BLOG">
 <meta property="og:description"
   content="数据类型 INFINITY和NaN // INFINITY定义 public static final double POSITIVE_INFINITY = 1.0 / 0.0; public static final double NEGATIVE_INFINITY = -1.0 / 0.0; public static final float POSITIVE_INFINITY = 1.0f / 0.0f; public static final float NEGATIVE_INFINITY = -1.0f / 0.0f; // 无穷大*0=NAN System.out.println(Float.POSITIVE_INFINITY * 0); // output: NAN // 无穷大 System.out.println((Float.POSITIVE_INFINITY / 0) == Float.POSITIVE_INFINITY); // output: true System.out.println(Float.POSITIVE_INFINITY == (Float.POSITIVE_INFINITY &#43; 10000)); // output: true System.out.println(Float.POSITIVE_INFINITY == (Float.POSITIVE_INFINITY / 10000)); // output: true // 判断是否为INFINITY System." />
 <meta property="og:url" content="https://devin0x01.github.io/post/java%E5%9F%BA%E7%A1%80/" />
@@ -139,7 +139,7 @@
               <div class="d-flex flex-column">
                 <h1 class="break-word f3 text-normal mb-md-0 mb-1">
                   <span class="author">
-                    <a href="https://devin0x01.github.io"></a></span><span
+                    <a href="https://devin0x01.github.io">DEVIN</a></span><span
                     class="path-divider">/</span><strong class="css-truncate-target mr-1" style="max-width: 410px"><a
                       href="https://devin0x01.github.io/post/java%E5%9F%BA%E7%A1%80/">Java基础</a></strong>
                 </h1>
@@ -148,6 +148,11 @@
                     class="no-wrap">
                     Sun, 18 Jun 2023 14:05:25 &#43;0800</relative-time>
 
+                  
+                  <span class="file-info-divider"></span>
+                  Modified <relative-time datetime="Sat, 29 Jul 2023 06:21:41 &#43;0000"
+                    class="no-wrap">
+                    Sat, 29 Jul 2023 06:21:41 &#43;0000</relative-time>
                   
                 </div>
               </div>
@@ -202,29 +207,29 @@
               <div class="Box-body px-5 pb-5" style="z-index: 1">
                 <article class="markdown-body entry-content container-lg"><h2 id="数据类型">数据类型</h2>
 <h3 id="infinity和nan">INFINITY和NaN</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#75715e">// INFINITY定义
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">final</span> <span style="color:#66d9ef">double</span> POSITIVE_INFINITY <span style="color:#f92672">=</span> <span style="color:#ae81ff">1.0</span> <span style="color:#f92672">/</span> <span style="color:#ae81ff">0.0</span><span style="color:#f92672">;</span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">final</span> <span style="color:#66d9ef">double</span> NEGATIVE_INFINITY <span style="color:#f92672">=</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1.0</span> <span style="color:#f92672">/</span> <span style="color:#ae81ff">0.0</span><span style="color:#f92672">;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">final</span> <span style="color:#66d9ef">float</span> POSITIVE_INFINITY <span style="color:#f92672">=</span> <span style="color:#ae81ff">1.0f</span> <span style="color:#f92672">/</span> <span style="color:#ae81ff">0.0f</span><span style="color:#f92672">;</span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">final</span> <span style="color:#66d9ef">float</span> NEGATIVE_INFINITY <span style="color:#f92672">=</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1.0f</span> <span style="color:#f92672">/</span> <span style="color:#ae81ff">0.0f</span><span style="color:#f92672">;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// 无穷大*0=NAN
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>Float<span style="color:#f92672">.</span><span style="color:#a6e22e">POSITIVE_INFINITY</span> <span style="color:#f92672">*</span> <span style="color:#ae81ff">0</span><span style="color:#f92672">);</span> <span style="color:#75715e">// output: NAN
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// 无穷大
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">((</span>Float<span style="color:#f92672">.</span><span style="color:#a6e22e">POSITIVE_INFINITY</span> <span style="color:#f92672">/</span> <span style="color:#ae81ff">0</span><span style="color:#f92672">)</span> <span style="color:#f92672">==</span> Float<span style="color:#f92672">.</span><span style="color:#a6e22e">POSITIVE_INFINITY</span><span style="color:#f92672">);</span> <span style="color:#75715e">// output: true
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>Float<span style="color:#f92672">.</span><span style="color:#a6e22e">POSITIVE_INFINITY</span> <span style="color:#f92672">==</span> <span style="color:#f92672">(</span>Float<span style="color:#f92672">.</span><span style="color:#a6e22e">POSITIVE_INFINITY</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">10000</span><span style="color:#f92672">));</span> <span style="color:#75715e">// output: true
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>Float<span style="color:#f92672">.</span><span style="color:#a6e22e">POSITIVE_INFINITY</span> <span style="color:#f92672">==</span> <span style="color:#f92672">(</span>Float<span style="color:#f92672">.</span><span style="color:#a6e22e">POSITIVE_INFINITY</span> <span style="color:#f92672">/</span> <span style="color:#ae81ff">10000</span><span style="color:#f92672">));</span> <span style="color:#75715e">// output: true
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// 判断是否为INFINITY
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>Double<span style="color:#f92672">.</span><span style="color:#a6e22e">isInfinite</span><span style="color:#f92672">(</span>Float<span style="color:#f92672">.</span><span style="color:#a6e22e">POSITIVE_INFINITY</span><span style="color:#f92672">));</span> <span style="color:#75715e">// output: true
-</span></span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#75715e">// NAN定义
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">final</span> <span style="color:#66d9ef">double</span> NaN <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.0d</span> <span style="color:#f92672">/</span> <span style="color:#ae81ff">0.0</span><span style="color:#f92672">;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// NAN表示非数字，它与任何值都不相等，甚至不等于它自己，所以要判断一个数是否为NAN要用isNAN方法：
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>Float<span style="color:#f92672">.</span><span style="color:#a6e22e">NaN</span> <span style="color:#f92672">==</span> Float<span style="color:#f92672">.</span><span style="color:#a6e22e">NaN</span><span style="color:#f92672">);</span> <span style="color:#75715e">// output: false
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>Double<span style="color:#f92672">.</span><span style="color:#a6e22e">isNaN</span><span style="color:#f92672">(</span>Float<span style="color:#f92672">.</span><span style="color:#a6e22e">NaN</span><span style="color:#f92672">));</span> <span style="color:#75715e">// output: true
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="c1">// INFINITY定义
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">public</span> <span class="kd">static</span> <span class="kd">final</span> <span class="kt">double</span> <span class="n">POSITIVE_INFINITY</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="mf">0.0</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">static</span> <span class="kd">final</span> <span class="kt">double</span> <span class="n">NEGATIVE_INFINITY</span> <span class="o">=</span> <span class="o">-</span><span class="mf">1.0</span> <span class="o">/</span> <span class="mf">0.0</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">static</span> <span class="kd">final</span> <span class="kt">float</span> <span class="n">POSITIVE_INFINITY</span> <span class="o">=</span> <span class="mf">1.0f</span> <span class="o">/</span> <span class="mf">0.0f</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">static</span> <span class="kd">final</span> <span class="kt">float</span> <span class="n">NEGATIVE_INFINITY</span> <span class="o">=</span> <span class="o">-</span><span class="mf">1.0f</span> <span class="o">/</span> <span class="mf">0.0f</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 无穷大*0=NAN
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">Float</span><span class="o">.</span><span class="na">POSITIVE_INFINITY</span> <span class="o">*</span> <span class="mi">0</span><span class="o">);</span> <span class="c1">// output: NAN
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="c1">// 无穷大
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">((</span><span class="n">Float</span><span class="o">.</span><span class="na">POSITIVE_INFINITY</span> <span class="o">/</span> <span class="mi">0</span><span class="o">)</span> <span class="o">==</span> <span class="n">Float</span><span class="o">.</span><span class="na">POSITIVE_INFINITY</span><span class="o">);</span> <span class="c1">// output: true
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">Float</span><span class="o">.</span><span class="na">POSITIVE_INFINITY</span> <span class="o">==</span> <span class="o">(</span><span class="n">Float</span><span class="o">.</span><span class="na">POSITIVE_INFINITY</span> <span class="o">+</span> <span class="mi">10000</span><span class="o">));</span> <span class="c1">// output: true
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">Float</span><span class="o">.</span><span class="na">POSITIVE_INFINITY</span> <span class="o">==</span> <span class="o">(</span><span class="n">Float</span><span class="o">.</span><span class="na">POSITIVE_INFINITY</span> <span class="o">/</span> <span class="mi">10000</span><span class="o">));</span> <span class="c1">// output: true
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="c1">// 判断是否为INFINITY
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">Double</span><span class="o">.</span><span class="na">isInfinite</span><span class="o">(</span><span class="n">Float</span><span class="o">.</span><span class="na">POSITIVE_INFINITY</span><span class="o">));</span> <span class="c1">// output: true
+</span></span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="c1">// NAN定义
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">public</span> <span class="kd">static</span> <span class="kd">final</span> <span class="kt">double</span> <span class="n">NaN</span> <span class="o">=</span> <span class="mf">0.0d</span> <span class="o">/</span> <span class="mf">0.0</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// NAN表示非数字，它与任何值都不相等，甚至不等于它自己，所以要判断一个数是否为NAN要用isNAN方法：
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">Float</span><span class="o">.</span><span class="na">NaN</span> <span class="o">==</span> <span class="n">Float</span><span class="o">.</span><span class="na">NaN</span><span class="o">);</span> <span class="c1">// output: false
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">Double</span><span class="o">.</span><span class="na">isNaN</span><span class="o">(</span><span class="n">Float</span><span class="o">.</span><span class="na">NaN</span><span class="o">));</span> <span class="c1">// output: true
 </span></span></span></code></pre></div><blockquote>
 <p>需要精确计算时，使用<code>BigDecimal</code>，不要使用float和double</p>
 </blockquote>
@@ -267,63 +272,63 @@
 <blockquote>
 <p><strong>切记释放资源</strong>，即<code>input.close();</code></p>
 </blockquote>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">readFile</span><span style="color:#f92672">()</span> <span style="color:#66d9ef">throws</span> IOException <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>    InputStream input <span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">try</span> <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>        input <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> FileInputStream<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;src/readme.txt&#34;</span><span style="color:#f92672">);</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">int</span> n<span style="color:#f92672">;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">while</span> <span style="color:#f92672">((</span>n <span style="color:#f92672">=</span> input<span style="color:#f92672">.</span><span style="color:#a6e22e">read</span><span style="color:#f92672">())</span> <span style="color:#f92672">!=</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span> <span style="color:#75715e">// 利用while同时读取并判断
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>            System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>n<span style="color:#f92672">);</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span> <span style="color:#66d9ef">finally</span> <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>input <span style="color:#f92672">!=</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span> input<span style="color:#f92672">.</span><span style="color:#a6e22e">close</span><span style="color:#f92672">();</span> <span style="color:#f92672">}</span> <span style="color:#75715e">// 释放资源
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#f92672">}</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">writeFile</span><span style="color:#f92672">()</span> <span style="color:#66d9ef">throws</span> IOException <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>    OutputStream output <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> FileOutputStream<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;out/readme.txt&#34;</span><span style="color:#f92672">);</span>
-</span></span><span style="display:flex;"><span>    output<span style="color:#f92672">.</span><span style="color:#a6e22e">write</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Hello&#34;</span><span style="color:#f92672">.</span><span style="color:#a6e22e">getBytes</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;UTF-8&#34;</span><span style="color:#f92672">));</span> <span style="color:#75715e">// Hello
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    output<span style="color:#f92672">.</span><span style="color:#a6e22e">close</span><span style="color:#f92672">();</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span> <span class="kt">void</span> <span class="nf">readFile</span><span class="o">()</span> <span class="kd">throws</span> <span class="n">IOException</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">InputStream</span> <span class="n">input</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">try</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">input</span> <span class="o">=</span> <span class="k">new</span> <span class="n">FileInputStream</span><span class="o">(</span><span class="s">&#34;src/readme.txt&#34;</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">int</span> <span class="n">n</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">while</span> <span class="o">((</span><span class="n">n</span> <span class="o">=</span> <span class="n">input</span><span class="o">.</span><span class="na">read</span><span class="o">())</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="o">)</span> <span class="o">{</span> <span class="c1">// 利用while同时读取并判断
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">n</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">        <span class="o">}</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span> <span class="k">finally</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="o">(</span><span class="n">input</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span> <span class="n">input</span><span class="o">.</span><span class="na">close</span><span class="o">();</span> <span class="o">}</span> <span class="c1">// 释放资源
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="o">}</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kt">void</span> <span class="nf">writeFile</span><span class="o">()</span> <span class="kd">throws</span> <span class="n">IOException</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">OutputStream</span> <span class="n">output</span> <span class="o">=</span> <span class="k">new</span> <span class="n">FileOutputStream</span><span class="o">(</span><span class="s">&#34;out/readme.txt&#34;</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">output</span><span class="o">.</span><span class="na">write</span><span class="o">(</span><span class="s">&#34;Hello&#34;</span><span class="o">.</span><span class="na">getBytes</span><span class="o">(</span><span class="s">&#34;UTF-8&#34;</span><span class="o">));</span> <span class="c1">// Hello
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">output</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
 </span></span></code></pre></div><ol start="2">
 <li>try(resource)  Java7引入</li>
 </ol>
 <blockquote>
 <p>实际上，编译器并不会特别地为<code>InputStream</code>加上自动关闭。编译器只看<code>try(resource = ...)</code>中的对象是否实现了<code>java.lang.AutoCloseable</code>接口，如果实现了，就自动加上<code>finally</code>语句并调用<code>close()</code>方法。<code>InputStream</code>和<code>OutputStream</code>都实现了这个接口，因此，都可以用在<code>try(resource)</code>中。</p>
 </blockquote>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">readFile</span><span style="color:#f92672">()</span> <span style="color:#66d9ef">throws</span> IOException <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">try</span> <span style="color:#f92672">(</span>InputStream input <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> FileInputStream<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;src/readme.txt&#34;</span><span style="color:#f92672">))</span> <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">int</span> n<span style="color:#f92672">;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">while</span> <span style="color:#f92672">((</span>n <span style="color:#f92672">=</span> input<span style="color:#f92672">.</span><span style="color:#a6e22e">read</span><span style="color:#f92672">())</span> <span style="color:#f92672">!=</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>            System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>n<span style="color:#f92672">);</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span> <span style="color:#75715e">// 编译器在此自动为我们写入finally并调用close()
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#f92672">}</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span> <span class="kt">void</span> <span class="nf">readFile</span><span class="o">()</span> <span class="kd">throws</span> <span class="n">IOException</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">try</span> <span class="o">(</span><span class="n">InputStream</span> <span class="n">input</span> <span class="o">=</span> <span class="k">new</span> <span class="n">FileInputStream</span><span class="o">(</span><span class="s">&#34;src/readme.txt&#34;</span><span class="o">))</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">int</span> <span class="n">n</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">while</span> <span class="o">((</span><span class="n">n</span> <span class="o">=</span> <span class="n">input</span><span class="o">.</span><span class="na">read</span><span class="o">())</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">n</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">        <span class="o">}</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span> <span class="c1">// 编译器在此自动为我们写入finally并调用close()
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="o">}</span>
 </span></span></code></pre></div><ol start="3">
 <li>阻塞</li>
 </ol>
 <p>在调用<code>InputStream</code>的<code>read()</code>方法读取数据时，我们说<code>read()</code>方法是阻塞（Blocking）的。它的意思是，对于下面的代码：
 和<code>InputStream</code>一样，<code>OutputStream</code>的<code>write()</code>方法也是阻塞的。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">int</span> n<span style="color:#f92672">;</span>
-</span></span><span style="display:flex;"><span>n <span style="color:#f92672">=</span> input<span style="color:#f92672">.</span><span style="color:#a6e22e">read</span><span style="color:#f92672">();</span> <span style="color:#75715e">// 必须等待read()方法返回才能执行下一行代码
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">int</span> m <span style="color:#f92672">=</span> n<span style="color:#f92672">;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kt">int</span> <span class="n">n</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl"><span class="n">n</span> <span class="o">=</span> <span class="n">input</span><span class="o">.</span><span class="na">read</span><span class="o">();</span> <span class="c1">// 必须等待read()方法返回才能执行下一行代码
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kt">int</span> <span class="n">m</span> <span class="o">=</span> <span class="n">n</span><span class="o">;</span>
 </span></span></code></pre></div><h4 id="字节流-bytearrayinputstream">字节流 ByteArrayInputStream</h4>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> readBuffer <span style="color:#66d9ef">throws</span> IOException <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">byte</span><span style="color:#f92672">[]</span> data <span style="color:#f92672">=</span> <span style="color:#f92672">{</span> <span style="color:#ae81ff">72</span><span style="color:#f92672">,</span> <span style="color:#ae81ff">101</span><span style="color:#f92672">,</span> <span style="color:#ae81ff">108</span><span style="color:#f92672">,</span> <span style="color:#ae81ff">108</span><span style="color:#f92672">,</span> <span style="color:#ae81ff">111</span><span style="color:#f92672">,</span> <span style="color:#ae81ff">33</span> <span style="color:#f92672">};</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">try</span> <span style="color:#f92672">(</span>InputStream input <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ByteArrayInputStream<span style="color:#f92672">(</span>data<span style="color:#f92672">))</span> <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">int</span> n<span style="color:#f92672">;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">while</span> <span style="color:#f92672">((</span>n <span style="color:#f92672">=</span> input<span style="color:#f92672">.</span><span style="color:#a6e22e">read</span><span style="color:#f92672">())</span> <span style="color:#f92672">!=</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>            System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">((</span><span style="color:#66d9ef">char</span><span style="color:#f92672">)</span>n<span style="color:#f92672">);</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#75715e">// 读取input.txt，写入output.txt:
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">try</span> <span style="color:#f92672">(</span>InputStream input <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> FileInputStream<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;input.txt&#34;</span><span style="color:#f92672">);</span>
-</span></span><span style="display:flex;"><span>     OutputStream output <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> FileOutputStream<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;output.txt&#34;</span><span style="color:#f92672">))</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>    input<span style="color:#f92672">.</span><span style="color:#a6e22e">transferTo</span><span style="color:#f92672">(</span>output<span style="color:#f92672">);</span> <span style="color:#75715e">// transferTo的作用是?
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#f92672">}</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span> <span class="kt">void</span> <span class="n">readBuffer</span> <span class="kd">throws</span> <span class="n">IOException</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">byte</span><span class="o">[]</span> <span class="n">data</span> <span class="o">=</span> <span class="o">{</span> <span class="mi">72</span><span class="o">,</span> <span class="mi">101</span><span class="o">,</span> <span class="mi">108</span><span class="o">,</span> <span class="mi">108</span><span class="o">,</span> <span class="mi">111</span><span class="o">,</span> <span class="mi">33</span> <span class="o">};</span>
+</span></span><span class="line"><span class="cl">    <span class="k">try</span> <span class="o">(</span><span class="n">InputStream</span> <span class="n">input</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ByteArrayInputStream</span><span class="o">(</span><span class="n">data</span><span class="o">))</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">int</span> <span class="n">n</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">while</span> <span class="o">((</span><span class="n">n</span> <span class="o">=</span> <span class="n">input</span><span class="o">.</span><span class="na">read</span><span class="o">())</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">((</span><span class="kt">char</span><span class="o">)</span><span class="n">n</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">        <span class="o">}</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="c1">// 读取input.txt，写入output.txt:
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">try</span> <span class="o">(</span><span class="n">InputStream</span> <span class="n">input</span> <span class="o">=</span> <span class="k">new</span> <span class="n">FileInputStream</span><span class="o">(</span><span class="s">&#34;input.txt&#34;</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">     <span class="n">OutputStream</span> <span class="n">output</span> <span class="o">=</span> <span class="k">new</span> <span class="n">FileOutputStream</span><span class="o">(</span><span class="s">&#34;output.txt&#34;</span><span class="o">))</span>
+</span></span><span class="line"><span class="cl"><span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">input</span><span class="o">.</span><span class="na">transferTo</span><span class="o">(</span><span class="n">output</span><span class="o">);</span> <span class="c1">// transferTo的作用是?
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="o">}</span>
 </span></span></code></pre></div><h3 id="序列化-objectouputstream">序列化 ObjectOuputStream</h3>
 <blockquote>
 <p>序列化是指把一个Java对象变成二进制内容，本质上就是一个<code>byte[]</code>数组。</p>
@@ -334,31 +339,31 @@
 <li>static修饰的属性将不被序列化。</li>
 </ol>
 </blockquote>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Employee</span> <span style="color:#66d9ef">implements</span> java<span style="color:#f92672">.</span><span style="color:#a6e22e">io</span><span style="color:#f92672">.</span><span style="color:#a6e22e">Serializable</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> String name<span style="color:#f92672">;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> String address<span style="color:#f92672">;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">transient</span> <span style="color:#66d9ef">int</span> SSN<span style="color:#f92672">;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">int</span> number<span style="color:#f92672">;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">mailCheck</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Mailing a check to &#34;</span> <span style="color:#f92672">+</span> name <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34; &#34;</span> <span style="color:#f92672">+</span> address<span style="color:#f92672">);</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Employee</span> <span class="kd">implements</span> <span class="n">java</span><span class="o">.</span><span class="na">io</span><span class="o">.</span><span class="na">Serializable</span>
+</span></span><span class="line"><span class="cl"><span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="n">String</span> <span class="n">name</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="n">String</span> <span class="n">address</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">transient</span> <span class="kt">int</span> <span class="n">SSN</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kt">int</span> <span class="n">number</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">mailCheck</span><span class="o">()</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;Mailing a check to &#34;</span> <span class="o">+</span> <span class="n">name</span> <span class="o">+</span> <span class="s">&#34; &#34;</span> <span class="o">+</span> <span class="n">address</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
 </span></span></code></pre></div><p>把一个Java对象变为<code>byte[]</code>数组，需要使用<code>ObjectOutputStream</code>。它负责把一个Java对象写入一个字节流：</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">test</span><span style="color:#f92672">(</span>String<span style="color:#f92672">[]</span> args<span style="color:#f92672">)</span> <span style="color:#66d9ef">throws</span> IOException <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>    ByteArrayOutputStream buffer <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ByteArrayOutputStream<span style="color:#f92672">();</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// FileOutputStream stream = new FileOutputStream(new File(&#34;person.out&#34;)); // 也可以用文件流，但是记得关闭流
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">try</span> <span style="color:#f92672">(</span>ObjectOutputStream output <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ObjectOutputStream<span style="color:#f92672">(</span>buffer<span style="color:#f92672">))</span> <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// 写入int:
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        output<span style="color:#f92672">.</span><span style="color:#a6e22e">writeInt</span><span style="color:#f92672">(</span><span style="color:#ae81ff">12345</span><span style="color:#f92672">);</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// 写入String:
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        output<span style="color:#f92672">.</span><span style="color:#a6e22e">writeUTF</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Hello&#34;</span><span style="color:#f92672">);</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// 写入实现了Serializable接口的Object:
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        output<span style="color:#f92672">.</span><span style="color:#a6e22e">writeObject</span><span style="color:#f92672">(</span>Double<span style="color:#f92672">.</span><span style="color:#a6e22e">valueOf</span><span style="color:#f92672">(</span><span style="color:#ae81ff">123.456</span><span style="color:#f92672">));</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>Arrays<span style="color:#f92672">.</span><span style="color:#a6e22e">toString</span><span style="color:#f92672">(</span>buffer<span style="color:#f92672">.</span><span style="color:#a6e22e">toByteArray</span><span style="color:#f92672">()));</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span> <span class="kt">void</span> <span class="nf">test</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">IOException</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">ByteArrayOutputStream</span> <span class="n">buffer</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ByteArrayOutputStream</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// FileOutputStream stream = new FileOutputStream(new File(&#34;person.out&#34;)); // 也可以用文件流，但是记得关闭流
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">try</span> <span class="o">(</span><span class="n">ObjectOutputStream</span> <span class="n">output</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ObjectOutputStream</span><span class="o">(</span><span class="n">buffer</span><span class="o">))</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// 写入int:
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">output</span><span class="o">.</span><span class="na">writeInt</span><span class="o">(</span><span class="mi">12345</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// 写入String:
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">output</span><span class="o">.</span><span class="na">writeUTF</span><span class="o">(</span><span class="s">&#34;Hello&#34;</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// 写入实现了Serializable接口的Object:
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">output</span><span class="o">.</span><span class="na">writeObject</span><span class="o">(</span><span class="n">Double</span><span class="o">.</span><span class="na">valueOf</span><span class="o">(</span><span class="mf">123.456</span><span class="o">));</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">Arrays</span><span class="o">.</span><span class="na">toString</span><span class="o">(</span><span class="n">buffer</span><span class="o">.</span><span class="na">toByteArray</span><span class="o">()));</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
 </span></span></code></pre></div><h3 id="反序列化-objectinputstream">反序列化 ObjectInputStream</h3>
 <blockquote>
 <p>除了能读取基本类型和<code>String</code>类型外，调用<code>readObject()</code>可以直接返回一个<code>Object</code>对象。要把它变成一个特定类型，必须强制转型。</p>
@@ -368,16 +373,16 @@
 <li><code>InvalidClassException</code>：Class不匹配。</li>
 </ul>
 </blockquote>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">try</span> <span style="color:#f92672">(</span>ObjectInputStream input <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ObjectInputStream<span style="color:#f92672">(...))</span> <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> n <span style="color:#f92672">=</span> input<span style="color:#f92672">.</span><span style="color:#a6e22e">readInt</span><span style="color:#f92672">();</span>
-</span></span><span style="display:flex;"><span>    String s <span style="color:#f92672">=</span> input<span style="color:#f92672">.</span><span style="color:#a6e22e">readUTF</span><span style="color:#f92672">();</span>
-</span></span><span style="display:flex;"><span>    Double d <span style="color:#f92672">=</span> <span style="color:#f92672">(</span>Double<span style="color:#f92672">)</span> input<span style="color:#f92672">.</span><span style="color:#a6e22e">readObject</span><span style="color:#f92672">();</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="k">try</span> <span class="o">(</span><span class="n">ObjectInputStream</span> <span class="n">input</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ObjectInputStream</span><span class="o">(...))</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="n">input</span><span class="o">.</span><span class="na">readInt</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">    <span class="n">String</span> <span class="n">s</span> <span class="o">=</span> <span class="n">input</span><span class="o">.</span><span class="na">readUTF</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">    <span class="n">Double</span> <span class="n">d</span> <span class="o">=</span> <span class="o">(</span><span class="n">Double</span><span class="o">)</span> <span class="n">input</span><span class="o">.</span><span class="na">readObject</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
 </span></span></code></pre></div><p>对于<code>ClassNotFoundException</code>，这种情况常见于一台电脑上的Java程序把一个Java对象，例如，<code>Person</code>对象序列化以后，通过网络传给另一台电脑上的另一个Java程序，但是这台电脑的Java程序并没有定义<code>Person</code>类，所以无法反序列化。</p>
 <p>对于<code>InvalidClassException</code>，为了避免class定义变动导致的不兼容，Java的序列化允许class定义一个特殊的<code>serialVersionUID</code>静态变量，用于标识Java类的序列化“版本”，通常可以由IDE自动生成。如果增加或修改了字段，可以改变<code>serialVersionUID</code>的值，不兼容时就会抛出此异常。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Person</span> <span style="color:#66d9ef">implements</span> Serializable <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">final</span> <span style="color:#66d9ef">long</span> serialVersionUID <span style="color:#f92672">=</span> <span style="color:#ae81ff">2709425275741743919L</span><span style="color:#f92672">;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Person</span> <span class="kd">implements</span> <span class="n">Serializable</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="kt">long</span> <span class="n">serialVersionUID</span> <span class="o">=</span> <span class="mi">2709425275741743919L</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
 </span></span></code></pre></div><h2 id="垃圾回收">垃圾回收</h2>
 <h3 id="finalize用法">finalize用法</h3>
 <p>finalize()是Object类里的protected类型的方法，子类（所有类都是Object的子类）可以通过覆盖这个方法来实现回收前的资源清理工作。</p>
@@ -389,26 +394,26 @@
 <li>finalize方法执行完毕后，GC会再次判断该对象是否可被回收，如果可以，则进行回收，如果此时该对象上有强引用，则该对象“复活”，即处于“不可回收状态”。</li>
 </ol>
 </blockquote>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">FinalizeDemo</span> <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">static</span> FinalizeDemo obj <span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e">//重写Object里的finalize方法
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">protected</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">finalize</span><span style="color:#f92672">()</span> <span style="color:#66d9ef">throws</span> Throwable <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>       System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;In finalize()&#34;</span><span style="color:#f92672">);</span>
-</span></span><span style="display:flex;"><span>       obj <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span><span style="color:#f92672">;</span> <span style="color:#75715e">//给obj加个强引用
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#f92672">}</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String<span style="color:#f92672">[]</span> args<span style="color:#f92672">)</span> <span style="color:#66d9ef">throws</span> InterruptedException <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>        obj <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> FinalizeDemo<span style="color:#f92672">();</span>
-</span></span><span style="display:flex;"><span>        obj <span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">;</span> <span style="color:#75715e">//去掉强引用
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        System<span style="color:#f92672">.</span><span style="color:#a6e22e">gc</span><span style="color:#f92672">();</span> <span style="color:#75715e">//垃圾回收
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#75715e">// sleep 1秒，以便垃圾回收线程清理obj对象
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        Thread<span style="color:#f92672">.</span><span style="color:#a6e22e">sleep</span><span style="color:#f92672">(</span><span style="color:#ae81ff">1000</span><span style="color:#f92672">);</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">null</span> <span style="color:#f92672">!=</span> obj<span style="color:#f92672">)</span> <span style="color:#f92672">{</span> <span style="color:#75715e">// 在finalize方法复活
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>            System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Still alive.&#34;</span><span style="color:#f92672">);</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span> <span style="color:#66d9ef">else</span> <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>            System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Not alive.&#34;</span><span style="color:#f92672">);</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span> 
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>  
-</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">FinalizeDemo</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">static</span> <span class="n">FinalizeDemo</span> <span class="n">obj</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">//重写Object里的finalize方法
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kd">protected</span> <span class="kt">void</span> <span class="nf">finalize</span><span class="o">()</span> <span class="kd">throws</span> <span class="n">Throwable</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">       <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;In finalize()&#34;</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">       <span class="n">obj</span> <span class="o">=</span> <span class="k">this</span><span class="o">;</span> <span class="c1">//给obj加个强引用
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="o">}</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">InterruptedException</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">obj</span> <span class="o">=</span> <span class="k">new</span> <span class="n">FinalizeDemo</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">        <span class="n">obj</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span> <span class="c1">//去掉强引用
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">System</span><span class="o">.</span><span class="na">gc</span><span class="o">();</span> <span class="c1">//垃圾回收
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="c1">// sleep 1秒，以便垃圾回收线程清理obj对象
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">Thread</span><span class="o">.</span><span class="na">sleep</span><span class="o">(</span><span class="mi">1000</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="o">(</span><span class="kc">null</span> <span class="o">!=</span> <span class="n">obj</span><span class="o">)</span> <span class="o">{</span> <span class="c1">// 在finalize方法复活
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;Still alive.&#34;</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">        <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;Not alive.&#34;</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">        <span class="o">}</span> 
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>  
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
 </span></span></code></pre></div><h3 id="强引用软引用弱引用虚引用">强引用、软引用、弱引用、虚引用</h3>
 <blockquote>
 <p><a href="https://juejin.cn/post/6844903665241686029">理解Java的强引用、软引用、弱引用和虚引用 - 掘金 (juejin.cn)</a></p>
@@ -451,21 +456,21 @@
 </table>
 <h4 id="强引用">强引用</h4>
 <p><strong>强引用</strong>是使用最普遍的引用。如果一个对象具有强引用，那<strong>垃圾回收器</strong>绝不会回收它。当<strong>内存空间不足</strong>时，<code>Java</code>虚拟机宁愿抛出<code>OutOfMemoryError</code>错误，使程序<strong>异常终止</strong>。如下：</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>	Object strongReference <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Object<span style="color:#f92672">();</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// 如果强引用对象不使用时，需要弱化从而使GC能够回收
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	strongReference <span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl">	<span class="n">Object</span> <span class="n">strongReference</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Object</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="c1">// 如果强引用对象不使用时，需要弱化从而使GC能够回收
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="n">strongReference</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
 </span></span></code></pre></div><blockquote>
 <p>显式地设置<code>strongReference</code>对象为<code>null</code>，或让其<strong>超出</strong>对象的<strong>生命周期</strong>范围，则<code>gc</code>认为该对象<strong>不存在引用</strong>，这时就可以回收这个对象。具体什么时候收集这要取决于<code>GC</code>算法。</p>
 <p>在一个<strong>方法的内部</strong>有一个<strong>强引用</strong>，这个引用保存在<code>Java</code><strong>栈</strong>中，而真正的引用内容(<code>Object</code>)保存在<code>Java</code><strong>堆</strong>中。 当这个<strong>方法运行完成</strong>后，就会退出<strong>方法栈</strong>，则引用对象的<strong>引用数</strong>为<code>0</code>，这个对象会被回收。但是如果这个<code>strongReference</code>是<strong>全局变量</strong>时，就需要在不用这个对象时赋值为<code>null</code>，因为<strong>强引用</strong>不会被垃圾回收。</p>
 </blockquote>
 <h4 id="软引用">软引用</h4>
 <p>如果一个对象只具有<strong>软引用</strong>，则<strong>内存空间充足</strong>时，<strong>垃圾回收器</strong>就<strong>不会</strong>回收它；如果<strong>内存空间不足</strong>了，就会<strong>回收</strong>这些对象的内存。只要垃圾回收器没有回收它，该对象就可以被程序使用。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>    <span style="color:#75715e">// 强引用
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    String strongReference <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> String<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;abc&#34;</span><span style="color:#f92672">);</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 软引用
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    String str <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> String<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;abc&#34;</span><span style="color:#f92672">);</span>
-</span></span><span style="display:flex;"><span>    SoftReference<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">&gt;</span> softReference <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> SoftReference<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">&gt;(</span>str<span style="color:#f92672">);</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl">    <span class="c1">// 强引用
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">String</span> <span class="n">strongReference</span> <span class="o">=</span> <span class="k">new</span> <span class="n">String</span><span class="o">(</span><span class="s">&#34;abc&#34;</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 软引用
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">String</span> <span class="n">str</span> <span class="o">=</span> <span class="k">new</span> <span class="n">String</span><span class="o">(</span><span class="s">&#34;abc&#34;</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">SoftReference</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">softReference</span> <span class="o">=</span> <span class="k">new</span> <span class="n">SoftReference</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;(</span><span class="n">str</span><span class="o">);</span>
 </span></span></code></pre></div><blockquote>
 <p>软引用可用来实现内存敏感的高速缓存。</p>
 <p>注意：软引用对象是在jvm内存不够的时候才会被回收，我们调用System.gc()方法只是起通知作用，JVM什么时候扫描回收对象是JVM自己的状态决定的。就算扫描到软引用对象也不一定会回收它，只有内存不够的时候才会回收。</p>
@@ -476,32 +481,32 @@
 <li>如果一个网页在浏览结束时就进行内容的回收，则按后退查看前面浏览过的页面时，需要重新构建；</li>
 <li>如果将浏览过的网页存储到内存中会造成内存的大量浪费，甚至会造成内存溢出。</li>
 </ol>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>    <span style="color:#75715e">// 获取浏览器对象进行浏览
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    Browser browser <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Browser<span style="color:#f92672">();</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 从后台程序加载浏览页面
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    BrowserPage page <span style="color:#f92672">=</span> browser<span style="color:#f92672">.</span><span style="color:#a6e22e">getPage</span><span style="color:#f92672">();</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 将浏览完毕的页面置为软引用
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    SoftReference softReference <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> SoftReference<span style="color:#f92672">(</span>page<span style="color:#f92672">);</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 回退或者再次浏览此页面时
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>softReference<span style="color:#f92672">.</span><span style="color:#a6e22e">get</span><span style="color:#f92672">()</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// 内存充足，还没有被回收器回收，直接获取缓存
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        page <span style="color:#f92672">=</span> softReference<span style="color:#f92672">.</span><span style="color:#a6e22e">get</span><span style="color:#f92672">();</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span> <span style="color:#66d9ef">else</span> <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// 内存不足，软引用的对象已经回收
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        page <span style="color:#f92672">=</span> browser<span style="color:#f92672">.</span><span style="color:#a6e22e">getPage</span><span style="color:#f92672">();</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// 重新构建软引用
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        softReference <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> SoftReference<span style="color:#f92672">(</span>page<span style="color:#f92672">);</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl">    <span class="c1">// 获取浏览器对象进行浏览
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">Browser</span> <span class="n">browser</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Browser</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 从后台程序加载浏览页面
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">BrowserPage</span> <span class="n">page</span> <span class="o">=</span> <span class="n">browser</span><span class="o">.</span><span class="na">getPage</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 将浏览完毕的页面置为软引用
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">SoftReference</span> <span class="n">softReference</span> <span class="o">=</span> <span class="k">new</span> <span class="n">SoftReference</span><span class="o">(</span><span class="n">page</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">// 回退或者再次浏览此页面时
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">if</span> <span class="o">(</span><span class="n">softReference</span><span class="o">.</span><span class="na">get</span><span class="o">()</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// 内存充足，还没有被回收器回收，直接获取缓存
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">page</span> <span class="o">=</span> <span class="n">softReference</span><span class="o">.</span><span class="na">get</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// 内存不足，软引用的对象已经回收
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">page</span> <span class="o">=</span> <span class="n">browser</span><span class="o">.</span><span class="na">getPage</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// 重新构建软引用
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">softReference</span> <span class="o">=</span> <span class="k">new</span> <span class="n">SoftReference</span><span class="o">(</span><span class="n">page</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
 </span></span></code></pre></div><h4 id="弱引用">弱引用</h4>
 <p><strong>弱引用</strong>与<strong>软引用</strong>的区别在于：只具有<strong>弱引用</strong>的对象拥有<strong>更短暂</strong>的<strong>生命周期</strong>。在垃圾回收器线程扫描它所管辖的内存区域的过程中，一旦发现了只具有<strong>弱引用</strong>的对象，不管当前<strong>内存空间足够与否</strong>，都会<strong>回收</strong>它的内存。不过，由于垃圾回收器是一个<strong>优先级很低的线程</strong>，因此<strong>不一定</strong>会<strong>很快</strong>发现那些只具有<strong>弱引用</strong>的对象。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>    String str <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> String<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;abc&#34;</span><span style="color:#f92672">);</span>
-</span></span><span style="display:flex;"><span>    WeakReference<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">&gt;</span> weakReference <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> WeakReference<span style="color:#f92672">&lt;&gt;(</span>str<span style="color:#f92672">);</span>
-</span></span><span style="display:flex;"><span>    str <span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// JVM首先将软引用中的对象引用置为null，然后通知垃圾回收器进行回收：
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    str <span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">;</span>
-</span></span><span style="display:flex;"><span>    System<span style="color:#f92672">.</span><span style="color:#a6e22e">gc</span><span style="color:#f92672">();</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl">    <span class="n">String</span> <span class="n">str</span> <span class="o">=</span> <span class="k">new</span> <span class="n">String</span><span class="o">(</span><span class="s">&#34;abc&#34;</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">WeakReference</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">weakReference</span> <span class="o">=</span> <span class="k">new</span> <span class="n">WeakReference</span><span class="o">&lt;&gt;(</span><span class="n">str</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">str</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="c1">// JVM首先将软引用中的对象引用置为null，然后通知垃圾回收器进行回收：
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">str</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">System</span><span class="o">.</span><span class="na">gc</span><span class="o">();</span>
 </span></span></code></pre></div><blockquote>
 <p>如果一个对象是偶尔(很少)的使用，并且希望在使用时随时就能获取到，但又不想影响此对象的垃圾收集，那么你应该用Weak Reference来记住此对象。</p>
 <p><strong>弱引用</strong>可以和一个<strong>引用队列</strong>(<code>ReferenceQueue</code>)联合使用，如果<strong>弱引用</strong>所引用的<strong>对象</strong>被<strong>垃圾回收</strong>，<code>Java</code>虚拟机就会把这个<strong>弱引用</strong>加入到与之关联的<strong>引用队列</strong>中。</p>
@@ -512,10 +517,10 @@
 <p><strong>虚引用</strong>主要用来<strong>跟踪对象</strong>被垃圾回收器<strong>回收</strong>的活动。</p>
 <p><strong>虚引用</strong>与<strong>软引用</strong>和<strong>弱引用</strong>的一个区别在于：虚引用必须和引用队列(ReferenceQueue)联合使用。当垃圾回收器准备回收一个对象时，如果发现它还有虚引用，就会在回收对象的内存之前，把这个虚引用加入到与之关联的引用队列中。</p>
 </blockquote>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>    String str <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> String<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;abc&#34;</span><span style="color:#f92672">);</span>
-</span></span><span style="display:flex;"><span>    ReferenceQueue queue <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ReferenceQueue<span style="color:#f92672">();</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 创建虚引用，要求必须与一个引用队列关联
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    PhantomReference pr <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> PhantomReference<span style="color:#f92672">(</span>str<span style="color:#f92672">,</span> queue<span style="color:#f92672">);</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl">    <span class="n">String</span> <span class="n">str</span> <span class="o">=</span> <span class="k">new</span> <span class="n">String</span><span class="o">(</span><span class="s">&#34;abc&#34;</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">ReferenceQueue</span> <span class="n">queue</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ReferenceQueue</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 创建虚引用，要求必须与一个引用队列关联
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">PhantomReference</span> <span class="n">pr</span> <span class="o">=</span> <span class="k">new</span> <span class="n">PhantomReference</span><span class="o">(</span><span class="n">str</span><span class="o">,</span> <span class="n">queue</span><span class="o">);</span>
 </span></span></code></pre></div></article>
               </div>
             </div>

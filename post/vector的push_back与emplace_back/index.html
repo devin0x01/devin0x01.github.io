@@ -10,9 +10,9 @@
     <link rel="stylesheet" href='https://devin0x01.github.io/css/light.css' />
     <link rel="stylesheet" href='https://devin0x01.github.io/css/dark.css' />
     <link rel="stylesheet" href='https://devin0x01.github.io/css/syntax.css' />
-    <title>vector的push_back与emplace_back.md - DEVIN 0x01</title>
+    <title>vector的push_back与emplace_back.md - DEVIN&#39;s BLOG</title>
     
-    <link rel="icon" type="image/x-icon" href='https://devin0x01.github.io/images/favicon.ico'>
+    <link rel="icon" type="image/x-icon" href='/images/github.png'>
     
     <meta name="theme-color" content="#1e2327">
 
@@ -20,13 +20,13 @@
     <meta name="description"
   content="push_back与emplace_back #include &amp;lt;iostream&amp;gt; #include &amp;lt;vector&amp;gt; using namespace std; class A { public: A() = default; A(string name) : _name(name) { cout &amp;lt;&amp;lt; &amp;#34;ctor: &amp;#34; &amp;lt;&amp;lt; _name &amp;lt;&amp;lt; endl; } ~A() { cout &amp;lt;&amp;lt; &amp;#34;dtor: &amp;#34; &amp;lt;&amp;lt; _name &amp;lt;&amp;lt; endl; } // 拷贝构造函数 A(const A &amp;amp;other) { _name &#43;= &amp;#34;cp-&amp;#34; &#43; other._name; cout &amp;lt;&amp;lt; &amp;#34;cp-ctor: &amp;#34; &amp;lt;&amp;lt; _name &amp;lt;&amp;lt; endl; } // 赋值运算符 A&amp;amp; operator=(const A &amp;amp;other) { if (this != &amp;amp;other) { _name &#43;= &amp;#34;cp-&amp;#34; &#43; other." />
 <meta name="keywords"
-  content='' />
+  content='blog, google analytics' />
 <meta name="robots" content="noodp" />
 <link rel="canonical" href="https://devin0x01.github.io/post/vector%E7%9A%84push_back%E4%B8%8Eemplace_back/" />
 
 
 <meta name="twitter:card" content="summary" />
-<meta name="twitter:title" content="vector的push_back与emplace_back.md - DEVIN 0x01" />
+<meta name="twitter:title" content="vector的push_back与emplace_back.md - DEVIN&#39;s BLOG" />
 <meta name="twitter:description"
   content="push_back与emplace_back #include &amp;lt;iostream&amp;gt; #include &amp;lt;vector&amp;gt; using namespace std; class A { public: A() = default; A(string name) : _name(name) { cout &amp;lt;&amp;lt; &amp;#34;ctor: &amp;#34; &amp;lt;&amp;lt; _name &amp;lt;&amp;lt; endl; } ~A() { cout &amp;lt;&amp;lt; &amp;#34;dtor: &amp;#34; &amp;lt;&amp;lt; _name &amp;lt;&amp;lt; endl; } // 拷贝构造函数 A(const A &amp;amp;other) { _name &#43;= &amp;#34;cp-&amp;#34; &#43; other._name; cout &amp;lt;&amp;lt; &amp;#34;cp-ctor: &amp;#34; &amp;lt;&amp;lt; _name &amp;lt;&amp;lt; endl; } // 赋值运算符 A&amp;amp; operator=(const A &amp;amp;other) { if (this != &amp;amp;other) { _name &#43;= &amp;#34;cp-&amp;#34; &#43; other." />
 <meta name="twitter:site" content="https://devin0x01.github.io" />
@@ -36,7 +36,7 @@
 
 
 <meta property="og:type" content="article" />
-<meta property="og:title" content="vector的push_back与emplace_back.md - DEVIN 0x01">
+<meta property="og:title" content="vector的push_back与emplace_back.md - DEVIN&#39;s BLOG">
 <meta property="og:description"
   content="push_back与emplace_back #include &amp;lt;iostream&amp;gt; #include &amp;lt;vector&amp;gt; using namespace std; class A { public: A() = default; A(string name) : _name(name) { cout &amp;lt;&amp;lt; &amp;#34;ctor: &amp;#34; &amp;lt;&amp;lt; _name &amp;lt;&amp;lt; endl; } ~A() { cout &amp;lt;&amp;lt; &amp;#34;dtor: &amp;#34; &amp;lt;&amp;lt; _name &amp;lt;&amp;lt; endl; } // 拷贝构造函数 A(const A &amp;amp;other) { _name &#43;= &amp;#34;cp-&amp;#34; &#43; other._name; cout &amp;lt;&amp;lt; &amp;#34;cp-ctor: &amp;#34; &amp;lt;&amp;lt; _name &amp;lt;&amp;lt; endl; } // 赋值运算符 A&amp;amp; operator=(const A &amp;amp;other) { if (this != &amp;amp;other) { _name &#43;= &amp;#34;cp-&amp;#34; &#43; other." />
 <meta property="og:url" content="https://devin0x01.github.io/post/vector%E7%9A%84push_back%E4%B8%8Eemplace_back/" />
@@ -139,7 +139,7 @@
               <div class="d-flex flex-column">
                 <h1 class="break-word f3 text-normal mb-md-0 mb-1">
                   <span class="author">
-                    <a href="https://devin0x01.github.io"></a></span><span
+                    <a href="https://devin0x01.github.io">DEVIN</a></span><span
                     class="path-divider">/</span><strong class="css-truncate-target mr-1" style="max-width: 410px"><a
                       href="https://devin0x01.github.io/post/vector%E7%9A%84push_back%E4%B8%8Eemplace_back/">vector的push_back与emplace_back.md</a></strong>
                 </h1>
@@ -148,6 +148,11 @@
                     class="no-wrap">
                     Mon, 17 Jul 2023 14:05:25 &#43;0800</relative-time>
 
+                  
+                  <span class="file-info-divider"></span>
+                  Modified <relative-time datetime="Sat, 29 Jul 2023 06:21:41 &#43;0000"
+                    class="no-wrap">
+                    Sat, 29 Jul 2023 06:21:41 &#43;0000</relative-time>
                   
                 </div>
               </div>
@@ -201,166 +206,166 @@
 
               <div class="Box-body px-5 pb-5" style="z-index: 1">
                 <article class="markdown-body entry-content container-lg"><h1 id="push_back与emplace_back">push_back与emplace_back</h1>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;vector&gt;</span><span style="color:#75715e">
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">A</span> {
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span><span style="color:#f92672">:</span>
-</span></span><span style="display:flex;"><span>    A() <span style="color:#f92672">=</span> <span style="color:#66d9ef">default</span>;
-</span></span><span style="display:flex;"><span>    A(string name) <span style="color:#f92672">:</span> _name(name) { cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;ctor: &#34;</span> <span style="color:#f92672">&lt;&lt;</span> _name <span style="color:#f92672">&lt;&lt;</span> endl; }
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">~</span>A() { cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;dtor: &#34;</span> <span style="color:#f92672">&lt;&lt;</span> _name <span style="color:#f92672">&lt;&lt;</span> endl; }
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 拷贝构造函数
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    A(<span style="color:#66d9ef">const</span> A <span style="color:#f92672">&amp;</span>other) { _name <span style="color:#f92672">+=</span> <span style="color:#e6db74">&#34;cp-&#34;</span> <span style="color:#f92672">+</span> other._name; cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;cp-ctor: &#34;</span> <span style="color:#f92672">&lt;&lt;</span> _name <span style="color:#f92672">&lt;&lt;</span> endl; }
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 赋值运算符
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    A<span style="color:#f92672">&amp;</span> <span style="color:#66d9ef">operator</span><span style="color:#f92672">=</span>(<span style="color:#66d9ef">const</span> A <span style="color:#f92672">&amp;</span>other) {
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (<span style="color:#66d9ef">this</span> <span style="color:#f92672">!=</span> <span style="color:#f92672">&amp;</span>other) {
-</span></span><span style="display:flex;"><span>            _name <span style="color:#f92672">+=</span> <span style="color:#e6db74">&#34;cp-&#34;</span> <span style="color:#f92672">+</span> other._name;
-</span></span><span style="display:flex;"><span>            cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;cp-op: &#34;</span> <span style="color:#f92672">&lt;&lt;</span> _name <span style="color:#f92672">&lt;&lt;</span> endl;
-</span></span><span style="display:flex;"><span>        }
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#f92672">*</span><span style="color:#66d9ef">this</span>;
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 移动构造函数
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    A(A <span style="color:#f92672">&amp;&amp;</span>other) <span style="color:#66d9ef">noexcept</span> { _name <span style="color:#f92672">+=</span> <span style="color:#e6db74">&#34;mv-&#34;</span> <span style="color:#f92672">+</span> other._name; cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;mv-ctor: &#34;</span> <span style="color:#f92672">&lt;&lt;</span> _name <span style="color:#f92672">&lt;&lt;</span> endl; }
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 移动赋值运算符
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    A<span style="color:#f92672">&amp;</span> <span style="color:#66d9ef">operator</span><span style="color:#f92672">=</span>(A <span style="color:#f92672">&amp;&amp;</span>other) <span style="color:#66d9ef">noexcept</span> {
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (<span style="color:#66d9ef">this</span> <span style="color:#f92672">!=</span> <span style="color:#f92672">&amp;</span>other) {
-</span></span><span style="display:flex;"><span>            _name <span style="color:#f92672">+=</span> <span style="color:#e6db74">&#34;mv-&#34;</span> <span style="color:#f92672">+</span> other._name;
-</span></span><span style="display:flex;"><span>            cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;mv-op: &#34;</span> <span style="color:#f92672">&lt;&lt;</span> _name <span style="color:#f92672">&lt;&lt;</span> endl;
-</span></span><span style="display:flex;"><span>        }
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#f92672">*</span><span style="color:#66d9ef">this</span>;
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    string _name;
-</span></span><span style="display:flex;"><span>};
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>()
-</span></span><span style="display:flex;"><span>{
-</span></span><span style="display:flex;"><span>    vector<span style="color:#f92672">&lt;</span>A<span style="color:#f92672">&gt;</span> arr;
-</span></span><span style="display:flex;"><span>    arr.reserve(<span style="color:#ae81ff">100</span>); <span style="color:#75715e">// 重要！重新分配内存时可能导致测试结果有迷惑性
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
-</span></span><span style="display:flex;"><span>    printf(<span style="color:#e6db74">&#34;==== push_back(</span><span style="color:#ae81ff">\&#34;</span><span style="color:#e6db74">a1</span><span style="color:#ae81ff">\&#34;</span><span style="color:#e6db74">) ====</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>);
-</span></span><span style="display:flex;"><span>    arr.push_back(string(<span style="color:#e6db74">&#34;a1&#34;</span>));
-</span></span><span style="display:flex;"><span>    printf(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">==== emplace_back(</span><span style="color:#ae81ff">\&#34;</span><span style="color:#e6db74">a2</span><span style="color:#ae81ff">\&#34;</span><span style="color:#e6db74">) ====</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>);
-</span></span><span style="display:flex;"><span>    arr.emplace_back(string(<span style="color:#e6db74">&#34;a2&#34;</span>));
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    printf(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">==== push_back/emplace_back(lvalue) ====</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>);
-</span></span><span style="display:flex;"><span>    A a3(<span style="color:#e6db74">&#34;a3&#34;</span>);
-</span></span><span style="display:flex;"><span>    arr.push_back(a3);
-</span></span><span style="display:flex;"><span>    arr.emplace_back(a3);
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    printf(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">==== push_back/emplace_back(rvalue) ====</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>);
-</span></span><span style="display:flex;"><span>    A a4(<span style="color:#e6db74">&#34;a4&#34;</span>);
-</span></span><span style="display:flex;"><span>    arr.push_back(std<span style="color:#f92672">::</span>move(a4));
-</span></span><span style="display:flex;"><span>    A a5(<span style="color:#e6db74">&#34;a5&#34;</span>);
-</span></span><span style="display:flex;"><span>    arr.emplace_back(std<span style="color:#f92672">::</span>move(a5));
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    printf(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">==== return ====</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>);
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
-</span></span><span style="display:flex;"><span>}
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;vector&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">A</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="k">public</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">A</span><span class="p">()</span> <span class="o">=</span> <span class="k">default</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">A</span><span class="p">(</span><span class="n">string</span> <span class="n">name</span><span class="p">)</span> <span class="o">:</span> <span class="n">_name</span><span class="p">(</span><span class="n">name</span><span class="p">)</span> <span class="p">{</span> <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;ctor: &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">_name</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="o">~</span><span class="n">A</span><span class="p">()</span> <span class="p">{</span> <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;dtor: &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">_name</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 拷贝构造函数
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">A</span><span class="p">(</span><span class="k">const</span> <span class="n">A</span> <span class="o">&amp;</span><span class="n">other</span><span class="p">)</span> <span class="p">{</span> <span class="n">_name</span> <span class="o">+=</span> <span class="s">&#34;cp-&#34;</span> <span class="o">+</span> <span class="n">other</span><span class="p">.</span><span class="n">_name</span><span class="p">;</span> <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;cp-ctor: &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">_name</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 赋值运算符
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">A</span><span class="o">&amp;</span> <span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="k">const</span> <span class="n">A</span> <span class="o">&amp;</span><span class="n">other</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="k">this</span> <span class="o">!=</span> <span class="o">&amp;</span><span class="n">other</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">_name</span> <span class="o">+=</span> <span class="s">&#34;cp-&#34;</span> <span class="o">+</span> <span class="n">other</span><span class="p">.</span><span class="n">_name</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;cp-op: &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">_name</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="o">*</span><span class="k">this</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 移动构造函数
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">A</span><span class="p">(</span><span class="n">A</span> <span class="o">&amp;&amp;</span><span class="n">other</span><span class="p">)</span> <span class="k">noexcept</span> <span class="p">{</span> <span class="n">_name</span> <span class="o">+=</span> <span class="s">&#34;mv-&#34;</span> <span class="o">+</span> <span class="n">other</span><span class="p">.</span><span class="n">_name</span><span class="p">;</span> <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;mv-ctor: &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">_name</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 移动赋值运算符
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">A</span><span class="o">&amp;</span> <span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="n">A</span> <span class="o">&amp;&amp;</span><span class="n">other</span><span class="p">)</span> <span class="k">noexcept</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="k">this</span> <span class="o">!=</span> <span class="o">&amp;</span><span class="n">other</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">_name</span> <span class="o">+=</span> <span class="s">&#34;mv-&#34;</span> <span class="o">+</span> <span class="n">other</span><span class="p">.</span><span class="n">_name</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;mv-op: &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">_name</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="o">*</span><span class="k">this</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">string</span> <span class="n">_name</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">vector</span><span class="o">&lt;</span><span class="n">A</span><span class="o">&gt;</span> <span class="n">arr</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">arr</span><span class="p">.</span><span class="n">reserve</span><span class="p">(</span><span class="mi">100</span><span class="p">);</span> <span class="c1">// 重要！重新分配内存时可能导致测试结果有迷惑性
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl">    <span class="n">printf</span><span class="p">(</span><span class="s">&#34;==== push_back(</span><span class="se">\&#34;</span><span class="s">a1</span><span class="se">\&#34;</span><span class="s">) ====</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">arr</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">string</span><span class="p">(</span><span class="s">&#34;a1&#34;</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">    <span class="n">printf</span><span class="p">(</span><span class="s">&#34;</span><span class="se">\n</span><span class="s">==== emplace_back(</span><span class="se">\&#34;</span><span class="s">a2</span><span class="se">\&#34;</span><span class="s">) ====</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">arr</span><span class="p">.</span><span class="n">emplace_back</span><span class="p">(</span><span class="n">string</span><span class="p">(</span><span class="s">&#34;a2&#34;</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">printf</span><span class="p">(</span><span class="s">&#34;</span><span class="se">\n</span><span class="s">==== push_back/emplace_back(lvalue) ====</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">A</span> <span class="n">a3</span><span class="p">(</span><span class="s">&#34;a3&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">arr</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">a3</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">arr</span><span class="p">.</span><span class="n">emplace_back</span><span class="p">(</span><span class="n">a3</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">printf</span><span class="p">(</span><span class="s">&#34;</span><span class="se">\n</span><span class="s">==== push_back/emplace_back(rvalue) ====</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">A</span> <span class="n">a4</span><span class="p">(</span><span class="s">&#34;a4&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">arr</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">a4</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">    <span class="n">A</span> <span class="n">a5</span><span class="p">(</span><span class="s">&#34;a5&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">arr</span><span class="p">.</span><span class="n">emplace_back</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">a5</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">printf</span><span class="p">(</span><span class="s">&#34;</span><span class="se">\n</span><span class="s">==== return ====</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><p>输出为:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-txt" data-lang="txt"><span style="display:flex;"><span>==== push_back(&#34;a1&#34;) ====
-</span></span><span style="display:flex;"><span>ctor: a1
-</span></span><span style="display:flex;"><span>mv-ctor: mv-a1
-</span></span><span style="display:flex;"><span>dtor: a1
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>==== emplace_back(&#34;a2&#34;) ====
-</span></span><span style="display:flex;"><span>ctor: a2
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>==== push_back/emplace_back(lvalue) ====
-</span></span><span style="display:flex;"><span>ctor: a3
-</span></span><span style="display:flex;"><span>cp-ctor: cp-a3
-</span></span><span style="display:flex;"><span>cp-ctor: cp-a3
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>==== push_back/emplace_back(rvalue) ====
-</span></span><span style="display:flex;"><span>ctor: a4
-</span></span><span style="display:flex;"><span>mv-ctor: mv-a4
-</span></span><span style="display:flex;"><span>ctor: a5
-</span></span><span style="display:flex;"><span>mv-ctor: mv-a5
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>==== return ====
-</span></span><span style="display:flex;"><span>dtor: a5
-</span></span><span style="display:flex;"><span>dtor: a4
-</span></span><span style="display:flex;"><span>dtor: a3
-</span></span><span style="display:flex;"><span>dtor: mv-a1
-</span></span><span style="display:flex;"><span>dtor: a2
-</span></span><span style="display:flex;"><span>dtor: cp-a3
-</span></span><span style="display:flex;"><span>dtor: cp-a3
-</span></span><span style="display:flex;"><span>dtor: mv-a4
-</span></span><span style="display:flex;"><span>dtor: mv-a5
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-txt" data-lang="txt"><span class="line"><span class="cl">==== push_back(&#34;a1&#34;) ====
+</span></span><span class="line"><span class="cl">ctor: a1
+</span></span><span class="line"><span class="cl">mv-ctor: mv-a1
+</span></span><span class="line"><span class="cl">dtor: a1
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">==== emplace_back(&#34;a2&#34;) ====
+</span></span><span class="line"><span class="cl">ctor: a2
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">==== push_back/emplace_back(lvalue) ====
+</span></span><span class="line"><span class="cl">ctor: a3
+</span></span><span class="line"><span class="cl">cp-ctor: cp-a3
+</span></span><span class="line"><span class="cl">cp-ctor: cp-a3
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">==== push_back/emplace_back(rvalue) ====
+</span></span><span class="line"><span class="cl">ctor: a4
+</span></span><span class="line"><span class="cl">mv-ctor: mv-a4
+</span></span><span class="line"><span class="cl">ctor: a5
+</span></span><span class="line"><span class="cl">mv-ctor: mv-a5
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">==== return ====
+</span></span><span class="line"><span class="cl">dtor: a5
+</span></span><span class="line"><span class="cl">dtor: a4
+</span></span><span class="line"><span class="cl">dtor: a3
+</span></span><span class="line"><span class="cl">dtor: mv-a1
+</span></span><span class="line"><span class="cl">dtor: a2
+</span></span><span class="line"><span class="cl">dtor: cp-a3
+</span></span><span class="line"><span class="cl">dtor: cp-a3
+</span></span><span class="line"><span class="cl">dtor: mv-a4
+</span></span><span class="line"><span class="cl">dtor: mv-a5
 </span></span></code></pre></div><h1 id="移动构造函数用noexcept修饰后vector扩容时才会调用">移动构造函数用noexcept修饰后，vector扩容时才会调用</h1>
 <p><a href="https://young-flash.github.io/2021/12/18/%E4%B8%BA%E4%BB%80%E4%B9%88%E9%9C%80%E8%A6%81%E5%B0%86%E7%A7%BB%E5%8A%A8%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0%E5%92%8C%E7%A7%BB%E5%8A%A8%E8%B5%8B%E5%80%BC%E8%BF%90%E7%AE%97%E7%AC%A6%E6%A0%87%E8%AE%B0%E4%B8%BA%20noexcept/">为什么需要将移动构造函数和移动赋值运算符标记为noexcept</a></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;vector&gt;</span><span style="color:#75715e">
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">A</span> {
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span><span style="color:#f92672">:</span>
-</span></span><span style="display:flex;"><span>    A() <span style="color:#f92672">=</span> <span style="color:#66d9ef">default</span>;
-</span></span><span style="display:flex;"><span>    A(string name) <span style="color:#f92672">:</span> _name(name) { cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;ctor: &#34;</span> <span style="color:#f92672">&lt;&lt;</span> _name <span style="color:#f92672">&lt;&lt;</span> endl; }
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">~</span>A() { cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;dtor: &#34;</span> <span style="color:#f92672">&lt;&lt;</span> _name <span style="color:#f92672">&lt;&lt;</span> endl; }
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 拷贝构造函数
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    A(<span style="color:#66d9ef">const</span> A <span style="color:#f92672">&amp;</span>other) { _name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;cp-&#34;</span> <span style="color:#f92672">+</span> other._name; cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;cp-ctor: &#34;</span> <span style="color:#f92672">&lt;&lt;</span> _name <span style="color:#f92672">&lt;&lt;</span> endl; }
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 赋值运算符
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    A<span style="color:#f92672">&amp;</span> <span style="color:#66d9ef">operator</span><span style="color:#f92672">=</span>(<span style="color:#66d9ef">const</span> A <span style="color:#f92672">&amp;</span>other) {
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (<span style="color:#66d9ef">this</span> <span style="color:#f92672">!=</span> <span style="color:#f92672">&amp;</span>other) {
-</span></span><span style="display:flex;"><span>            _name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;cp-&#34;</span> <span style="color:#f92672">+</span> other._name;
-</span></span><span style="display:flex;"><span>            cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;cp-op: &#34;</span> <span style="color:#f92672">&lt;&lt;</span> _name <span style="color:#f92672">&lt;&lt;</span> endl;
-</span></span><span style="display:flex;"><span>        }
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#f92672">*</span><span style="color:#66d9ef">this</span>;
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 移动构造函数
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    A(A <span style="color:#f92672">&amp;&amp;</span>other) <span style="color:#66d9ef">noexcept</span> { _name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;mv-&#34;</span> <span style="color:#f92672">+</span> other._name; cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;mv-ctor: &#34;</span> <span style="color:#f92672">&lt;&lt;</span> _name <span style="color:#f92672">&lt;&lt;</span> endl; }
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 移动赋值运算符
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    A<span style="color:#f92672">&amp;</span> <span style="color:#66d9ef">operator</span><span style="color:#f92672">=</span>(A <span style="color:#f92672">&amp;&amp;</span>other) <span style="color:#66d9ef">noexcept</span> {
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (<span style="color:#66d9ef">this</span> <span style="color:#f92672">!=</span> <span style="color:#f92672">&amp;</span>other) {
-</span></span><span style="display:flex;"><span>            _name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;mv-&#34;</span> <span style="color:#f92672">+</span> other._name;
-</span></span><span style="display:flex;"><span>            cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;mv-op: &#34;</span> <span style="color:#f92672">&lt;&lt;</span> _name <span style="color:#f92672">&lt;&lt;</span> endl;
-</span></span><span style="display:flex;"><span>        }
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#f92672">*</span><span style="color:#66d9ef">this</span>;
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    string _name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;anonymous&#34;</span>;
-</span></span><span style="display:flex;"><span>};
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>() {
-</span></span><span style="display:flex;"><span>    vector<span style="color:#f92672">&lt;</span>A<span style="color:#f92672">&gt;</span> arr(<span style="color:#ae81ff">4</span>);
-</span></span><span style="display:flex;"><span>    arr.reserve(<span style="color:#ae81ff">4</span>);
-</span></span><span style="display:flex;"><span>    cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;capacity: &#34;</span> <span style="color:#f92672">&lt;&lt;</span> arr.capacity() <span style="color:#f92672">&lt;&lt;</span> endl; <span style="color:#75715e">// 4
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
-</span></span><span style="display:flex;"><span>    A a1(<span style="color:#e6db74">&#34;a1&#34;</span>);
-</span></span><span style="display:flex;"><span>    A a2(<span style="color:#e6db74">&#34;a2&#34;</span>);
-</span></span><span style="display:flex;"><span>    arr.push_back(a1); <span style="color:#75715e">// 触发vector内存的重新分配: 第5个元素调用cp-ctor
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>                       <span style="color:#75715e">// 如果mv-ctor声明为noexcept，则前4个元素调用移动构造函数; 否则调用拷贝构造函数cp-ctor
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    arr.push_back(std<span style="color:#f92672">::</span>move(a2)); <span style="color:#75715e">// 第6个元素调用mv-ctor
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;capacity: &#34;</span> <span style="color:#f92672">&lt;&lt;</span> arr.capacity() <span style="color:#f92672">&lt;&lt;</span> endl; <span style="color:#75715e">// 8
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
-</span></span><span style="display:flex;"><span>    cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;==== return ====&#34;</span> <span style="color:#f92672">&lt;&lt;</span> endl;
-</span></span><span style="display:flex;"><span>}
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;vector&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">A</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="k">public</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">A</span><span class="p">()</span> <span class="o">=</span> <span class="k">default</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">A</span><span class="p">(</span><span class="n">string</span> <span class="n">name</span><span class="p">)</span> <span class="o">:</span> <span class="n">_name</span><span class="p">(</span><span class="n">name</span><span class="p">)</span> <span class="p">{</span> <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;ctor: &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">_name</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="o">~</span><span class="n">A</span><span class="p">()</span> <span class="p">{</span> <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;dtor: &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">_name</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 拷贝构造函数
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">A</span><span class="p">(</span><span class="k">const</span> <span class="n">A</span> <span class="o">&amp;</span><span class="n">other</span><span class="p">)</span> <span class="p">{</span> <span class="n">_name</span> <span class="o">=</span> <span class="s">&#34;cp-&#34;</span> <span class="o">+</span> <span class="n">other</span><span class="p">.</span><span class="n">_name</span><span class="p">;</span> <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;cp-ctor: &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">_name</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 赋值运算符
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">A</span><span class="o">&amp;</span> <span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="k">const</span> <span class="n">A</span> <span class="o">&amp;</span><span class="n">other</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="k">this</span> <span class="o">!=</span> <span class="o">&amp;</span><span class="n">other</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">_name</span> <span class="o">=</span> <span class="s">&#34;cp-&#34;</span> <span class="o">+</span> <span class="n">other</span><span class="p">.</span><span class="n">_name</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;cp-op: &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">_name</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="o">*</span><span class="k">this</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 移动构造函数
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">A</span><span class="p">(</span><span class="n">A</span> <span class="o">&amp;&amp;</span><span class="n">other</span><span class="p">)</span> <span class="k">noexcept</span> <span class="p">{</span> <span class="n">_name</span> <span class="o">=</span> <span class="s">&#34;mv-&#34;</span> <span class="o">+</span> <span class="n">other</span><span class="p">.</span><span class="n">_name</span><span class="p">;</span> <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;mv-ctor: &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">_name</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 移动赋值运算符
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">A</span><span class="o">&amp;</span> <span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="n">A</span> <span class="o">&amp;&amp;</span><span class="n">other</span><span class="p">)</span> <span class="k">noexcept</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="k">this</span> <span class="o">!=</span> <span class="o">&amp;</span><span class="n">other</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">_name</span> <span class="o">=</span> <span class="s">&#34;mv-&#34;</span> <span class="o">+</span> <span class="n">other</span><span class="p">.</span><span class="n">_name</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;mv-op: &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">_name</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="o">*</span><span class="k">this</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">string</span> <span class="n">_name</span> <span class="o">=</span> <span class="s">&#34;anonymous&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">vector</span><span class="o">&lt;</span><span class="n">A</span><span class="o">&gt;</span> <span class="n">arr</span><span class="p">(</span><span class="mi">4</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">arr</span><span class="p">.</span><span class="n">reserve</span><span class="p">(</span><span class="mi">4</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;capacity: &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">arr</span><span class="p">.</span><span class="n">capacity</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span> <span class="c1">// 4
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl">    <span class="n">A</span> <span class="n">a1</span><span class="p">(</span><span class="s">&#34;a1&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">A</span> <span class="n">a2</span><span class="p">(</span><span class="s">&#34;a2&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">arr</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">a1</span><span class="p">);</span> <span class="c1">// 触发vector内存的重新分配: 第5个元素调用cp-ctor
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>                       <span class="c1">// 如果mv-ctor声明为noexcept，则前4个元素调用移动构造函数; 否则调用拷贝构造函数cp-ctor
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">arr</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">a2</span><span class="p">));</span> <span class="c1">// 第6个元素调用mv-ctor
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;capacity: &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">arr</span><span class="p">.</span><span class="n">capacity</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span> <span class="c1">// 8
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl">    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;==== return ====&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><p>输出信息为:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-txt" data-lang="txt"><span style="display:flex;"><span>capacity: 4
-</span></span><span style="display:flex;"><span>ctor: a1
-</span></span><span style="display:flex;"><span>ctor: a2
-</span></span><span style="display:flex;"><span>cp-ctor: cp-a1
-</span></span><span style="display:flex;"><span>mv-ctor: mv-anonymous
-</span></span><span style="display:flex;"><span>dtor: anonymous
-</span></span><span style="display:flex;"><span>mv-ctor: mv-anonymous
-</span></span><span style="display:flex;"><span>dtor: anonymous
-</span></span><span style="display:flex;"><span>mv-ctor: mv-anonymous
-</span></span><span style="display:flex;"><span>dtor: anonymous
-</span></span><span style="display:flex;"><span>mv-ctor: mv-anonymous
-</span></span><span style="display:flex;"><span>dtor: anonymous
-</span></span><span style="display:flex;"><span>mv-ctor: mv-a2
-</span></span><span style="display:flex;"><span>capacity: 8
-</span></span><span style="display:flex;"><span>==== return ====
-</span></span><span style="display:flex;"><span>dtor: a2
-</span></span><span style="display:flex;"><span>dtor: a1
-</span></span><span style="display:flex;"><span>dtor: mv-anonymous
-</span></span><span style="display:flex;"><span>dtor: mv-anonymous
-</span></span><span style="display:flex;"><span>dtor: mv-anonymous
-</span></span><span style="display:flex;"><span>dtor: mv-anonymous
-</span></span><span style="display:flex;"><span>dtor: cp-a1
-</span></span><span style="display:flex;"><span>dtor: mv-a2
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-txt" data-lang="txt"><span class="line"><span class="cl">capacity: 4
+</span></span><span class="line"><span class="cl">ctor: a1
+</span></span><span class="line"><span class="cl">ctor: a2
+</span></span><span class="line"><span class="cl">cp-ctor: cp-a1
+</span></span><span class="line"><span class="cl">mv-ctor: mv-anonymous
+</span></span><span class="line"><span class="cl">dtor: anonymous
+</span></span><span class="line"><span class="cl">mv-ctor: mv-anonymous
+</span></span><span class="line"><span class="cl">dtor: anonymous
+</span></span><span class="line"><span class="cl">mv-ctor: mv-anonymous
+</span></span><span class="line"><span class="cl">dtor: anonymous
+</span></span><span class="line"><span class="cl">mv-ctor: mv-anonymous
+</span></span><span class="line"><span class="cl">dtor: anonymous
+</span></span><span class="line"><span class="cl">mv-ctor: mv-a2
+</span></span><span class="line"><span class="cl">capacity: 8
+</span></span><span class="line"><span class="cl">==== return ====
+</span></span><span class="line"><span class="cl">dtor: a2
+</span></span><span class="line"><span class="cl">dtor: a1
+</span></span><span class="line"><span class="cl">dtor: mv-anonymous
+</span></span><span class="line"><span class="cl">dtor: mv-anonymous
+</span></span><span class="line"><span class="cl">dtor: mv-anonymous
+</span></span><span class="line"><span class="cl">dtor: mv-anonymous
+</span></span><span class="line"><span class="cl">dtor: cp-a1
+</span></span><span class="line"><span class="cl">dtor: mv-a2
 </span></span></code></pre></div></article>
               </div>
             </div>

@@ -10,9 +10,9 @@
     <link rel="stylesheet" href='https://devin0x01.github.io/css/light.css' />
     <link rel="stylesheet" href='https://devin0x01.github.io/css/dark.css' />
     <link rel="stylesheet" href='https://devin0x01.github.io/css/syntax.css' />
-    <title>cgdb配置 - DEVIN 0x01</title>
+    <title>cgdb配置 - DEVIN&#39;s BLOG</title>
     
-    <link rel="icon" type="image/x-icon" href='https://devin0x01.github.io/images/favicon.ico'>
+    <link rel="icon" type="image/x-icon" href='/images/github.png'>
     
     <meta name="theme-color" content="#1e2327">
 
@@ -20,13 +20,13 @@
     <meta name="description"
   content="1.安装 git clone git://github.com/cgdb/cgdb.git cd cgdb ./autogen.sh ./configure --prefix=/usr/local make sudo make install # 报错解决方法 sudo apt-get install automake libncurses5-dev flex texinfo libreadline-dev 2.配置 vim ~/.cgdb/cgdbrc set ignorecaseset ts=4 set wso=vertical set eld=shortarrow set hls map &amp;lt;F9&amp;gt; :until&amp;lt;cr&amp;gt; 3.快捷键 F5 - Send a run command to GDB. F6 - Send a continue command to GDB. F7 - Send a finish command to GDB. F8 - Send a next command to GDB." />
 <meta name="keywords"
-  content='' />
+  content='blog, google analytics' />
 <meta name="robots" content="noodp" />
 <link rel="canonical" href="https://devin0x01.github.io/post/cgdb%E9%85%8D%E7%BD%AE/" />
 
 
 <meta name="twitter:card" content="summary" />
-<meta name="twitter:title" content="cgdb配置 - DEVIN 0x01" />
+<meta name="twitter:title" content="cgdb配置 - DEVIN&#39;s BLOG" />
 <meta name="twitter:description"
   content="1.安装 git clone git://github.com/cgdb/cgdb.git cd cgdb ./autogen.sh ./configure --prefix=/usr/local make sudo make install # 报错解决方法 sudo apt-get install automake libncurses5-dev flex texinfo libreadline-dev 2.配置 vim ~/.cgdb/cgdbrc set ignorecaseset ts=4 set wso=vertical set eld=shortarrow set hls map &amp;lt;F9&amp;gt; :until&amp;lt;cr&amp;gt; 3.快捷键 F5 - Send a run command to GDB. F6 - Send a continue command to GDB. F7 - Send a finish command to GDB. F8 - Send a next command to GDB." />
 <meta name="twitter:site" content="https://devin0x01.github.io" />
@@ -36,7 +36,7 @@
 
 
 <meta property="og:type" content="article" />
-<meta property="og:title" content="cgdb配置 - DEVIN 0x01">
+<meta property="og:title" content="cgdb配置 - DEVIN&#39;s BLOG">
 <meta property="og:description"
   content="1.安装 git clone git://github.com/cgdb/cgdb.git cd cgdb ./autogen.sh ./configure --prefix=/usr/local make sudo make install # 报错解决方法 sudo apt-get install automake libncurses5-dev flex texinfo libreadline-dev 2.配置 vim ~/.cgdb/cgdbrc set ignorecaseset ts=4 set wso=vertical set eld=shortarrow set hls map &amp;lt;F9&amp;gt; :until&amp;lt;cr&amp;gt; 3.快捷键 F5 - Send a run command to GDB. F6 - Send a continue command to GDB. F7 - Send a finish command to GDB. F8 - Send a next command to GDB." />
 <meta property="og:url" content="https://devin0x01.github.io/post/cgdb%E9%85%8D%E7%BD%AE/" />
@@ -139,7 +139,7 @@
               <div class="d-flex flex-column">
                 <h1 class="break-word f3 text-normal mb-md-0 mb-1">
                   <span class="author">
-                    <a href="https://devin0x01.github.io"></a></span><span
+                    <a href="https://devin0x01.github.io">DEVIN</a></span><span
                     class="path-divider">/</span><strong class="css-truncate-target mr-1" style="max-width: 410px"><a
                       href="https://devin0x01.github.io/post/cgdb%E9%85%8D%E7%BD%AE/">cgdb配置</a></strong>
                 </h1>
@@ -148,6 +148,11 @@
                     class="no-wrap">
                     Sun, 18 Jun 2023 14:05:25 &#43;0800</relative-time>
 
+                  
+                  <span class="file-info-divider"></span>
+                  Modified <relative-time datetime="Sat, 29 Jul 2023 06:21:41 &#43;0000"
+                    class="no-wrap">
+                    Sat, 29 Jul 2023 06:21:41 &#43;0000</relative-time>
                   
                 </div>
               </div>
@@ -201,24 +206,24 @@
 
               <div class="Box-body px-5 pb-5" style="z-index: 1">
                 <article class="markdown-body entry-content container-lg"><h2 id="1安装">1.安装</h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span>git clone git:<span style="color:#75715e">//github.com/cgdb/cgdb.git
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>cd cgdb
-</span></span><span style="display:flex;"><span>.<span style="color:#f92672">/</span>autogen.sh
-</span></span><span style="display:flex;"><span>.<span style="color:#f92672">/</span>configure <span style="color:#f92672">--</span>prefix<span style="color:#f92672">=/</span>usr<span style="color:#f92672">/</span>local
-</span></span><span style="display:flex;"><span>make
-</span></span><span style="display:flex;"><span>sudo make install
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># 报错解决方法
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>sudo apt<span style="color:#f92672">-</span>get install automake libncurses5<span style="color:#f92672">-</span>dev flex texinfo libreadline<span style="color:#f92672">-</span>dev
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="n">git</span> <span class="n">clone</span> <span class="nl">git</span><span class="p">:</span><span class="c1">//github.com/cgdb/cgdb.git
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">cd</span> <span class="n">cgdb</span>
+</span></span><span class="line"><span class="cl"><span class="p">.</span><span class="o">/</span><span class="n">autogen</span><span class="p">.</span><span class="n">sh</span>
+</span></span><span class="line"><span class="cl"><span class="p">.</span><span class="o">/</span><span class="n">configure</span> <span class="o">--</span><span class="n">prefix</span><span class="o">=/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span>
+</span></span><span class="line"><span class="cl"><span class="n">make</span>
+</span></span><span class="line"><span class="cl"><span class="n">sudo</span> <span class="n">make</span> <span class="n">install</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="cp"># 报错解决方法
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">automake</span> <span class="n">libncurses5</span><span class="o">-</span><span class="n">dev</span> <span class="n">flex</span> <span class="n">texinfo</span> <span class="n">libreadline</span><span class="o">-</span><span class="n">dev</span>
 </span></span></code></pre></div><h2 id="2配置">2.配置</h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span>vim <span style="color:#f92672">~/</span>.cgdb<span style="color:#f92672">/</span>cgdbrc
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>set ignorecaseset
-</span></span><span style="display:flex;"><span>ts<span style="color:#f92672">=</span><span style="color:#ae81ff">4</span>
-</span></span><span style="display:flex;"><span>set wso<span style="color:#f92672">=</span>vertical
-</span></span><span style="display:flex;"><span>set eld<span style="color:#f92672">=</span>shortarrow
-</span></span><span style="display:flex;"><span>set hls
-</span></span><span style="display:flex;"><span>map <span style="color:#f92672">&lt;</span>F9<span style="color:#f92672">&gt;</span> <span style="color:#f92672">:</span>until<span style="color:#f92672">&lt;</span>cr<span style="color:#f92672">&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="n">vim</span> <span class="o">~/</span><span class="p">.</span><span class="n">cgdb</span><span class="o">/</span><span class="n">cgdbrc</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">set</span> <span class="n">ignorecaseset</span>
+</span></span><span class="line"><span class="cl"><span class="n">ts</span><span class="o">=</span><span class="mi">4</span>
+</span></span><span class="line"><span class="cl"><span class="n">set</span> <span class="n">wso</span><span class="o">=</span><span class="n">vertical</span>
+</span></span><span class="line"><span class="cl"><span class="n">set</span> <span class="n">eld</span><span class="o">=</span><span class="n">shortarrow</span>
+</span></span><span class="line"><span class="cl"><span class="n">set</span> <span class="n">hls</span>
+</span></span><span class="line"><span class="cl"><span class="n">map</span> <span class="o">&lt;</span><span class="n">F9</span><span class="o">&gt;</span> <span class="o">:</span><span class="n">until</span><span class="o">&lt;</span><span class="n">cr</span><span class="o">&gt;</span>
 </span></span></code></pre></div><h2 id="3快捷键">3.快捷键</h2>
 <blockquote>
 <p>F5 - Send a run command to GDB.

@@ -10,9 +10,9 @@
     <link rel="stylesheet" href='https://devin0x01.github.io/css/light.css' />
     <link rel="stylesheet" href='https://devin0x01.github.io/css/dark.css' />
     <link rel="stylesheet" href='https://devin0x01.github.io/css/syntax.css' />
-    <title>Qt开发总结篇一 - DEVIN 0x01</title>
+    <title>Qt开发总结篇一 - DEVIN&#39;s BLOG</title>
     
-    <link rel="icon" type="image/x-icon" href='https://devin0x01.github.io/images/favicon.ico'>
+    <link rel="icon" type="image/x-icon" href='/images/github.png'>
     
     <meta name="theme-color" content="#1e2327">
 
@@ -21,13 +21,13 @@
   content="GUI界面 限制输入的内容 QValidator *validator = new QIntValidator(100, 999, this); // 这样文本框只能输入100~999之间的数字 ui-&amp;gt;lineEdit-&amp;gt;setValidator(validator); 显示格式控制 ui-&amp;gt;textEdit-&amp;gt;setWordWrapMode(QTextOption::WrapAnywhere); // 任意地方换行 ui-&amp;gt;tableWidget-&amp;gt;setTextElideMode(Qt::ElideMode); // 不显示省略号 Qt序列化 通过全局流操作运算符重载实现，可以序列化到文件等设备中，也可以序列化到QByteArray中。
 // cmdinfo.h // BaseInfo已经实现序列化 class CmdInfo : public BaseInfo { public: friend QDataStream&amp;amp; operator&amp;gt;&amp;gt;(QDataStream&amp;amp;, CmdInfo&amp;amp;); friend QDataStream&amp;amp; operator&amp;lt;&amp;lt;(QDataStream&amp;amp;, const CmdInfo&amp;amp;); private: QString command_; CmdType type_; }; // cmdinfo.cpp QDataStream&amp;amp; operator&amp;gt;&amp;gt;(QDataStream &amp;amp;in, CmdInfo &amp;amp;data) { BaseInfo &amp;amp;base = data; qint32 tmpInt; in &amp;gt;&amp;gt; base &amp;gt;&amp;gt; data.command_ &amp;gt;&amp;gt; tmpInt; data.setType((CmdType)tmpInt); return in; } QDataStream&amp;amp; operator&amp;lt;&amp;lt;(QDataStream &amp;amp;out, const CmdInfo &amp;amp;data) { const BaseInfo &amp;amp;base = data; out &amp;lt;&amp;lt; base &amp;lt;&amp;lt; data." />
 <meta name="keywords"
-  content='' />
+  content='blog, google analytics' />
 <meta name="robots" content="noodp" />
 <link rel="canonical" href="https://devin0x01.github.io/post/qt%E5%BC%80%E5%8F%91%E6%80%BB%E7%BB%93%E7%AF%87%E4%B8%80/" />
 
 
 <meta name="twitter:card" content="summary" />
-<meta name="twitter:title" content="Qt开发总结篇一 - DEVIN 0x01" />
+<meta name="twitter:title" content="Qt开发总结篇一 - DEVIN&#39;s BLOG" />
 <meta name="twitter:description"
   content="GUI界面 限制输入的内容 QValidator *validator = new QIntValidator(100, 999, this); // 这样文本框只能输入100~999之间的数字 ui-&amp;gt;lineEdit-&amp;gt;setValidator(validator); 显示格式控制 ui-&amp;gt;textEdit-&amp;gt;setWordWrapMode(QTextOption::WrapAnywhere); // 任意地方换行 ui-&amp;gt;tableWidget-&amp;gt;setTextElideMode(Qt::ElideMode); // 不显示省略号 Qt序列化 通过全局流操作运算符重载实现，可以序列化到文件等设备中，也可以序列化到QByteArray中。
 // cmdinfo.h // BaseInfo已经实现序列化 class CmdInfo : public BaseInfo { public: friend QDataStream&amp;amp; operator&amp;gt;&amp;gt;(QDataStream&amp;amp;, CmdInfo&amp;amp;); friend QDataStream&amp;amp; operator&amp;lt;&amp;lt;(QDataStream&amp;amp;, const CmdInfo&amp;amp;); private: QString command_; CmdType type_; }; // cmdinfo.cpp QDataStream&amp;amp; operator&amp;gt;&amp;gt;(QDataStream &amp;amp;in, CmdInfo &amp;amp;data) { BaseInfo &amp;amp;base = data; qint32 tmpInt; in &amp;gt;&amp;gt; base &amp;gt;&amp;gt; data.command_ &amp;gt;&amp;gt; tmpInt; data.setType((CmdType)tmpInt); return in; } QDataStream&amp;amp; operator&amp;lt;&amp;lt;(QDataStream &amp;amp;out, const CmdInfo &amp;amp;data) { const BaseInfo &amp;amp;base = data; out &amp;lt;&amp;lt; base &amp;lt;&amp;lt; data." />
@@ -38,7 +38,7 @@
 
 
 <meta property="og:type" content="article" />
-<meta property="og:title" content="Qt开发总结篇一 - DEVIN 0x01">
+<meta property="og:title" content="Qt开发总结篇一 - DEVIN&#39;s BLOG">
 <meta property="og:description"
   content="GUI界面 限制输入的内容 QValidator *validator = new QIntValidator(100, 999, this); // 这样文本框只能输入100~999之间的数字 ui-&amp;gt;lineEdit-&amp;gt;setValidator(validator); 显示格式控制 ui-&amp;gt;textEdit-&amp;gt;setWordWrapMode(QTextOption::WrapAnywhere); // 任意地方换行 ui-&amp;gt;tableWidget-&amp;gt;setTextElideMode(Qt::ElideMode); // 不显示省略号 Qt序列化 通过全局流操作运算符重载实现，可以序列化到文件等设备中，也可以序列化到QByteArray中。
 // cmdinfo.h // BaseInfo已经实现序列化 class CmdInfo : public BaseInfo { public: friend QDataStream&amp;amp; operator&amp;gt;&amp;gt;(QDataStream&amp;amp;, CmdInfo&amp;amp;); friend QDataStream&amp;amp; operator&amp;lt;&amp;lt;(QDataStream&amp;amp;, const CmdInfo&amp;amp;); private: QString command_; CmdType type_; }; // cmdinfo.cpp QDataStream&amp;amp; operator&amp;gt;&amp;gt;(QDataStream &amp;amp;in, CmdInfo &amp;amp;data) { BaseInfo &amp;amp;base = data; qint32 tmpInt; in &amp;gt;&amp;gt; base &amp;gt;&amp;gt; data.command_ &amp;gt;&amp;gt; tmpInt; data.setType((CmdType)tmpInt); return in; } QDataStream&amp;amp; operator&amp;lt;&amp;lt;(QDataStream &amp;amp;out, const CmdInfo &amp;amp;data) { const BaseInfo &amp;amp;base = data; out &amp;lt;&amp;lt; base &amp;lt;&amp;lt; data." />
@@ -142,7 +142,7 @@
               <div class="d-flex flex-column">
                 <h1 class="break-word f3 text-normal mb-md-0 mb-1">
                   <span class="author">
-                    <a href="https://devin0x01.github.io"></a></span><span
+                    <a href="https://devin0x01.github.io">DEVIN</a></span><span
                     class="path-divider">/</span><strong class="css-truncate-target mr-1" style="max-width: 410px"><a
                       href="https://devin0x01.github.io/post/qt%E5%BC%80%E5%8F%91%E6%80%BB%E7%BB%93%E7%AF%87%E4%B8%80/">Qt开发总结篇一</a></strong>
                 </h1>
@@ -151,6 +151,11 @@
                     class="no-wrap">
                     Sun, 18 Jun 2023 14:05:25 &#43;0800</relative-time>
 
+                  
+                  <span class="file-info-divider"></span>
+                  Modified <relative-time datetime="Sat, 29 Jul 2023 06:21:41 &#43;0000"
+                    class="no-wrap">
+                    Sat, 29 Jul 2023 06:21:41 &#43;0000</relative-time>
                   
                 </div>
               </div>
@@ -205,112 +210,112 @@
               <div class="Box-body px-5 pb-5" style="z-index: 1">
                 <article class="markdown-body entry-content container-lg"><h2 id="gui界面">GUI界面</h2>
 <h3 id="限制输入的内容">限制输入的内容</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span>QValidator <span style="color:#f92672">*</span>validator <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> QIntValidator(<span style="color:#ae81ff">100</span>, <span style="color:#ae81ff">999</span>, <span style="color:#66d9ef">this</span>);
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// 这样文本框只能输入100~999之间的数字
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>ui<span style="color:#f92672">-&gt;</span>lineEdit<span style="color:#f92672">-&gt;</span>setValidator(validator);
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">QValidator</span> <span class="o">*</span><span class="n">validator</span> <span class="o">=</span> <span class="k">new</span> <span class="n">QIntValidator</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">999</span><span class="p">,</span> <span class="k">this</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// 这样文本框只能输入100~999之间的数字
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">ui</span><span class="o">-&gt;</span><span class="n">lineEdit</span><span class="o">-&gt;</span><span class="n">setValidator</span><span class="p">(</span><span class="n">validator</span><span class="p">);</span>
 </span></span></code></pre></div><h3 id="显示格式控制">显示格式控制</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span>ui<span style="color:#f92672">-&gt;</span>textEdit<span style="color:#f92672">-&gt;</span>setWordWrapMode(QTextOption<span style="color:#f92672">::</span>WrapAnywhere); <span style="color:#75715e">// 任意地方换行
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>ui<span style="color:#f92672">-&gt;</span>tableWidget<span style="color:#f92672">-&gt;</span>setTextElideMode(Qt<span style="color:#f92672">::</span>ElideMode); <span style="color:#75715e">// 不显示省略号
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">ui</span><span class="o">-&gt;</span><span class="n">textEdit</span><span class="o">-&gt;</span><span class="n">setWordWrapMode</span><span class="p">(</span><span class="n">QTextOption</span><span class="o">::</span><span class="n">WrapAnywhere</span><span class="p">);</span> <span class="c1">// 任意地方换行
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">ui</span><span class="o">-&gt;</span><span class="n">tableWidget</span><span class="o">-&gt;</span><span class="n">setTextElideMode</span><span class="p">(</span><span class="n">Qt</span><span class="o">::</span><span class="n">ElideMode</span><span class="p">);</span> <span class="c1">// 不显示省略号
 </span></span></span></code></pre></div><h2 id="qt序列化">Qt序列化</h2>
 <p>通过<strong>全局流操作运算符重载</strong>实现，可以序列化到文件等设备中，也可以序列化到<code>QByteArray</code>中。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#75715e">// cmdinfo.h
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// BaseInfo已经实现序列化
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">CmdInfo</span> <span style="color:#f92672">:</span> <span style="color:#66d9ef">public</span> BaseInfo {
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span><span style="color:#f92672">:</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">friend</span> QDataStream<span style="color:#f92672">&amp;</span> <span style="color:#66d9ef">operator</span><span style="color:#f92672">&gt;&gt;</span>(QDataStream<span style="color:#f92672">&amp;</span>, CmdInfo<span style="color:#f92672">&amp;</span>);
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">friend</span> QDataStream<span style="color:#f92672">&amp;</span> <span style="color:#66d9ef">operator</span><span style="color:#f92672">&lt;&lt;</span>(QDataStream<span style="color:#f92672">&amp;</span>, <span style="color:#66d9ef">const</span> CmdInfo<span style="color:#f92672">&amp;</span>);
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">private</span><span style="color:#f92672">:</span>
-</span></span><span style="display:flex;"><span>    QString command_;
-</span></span><span style="display:flex;"><span>    CmdType type_;
-</span></span><span style="display:flex;"><span>};
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// cmdinfo.cpp
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>QDataStream<span style="color:#f92672">&amp;</span> <span style="color:#66d9ef">operator</span><span style="color:#f92672">&gt;&gt;</span>(QDataStream <span style="color:#f92672">&amp;</span>in, CmdInfo <span style="color:#f92672">&amp;</span>data)
-</span></span><span style="display:flex;"><span>{
-</span></span><span style="display:flex;"><span>    BaseInfo <span style="color:#f92672">&amp;</span>base <span style="color:#f92672">=</span> data;
-</span></span><span style="display:flex;"><span>    qint32 tmpInt;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    in <span style="color:#f92672">&gt;&gt;</span> base <span style="color:#f92672">&gt;&gt;</span> data.command_ <span style="color:#f92672">&gt;&gt;</span> tmpInt;
-</span></span><span style="display:flex;"><span>    data.setType((CmdType)tmpInt);
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> in;
-</span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span>QDataStream<span style="color:#f92672">&amp;</span> <span style="color:#66d9ef">operator</span><span style="color:#f92672">&lt;&lt;</span>(QDataStream <span style="color:#f92672">&amp;</span>out, <span style="color:#66d9ef">const</span> CmdInfo <span style="color:#f92672">&amp;</span>data)
-</span></span><span style="display:flex;"><span>{
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> BaseInfo <span style="color:#f92672">&amp;</span>base <span style="color:#f92672">=</span> data;
-</span></span><span style="display:flex;"><span>    out <span style="color:#f92672">&lt;&lt;</span> base <span style="color:#f92672">&lt;&lt;</span> data.command_ <span style="color:#f92672">&lt;&lt;</span> (qint32)data.type_;
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> out;
-</span></span><span style="display:flex;"><span>}
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="c1">// cmdinfo.h
+</span></span></span><span class="line"><span class="cl"><span class="c1">// BaseInfo已经实现序列化
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">class</span> <span class="nc">CmdInfo</span> <span class="o">:</span> <span class="k">public</span> <span class="n">BaseInfo</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="k">public</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">    <span class="k">friend</span> <span class="n">QDataStream</span><span class="o">&amp;</span> <span class="k">operator</span><span class="o">&gt;&gt;</span><span class="p">(</span><span class="n">QDataStream</span><span class="o">&amp;</span><span class="p">,</span> <span class="n">CmdInfo</span><span class="o">&amp;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="k">friend</span> <span class="n">QDataStream</span><span class="o">&amp;</span> <span class="k">operator</span><span class="o">&lt;&lt;</span><span class="p">(</span><span class="n">QDataStream</span><span class="o">&amp;</span><span class="p">,</span> <span class="k">const</span> <span class="n">CmdInfo</span><span class="o">&amp;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">private</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">QString</span> <span class="n">command_</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">CmdType</span> <span class="n">type_</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// cmdinfo.cpp
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">QDataStream</span><span class="o">&amp;</span> <span class="k">operator</span><span class="o">&gt;&gt;</span><span class="p">(</span><span class="n">QDataStream</span> <span class="o">&amp;</span><span class="n">in</span><span class="p">,</span> <span class="n">CmdInfo</span> <span class="o">&amp;</span><span class="n">data</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">BaseInfo</span> <span class="o">&amp;</span><span class="n">base</span> <span class="o">=</span> <span class="n">data</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">qint32</span> <span class="n">tmpInt</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">in</span> <span class="o">&gt;&gt;</span> <span class="n">base</span> <span class="o">&gt;&gt;</span> <span class="n">data</span><span class="p">.</span><span class="n">command_</span> <span class="o">&gt;&gt;</span> <span class="n">tmpInt</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">data</span><span class="p">.</span><span class="n">setType</span><span class="p">((</span><span class="n">CmdType</span><span class="p">)</span><span class="n">tmpInt</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">in</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="n">QDataStream</span><span class="o">&amp;</span> <span class="k">operator</span><span class="o">&lt;&lt;</span><span class="p">(</span><span class="n">QDataStream</span> <span class="o">&amp;</span><span class="n">out</span><span class="p">,</span> <span class="k">const</span> <span class="n">CmdInfo</span> <span class="o">&amp;</span><span class="n">data</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">const</span> <span class="n">BaseInfo</span> <span class="o">&amp;</span><span class="n">base</span> <span class="o">=</span> <span class="n">data</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">out</span> <span class="o">&lt;&lt;</span> <span class="n">base</span> <span class="o">&lt;&lt;</span> <span class="n">data</span><span class="p">.</span><span class="n">command_</span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="n">qint32</span><span class="p">)</span><span class="n">data</span><span class="p">.</span><span class="n">type_</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">out</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><h3 id="序列化到文件中">序列化到文件中</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#75715e">// 读
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>QFile <span style="color:#a6e22e">file</span>(<span style="color:#e6db74">&#34;object.dat&#34;</span>);
-</span></span><span style="display:flex;"><span>file.open(QFile<span style="color:#f92672">::</span>ReadOnly);
-</span></span><span style="display:flex;"><span>QDataStream <span style="color:#a6e22e">in</span>(<span style="color:#f92672">&amp;</span>file);
-</span></span><span style="display:flex;"><span>in <span style="color:#f92672">&gt;&gt;</span> infoObj;
-</span></span><span style="display:flex;"><span>file.close();
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// 写
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>QFile <span style="color:#a6e22e">file</span>(datFilename(filename));
-</span></span><span style="display:flex;"><span>file.open(QFile<span style="color:#f92672">::</span>Truncate <span style="color:#f92672">|</span> QFile<span style="color:#f92672">::</span>WriteOnly);
-</span></span><span style="display:flex;"><span>QDataStream <span style="color:#a6e22e">out</span>(<span style="color:#f92672">&amp;</span>file);
-</span></span><span style="display:flex;"><span>out <span style="color:#f92672">&lt;&lt;</span> infoObj;
-</span></span><span style="display:flex;"><span>file.flush();
-</span></span><span style="display:flex;"><span>file.close();
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="c1">// 读
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">QFile</span> <span class="nf">file</span><span class="p">(</span><span class="s">&#34;object.dat&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="n">file</span><span class="p">.</span><span class="n">open</span><span class="p">(</span><span class="n">QFile</span><span class="o">::</span><span class="n">ReadOnly</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="n">QDataStream</span> <span class="nf">in</span><span class="p">(</span><span class="o">&amp;</span><span class="n">file</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="n">in</span> <span class="o">&gt;&gt;</span> <span class="n">infoObj</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="n">file</span><span class="p">.</span><span class="n">close</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 写
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">QFile</span> <span class="nf">file</span><span class="p">(</span><span class="n">datFilename</span><span class="p">(</span><span class="n">filename</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl"><span class="n">file</span><span class="p">.</span><span class="n">open</span><span class="p">(</span><span class="n">QFile</span><span class="o">::</span><span class="n">Truncate</span> <span class="o">|</span> <span class="n">QFile</span><span class="o">::</span><span class="n">WriteOnly</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="n">QDataStream</span> <span class="nf">out</span><span class="p">(</span><span class="o">&amp;</span><span class="n">file</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="n">out</span> <span class="o">&lt;&lt;</span> <span class="n">infoObj</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="n">file</span><span class="p">.</span><span class="n">flush</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl"><span class="n">file</span><span class="p">.</span><span class="n">close</span><span class="p">();</span>
 </span></span></code></pre></div><h3 id="序列化到qbytearray中">序列化到QByteArray中</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#75715e">// The QBuffer class provides a QIODevice interface for a QByteArray.
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>QByteArray byteArray;
-</span></span><span style="display:flex;"><span>QBuffer <span style="color:#a6e22e">buffer</span>(<span style="color:#f92672">&amp;</span>byteArray);
-</span></span><span style="display:flex;"><span>buffer.open(QIODevice<span style="color:#f92672">::</span>WriteOnly);
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>QDataStream <span style="color:#a6e22e">out</span>(<span style="color:#f92672">&amp;</span>buffer);
-</span></span><span style="display:flex;"><span>out <span style="color:#f92672">&lt;&lt;</span> QApplication<span style="color:#f92672">::</span>palette();
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="c1">// The QBuffer class provides a QIODevice interface for a QByteArray.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">QByteArray</span> <span class="n">byteArray</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="n">QBuffer</span> <span class="nf">buffer</span><span class="p">(</span><span class="o">&amp;</span><span class="n">byteArray</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="n">buffer</span><span class="p">.</span><span class="n">open</span><span class="p">(</span><span class="n">QIODevice</span><span class="o">::</span><span class="n">WriteOnly</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">QDataStream</span> <span class="nf">out</span><span class="p">(</span><span class="o">&amp;</span><span class="n">buffer</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="n">out</span> <span class="o">&lt;&lt;</span> <span class="n">QApplication</span><span class="o">::</span><span class="n">palette</span><span class="p">();</span>
 </span></span></code></pre></div><p><code>QDateTime</code>也重载了关于<code>QDateTime</code>和<code>QDebug</code>的全局流操作符</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">QDateTime</span> {
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">friend</span> Q_CORE_EXPORT QDataStream <span style="color:#f92672">&amp;</span><span style="color:#66d9ef">operator</span><span style="color:#f92672">&lt;&lt;</span>(QDataStream <span style="color:#f92672">&amp;</span>, <span style="color:#66d9ef">const</span> QDateTime <span style="color:#f92672">&amp;</span>);
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">friend</span> Q_CORE_EXPORT QDataStream <span style="color:#f92672">&amp;</span><span style="color:#66d9ef">operator</span><span style="color:#f92672">&gt;&gt;</span>(QDataStream <span style="color:#f92672">&amp;</span>, QDateTime <span style="color:#f92672">&amp;</span>);
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">friend</span> Q_CORE_EXPORT QDebug <span style="color:#66d9ef">operator</span><span style="color:#f92672">&lt;&lt;</span>(QDebug, <span style="color:#66d9ef">const</span> QDateTime <span style="color:#f92672">&amp;</span>);
-</span></span><span style="display:flex;"><span>};
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">QDateTime</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">friend</span> <span class="n">Q_CORE_EXPORT</span> <span class="n">QDataStream</span> <span class="o">&amp;</span><span class="k">operator</span><span class="o">&lt;&lt;</span><span class="p">(</span><span class="n">QDataStream</span> <span class="o">&amp;</span><span class="p">,</span> <span class="k">const</span> <span class="n">QDateTime</span> <span class="o">&amp;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="k">friend</span> <span class="n">Q_CORE_EXPORT</span> <span class="n">QDataStream</span> <span class="o">&amp;</span><span class="k">operator</span><span class="o">&gt;&gt;</span><span class="p">(</span><span class="n">QDataStream</span> <span class="o">&amp;</span><span class="p">,</span> <span class="n">QDateTime</span> <span class="o">&amp;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">friend</span> <span class="n">Q_CORE_EXPORT</span> <span class="n">QDebug</span> <span class="k">operator</span><span class="o">&lt;&lt;</span><span class="p">(</span><span class="n">QDebug</span><span class="p">,</span> <span class="k">const</span> <span class="n">QDateTime</span> <span class="o">&amp;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
 </span></span></code></pre></div><h2 id="qbytearray的copy-on-write">QByteArray的Copy-On-Write</h2>
 <blockquote>
 <p>QByteArray can be used to store both raw bytes (including &lsquo;\0&rsquo;s) and traditional 8-bit &lsquo;\0&rsquo;-terminated strings. Using QByteArray is much more convenient than using <code>const char *</code>. Behind the scenes, it always ensures that the data is followed by a &lsquo;\0&rsquo; terminator, and uses <a href="https://doc.qt.io/qt-5/implicit-sharing.html">implicit sharing</a> (copy-on-write) to reduce memory usage and avoid needless copying of data.</p>
 </blockquote>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;QByteArray&gt;</span><span style="color:#75715e">
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;QDebug&gt;</span><span style="color:#75715e">
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>()
-</span></span><span style="display:flex;"><span>{
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">char</span> buf[] <span style="color:#f92672">=</span> {<span style="color:#e6db74">&#39;1&#39;</span>, <span style="color:#e6db74">&#39;2&#39;</span>, <span style="color:#ae81ff">0</span>, <span style="color:#e6db74">&#39;3&#39;</span>};
-</span></span><span style="display:flex;"><span>    QByteArray ba1 <span style="color:#f92672">=</span> QByteArray<span style="color:#f92672">::</span>fromRawData(buf, <span style="color:#ae81ff">4</span>);
-</span></span><span style="display:flex;"><span>    QByteArray ba2 <span style="color:#f92672">=</span> QByteArray(buf, <span style="color:#ae81ff">4</span>); <span style="color:#75715e">// 深拷贝
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    qDebug() <span style="color:#f92672">&lt;&lt;</span> ba2.size(); <span style="color:#75715e">// 4
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#75715e">// buf的地址和ba1.constData()的地址相同
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    printf(<span style="color:#e6db74">&#34;buf=%p, ba1=%p, ba2=%p</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, buf, ba1.constData(), ba2.constData());
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 注意: data()接口会触发深拷贝，而constData不会触发深拷贝
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    ba1.data();
-</span></span><span style="display:flex;"><span>    printf(<span style="color:#e6db74">&#34;buf=%p, ba1=%p, ba2=%p</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, buf, ba1.constData(), ba2.constData());
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
-</span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// 输出：
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// 4
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// buf=0067fea4, ba1=0067fea4, ba2=012475d8
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// buf=0067fea4, ba1=0124b6f8, ba2=012475d8
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;QByteArray&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;QDebug&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">char</span> <span class="n">buf</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span><span class="sc">&#39;1&#39;</span><span class="p">,</span> <span class="sc">&#39;2&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="sc">&#39;3&#39;</span><span class="p">};</span>
+</span></span><span class="line"><span class="cl">    <span class="n">QByteArray</span> <span class="n">ba1</span> <span class="o">=</span> <span class="n">QByteArray</span><span class="o">::</span><span class="n">fromRawData</span><span class="p">(</span><span class="n">buf</span><span class="p">,</span> <span class="mi">4</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">QByteArray</span> <span class="n">ba2</span> <span class="o">=</span> <span class="n">QByteArray</span><span class="p">(</span><span class="n">buf</span><span class="p">,</span> <span class="mi">4</span><span class="p">);</span> <span class="c1">// 深拷贝
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">qDebug</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n">ba2</span><span class="p">.</span><span class="n">size</span><span class="p">();</span> <span class="c1">// 4
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="c1">// buf的地址和ba1.constData()的地址相同
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">printf</span><span class="p">(</span><span class="s">&#34;buf=%p, ba1=%p, ba2=%p</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">buf</span><span class="p">,</span> <span class="n">ba1</span><span class="p">.</span><span class="n">constData</span><span class="p">(),</span> <span class="n">ba2</span><span class="p">.</span><span class="n">constData</span><span class="p">());</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">// 注意: data()接口会触发深拷贝，而constData不会触发深拷贝
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">ba1</span><span class="p">.</span><span class="n">data</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">    <span class="n">printf</span><span class="p">(</span><span class="s">&#34;buf=%p, ba1=%p, ba2=%p</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">buf</span><span class="p">,</span> <span class="n">ba1</span><span class="p">.</span><span class="n">constData</span><span class="p">(),</span> <span class="n">ba2</span><span class="p">.</span><span class="n">constData</span><span class="p">());</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 输出：
+</span></span></span><span class="line"><span class="cl"><span class="c1">// 4
+</span></span></span><span class="line"><span class="cl"><span class="c1">// buf=0067fea4, ba1=0067fea4, ba2=012475d8
+</span></span></span><span class="line"><span class="cl"><span class="c1">// buf=0067fea4, ba1=0124b6f8, ba2=012475d8
 </span></span></span></code></pre></div><h3 id="底层原理">底层原理</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#75715e">// qbytearray.h
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">inline</span> <span style="color:#66d9ef">char</span> <span style="color:#f92672">*</span>QByteArray<span style="color:#f92672">::</span>data()
-</span></span><span style="display:flex;"><span>{ detach(); <span style="color:#66d9ef">return</span> d<span style="color:#f92672">-&gt;</span>data(); }
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">inline</span> <span style="color:#66d9ef">const</span> <span style="color:#66d9ef">char</span> <span style="color:#f92672">*</span>QByteArray<span style="color:#f92672">::</span>data() <span style="color:#66d9ef">const</span>
-</span></span><span style="display:flex;"><span>{ <span style="color:#66d9ef">return</span> d<span style="color:#f92672">-&gt;</span>data(); }
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">inline</span> <span style="color:#66d9ef">const</span> <span style="color:#66d9ef">char</span> <span style="color:#f92672">*</span>QByteArray<span style="color:#f92672">::</span>constData() <span style="color:#66d9ef">const</span>
-</span></span><span style="display:flex;"><span>{ <span style="color:#66d9ef">return</span> d<span style="color:#f92672">-&gt;</span>data(); }
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">inline</span> <span style="color:#66d9ef">void</span> QByteArray<span style="color:#f92672">::</span>detach()
-</span></span><span style="display:flex;"><span>{ <span style="color:#66d9ef">if</span> (d<span style="color:#f92672">-&gt;</span>ref.isShared() <span style="color:#f92672">||</span> (d<span style="color:#f92672">-&gt;</span>offset <span style="color:#f92672">!=</span> <span style="color:#66d9ef">sizeof</span>(QByteArrayData))) reallocData(uint(d<span style="color:#f92672">-&gt;</span>size) <span style="color:#f92672">+</span> <span style="color:#ae81ff">1u</span>, d<span style="color:#f92672">-&gt;</span>detachFlags()); }
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="c1">// qbytearray.h
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="kr">inline</span> <span class="kt">char</span> <span class="o">*</span><span class="n">QByteArray</span><span class="o">::</span><span class="n">data</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span> <span class="n">detach</span><span class="p">();</span> <span class="k">return</span> <span class="n">d</span><span class="o">-&gt;</span><span class="n">data</span><span class="p">();</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kr">inline</span> <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">QByteArray</span><span class="o">::</span><span class="n">data</span><span class="p">()</span> <span class="k">const</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span> <span class="k">return</span> <span class="n">d</span><span class="o">-&gt;</span><span class="n">data</span><span class="p">();</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kr">inline</span> <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">QByteArray</span><span class="o">::</span><span class="n">constData</span><span class="p">()</span> <span class="k">const</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span> <span class="k">return</span> <span class="n">d</span><span class="o">-&gt;</span><span class="n">data</span><span class="p">();</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kr">inline</span> <span class="kt">void</span> <span class="n">QByteArray</span><span class="o">::</span><span class="n">detach</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span> <span class="k">if</span> <span class="p">(</span><span class="n">d</span><span class="o">-&gt;</span><span class="n">ref</span><span class="p">.</span><span class="n">isShared</span><span class="p">()</span> <span class="o">||</span> <span class="p">(</span><span class="n">d</span><span class="o">-&gt;</span><span class="n">offset</span> <span class="o">!=</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">QByteArrayData</span><span class="p">)))</span> <span class="n">reallocData</span><span class="p">(</span><span class="n">uint</span><span class="p">(</span><span class="n">d</span><span class="o">-&gt;</span><span class="n">size</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1u</span><span class="p">,</span> <span class="n">d</span><span class="o">-&gt;</span><span class="n">detachFlags</span><span class="p">());</span> <span class="p">}</span>
 </span></span></code></pre></div></article>
               </div>
             </div>

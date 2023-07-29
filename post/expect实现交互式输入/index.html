@@ -10,9 +10,9 @@
     <link rel="stylesheet" href='https://devin0x01.github.io/css/light.css' />
     <link rel="stylesheet" href='https://devin0x01.github.io/css/dark.css' />
     <link rel="stylesheet" href='https://devin0x01.github.io/css/syntax.css' />
-    <title>expect实现交互式输入 - DEVIN 0x01</title>
+    <title>expect实现交互式输入 - DEVIN&#39;s BLOG</title>
     
-    <link rel="icon" type="image/x-icon" href='https://devin0x01.github.io/images/favicon.ico'>
+    <link rel="icon" type="image/x-icon" href='/images/github.png'>
     
     <meta name="theme-color" content="#1e2327">
 
@@ -21,13 +21,13 @@
   content="1.常用命令 选项： -c:执行脚本前先执行的命令，可多次使用。 -d:debug模式，可以在运行时输出一些诊断信息，与在脚本开始处使用exp_internal 1相似。 -D:启用交换调式器,可设一整数参数。 -f:从文件读取命令，仅用于使用#!时。如果文件名为&amp;quot;-&amp;quot;，则从stdin读取(使用&amp;quot;./-&amp;ldquo;从文件名为-的文件读取)。 -i:交互式输入命令，使用&amp;quot;exit&amp;quot;或&amp;quot;EOF&amp;quot;退出输入状态。 &amp;ndash;:标示选项结束(如果你需要传递与expect选项相似的参数给脚本时)，可放到#!行:#!/usr/bin/expect &amp;ndash;。 -v:显示expect版本信息。
 # 命令行参数 # $argv，参数数组，使用[lindex $argv n]获取，$argv 0为脚本名字 # $argc，参数个数 set username [lindex $argv 1] # 获取第1个参数 set passwd [lindex $argv 2] # 获取第2个参数 set timeout 30 # 设置超时 # spawn是expect内部命令，开启ssh连接 spawn ssh -l username 192.168.1.1 # 判断上次输出结果里是否包含“password:”的字符串，如果有则立即返回，否则就等待一段时间(timeout)后返回 expect &amp;#34;password:&amp;#34; # 发送内容ispass(密码、命令等) send &amp;#34;ispass\r&amp;#34; # 发送内容给用户 send_user &amp;#34;$argv0 [lrange $argv 0 2]\n&amp;#34; send_user &amp;#34;It&amp;#39;s OK\r&amp;#34; # 执行完成后保持交互状态，控制权交给控制台(手工操作)。否则会完成后会退出。 interact 2.例子 2.1自动telnet会话 #!" />
 <meta name="keywords"
-  content='' />
+  content='blog, google analytics' />
 <meta name="robots" content="noodp" />
 <link rel="canonical" href="https://devin0x01.github.io/post/expect%E5%AE%9E%E7%8E%B0%E4%BA%A4%E4%BA%92%E5%BC%8F%E8%BE%93%E5%85%A5/" />
 
 
 <meta name="twitter:card" content="summary" />
-<meta name="twitter:title" content="expect实现交互式输入 - DEVIN 0x01" />
+<meta name="twitter:title" content="expect实现交互式输入 - DEVIN&#39;s BLOG" />
 <meta name="twitter:description"
   content="1.常用命令 选项： -c:执行脚本前先执行的命令，可多次使用。 -d:debug模式，可以在运行时输出一些诊断信息，与在脚本开始处使用exp_internal 1相似。 -D:启用交换调式器,可设一整数参数。 -f:从文件读取命令，仅用于使用#!时。如果文件名为&amp;quot;-&amp;quot;，则从stdin读取(使用&amp;quot;./-&amp;ldquo;从文件名为-的文件读取)。 -i:交互式输入命令，使用&amp;quot;exit&amp;quot;或&amp;quot;EOF&amp;quot;退出输入状态。 &amp;ndash;:标示选项结束(如果你需要传递与expect选项相似的参数给脚本时)，可放到#!行:#!/usr/bin/expect &amp;ndash;。 -v:显示expect版本信息。
 # 命令行参数 # $argv，参数数组，使用[lindex $argv n]获取，$argv 0为脚本名字 # $argc，参数个数 set username [lindex $argv 1] # 获取第1个参数 set passwd [lindex $argv 2] # 获取第2个参数 set timeout 30 # 设置超时 # spawn是expect内部命令，开启ssh连接 spawn ssh -l username 192.168.1.1 # 判断上次输出结果里是否包含“password:”的字符串，如果有则立即返回，否则就等待一段时间(timeout)后返回 expect &amp;#34;password:&amp;#34; # 发送内容ispass(密码、命令等) send &amp;#34;ispass\r&amp;#34; # 发送内容给用户 send_user &amp;#34;$argv0 [lrange $argv 0 2]\n&amp;#34; send_user &amp;#34;It&amp;#39;s OK\r&amp;#34; # 执行完成后保持交互状态，控制权交给控制台(手工操作)。否则会完成后会退出。 interact 2.例子 2.1自动telnet会话 #!" />
@@ -38,7 +38,7 @@
 
 
 <meta property="og:type" content="article" />
-<meta property="og:title" content="expect实现交互式输入 - DEVIN 0x01">
+<meta property="og:title" content="expect实现交互式输入 - DEVIN&#39;s BLOG">
 <meta property="og:description"
   content="1.常用命令 选项： -c:执行脚本前先执行的命令，可多次使用。 -d:debug模式，可以在运行时输出一些诊断信息，与在脚本开始处使用exp_internal 1相似。 -D:启用交换调式器,可设一整数参数。 -f:从文件读取命令，仅用于使用#!时。如果文件名为&amp;quot;-&amp;quot;，则从stdin读取(使用&amp;quot;./-&amp;ldquo;从文件名为-的文件读取)。 -i:交互式输入命令，使用&amp;quot;exit&amp;quot;或&amp;quot;EOF&amp;quot;退出输入状态。 &amp;ndash;:标示选项结束(如果你需要传递与expect选项相似的参数给脚本时)，可放到#!行:#!/usr/bin/expect &amp;ndash;。 -v:显示expect版本信息。
 # 命令行参数 # $argv，参数数组，使用[lindex $argv n]获取，$argv 0为脚本名字 # $argc，参数个数 set username [lindex $argv 1] # 获取第1个参数 set passwd [lindex $argv 2] # 获取第2个参数 set timeout 30 # 设置超时 # spawn是expect内部命令，开启ssh连接 spawn ssh -l username 192.168.1.1 # 判断上次输出结果里是否包含“password:”的字符串，如果有则立即返回，否则就等待一段时间(timeout)后返回 expect &amp;#34;password:&amp;#34; # 发送内容ispass(密码、命令等) send &amp;#34;ispass\r&amp;#34; # 发送内容给用户 send_user &amp;#34;$argv0 [lrange $argv 0 2]\n&amp;#34; send_user &amp;#34;It&amp;#39;s OK\r&amp;#34; # 执行完成后保持交互状态，控制权交给控制台(手工操作)。否则会完成后会退出。 interact 2.例子 2.1自动telnet会话 #!" />
@@ -142,7 +142,7 @@
               <div class="d-flex flex-column">
                 <h1 class="break-word f3 text-normal mb-md-0 mb-1">
                   <span class="author">
-                    <a href="https://devin0x01.github.io"></a></span><span
+                    <a href="https://devin0x01.github.io">DEVIN</a></span><span
                     class="path-divider">/</span><strong class="css-truncate-target mr-1" style="max-width: 410px"><a
                       href="https://devin0x01.github.io/post/expect%E5%AE%9E%E7%8E%B0%E4%BA%A4%E4%BA%92%E5%BC%8F%E8%BE%93%E5%85%A5/">expect实现交互式输入</a></strong>
                 </h1>
@@ -151,6 +151,11 @@
                     class="no-wrap">
                     Sun, 18 Jun 2023 14:05:25 &#43;0800</relative-time>
 
+                  
+                  <span class="file-info-divider"></span>
+                  Modified <relative-time datetime="Sat, 29 Jul 2023 06:21:41 &#43;0000"
+                    class="no-wrap">
+                    Sat, 29 Jul 2023 06:21:41 &#43;0000</relative-time>
                   
                 </div>
               </div>
@@ -214,67 +219,67 @@
 &ndash;:标示选项结束(如果你需要传递与expect选项相似的参数给脚本时)，可放到#!行:#!/usr/bin/expect &ndash;。
 -v:显示expect版本信息。</p>
 </blockquote>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#75715e"># 命令行参数 </span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># $argv，参数数组，使用[lindex $argv n]获取，$argv 0为脚本名字</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># $argc，参数个数</span>
-</span></span><span style="display:flex;"><span>set username <span style="color:#f92672">[</span>lindex $argv 1<span style="color:#f92672">]</span>  <span style="color:#75715e"># 获取第1个参数</span>
-</span></span><span style="display:flex;"><span>set passwd <span style="color:#f92672">[</span>lindex $argv 2<span style="color:#f92672">]</span>    <span style="color:#75715e"># 获取第2个参数</span>
-</span></span><span style="display:flex;"><span> 
-</span></span><span style="display:flex;"><span>set timeout <span style="color:#ae81ff">30</span> <span style="color:#75715e"># 设置超时</span>
-</span></span><span style="display:flex;"><span> 
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># spawn是expect内部命令，开启ssh连接</span>
-</span></span><span style="display:flex;"><span>spawn ssh -l username 192.168.1.1
-</span></span><span style="display:flex;"><span> 
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># 判断上次输出结果里是否包含“password:”的字符串，如果有则立即返回，否则就等待一段时间(timeout)后返回</span>
-</span></span><span style="display:flex;"><span>expect <span style="color:#e6db74">&#34;password:&#34;</span>
-</span></span><span style="display:flex;"><span> 
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># 发送内容ispass(密码、命令等)</span>
-</span></span><span style="display:flex;"><span>send <span style="color:#e6db74">&#34;ispass\r&#34;</span>
-</span></span><span style="display:flex;"><span> 
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># 发送内容给用户</span>
-</span></span><span style="display:flex;"><span>send_user <span style="color:#e6db74">&#34;</span>$argv0<span style="color:#e6db74"> [lrange </span>$argv<span style="color:#e6db74"> 0 2]\n&#34;</span>
-</span></span><span style="display:flex;"><span>send_user <span style="color:#e6db74">&#34;It&#39;s OK\r&#34;</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># 执行完成后保持交互状态，控制权交给控制台(手工操作)。否则会完成后会退出。</span>
-</span></span><span style="display:flex;"><span>interact
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="c1"># 命令行参数 </span>
+</span></span><span class="line"><span class="cl"><span class="c1"># $argv，参数数组，使用[lindex $argv n]获取，$argv 0为脚本名字</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># $argc，参数个数</span>
+</span></span><span class="line"><span class="cl"><span class="nb">set</span> username <span class="o">[</span>lindex <span class="nv">$argv</span> 1<span class="o">]</span>  <span class="c1"># 获取第1个参数</span>
+</span></span><span class="line"><span class="cl"><span class="nb">set</span> passwd <span class="o">[</span>lindex <span class="nv">$argv</span> 2<span class="o">]</span>    <span class="c1"># 获取第2个参数</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl"><span class="nb">set</span> timeout <span class="m">30</span> <span class="c1"># 设置超时</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl"><span class="c1"># spawn是expect内部命令，开启ssh连接</span>
+</span></span><span class="line"><span class="cl">spawn ssh -l username 192.168.1.1
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl"><span class="c1"># 判断上次输出结果里是否包含“password:”的字符串，如果有则立即返回，否则就等待一段时间(timeout)后返回</span>
+</span></span><span class="line"><span class="cl">expect <span class="s2">&#34;password:&#34;</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl"><span class="c1"># 发送内容ispass(密码、命令等)</span>
+</span></span><span class="line"><span class="cl">send <span class="s2">&#34;ispass\r&#34;</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl"><span class="c1"># 发送内容给用户</span>
+</span></span><span class="line"><span class="cl">send_user <span class="s2">&#34;</span><span class="nv">$argv0</span><span class="s2"> [lrange </span><span class="nv">$argv</span><span class="s2"> 0 2]\n&#34;</span>
+</span></span><span class="line"><span class="cl">send_user <span class="s2">&#34;It&#39;s OK\r&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 执行完成后保持交互状态，控制权交给控制台(手工操作)。否则会完成后会退出。</span>
+</span></span><span class="line"><span class="cl">interact
 </span></span></code></pre></div><h1 id="2例子">2.例子</h1>
 <h2 id="21自动telnet会话">2.1自动telnet会话</h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#75715e">#!/usr/bin/expect -f
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>set ip <span style="color:#f92672">[</span>lindex $argv <span style="color:#ae81ff">0</span> <span style="color:#f92672">]</span>         <span style="color:#75715e"># 接收第1个参数,作为IP</span>
-</span></span><span style="display:flex;"><span>set userid <span style="color:#f92672">[</span>lindex $argv <span style="color:#ae81ff">1</span> <span style="color:#f92672">]</span>     <span style="color:#75715e"># 接收第2个参数,作为userid</span>
-</span></span><span style="display:flex;"><span>set mypassword <span style="color:#f92672">[</span>lindex $argv <span style="color:#ae81ff">2</span> <span style="color:#f92672">]</span> <span style="color:#75715e"># 接收第3个参数,作为密码</span>
-</span></span><span style="display:flex;"><span>set mycommand <span style="color:#f92672">[</span>lindex $argv <span style="color:#ae81ff">3</span> <span style="color:#f92672">]</span>  <span style="color:#75715e"># 接收第4个参数，作为命令</span>
-</span></span><span style="display:flex;"><span>set timeout <span style="color:#ae81ff">10</span>                   <span style="color:#75715e"># 设置超时时间</span>
-</span></span><span style="display:flex;"><span> 
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># 向远程服务器请求打开一个telnet会话，并等待服务器询问用户名</span>
-</span></span><span style="display:flex;"><span>spawn telnet $ip
-</span></span><span style="display:flex;"><span>    expect <span style="color:#e6db74">&#34;username:&#34;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># 输入用户名，并等待服务器询问密码</span>
-</span></span><span style="display:flex;"><span>    send <span style="color:#e6db74">&#34;</span>$userid<span style="color:#e6db74">\r&#34;</span>
-</span></span><span style="display:flex;"><span>    expect <span style="color:#e6db74">&#34;password:&#34;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># 输入密码，并等待键入需要运行的命令</span>
-</span></span><span style="display:flex;"><span>    send <span style="color:#e6db74">&#34;</span>$mypassword<span style="color:#e6db74">\r&#34;</span>
-</span></span><span style="display:flex;"><span>    expect <span style="color:#e6db74">&#34;%&#34;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># 输入预先定好的密码，等待运行结果</span>
-</span></span><span style="display:flex;"><span>    send <span style="color:#e6db74">&#34;</span>$mycommand<span style="color:#e6db74">\r&#34;</span>
-</span></span><span style="display:flex;"><span>    expect <span style="color:#e6db74">&#34;%&#34;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># 将运行结果存入到变量中，显示出来或者写到磁盘中</span>
-</span></span><span style="display:flex;"><span>    set results $expect_out<span style="color:#f92672">(</span>buffer<span style="color:#f92672">)</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># 退出telnet会话，等待服务器的退出提示EOF</span>
-</span></span><span style="display:flex;"><span>    send <span style="color:#e6db74">&#34;exit\r&#34;</span>
-</span></span><span style="display:flex;"><span>    expect eof
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="cp">#!/usr/bin/expect -f
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="nb">set</span> ip <span class="o">[</span>lindex <span class="nv">$argv</span> <span class="m">0</span> <span class="o">]</span>         <span class="c1"># 接收第1个参数,作为IP</span>
+</span></span><span class="line"><span class="cl"><span class="nb">set</span> userid <span class="o">[</span>lindex <span class="nv">$argv</span> <span class="m">1</span> <span class="o">]</span>     <span class="c1"># 接收第2个参数,作为userid</span>
+</span></span><span class="line"><span class="cl"><span class="nb">set</span> mypassword <span class="o">[</span>lindex <span class="nv">$argv</span> <span class="m">2</span> <span class="o">]</span> <span class="c1"># 接收第3个参数,作为密码</span>
+</span></span><span class="line"><span class="cl"><span class="nb">set</span> mycommand <span class="o">[</span>lindex <span class="nv">$argv</span> <span class="m">3</span> <span class="o">]</span>  <span class="c1"># 接收第4个参数，作为命令</span>
+</span></span><span class="line"><span class="cl"><span class="nb">set</span> timeout <span class="m">10</span>                   <span class="c1"># 设置超时时间</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl"><span class="c1"># 向远程服务器请求打开一个telnet会话，并等待服务器询问用户名</span>
+</span></span><span class="line"><span class="cl">spawn telnet <span class="nv">$ip</span>
+</span></span><span class="line"><span class="cl">    expect <span class="s2">&#34;username:&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># 输入用户名，并等待服务器询问密码</span>
+</span></span><span class="line"><span class="cl">    send <span class="s2">&#34;</span><span class="nv">$userid</span><span class="s2">\r&#34;</span>
+</span></span><span class="line"><span class="cl">    expect <span class="s2">&#34;password:&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># 输入密码，并等待键入需要运行的命令</span>
+</span></span><span class="line"><span class="cl">    send <span class="s2">&#34;</span><span class="nv">$mypassword</span><span class="s2">\r&#34;</span>
+</span></span><span class="line"><span class="cl">    expect <span class="s2">&#34;%&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># 输入预先定好的密码，等待运行结果</span>
+</span></span><span class="line"><span class="cl">    send <span class="s2">&#34;</span><span class="nv">$mycommand</span><span class="s2">\r&#34;</span>
+</span></span><span class="line"><span class="cl">    expect <span class="s2">&#34;%&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># 将运行结果存入到变量中，显示出来或者写到磁盘中</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">set</span> results <span class="nv">$expect_out</span><span class="o">(</span>buffer<span class="o">)</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># 退出telnet会话，等待服务器的退出提示EOF</span>
+</span></span><span class="line"><span class="cl">    send <span class="s2">&#34;exit\r&#34;</span>
+</span></span><span class="line"><span class="cl">    expect eof
 </span></span></code></pre></div><h2 id="22其他">2.2其他</h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#75715e">#!/usr/bin/expect
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
-</span></span><span style="display:flex;"><span>expect <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#e6db74">&#34;Are you sure you want to continue connecting (yes/no)?&#34;</span> <span style="color:#f92672">{</span>send <span style="color:#e6db74">&#34;yes\r&#34;</span>; exp_continue<span style="color:#f92672">}</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;Password&#34;</span> <span style="color:#f92672">{</span>send <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>PWD<span style="color:#e6db74">}</span><span style="color:#e6db74">\r&#34;</span><span style="color:#f92672">}</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>expect <span style="color:#e6db74">&#34;sftp&gt;&#34;</span> <span style="color:#f92672">{</span>send <span style="color:#e6db74">&#34;get /home/tools/123.zip\r&#34;</span><span style="color:#f92672">}</span>
-</span></span><span style="display:flex;"><span>expect <span style="color:#e6db74">&#34;sftp&gt;&#34;</span> <span style="color:#f92672">{</span>send <span style="color:#e6db74">&#34;quit\r&#34;</span><span style="color:#f92672">}</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>expect eof
-</span></span><span style="display:flex;"><span>EOF
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="cp">#!/usr/bin/expect
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl">expect <span class="o">{</span>
+</span></span><span class="line"><span class="cl">	<span class="s2">&#34;Are you sure you want to continue connecting (yes/no)?&#34;</span> <span class="o">{</span>send <span class="s2">&#34;yes\r&#34;</span><span class="p">;</span> exp_continue<span class="o">}</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;Password&#34;</span> <span class="o">{</span>send <span class="s2">&#34;</span><span class="si">${</span><span class="nv">PWD</span><span class="si">}</span><span class="s2">\r&#34;</span><span class="o">}</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">expect <span class="s2">&#34;sftp&gt;&#34;</span> <span class="o">{</span>send <span class="s2">&#34;get /home/tools/123.zip\r&#34;</span><span class="o">}</span>
+</span></span><span class="line"><span class="cl">expect <span class="s2">&#34;sftp&gt;&#34;</span> <span class="o">{</span>send <span class="s2">&#34;quit\r&#34;</span><span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">expect eof
+</span></span><span class="line"><span class="cl">EOF
 </span></span></code></pre></div><h1 id="参考文献">参考文献</h1>
 <ol>
 <li>expect - 自动交互脚本：<a href="https://xstarcd.github.io/wiki/shell/expect.html">https://xstarcd.github.io/wiki/shell/expect.html</a></li>

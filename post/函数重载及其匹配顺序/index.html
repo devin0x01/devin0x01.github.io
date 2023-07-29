@@ -10,9 +10,9 @@
     <link rel="stylesheet" href='https://devin0x01.github.io/css/light.css' />
     <link rel="stylesheet" href='https://devin0x01.github.io/css/dark.css' />
     <link rel="stylesheet" href='https://devin0x01.github.io/css/syntax.css' />
-    <title>函数重载及其匹配顺序 - DEVIN 0x01</title>
+    <title>函数重载及其匹配顺序 - DEVIN&#39;s BLOG</title>
     
-    <link rel="icon" type="image/x-icon" href='https://devin0x01.github.io/images/favicon.ico'>
+    <link rel="icon" type="image/x-icon" href='/images/github.png'>
     
     <meta name="theme-color" content="#1e2327">
 
@@ -22,13 +22,13 @@
 与返回值类型没有关系。如果函数名和参数列表相同，无论返回值类型是否相同，会编译错误（函数重定义） const是有效的重载。 仅默认参数值不同不是有效的重载。例如 int fun(int a = 0); // void fun(int a = 1); // error: functions that differ only in their return type cannot be overloaded virutal是无效的重载。virtual关键字可有可无，不影响是否是重载函数。 2.函数重载匹配顺序 编译器根据最佳匹配确定调用哪个函数。C&#43;&#43; 编译器遵循以下先后顺序：
 先找参数完全匹配的普通函数（非由模板实例化得到的函数）。 再找参数完全匹配的模板函数。 再找实参经过自动类型转换后能够匹配的普通函数。 如果上面的都找不到，则报错。 template &amp;lt;class T&amp;gt; void fun(T x, T y) { cout &amp;lt;&amp;lt; &amp;#34;fun1&amp;#34; &amp;lt;&amp;lt; endl; } template &amp;lt;class T1, class T2&amp;gt; void fun(T1 x, T2 y) { cout &amp;lt;&amp;lt; &amp;#34;fun2&amp;#34; &amp;lt;&amp;lt; endl; } void fun(int x, int y, int z = 0) { cout &amp;lt;&amp;lt; &amp;#34;fun3&amp;#34; &amp;lt;&amp;lt; endl; } void fun(char x, char y) { cout &amp;lt;&amp;lt; &amp;#34;fun4&amp;#34; &amp;lt;&amp;lt; endl; } int main() { int i1=2, i2=3, i3=5; char c1=&amp;#39;a&amp;#39;, c2=&amp;#39;c&amp;#39;, c3=&amp;#39;d&amp;#39;; double f1=2." />
 <meta name="keywords"
-  content='' />
+  content='blog, google analytics' />
 <meta name="robots" content="noodp" />
 <link rel="canonical" href="https://devin0x01.github.io/post/%E5%87%BD%E6%95%B0%E9%87%8D%E8%BD%BD%E5%8F%8A%E5%85%B6%E5%8C%B9%E9%85%8D%E9%A1%BA%E5%BA%8F/" />
 
 
 <meta name="twitter:card" content="summary" />
-<meta name="twitter:title" content="函数重载及其匹配顺序 - DEVIN 0x01" />
+<meta name="twitter:title" content="函数重载及其匹配顺序 - DEVIN&#39;s BLOG" />
 <meta name="twitter:description"
   content="1.函数重载 概念：同一个作用域内，同名函数，参数列表不同(参数个数、类型或顺序不同)。
 与返回值类型没有关系。如果函数名和参数列表相同，无论返回值类型是否相同，会编译错误（函数重定义） const是有效的重载。 仅默认参数值不同不是有效的重载。例如 int fun(int a = 0); // void fun(int a = 1); // error: functions that differ only in their return type cannot be overloaded virutal是无效的重载。virtual关键字可有可无，不影响是否是重载函数。 2.函数重载匹配顺序 编译器根据最佳匹配确定调用哪个函数。C&#43;&#43; 编译器遵循以下先后顺序：
@@ -40,7 +40,7 @@
 
 
 <meta property="og:type" content="article" />
-<meta property="og:title" content="函数重载及其匹配顺序 - DEVIN 0x01">
+<meta property="og:title" content="函数重载及其匹配顺序 - DEVIN&#39;s BLOG">
 <meta property="og:description"
   content="1.函数重载 概念：同一个作用域内，同名函数，参数列表不同(参数个数、类型或顺序不同)。
 与返回值类型没有关系。如果函数名和参数列表相同，无论返回值类型是否相同，会编译错误（函数重定义） const是有效的重载。 仅默认参数值不同不是有效的重载。例如 int fun(int a = 0); // void fun(int a = 1); // error: functions that differ only in their return type cannot be overloaded virutal是无效的重载。virtual关键字可有可无，不影响是否是重载函数。 2.函数重载匹配顺序 编译器根据最佳匹配确定调用哪个函数。C&#43;&#43; 编译器遵循以下先后顺序：
@@ -145,7 +145,7 @@
               <div class="d-flex flex-column">
                 <h1 class="break-word f3 text-normal mb-md-0 mb-1">
                   <span class="author">
-                    <a href="https://devin0x01.github.io"></a></span><span
+                    <a href="https://devin0x01.github.io">DEVIN</a></span><span
                     class="path-divider">/</span><strong class="css-truncate-target mr-1" style="max-width: 410px"><a
                       href="https://devin0x01.github.io/post/%E5%87%BD%E6%95%B0%E9%87%8D%E8%BD%BD%E5%8F%8A%E5%85%B6%E5%8C%B9%E9%85%8D%E9%A1%BA%E5%BA%8F/">函数重载及其匹配顺序</a></strong>
                 </h1>
@@ -154,6 +154,11 @@
                     class="no-wrap">
                     Sun, 18 Jun 2023 14:05:25 &#43;0800</relative-time>
 
+                  
+                  <span class="file-info-divider"></span>
+                  Modified <relative-time datetime="Sat, 29 Jul 2023 06:21:41 &#43;0000"
+                    class="no-wrap">
+                    Sat, 29 Jul 2023 06:21:41 &#43;0000</relative-time>
                   
                 </div>
               </div>
@@ -213,8 +218,8 @@
 <li>const是有效的重载。</li>
 <li>仅默认参数值不同不是有效的重载。例如</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">fun</span>(<span style="color:#66d9ef">int</span> a <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>);
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// void fun(int a = 1); // error: functions that differ only in their return type cannot be overloaded
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">fun</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">0</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// void fun(int a = 1); // error: functions that differ only in their return type cannot be overloaded
 </span></span></span></code></pre></div><ul>
 <li>virutal是无效的重载。virtual关键字可有可无，不影响是否是重载函数。</li>
 </ul>
@@ -227,39 +232,39 @@
 <li>再找实参经过<strong>自动类型转换</strong>后能够匹配的普通函数。</li>
 <li>如果上面的都找不到，则报错。</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#66d9ef">template</span> <span style="color:#f92672">&lt;</span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">T</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> fun(T x, T y) { cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;fun1&#34;</span> <span style="color:#f92672">&lt;&lt;</span> endl; }
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">template</span> <span style="color:#f92672">&lt;</span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">T1</span>, <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">T2</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> fun(T1 x, T2 y) { cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;fun2&#34;</span> <span style="color:#f92672">&lt;&lt;</span> endl; }
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">fun</span>(<span style="color:#66d9ef">int</span> x, <span style="color:#66d9ef">int</span> y, <span style="color:#66d9ef">int</span> z <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>) { cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;fun3&#34;</span> <span style="color:#f92672">&lt;&lt;</span> endl; }
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">fun</span>(<span style="color:#66d9ef">char</span> x, <span style="color:#66d9ef">char</span> y) { cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;fun4&#34;</span> <span style="color:#f92672">&lt;&lt;</span> endl; }
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>()
-</span></span><span style="display:flex;"><span>{
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> i1<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span>, i2<span style="color:#f92672">=</span><span style="color:#ae81ff">3</span>, i3<span style="color:#f92672">=</span><span style="color:#ae81ff">5</span>;
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">char</span> c1<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;a&#39;</span>, c2<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;c&#39;</span>, c3<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;d&#39;</span>;
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">double</span> f1<span style="color:#f92672">=</span><span style="color:#ae81ff">2.45</span>, f2<span style="color:#f92672">=</span><span style="color:#ae81ff">5.68</span>;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    fun(i1, i2);     <span style="color:#75715e">// fun3
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    fun(f1, f2);     <span style="color:#75715e">// fun1
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    fun(i1, f1);     <span style="color:#75715e">// fun2
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    fun(i1, i2, i3); <span style="color:#75715e">// fun3
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    fun(c1, c2);     <span style="color:#75715e">// fun4
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>}
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="n">fun</span><span class="p">(</span><span class="n">T</span> <span class="n">x</span><span class="p">,</span> <span class="n">T</span> <span class="n">y</span><span class="p">)</span> <span class="p">{</span> <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;fun1&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T1</span><span class="p">,</span> <span class="k">class</span> <span class="nc">T2</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="n">fun</span><span class="p">(</span><span class="n">T1</span> <span class="n">x</span><span class="p">,</span> <span class="n">T2</span> <span class="n">y</span><span class="p">)</span> <span class="p">{</span> <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;fun2&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">fun</span><span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">,</span> <span class="kt">int</span> <span class="n">y</span><span class="p">,</span> <span class="kt">int</span> <span class="n">z</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span> <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;fun3&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">fun</span><span class="p">(</span><span class="kt">char</span> <span class="n">x</span><span class="p">,</span> <span class="kt">char</span> <span class="n">y</span><span class="p">)</span> <span class="p">{</span> <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;fun4&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">i1</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">i2</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">i3</span><span class="o">=</span><span class="mi">5</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">char</span> <span class="n">c1</span><span class="o">=</span><span class="sc">&#39;a&#39;</span><span class="p">,</span> <span class="n">c2</span><span class="o">=</span><span class="sc">&#39;c&#39;</span><span class="p">,</span> <span class="n">c3</span><span class="o">=</span><span class="sc">&#39;d&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">double</span> <span class="n">f1</span><span class="o">=</span><span class="mf">2.45</span><span class="p">,</span> <span class="n">f2</span><span class="o">=</span><span class="mf">5.68</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">fun</span><span class="p">(</span><span class="n">i1</span><span class="p">,</span> <span class="n">i2</span><span class="p">);</span>     <span class="c1">// fun3
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">fun</span><span class="p">(</span><span class="n">f1</span><span class="p">,</span> <span class="n">f2</span><span class="p">);</span>     <span class="c1">// fun1
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">fun</span><span class="p">(</span><span class="n">i1</span><span class="p">,</span> <span class="n">f1</span><span class="p">);</span>     <span class="c1">// fun2
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">fun</span><span class="p">(</span><span class="n">i1</span><span class="p">,</span> <span class="n">i2</span><span class="p">,</span> <span class="n">i3</span><span class="p">);</span> <span class="c1">// fun3
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">fun</span><span class="p">(</span><span class="n">c1</span><span class="p">,</span> <span class="n">c2</span><span class="p">);</span>     <span class="c1">// fun4
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">}</span>
 </span></span></code></pre></div><p>当使用具有默认形参值的函数重载形式时，需要注意防止二义性，例如：</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">fun</span>(<span style="color:#66d9ef">int</span> x, <span style="color:#66d9ef">int</span> y, <span style="color:#66d9ef">int</span> z <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>) { cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;fun1&#34;</span> <span style="color:#f92672">&lt;&lt;</span> endl; }
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span>  <span style="color:#a6e22e">fun</span>(<span style="color:#66d9ef">int</span> x, <span style="color:#66d9ef">int</span> y)            { cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;fun2&#34;</span> <span style="color:#f92672">&lt;&lt;</span> endl; <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>; } <span style="color:#75715e">// 不报错，但是函数调用容易导致二义性
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">//int fun(int x, int y, int z) { return 0; } // 报错，不是有效的重载（即使返回值和第3个参数不同）
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>()
-</span></span><span style="display:flex;"><span>{
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> i1<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span>, i2<span style="color:#f92672">=</span><span style="color:#ae81ff">3</span>, i3<span style="color:#f92672">=</span><span style="color:#ae81ff">5</span>;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    fun(i1, i2, i3); <span style="color:#75715e">// fun1
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">//    fun(i1, i2);     // 报错，二义性。无法确定调用哪个函数
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>}
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">fun</span><span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">,</span> <span class="kt">int</span> <span class="n">y</span><span class="p">,</span> <span class="kt">int</span> <span class="n">z</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span> <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;fun1&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="kt">int</span>  <span class="nf">fun</span><span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">,</span> <span class="kt">int</span> <span class="n">y</span><span class="p">)</span>            <span class="p">{</span> <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;fun2&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span> <span class="k">return</span> <span class="mi">0</span><span class="p">;</span> <span class="p">}</span> <span class="c1">// 不报错，但是函数调用容易导致二义性
+</span></span></span><span class="line"><span class="cl"><span class="c1">//int fun(int x, int y, int z) { return 0; } // 报错，不是有效的重载（即使返回值和第3个参数不同）
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">i1</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">i2</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">i3</span><span class="o">=</span><span class="mi">5</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">fun</span><span class="p">(</span><span class="n">i1</span><span class="p">,</span> <span class="n">i2</span><span class="p">,</span> <span class="n">i3</span><span class="p">);</span> <span class="c1">// fun1
+</span></span></span><span class="line"><span class="cl"><span class="c1">//    fun(i1, i2);     // 报错，二义性。无法确定调用哪个函数
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">}</span>
 </span></span></code></pre></div></article>
               </div>
             </div>
