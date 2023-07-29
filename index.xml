@@ -292,17 +292,18 @@ cd themes/github-style git pull 编辑readme hugo new readme.md echo &amp;#39;`H
 wenfh2020文集
 腾讯云开发者社区-腾讯云
 C++和STL中有哪些副作用或者稍不注意会产生性能开销的地方？ - 知乎
-C++ AnthonyCalandra/modern-cpp-features: A cheatsheet of modern C++ language and library features.
+C++ AnthonyCalandra/modern-cpp-features
 sprinfall/cpp-thread-study: C++ 线程库示例及教程
 Kobzol/hardware-effects: Demonstration of various hardware effects.
 yanfeizhang/coder-kung-fu: 开发内功修炼
-天山老妖S的博客_性能优化_51CTO博客 plantegg/programmer_case: 程序员案例集锦
+天山老妖S的博客_性能优化_51CTO博客
+plantegg/programmer_case: 程序员案例集锦
 Linux 蜗窝科技
 liexusong/linux-source-code-analyze: Linux内核源码分析
-0voice/kernel_awsome_feature: 深入研究 kvm,ceph,fuse特性，包含开源项目，代码案例，文章，视频，架构脑图等
-0voice/linux_kernel_wiki: linux内核学习资料：200+经典内核文章，100+内核论文，50+内核项目，500+内核面试题，80+内核视频
-Awesome skywind3000/awesome-cheatsheets: 超级速查表 - 编程语言、框架和开发工具的速查表，单个文件包含一切你需要知道的东西 :zap:
-iggredible/Learn-Vim: Learning Vim and Vimscript doesn&amp;rsquo;t have to be hard. This is the guide that you&amp;rsquo;re looking for 📖</description>
+0voice/kernel_awsome_feature: 深入研究 kvm,ceph,fuse特性
+0voice/linux_kernel_wiki: linux内核学习资料
+Awesome skywind3000/awesome-cheatsheets: 超级速查表
+iggredible/Learn-Vim: Learning Vim and Vimscript doesn&amp;rsquo;t have to be hard.</description>
     </item>
     
   </channel>
