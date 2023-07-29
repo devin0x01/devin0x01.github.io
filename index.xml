@@ -290,13 +290,13 @@ cd themes/github-style git pull 编辑readme hugo new readme.md echo &amp;#39;`H
       <description>Blogs 程序员的喵
 高性能架构探索 | 一个专注于钻研技术的网站
 wenfh2020文集
+腾讯云开发者社区-腾讯云
 C++和STL中有哪些副作用或者稍不注意会产生性能开销的地方？ - 知乎
 C++ AnthonyCalandra/modern-cpp-features: A cheatsheet of modern C++ language and library features.
-cpp-thread-study/doc/CppConcurrency07.ReadWriteLock.md at master · sprinfall/cpp-thread-study
-yanfeizhang/coder-kung-fu: 开发内功修炼
+sprinfall/cpp-thread-study: C++ 线程库示例及教程
 Kobzol/hardware-effects: Demonstration of various hardware effects.
-plantegg/programmer_case: 程序员案例集锦
-腾讯云开发者社区-腾讯云
+yanfeizhang/coder-kung-fu: 开发内功修炼
+天山老妖S的博客_性能优化_51CTO博客 plantegg/programmer_case: 程序员案例集锦
 Linux 蜗窝科技
 liexusong/linux-source-code-analyze: Linux内核源码分析
 0voice/kernel_awsome_feature: 深入研究 kvm,ceph,fuse特性，包含开源项目，代码案例，文章，视频，架构脑图等
