@@ -287,7 +287,22 @@ cd themes/github-style git pull 编辑readme hugo new readme.md echo &amp;#39;`H
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://devin0x01.github.io/readme/</guid>
-      <description>Hello World!</description>
+      <description>Blogs 程序员的喵
+高性能架构探索 | 一个专注于钻研技术的网站
+wenfh2020文集
+C++和STL中有哪些副作用或者稍不注意会产生性能开销的地方？ - 知乎
+C++ AnthonyCalandra/modern-cpp-features: A cheatsheet of modern C++ language and library features.
+cpp-thread-study/doc/CppConcurrency07.ReadWriteLock.md at master · sprinfall/cpp-thread-study
+yanfeizhang/coder-kung-fu: 开发内功修炼
+Kobzol/hardware-effects: Demonstration of various hardware effects.
+plantegg/programmer_case: 程序员案例集锦
+腾讯云开发者社区-腾讯云
+Linux 蜗窝科技
+liexusong/linux-source-code-analyze: Linux内核源码分析
+0voice/kernel_awsome_feature: 深入研究 kvm,ceph,fuse特性，包含开源项目，代码案例，文章，视频，架构脑图等
+0voice/linux_kernel_wiki: linux内核学习资料：200+经典内核文章，100+内核论文，50+内核项目，500+内核面试题，80+内核视频
+Awesome skywind3000/awesome-cheatsheets: 超级速查表 - 编程语言、框架和开发工具的速查表，单个文件包含一切你需要知道的东西 :zap:
+iggredible/Learn-Vim: Learning Vim and Vimscript doesn&amp;rsquo;t have to be hard. This is the guide that you&amp;rsquo;re looking for 📖</description>
     </item>
     
   </channel>
