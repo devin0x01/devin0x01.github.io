@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Linux开发 on DEVIN 0x01</title>
+    <link>https://devin0x01.github.io/tags/linux%E5%BC%80%E5%8F%91/</link>
+    <description>Recent content in Linux开发 on DEVIN 0x01</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 28 Jul 2023 16:05:25 +0800</lastBuildDate><atom:link href="https://devin0x01.github.io/tags/linux%E5%BC%80%E5%8F%91/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Docker内显示图形界面</title>
+      <link>https://devin0x01.github.io/post/docker%E5%86%85%E6%98%BE%E7%A4%BA%E5%9B%BE%E5%BD%A2%E7%95%8C%E9%9D%A2/</link>
+      <pubDate>Fri, 28 Jul 2023 16:05:25 +0800</pubDate>
+      
+      <guid>https://devin0x01.github.io/post/docker%E5%86%85%E6%98%BE%E7%A4%BA%E5%9B%BE%E5%BD%A2%E7%95%8C%E9%9D%A2/</guid>
+      <description>关于X11 x(7) - Linux man page
+Cygwin系列（十二）：了解X - 知乎
+X11采用了C/S的架构，在其设计下，整个图形视窗系统主要分为3个部分：
+1.X Server（X服务器）。X Server一方面负责和设备驱动交互，监听显示器和键盘鼠标，另一方面响应X Client需求传递键盘、鼠标事件、（通过设备驱动）绘制图形文字等。反直觉之一，X Server运行在本地。
+2.X Client（X客户端）。X Client也叫X应用程序，负责实现程序逻辑，在收到设备事件后计算出绘图数据，由于本身没有绘制能力，只能向X Server发送绘制请求和绘图数据，告诉X Server在哪里绘制一个什么样的图形。X Client可以和X Server在同一个主机上，也可以通过TCP/IP网络连接。
+3.Window Manager（窗口管理器，简称WM），或者叫合成器（Compositor）。多个X Client向X Server发送绘制请求时，各X Client程序并不知道彼此的存在，绘制图形出现重叠、颜色干扰等问题是大概率事件，这就需要一个管理者统一协调，即Window Manager，它掌管各X Client的Window（窗口）视觉外观，如形状、排列、移动、重叠渲染等。反直觉之二，Window Manager并非X Server的一部分，而是一个特殊的X Client程序。
+3个部分， X Server是整个X Window System的中心，协调X客户端和窗口管理器的通信。
+常用命令 xorg - What does $DISPLAY environment variable mean - Ask Ubuntu
+x11 forwarding - How to fix &amp;ldquo;MobaXterm X11 proxy: Unsupported authorisation protocol&amp;rdquo; - Super User
+echo $DISPLAY # 注意：`xauth add` 之后可能需要重新连接才能生效!! xauth add $DISPLAY .</description>
+    </item>
+    
+    <item>
+      <title>Linux网络编程</title>
+      <link>https://devin0x01.github.io/post/linux%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/</link>
+      <pubDate>Sun, 18 Jun 2023 14:05:25 +0800</pubDate>
+      
+      <guid>https://devin0x01.github.io/post/linux%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/</guid>
+      <description>查看端口占用情况 netstat -tunlp
+-t (tcp) 仅显示tcp相关选项 -u (udp) 仅显示udp相关选项
+-n 拒绝显示列名，能显示数字的全部转化为数字
+-l 仅显示出在listen(监听）的服务状态
+-p 显示潜力相关链接的程序名
+linux查看端口被哪个进程占用的方法
+本机地址 127.0.0.1: 这个地址通常分配给loopback接口，loopback是一个特殊的网络IP，可以理解为虚拟网卡，用于本机中各个应用之间的网络交互，只要操作系统网络组建正常，loopback就能工作。所以这里需要明白使用127.0.0.1进行通信时，必须要保证client和server在同一台机器上。
+INADDR_ANY: 从字面上的any可以看出，转换过来其实是0.0.0.0，泛指本机的意思，也就是标识本机的所有IP，因为有些机器是不止一块网卡的，在多网卡的情况下，这个就表示所有的网卡IP地址的意思，不管数据是从哪个网卡过来的，只要是绑定的端口号过来的数据，都可以接收到。
+如果现在有两台PC在同一个局域网内，分别为PC1与PC2，PC1上有一个网卡，IP地址为192.168.10.128
+PC1中sever监听127.0.0.1，则PC1中的client可以连上127.0.0.1，192.168.10.128连不上；而PC2中client都连不上。 PC1中sever监听192.168.10.128，则PC1中的client可以连上192.168.10.128，127.0.0.1连不上；而PC2中client能连上192.168.10.128。 PC1中sever监听0.0.0.0，则PC1中的client可以连上127.0.0.1和192.168.10.128，PC2中的client能连上192.168.10.128。 socket基础接口 close关闭socket 调用close函数，会向连接的对应套接字发送EOF (ch04/echo_server.c)
+文件结束符：如果 read()调用成功，将返回实际读取的字节数，如果遇到文件结束（EOF）则返回 0，如果出现错误则返回-1。ssize_t 数据类型属于有符号的整数类型，用来存放（读取的）字节数或-1（表示错误）。
+终端特殊字符：EOF 是传统模式下的文件结尾字符（通常是 Ctrl-D）。在一行的开始处输入这个字符会导致在终端上读取输入的进程检测到文件结尾的情况（即，read()返回 0）。如果不在一行的开始处，而在其他地方输入这个字符，那么该字符会立刻导致 read()完成调用，返回这一行中目前为止读取到的字符数。在这两种情况下，EOF 字符本身都不会传递给读取的进程。
+shutdown优雅的断开TCP连接 /* Shut down all or part of the connection open on socket FD. HOW determines what to shut down: SHUT_RD = No more receptions; SHUT_WR = No more transmissions; SHUT_RDWR = No more receptions or transmissions.</description>
+    </item>
+    
+  </channel>
+</rss>
