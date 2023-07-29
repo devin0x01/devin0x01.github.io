@@ -276,10 +276,9 @@ class Base { public: virtual void f(int) { std::cout &amp;lt;&amp;lt; &amp;#34;B
       <pubDate>Sat, 13 May 2023 14:05:25 +0800</pubDate>
       
       <guid>https://devin0x01.github.io/post/%E9%85%8D%E7%BD%AEgithub-pages%E6%95%99%E7%A8%8B/</guid>
-      <description>参考文档 github-style theme
-github actions 教程
-基础配置 mkdir myblog &amp;amp;&amp;amp; cd myblog hugo new site . git init git submodule add git@github.com:MeiK2333/github-style.git themes/github-style vim .gitignore git add . git push -u origin master 更新主题 cd themes/github-style git pull 编辑readme hugo new readme.md echo &amp;#39;`Hello World!`&amp;#39; &amp;gt; content/readme.md 新增帖子 Hugo will create a post with draft: true, change it to false in order for it to show in the website.
-hugo new post/title_of_the_post.</description>
+      <description>1.基础配置 关于删除submodule: Git submodule add: &amp;ldquo;a git directory is found locally&amp;rdquo; issue - Stack Overflow
+mkdir myblog &amp;amp;&amp;amp; cd myblog hugo new site . git init git submodule add git@github.com:MeiK2333/github-style.git themes/github-style vim .gitignore git add . git push -u origin master 更新主题 github-style theme
+cd themes/github-style git pull 编辑readme hugo new readme.md echo &amp;#39;`Hello World!`&amp;#39; &amp;gt; content/readme.md 2.新增帖子 Hugo will create a post with draft: true, change it to false in order for it to show in the website.</description>
     </item>
     
     <item>
