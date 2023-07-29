@@ -4,17 +4,28 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>C&#43;&#43; - DEVIN 0x01</title>
+	<title>C&#43;&#43; - DEVIN&#39;s BLOG</title>
 	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
 	<meta name="description" content="">
+		<meta property="og:title" content="C&#43;&#43;" />
+<meta property="og:description" content="Devin&#39;s Personal blog about everything" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://devin0x01.github.io/tags/c&#43;&#43;/" />
+
+		<meta itemprop="name" content="C&#43;&#43;">
+<meta itemprop="description" content="Devin&#39;s Personal blog about everything">
+		<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="C&#43;&#43;"/>
+<meta name="twitter:description" content="Devin&#39;s Personal blog about everything"/>
+
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link rel="dns-prefetch" href="//fonts.googleapis.com">
 	<link rel="dns-prefetch" href="//fonts.gstatic.com">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700">
 
 	<link rel="stylesheet" href="/css/style.css">
-	
-	<link rel="alternate" type="application/rss+xml" href="/tags/c++/index.xml" title="DEVIN 0x01">
+	<link rel="stylesheet" href="/css/custom.css">
+	<link rel="alternate" type="application/rss+xml" href="/tags/c++/index.xml" title="DEVIN's BLOG">
 
 	<link rel="shortcut icon" href="/favicon.ico">
 		
@@ -24,11 +35,13 @@
 		<header class="header">
 	<div class="container header__container">
 		
-	<div class="logo">
-		<a class="logo__link" href="/" title="DEVIN 0x01" rel="home">
-			<div class="logo__item logo__text">
-					<div class="logo__title">DEVIN 0x01</div>
-					
+	<div class="logo logo--mixed">
+		<a class="logo__link" href="/" title="Mainroad" rel="home">
+			<div class="logo__item logo__imagebox">
+					<img class="logo__img" src="/img/placeholder.png">
+				</div><div class="logo__item logo__text">
+					<div class="logo__title">Mainroad</div>
+					<div class="logo__tagline">Just another site</div>
 				</div>
 		</a>
 	</div>
@@ -49,7 +62,11 @@
 			调用成员模板
 			</a>
 		</h2>
-		
+		<div class="list__meta meta"><div class="meta__item-author meta__item">
+	<svg class="meta__icon icon icon-author" width="16" height="16" viewBox="0 0 12 16"><path d="M6 1c2.2 0 3.5 2 3.5 4.5C9.5 7 8.9 8.2 8 9c2.9.8 4 2.5 4 5v1H0v-1c0-2.5 1.1-4.2 4-5-.9-.8-1.5-2-1.5-3.5C2.5 3 3.8 1 6 1z"/></svg><span class="meta__text">Devin</span>
+</div>
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2023-07-20T14:05:25&#43;08:00">2023-07-20</time></div></div>
 	</header>
 	<div class="content list__excerpt post__content clearfix">
 		C++访问成员模板需要加template关键字
@@ -63,7 +80,11 @@
 			vector的push_back与emplace_back.md
 			</a>
 		</h2>
-		
+		<div class="list__meta meta"><div class="meta__item-author meta__item">
+	<svg class="meta__icon icon icon-author" width="16" height="16" viewBox="0 0 12 16"><path d="M6 1c2.2 0 3.5 2 3.5 4.5C9.5 7 8.9 8.2 8 9c2.9.8 4 2.5 4 5v1H0v-1c0-2.5 1.1-4.2 4-5-.9-.8-1.5-2-1.5-3.5C2.5 3 3.8 1 6 1z"/></svg><span class="meta__text">Devin</span>
+</div>
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2023-07-17T14:05:25&#43;08:00">2023-07-17</time></div></div>
 	</header>
 	<div class="content list__excerpt post__content clearfix">
 		push_back与emplace_back #include &lt;iostream&gt; #include &lt;vector&gt; using namespace std; class A { public: A() = default; A(string name) : _name(name) { cout &lt;&lt; &#34;ctor: &#34; &lt;&lt; _name &lt;&lt; endl; } ~A() { cout &lt;&lt; &#34;dtor: &#34; &lt;&lt; _name &lt;&lt; endl; } // 拷贝构造函数 A(const A &amp;other) { _name += &#34;cp-&#34; + other._name; cout &lt;&lt; &#34;cp-ctor: &#34; &lt;&lt; _name &lt;&lt; endl; } // 赋值运算符 A&amp; operator=(const A &amp;other) { if (this != &amp;other) { _name += &#34;cp-&#34; + other.
@@ -76,7 +97,11 @@
 			位域用法
 			</a>
 		</h2>
-		
+		<div class="list__meta meta"><div class="meta__item-author meta__item">
+	<svg class="meta__icon icon icon-author" width="16" height="16" viewBox="0 0 12 16"><path d="M6 1c2.2 0 3.5 2 3.5 4.5C9.5 7 8.9 8.2 8 9c2.9.8 4 2.5 4 5v1H0v-1c0-2.5 1.1-4.2 4-5-.9-.8-1.5-2-1.5-3.5C2.5 3 3.8 1 6 1z"/></svg><span class="meta__text">Devin</span>
+</div>
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2023-07-13T14:05:25&#43;08:00">2023-07-13</time></div></div>
 	</header>
 	<div class="content list__excerpt post__content clearfix">
 		[toc]
@@ -91,7 +116,11 @@
 			C&#43;&#43;17特性
 			</a>
 		</h2>
-		
+		<div class="list__meta meta"><div class="meta__item-author meta__item">
+	<svg class="meta__icon icon icon-author" width="16" height="16" viewBox="0 0 12 16"><path d="M6 1c2.2 0 3.5 2 3.5 4.5C9.5 7 8.9 8.2 8 9c2.9.8 4 2.5 4 5v1H0v-1c0-2.5 1.1-4.2 4-5-.9-.8-1.5-2-1.5-3.5C2.5 3 3.8 1 6 1z"/></svg><span class="meta__text">Devin</span>
+</div>
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2023-06-18T14:05:25&#43;08:00">2023-06-18</time></div></div>
 	</header>
 	<div class="content list__excerpt post__content clearfix">
 		构造函数模板推导 在C++17前构造一个模板类对象需要指明类型：
@@ -106,7 +135,11 @@ pair p(1, 2.2); // c++17 自动推导 vector v = {1, 2, 3}; // c++17 结构化�
 			C&#43;&#43;练习题
 			</a>
 		</h2>
-		
+		<div class="list__meta meta"><div class="meta__item-author meta__item">
+	<svg class="meta__icon icon icon-author" width="16" height="16" viewBox="0 0 12 16"><path d="M6 1c2.2 0 3.5 2 3.5 4.5C9.5 7 8.9 8.2 8 9c2.9.8 4 2.5 4 5v1H0v-1c0-2.5 1.1-4.2 4-5-.9-.8-1.5-2-1.5-3.5C2.5 3 3.8 1 6 1z"/></svg><span class="meta__text">Devin</span>
+</div>
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2023-06-18T14:05:25&#43;08:00">2023-06-18</time></div></div>
 	</header>
 	<div class="content list__excerpt post__content clearfix">
 		多态 判断 Q1: 虚函数可以是内联的？ A1: 错误。内联是编译时刻决定的，虚函数是运行时刻动态决定的，所以虚函数不能是内联函数。虚函数前加上inline不会报错，但是会被忽略。
@@ -127,7 +160,11 @@ Q3: 基类的析构函数非虚，派生类的析构函数是虚函数。delete�
 			函数重载及其匹配顺序
 			</a>
 		</h2>
-		
+		<div class="list__meta meta"><div class="meta__item-author meta__item">
+	<svg class="meta__icon icon icon-author" width="16" height="16" viewBox="0 0 12 16"><path d="M6 1c2.2 0 3.5 2 3.5 4.5C9.5 7 8.9 8.2 8 9c2.9.8 4 2.5 4 5v1H0v-1c0-2.5 1.1-4.2 4-5-.9-.8-1.5-2-1.5-3.5C2.5 3 3.8 1 6 1z"/></svg><span class="meta__text">Devin</span>
+</div>
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2023-06-18T14:05:25&#43;08:00">2023-06-18</time></div></div>
 	</header>
 	<div class="content list__excerpt post__content clearfix">
 		1.函数重载 概念：同一个作用域内，同名函数，参数列表不同(参数个数、类型或顺序不同)。
@@ -142,7 +179,11 @@ Q3: 基类的析构函数非虚，派生类的析构函数是虚函数。delete�
 			调用拷贝构造函数的场景
 			</a>
 		</h2>
-		
+		<div class="list__meta meta"><div class="meta__item-author meta__item">
+	<svg class="meta__icon icon icon-author" width="16" height="16" viewBox="0 0 12 16"><path d="M6 1c2.2 0 3.5 2 3.5 4.5C9.5 7 8.9 8.2 8 9c2.9.8 4 2.5 4 5v1H0v-1c0-2.5 1.1-4.2 4-5-.9-.8-1.5-2-1.5-3.5C2.5 3 3.8 1 6 1z"/></svg><span class="meta__text">Devin</span>
+</div>
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2023-06-18T14:05:25&#43;08:00">2023-06-18</time></div></div>
 	</header>
 	<div class="content list__excerpt post__content clearfix">
 		1.默认构造函数 默认构造函数是一个系统生成的，参数列表和函数体都为空的函数。 如果类中声明了默认构造函数（无论是否有参数），编译器便不再会为之生成隐含的构造函数。
@@ -159,7 +200,11 @@ Point fun() { Point a(1, 2); return a; // 调用复制构造函数 } b = fun(); 
 			重载、覆盖、隐藏
 			</a>
 		</h2>
-		
+		<div class="list__meta meta"><div class="meta__item-author meta__item">
+	<svg class="meta__icon icon icon-author" width="16" height="16" viewBox="0 0 12 16"><path d="M6 1c2.2 0 3.5 2 3.5 4.5C9.5 7 8.9 8.2 8 9c2.9.8 4 2.5 4 5v1H0v-1c0-2.5 1.1-4.2 4-5-.9-.8-1.5-2-1.5-3.5C2.5 3 3.8 1 6 1z"/></svg><span class="meta__text">Devin</span>
+</div>
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2023-06-18T14:05:25&#43;08:00">2023-06-18</time></div></div>
 	</header>
 	<div class="content list__excerpt post__content clearfix">
 		C++类层次中的同名函数，有三种关系：
@@ -176,18 +221,58 @@ class Base { public: virtual void f(int) { std::cout &lt;&lt; &#34;Base::f\n&#34
 
 			</div>
 			
-
+<aside class="sidebar sidebar--left"><div class="widget-search widget">
+	<form class="widget-search__form" role="search" method="get" action="https://google.com/search">
+		<label>
+			<input class="widget-search__field" type="search" placeholder="SEARCH…" value="" name="q" aria-label="SEARCH…">
+		</label>
+		<input class="widget-search__submit" type="submit" value="Search">
+		<input type="hidden" name="sitesearch" value="https://devin0x01.github.io">
+	</form>
+</div>
+<div class="widget-recent widget">
+	<h4 class="widget__title">Recent Posts</h4>
+	<div class="widget__content">
+		<ul class="widget__list">
+			<li class="widget__item"><a class="widget__link" href="/post/docker%E5%86%85%E6%98%BE%E7%A4%BA%E5%9B%BE%E5%BD%A2%E7%95%8C%E9%9D%A2/">Docker内显示图形界面</a></li>
+			<li class="widget__item"><a class="widget__link" href="/post/cmake%E8%AF%AD%E6%B3%95%E5%9F%BA%E7%A1%80/">CMake语法基础</a></li>
+			<li class="widget__item"><a class="widget__link" href="/post/target_link_libraries%E4%B8%AD%E7%9A%84private-interface-public/">target_link_libraries中的PRIVATE INTERFACE PUBLIC.md</a></li>
+			<li class="widget__item"><a class="widget__link" href="/post/%E8%B0%83%E7%94%A8%E6%88%90%E5%91%98%E6%A8%A1%E6%9D%BF/">调用成员模板</a></li>
+			<li class="widget__item"><a class="widget__link" href="/post/vector%E7%9A%84push_back%E4%B8%8Eemplace_back/">vector的push_back与emplace_back.md</a></li>
+			<li class="widget__item"><a class="widget__link" href="/post/%E4%BD%8D%E5%9F%9F%E7%94%A8%E6%B3%95/">位域用法</a></li>
+			<li class="widget__item"><a class="widget__link" href="/post/c&#43;&#43;17%E7%89%B9%E6%80%A7/">C&#43;&#43;17特性</a></li>
+			<li class="widget__item"><a class="widget__link" href="/post/c&#43;&#43;%E7%BB%83%E4%B9%A0%E9%A2%98/">C&#43;&#43;练习题</a></li>
+			<li class="widget__item"><a class="widget__link" href="/post/cgdb%E9%85%8D%E7%BD%AE/">cgdb配置</a></li>
+			<li class="widget__item"><a class="widget__link" href="/post/coreddump%E9%85%8D%E7%BD%AE/">coredump配置</a></li>
+		</ul>
+	</div>
+</div>
+<div class="widget-taglist widget">
+	<h4 class="widget__title">Tags</h4>
+	<div class="widget__content">
+		<a class="widget-taglist__link widget__link btn" href="/tags/c&#43;&#43;/" title="C&#43;&#43;">C&#43;&#43;</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/cmake/" title="CMake">CMake</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/git/" title="Git">Git</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/java/" title="Java">Java</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/linux%E5%BC%80%E5%8F%91/" title="Linux开发">Linux开发</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/qt/" title="Qt">Qt</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/shell/" title="Shell">Shell</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%E5%B7%A5%E5%85%B7/" title="工具">工具</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%E7%BC%96%E8%AF%91%E8%B0%83%E8%AF%95/" title="编译调试">编译调试</a>
+	</div>
+</div>
+</aside>
 		</div>
 		<footer class="footer">
 	<div class="container footer__container flex">
 		
 		<div class="footer__copyright">
-			&copy; 2023 DEVIN 0x01.
+			&copy; 2023 Devin.
 			<span class="footer__copyright-credits">Generated with <a href="https://gohugo.io/" rel="nofollow noopener" target="_blank">Hugo</a> and <a href="https://github.com/Vimux/Mainroad/" rel="nofollow noopener" target="_blank">Mainroad</a> theme.</span>
 		</div>
 	</div>
 </footer>
 	</div>
 <script async defer src="/js/menu.js"></script>
-</body>
+<script src="/js/custom.js"></script></body>
 </html>

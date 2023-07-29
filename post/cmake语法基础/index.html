@@ -4,16 +4,38 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>CMake语法基础 - DEVIN 0x01</title>
+	<title>CMake语法基础 - DEVIN&#39;s BLOG</title>
 	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
 	<meta name="description" content="">
+		<meta property="og:title" content="CMake语法基础" />
+<meta property="og:description" content="基本表达式 if — CMake 3.27.1 Documentation
+Cmake中的条件判断if/elseif/else - 简书
+if(&lt;constant&gt;) True if the constant is 1, ON, YES, TRUE, Y, or a non-zero number (including floating point numbers). False if the constant is 0, OFF, NO, FALSE, N, IGNORE, NOTFOUND, the empty string, or ends in the suffix -NOTFOUND. Named boolean constants are case-insensitive. If the argument is not one of these specific constants, it is treated as a variable or string (see Variable Expansion further below) and one of the following two forms applies." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://devin0x01.github.io/post/cmake%E8%AF%AD%E6%B3%95%E5%9F%BA%E7%A1%80/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2023-07-26T14:05:25+08:00" />
+<meta property="article:modified_time" content="2023-07-26T14:05:25+08:00" />
+
+		<meta itemprop="name" content="CMake语法基础">
+<meta itemprop="description" content="基本表达式 if — CMake 3.27.1 Documentation
+Cmake中的条件判断if/elseif/else - 简书
+if(&lt;constant&gt;) True if the constant is 1, ON, YES, TRUE, Y, or a non-zero number (including floating point numbers). False if the constant is 0, OFF, NO, FALSE, N, IGNORE, NOTFOUND, the empty string, or ends in the suffix -NOTFOUND. Named boolean constants are case-insensitive. If the argument is not one of these specific constants, it is treated as a variable or string (see Variable Expansion further below) and one of the following two forms applies."><meta itemprop="datePublished" content="2023-07-26T14:05:25+08:00" />
+<meta itemprop="dateModified" content="2023-07-26T14:05:25+08:00" />
+<meta itemprop="wordCount" content="133">
+<meta itemprop="keywords" content="CMake," />
+		<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="CMake语法基础"/>
+<meta name="twitter:description" content="基本表达式 if — CMake 3.27.1 Documentation
+Cmake中的条件判断if/elseif/else - 简书
+if(&lt;constant&gt;) True if the constant is 1, ON, YES, TRUE, Y, or a non-zero number (including floating point numbers). False if the constant is 0, OFF, NO, FALSE, N, IGNORE, NOTFOUND, the empty string, or ends in the suffix -NOTFOUND. Named boolean constants are case-insensitive. If the argument is not one of these specific constants, it is treated as a variable or string (see Variable Expansion further below) and one of the following two forms applies."/>
+
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link rel="dns-prefetch" href="//fonts.googleapis.com">
 	<link rel="dns-prefetch" href="//fonts.gstatic.com">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700">
 
 	<link rel="stylesheet" href="/css/style.css">
-	
+	<link rel="stylesheet" href="/css/custom.css">
 
 	<link rel="shortcut icon" href="/favicon.ico">
 		
@@ -23,11 +45,13 @@
 		<header class="header">
 	<div class="container header__container">
 		
-	<div class="logo">
-		<a class="logo__link" href="/" title="DEVIN 0x01" rel="home">
-			<div class="logo__item logo__text">
-					<div class="logo__title">DEVIN 0x01</div>
-					
+	<div class="logo logo--mixed">
+		<a class="logo__link" href="/" title="Mainroad" rel="home">
+			<div class="logo__item logo__imagebox">
+					<img class="logo__img" src="/img/placeholder.png">
+				</div><div class="logo__item logo__text">
+					<div class="logo__title">Mainroad</div>
+					<div class="logo__tagline">Just another site</div>
 				</div>
 		</a>
 	</div>
@@ -41,9 +65,24 @@
 	<article class="post">
 		<header class="post__header">
 			<h1 class="post__title">CMake语法基础</h1>
-			
+			<div class="post__meta meta"><div class="meta__item-author meta__item">
+	<svg class="meta__icon icon icon-author" width="16" height="16" viewBox="0 0 12 16"><path d="M6 1c2.2 0 3.5 2 3.5 4.5C9.5 7 8.9 8.2 8 9c2.9.8 4 2.5 4 5v1H0v-1c0-2.5 1.1-4.2 4-5-.9-.8-1.5-2-1.5-3.5C2.5 3 3.8 1 6 1z"/></svg><span class="meta__text">Devin</span>
+</div>
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2023-07-26T14:05:25&#43;08:00">2023-07-26</time></div></div>
 		</header>
-		<div class="content post__content clearfix">
+		
+<div class="post__toc toc">
+	<div class="toc__title">Page content</div>
+	<div class="toc__menu">
+		<nav id="TableOfContents">
+  <ul>
+    <li><a href="#ifconstant">if(&lt;constant&gt;)</a></li>
+    <li><a href="#ifvariable">if(&lt;variable&gt;)</a></li>
+  </ul>
+</nav>
+	</div>
+</div><div class="content post__content clearfix">
 			<h1 id="基本表达式">基本表达式</h1>
 <p><a href="https://cmake.org/cmake/help/latest/command/if.html">if — CMake 3.27.1 Documentation</a><br>
 <a href="https://www.jianshu.com/p/3958cff0318b">Cmake中的条件判断if/elseif/else - 简书</a></p>
@@ -71,7 +110,32 @@
 	</article>
 </main>
 
+<div class="authorbox clearfix">
+	<figure class="authorbox__avatar">
+		<img alt="Devin avatar" src="/img/avatar.png" class="avatar" height="90" width="90">
+	</figure>
+	<div class="authorbox__header">
+		<span class="authorbox__name">About Devin</span>
+	</div>
+	<div class="authorbox__description">
+		Devin&rsquo;s true identity is unknown. Maybe he is a successful blogger or writer. Nobody knows it.
+	</div>
+</div>
 
+<nav class="pager flex">
+	<div class="pager__item pager__item--prev">
+		<a class="pager__link" href="/post/target_link_libraries%E4%B8%AD%E7%9A%84private-interface-public/" rel="prev">
+			<span class="pager__subtitle">«&thinsp;Previous</span>
+			<p class="pager__title">target_link_libraries中的PRIVATE INTERFACE PUBLIC.md</p>
+		</a>
+	</div>
+	<div class="pager__item pager__item--next">
+		<a class="pager__link" href="/post/docker%E5%86%85%E6%98%BE%E7%A4%BA%E5%9B%BE%E5%BD%A2%E7%95%8C%E9%9D%A2/" rel="next">
+			<span class="pager__subtitle">Next&thinsp;»</span>
+			<p class="pager__title">Docker内显示图形界面</p>
+		</a>
+	</div>
+</nav>
 
 
 			</div>
@@ -81,12 +145,14 @@
 	<div class="container footer__container flex">
 		
 		<div class="footer__copyright">
-			&copy; 2023 DEVIN 0x01.
+			&copy; 2023 Devin.
 			<span class="footer__copyright-credits">Generated with <a href="https://gohugo.io/" rel="nofollow noopener" target="_blank">Hugo</a> and <a href="https://github.com/Vimux/Mainroad/" rel="nofollow noopener" target="_blank">Mainroad</a> theme.</span>
 		</div>
 	</div>
 </footer>
 	</div>
 <script async defer src="/js/menu.js"></script>
+<script src="/js/custom.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.6/MathJax.js?config=TeX-AMS-MML_HTMLorMML" async></script>
 </body>
 </html>

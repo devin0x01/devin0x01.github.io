@@ -4,16 +4,35 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>调用成员模板 - DEVIN 0x01</title>
+	<title>调用成员模板 - DEVIN&#39;s BLOG</title>
 	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
 	<meta name="description" content="">
+		<meta property="og:title" content="调用成员模板" />
+<meta property="og:description" content="C&#43;&#43;访问成员模板需要加template关键字
+#include &lt;iostream&gt; using namespace std; class A { public: template &lt;typename TypeNum&gt; int getSize() { return sizeof(TypeNum); } }; // 调用成员模板函数需要加template template &lt;typename T&gt; void f1() { T t1; cout &lt;&lt; (t1.template getSize&lt;float&gt;()) &lt;&lt; endl; cout &lt;&lt; (t1.template getSize&lt;double&gt;()) &lt;&lt; endl; } // 调用成员模板函数不需要加template void f2() { A a1; cout &lt;&lt; (a1.getSize&lt;long&gt;()) &lt;&lt; endl; cout &lt;&lt; (a1.getSize&lt;long long&gt;()) &lt;&lt; endl; } int main() { f1&lt;A&gt;(); f2(); return 0; } " />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://devin0x01.github.io/post/%E8%B0%83%E7%94%A8%E6%88%90%E5%91%98%E6%A8%A1%E6%9D%BF/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2023-07-20T14:05:25+08:00" />
+<meta property="article:modified_time" content="2023-07-20T14:05:25+08:00" />
+
+		<meta itemprop="name" content="调用成员模板">
+<meta itemprop="description" content="C&#43;&#43;访问成员模板需要加template关键字
+#include &lt;iostream&gt; using namespace std; class A { public: template &lt;typename TypeNum&gt; int getSize() { return sizeof(TypeNum); } }; // 调用成员模板函数需要加template template &lt;typename T&gt; void f1() { T t1; cout &lt;&lt; (t1.template getSize&lt;float&gt;()) &lt;&lt; endl; cout &lt;&lt; (t1.template getSize&lt;double&gt;()) &lt;&lt; endl; } // 调用成员模板函数不需要加template void f2() { A a1; cout &lt;&lt; (a1.getSize&lt;long&gt;()) &lt;&lt; endl; cout &lt;&lt; (a1.getSize&lt;long long&gt;()) &lt;&lt; endl; } int main() { f1&lt;A&gt;(); f2(); return 0; } "><meta itemprop="datePublished" content="2023-07-20T14:05:25+08:00" />
+<meta itemprop="dateModified" content="2023-07-20T14:05:25+08:00" />
+<meta itemprop="wordCount" content="70">
+<meta itemprop="keywords" content="C&#43;&#43;," />
+		<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="调用成员模板"/>
+<meta name="twitter:description" content="C&#43;&#43;访问成员模板需要加template关键字
+#include &lt;iostream&gt; using namespace std; class A { public: template &lt;typename TypeNum&gt; int getSize() { return sizeof(TypeNum); } }; // 调用成员模板函数需要加template template &lt;typename T&gt; void f1() { T t1; cout &lt;&lt; (t1.template getSize&lt;float&gt;()) &lt;&lt; endl; cout &lt;&lt; (t1.template getSize&lt;double&gt;()) &lt;&lt; endl; } // 调用成员模板函数不需要加template void f2() { A a1; cout &lt;&lt; (a1.getSize&lt;long&gt;()) &lt;&lt; endl; cout &lt;&lt; (a1.getSize&lt;long long&gt;()) &lt;&lt; endl; } int main() { f1&lt;A&gt;(); f2(); return 0; } "/>
+
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link rel="dns-prefetch" href="//fonts.googleapis.com">
 	<link rel="dns-prefetch" href="//fonts.gstatic.com">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700">
 
 	<link rel="stylesheet" href="/css/style.css">
-	
+	<link rel="stylesheet" href="/css/custom.css">
 
 	<link rel="shortcut icon" href="/favicon.ico">
 		
@@ -23,11 +42,13 @@
 		<header class="header">
 	<div class="container header__container">
 		
-	<div class="logo">
-		<a class="logo__link" href="/" title="DEVIN 0x01" rel="home">
-			<div class="logo__item logo__text">
-					<div class="logo__title">DEVIN 0x01</div>
-					
+	<div class="logo logo--mixed">
+		<a class="logo__link" href="/" title="Mainroad" rel="home">
+			<div class="logo__item logo__imagebox">
+					<img class="logo__img" src="/img/placeholder.png">
+				</div><div class="logo__item logo__text">
+					<div class="logo__title">Mainroad</div>
+					<div class="logo__tagline">Just another site</div>
 				</div>
 		</a>
 	</div>
@@ -41,7 +62,11 @@
 	<article class="post">
 		<header class="post__header">
 			<h1 class="post__title">调用成员模板</h1>
-			
+			<div class="post__meta meta"><div class="meta__item-author meta__item">
+	<svg class="meta__icon icon icon-author" width="16" height="16" viewBox="0 0 12 16"><path d="M6 1c2.2 0 3.5 2 3.5 4.5C9.5 7 8.9 8.2 8 9c2.9.8 4 2.5 4 5v1H0v-1c0-2.5 1.1-4.2 4-5-.9-.8-1.5-2-1.5-3.5C2.5 3 3.8 1 6 1z"/></svg><span class="meta__text">Devin</span>
+</div>
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2023-07-20T14:05:25&#43;08:00">2023-07-20</time></div></div>
 		</header>
 		<div class="content post__content clearfix">
 			<p><a href="https://www.zhihu.com/question/37990298">C++访问成员模板需要加template关键字</a></p>
@@ -97,7 +122,32 @@
 	</article>
 </main>
 
+<div class="authorbox clearfix">
+	<figure class="authorbox__avatar">
+		<img alt="Devin avatar" src="/img/avatar.png" class="avatar" height="90" width="90">
+	</figure>
+	<div class="authorbox__header">
+		<span class="authorbox__name">About Devin</span>
+	</div>
+	<div class="authorbox__description">
+		Devin&rsquo;s true identity is unknown. Maybe he is a successful blogger or writer. Nobody knows it.
+	</div>
+</div>
 
+<nav class="pager flex">
+	<div class="pager__item pager__item--prev">
+		<a class="pager__link" href="/post/vector%E7%9A%84push_back%E4%B8%8Eemplace_back/" rel="prev">
+			<span class="pager__subtitle">«&thinsp;Previous</span>
+			<p class="pager__title">vector的push_back与emplace_back.md</p>
+		</a>
+	</div>
+	<div class="pager__item pager__item--next">
+		<a class="pager__link" href="/post/target_link_libraries%E4%B8%AD%E7%9A%84private-interface-public/" rel="next">
+			<span class="pager__subtitle">Next&thinsp;»</span>
+			<p class="pager__title">target_link_libraries中的PRIVATE INTERFACE PUBLIC.md</p>
+		</a>
+	</div>
+</nav>
 
 
 			</div>
@@ -107,12 +157,14 @@
 	<div class="container footer__container flex">
 		
 		<div class="footer__copyright">
-			&copy; 2023 DEVIN 0x01.
+			&copy; 2023 Devin.
 			<span class="footer__copyright-credits">Generated with <a href="https://gohugo.io/" rel="nofollow noopener" target="_blank">Hugo</a> and <a href="https://github.com/Vimux/Mainroad/" rel="nofollow noopener" target="_blank">Mainroad</a> theme.</span>
 		</div>
 	</div>
 </footer>
 	</div>
 <script async defer src="/js/menu.js"></script>
+<script src="/js/custom.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.6/MathJax.js?config=TeX-AMS-MML_HTMLorMML" async></script>
 </body>
 </html>

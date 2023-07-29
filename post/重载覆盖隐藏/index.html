@@ -4,16 +4,50 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>重载、覆盖、隐藏 - DEVIN 0x01</title>
+	<title>重载、覆盖、隐藏 - DEVIN&#39;s BLOG</title>
 	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
 	<meta name="description" content="">
+		<meta property="og:title" content="重载、覆盖、隐藏" />
+<meta property="og:description" content="C&#43;&#43;类层次中的同名函数，有三种关系：
+1.重载**（overload）** 概念：相同的范围（同一个类）中的同名函数，参数列表不同。 1)与返回值类型没有关系。 2)const是有效的重载。 3)virutal是无效的重载。virtual关键字可有可无，不影响是否是重载函数。
+2.重写、覆盖**（override）** 概念：在派生类中覆盖基类中的同名函数，要求 1)基类函数必须是虚函数 2)与基类的虚函数有相同的参数列表 3)与基类的虚函数有相同的返回类型、或者满足赋值兼容规则的指针/引用类型返回值(见下面的例子)。
+以下情况不能实现多态：同名函数缺省参数不一致、同名函数用const修饰
+3.隐藏**（hide，oversee）** 概念：隐藏指在某些情况下，派生类中的函数屏蔽了基类中的同名函数。这些情况包括两个函数参数相同，但是基类不是虚函数。&mdash;（参数不同可以实现重载） 区别：和覆盖的区别在于基类函数是否是虚函数。
+可以使用using声明解决基类成员被隐藏的问题，例如：
+class Base { public: virtual void f(int) { std::cout &lt;&lt; &#34;Base::f\n&#34;; } void g(char) { std::cout &lt;&lt; &#34;Base::g\n&#34;; } void h(int) { std::cout &lt;&lt; &#34;Base::h\n&#34;; } protected: int m; private: int k; }; class Derived : public Base { public: using Base::m; // 此时 m 为public // using Base::k; // error报错 using Base::f; void f(int) { std::cout &lt;&lt; &#34;Derived::f\n&#34;; } // D::f(int) 覆盖 B::f(int) using Base::g; // 不声明的话，需要通过 obj." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://devin0x01.github.io/post/%E9%87%8D%E8%BD%BD%E8%A6%86%E7%9B%96%E9%9A%90%E8%97%8F/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2023-06-18T14:05:25+08:00" />
+<meta property="article:modified_time" content="2023-06-18T14:05:25+08:00" />
+
+		<meta itemprop="name" content="重载、覆盖、隐藏">
+<meta itemprop="description" content="C&#43;&#43;类层次中的同名函数，有三种关系：
+1.重载**（overload）** 概念：相同的范围（同一个类）中的同名函数，参数列表不同。 1)与返回值类型没有关系。 2)const是有效的重载。 3)virutal是无效的重载。virtual关键字可有可无，不影响是否是重载函数。
+2.重写、覆盖**（override）** 概念：在派生类中覆盖基类中的同名函数，要求 1)基类函数必须是虚函数 2)与基类的虚函数有相同的参数列表 3)与基类的虚函数有相同的返回类型、或者满足赋值兼容规则的指针/引用类型返回值(见下面的例子)。
+以下情况不能实现多态：同名函数缺省参数不一致、同名函数用const修饰
+3.隐藏**（hide，oversee）** 概念：隐藏指在某些情况下，派生类中的函数屏蔽了基类中的同名函数。这些情况包括两个函数参数相同，但是基类不是虚函数。&mdash;（参数不同可以实现重载） 区别：和覆盖的区别在于基类函数是否是虚函数。
+可以使用using声明解决基类成员被隐藏的问题，例如：
+class Base { public: virtual void f(int) { std::cout &lt;&lt; &#34;Base::f\n&#34;; } void g(char) { std::cout &lt;&lt; &#34;Base::g\n&#34;; } void h(int) { std::cout &lt;&lt; &#34;Base::h\n&#34;; } protected: int m; private: int k; }; class Derived : public Base { public: using Base::m; // 此时 m 为public // using Base::k; // error报错 using Base::f; void f(int) { std::cout &lt;&lt; &#34;Derived::f\n&#34;; } // D::f(int) 覆盖 B::f(int) using Base::g; // 不声明的话，需要通过 obj."><meta itemprop="datePublished" content="2023-06-18T14:05:25+08:00" />
+<meta itemprop="dateModified" content="2023-06-18T14:05:25+08:00" />
+<meta itemprop="wordCount" content="149">
+<meta itemprop="keywords" content="C&#43;&#43;," />
+		<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="重载、覆盖、隐藏"/>
+<meta name="twitter:description" content="C&#43;&#43;类层次中的同名函数，有三种关系：
+1.重载**（overload）** 概念：相同的范围（同一个类）中的同名函数，参数列表不同。 1)与返回值类型没有关系。 2)const是有效的重载。 3)virutal是无效的重载。virtual关键字可有可无，不影响是否是重载函数。
+2.重写、覆盖**（override）** 概念：在派生类中覆盖基类中的同名函数，要求 1)基类函数必须是虚函数 2)与基类的虚函数有相同的参数列表 3)与基类的虚函数有相同的返回类型、或者满足赋值兼容规则的指针/引用类型返回值(见下面的例子)。
+以下情况不能实现多态：同名函数缺省参数不一致、同名函数用const修饰
+3.隐藏**（hide，oversee）** 概念：隐藏指在某些情况下，派生类中的函数屏蔽了基类中的同名函数。这些情况包括两个函数参数相同，但是基类不是虚函数。&mdash;（参数不同可以实现重载） 区别：和覆盖的区别在于基类函数是否是虚函数。
+可以使用using声明解决基类成员被隐藏的问题，例如：
+class Base { public: virtual void f(int) { std::cout &lt;&lt; &#34;Base::f\n&#34;; } void g(char) { std::cout &lt;&lt; &#34;Base::g\n&#34;; } void h(int) { std::cout &lt;&lt; &#34;Base::h\n&#34;; } protected: int m; private: int k; }; class Derived : public Base { public: using Base::m; // 此时 m 为public // using Base::k; // error报错 using Base::f; void f(int) { std::cout &lt;&lt; &#34;Derived::f\n&#34;; } // D::f(int) 覆盖 B::f(int) using Base::g; // 不声明的话，需要通过 obj."/>
+
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link rel="dns-prefetch" href="//fonts.googleapis.com">
 	<link rel="dns-prefetch" href="//fonts.gstatic.com">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700">
 
 	<link rel="stylesheet" href="/css/style.css">
-	
+	<link rel="stylesheet" href="/css/custom.css">
 
 	<link rel="shortcut icon" href="/favicon.ico">
 		
@@ -23,11 +57,13 @@
 		<header class="header">
 	<div class="container header__container">
 		
-	<div class="logo">
-		<a class="logo__link" href="/" title="DEVIN 0x01" rel="home">
-			<div class="logo__item logo__text">
-					<div class="logo__title">DEVIN 0x01</div>
-					
+	<div class="logo logo--mixed">
+		<a class="logo__link" href="/" title="Mainroad" rel="home">
+			<div class="logo__item logo__imagebox">
+					<img class="logo__img" src="/img/placeholder.png">
+				</div><div class="logo__item logo__text">
+					<div class="logo__title">Mainroad</div>
+					<div class="logo__tagline">Just another site</div>
 				</div>
 		</a>
 	</div>
@@ -41,7 +77,11 @@
 	<article class="post">
 		<header class="post__header">
 			<h1 class="post__title">重载、覆盖、隐藏</h1>
-			
+			<div class="post__meta meta"><div class="meta__item-author meta__item">
+	<svg class="meta__icon icon icon-author" width="16" height="16" viewBox="0 0 12 16"><path d="M6 1c2.2 0 3.5 2 3.5 4.5C9.5 7 8.9 8.2 8 9c2.9.8 4 2.5 4 5v1H0v-1c0-2.5 1.1-4.2 4-5-.9-.8-1.5-2-1.5-3.5C2.5 3 3.8 1 6 1z"/></svg><span class="meta__text">Devin</span>
+</div>
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2023-06-18T14:05:25&#43;08:00">2023-06-18</time></div></div>
 		</header>
 		<div class="content post__content clearfix">
 			<p>C++类层次中的同名函数，有三种关系：</p>
@@ -120,7 +160,32 @@
 	</article>
 </main>
 
+<div class="authorbox clearfix">
+	<figure class="authorbox__avatar">
+		<img alt="Devin avatar" src="/img/avatar.png" class="avatar" height="90" width="90">
+	</figure>
+	<div class="authorbox__header">
+		<span class="authorbox__name">About Devin</span>
+	</div>
+	<div class="authorbox__description">
+		Devin&rsquo;s true identity is unknown. Maybe he is a successful blogger or writer. Nobody knows it.
+	</div>
+</div>
 
+<nav class="pager flex">
+	<div class="pager__item pager__item--prev">
+		<a class="pager__link" href="/post/%E9%85%8D%E7%BD%AEgithub-pages%E6%95%99%E7%A8%8B/" rel="prev">
+			<span class="pager__subtitle">«&thinsp;Previous</span>
+			<p class="pager__title">配置github pages教程</p>
+		</a>
+	</div>
+	<div class="pager__item pager__item--next">
+		<a class="pager__link" href="/post/%E8%B0%83%E7%94%A8%E6%8B%B7%E8%B4%9D%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0%E7%9A%84%E5%9C%BA%E6%99%AF/" rel="next">
+			<span class="pager__subtitle">Next&thinsp;»</span>
+			<p class="pager__title">调用拷贝构造函数的场景</p>
+		</a>
+	</div>
+</nav>
 
 
 			</div>
@@ -130,12 +195,14 @@
 	<div class="container footer__container flex">
 		
 		<div class="footer__copyright">
-			&copy; 2023 DEVIN 0x01.
+			&copy; 2023 Devin.
 			<span class="footer__copyright-credits">Generated with <a href="https://gohugo.io/" rel="nofollow noopener" target="_blank">Hugo</a> and <a href="https://github.com/Vimux/Mainroad/" rel="nofollow noopener" target="_blank">Mainroad</a> theme.</span>
 		</div>
 	</div>
 </footer>
 	</div>
 <script async defer src="/js/menu.js"></script>
+<script src="/js/custom.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.6/MathJax.js?config=TeX-AMS-MML_HTMLorMML" async></script>
 </body>
 </html>

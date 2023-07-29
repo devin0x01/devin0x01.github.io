@@ -4,16 +4,32 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Git常用命令 - DEVIN 0x01</title>
+	<title>Git常用命令 - DEVIN&#39;s BLOG</title>
 	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
 	<meta name="description" content="">
+		<meta property="og:title" content="Git常用命令" />
+<meta property="og:description" content="1.git remote 关联远端仓库 git remote add origin git@github.com:git_username/repository_name.git git remote remove origin git remote -v 2.git branch 本地分支关联远程分支(目的是在执行git pull/push操作时就不需要指定对应的远程分支) git branch --set-upstream-to=origin/master git branch -u origin/master 切换分支 git checkout -b &lt;new_branch&gt; 查看所有分支 git branch -a 更改分支名称 git branch -m br_old br_new 3.git push 删除远程分支 git push origin --delete &lt;branch&gt; 同步到远程分支 git push -u origin &lt;local_branch&gt;:&lt;remote_branch&gt; 4.git diff 查看当前没有add的内容修改 git diff 查看已经add没有commit的改动 git diff --cached 查看当前没有add和commit的改动 git diff HEAD 或者 git status 再查看任意连个版本之间的改动 git diff &lt;版本号码1&gt; &lt;版本号码2&gt; 比较两个版本号src文件夹的差异 git diff &lt;版本号码1&gt; &lt;版本号码2&gt; src 5." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://devin0x01.github.io/post/git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2023-06-18T14:05:25+08:00" />
+<meta property="article:modified_time" content="2023-06-18T14:05:25+08:00" />
+
+		<meta itemprop="name" content="Git常用命令">
+<meta itemprop="description" content="1.git remote 关联远端仓库 git remote add origin git@github.com:git_username/repository_name.git git remote remove origin git remote -v 2.git branch 本地分支关联远程分支(目的是在执行git pull/push操作时就不需要指定对应的远程分支) git branch --set-upstream-to=origin/master git branch -u origin/master 切换分支 git checkout -b &lt;new_branch&gt; 查看所有分支 git branch -a 更改分支名称 git branch -m br_old br_new 3.git push 删除远程分支 git push origin --delete &lt;branch&gt; 同步到远程分支 git push -u origin &lt;local_branch&gt;:&lt;remote_branch&gt; 4.git diff 查看当前没有add的内容修改 git diff 查看已经add没有commit的改动 git diff --cached 查看当前没有add和commit的改动 git diff HEAD 或者 git status 再查看任意连个版本之间的改动 git diff &lt;版本号码1&gt; &lt;版本号码2&gt; 比较两个版本号src文件夹的差异 git diff &lt;版本号码1&gt; &lt;版本号码2&gt; src 5."><meta itemprop="datePublished" content="2023-06-18T14:05:25+08:00" />
+<meta itemprop="dateModified" content="2023-06-18T14:05:25+08:00" />
+<meta itemprop="wordCount" content="143">
+<meta itemprop="keywords" content="Git," />
+		<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Git常用命令"/>
+<meta name="twitter:description" content="1.git remote 关联远端仓库 git remote add origin git@github.com:git_username/repository_name.git git remote remove origin git remote -v 2.git branch 本地分支关联远程分支(目的是在执行git pull/push操作时就不需要指定对应的远程分支) git branch --set-upstream-to=origin/master git branch -u origin/master 切换分支 git checkout -b &lt;new_branch&gt; 查看所有分支 git branch -a 更改分支名称 git branch -m br_old br_new 3.git push 删除远程分支 git push origin --delete &lt;branch&gt; 同步到远程分支 git push -u origin &lt;local_branch&gt;:&lt;remote_branch&gt; 4.git diff 查看当前没有add的内容修改 git diff 查看已经add没有commit的改动 git diff --cached 查看当前没有add和commit的改动 git diff HEAD 或者 git status 再查看任意连个版本之间的改动 git diff &lt;版本号码1&gt; &lt;版本号码2&gt; 比较两个版本号src文件夹的差异 git diff &lt;版本号码1&gt; &lt;版本号码2&gt; src 5."/>
+
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link rel="dns-prefetch" href="//fonts.googleapis.com">
 	<link rel="dns-prefetch" href="//fonts.gstatic.com">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700">
 
 	<link rel="stylesheet" href="/css/style.css">
-	
+	<link rel="stylesheet" href="/css/custom.css">
 
 	<link rel="shortcut icon" href="/favicon.ico">
 		
@@ -23,11 +39,13 @@
 		<header class="header">
 	<div class="container header__container">
 		
-	<div class="logo">
-		<a class="logo__link" href="/" title="DEVIN 0x01" rel="home">
-			<div class="logo__item logo__text">
-					<div class="logo__title">DEVIN 0x01</div>
-					
+	<div class="logo logo--mixed">
+		<a class="logo__link" href="/" title="Mainroad" rel="home">
+			<div class="logo__item logo__imagebox">
+					<img class="logo__img" src="/img/placeholder.png">
+				</div><div class="logo__item logo__text">
+					<div class="logo__title">Mainroad</div>
+					<div class="logo__tagline">Just another site</div>
 				</div>
 		</a>
 	</div>
@@ -41,7 +59,11 @@
 	<article class="post">
 		<header class="post__header">
 			<h1 class="post__title">Git常用命令</h1>
-			
+			<div class="post__meta meta"><div class="meta__item-author meta__item">
+	<svg class="meta__icon icon icon-author" width="16" height="16" viewBox="0 0 12 16"><path d="M6 1c2.2 0 3.5 2 3.5 4.5C9.5 7 8.9 8.2 8 9c2.9.8 4 2.5 4 5v1H0v-1c0-2.5 1.1-4.2 4-5-.9-.8-1.5-2-1.5-3.5C2.5 3 3.8 1 6 1z"/></svg><span class="meta__text">Devin</span>
+</div>
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2023-06-18T14:05:25&#43;08:00">2023-06-18</time></div></div>
 		</header>
 		<div class="content post__content clearfix">
 			<h1 id="1git-remote">1.git remote</h1>
@@ -130,7 +152,32 @@ git show f52c633
 	</article>
 </main>
 
+<div class="authorbox clearfix">
+	<figure class="authorbox__avatar">
+		<img alt="Devin avatar" src="/img/avatar.png" class="avatar" height="90" width="90">
+	</figure>
+	<div class="authorbox__header">
+		<span class="authorbox__name">About Devin</span>
+	</div>
+	<div class="authorbox__description">
+		Devin&rsquo;s true identity is unknown. Maybe he is a successful blogger or writer. Nobody knows it.
+	</div>
+</div>
 
+<nav class="pager flex">
+	<div class="pager__item pager__item--prev">
+		<a class="pager__link" href="/post/java%E5%9F%BA%E7%A1%80/" rel="prev">
+			<span class="pager__subtitle">«&thinsp;Previous</span>
+			<p class="pager__title">Java基础</p>
+		</a>
+	</div>
+	<div class="pager__item pager__item--next">
+		<a class="pager__link" href="/post/expect%E5%AE%9E%E7%8E%B0%E4%BA%A4%E4%BA%92%E5%BC%8F%E8%BE%93%E5%85%A5/" rel="next">
+			<span class="pager__subtitle">Next&thinsp;»</span>
+			<p class="pager__title">expect实现交互式输入</p>
+		</a>
+	</div>
+</nav>
 
 
 			</div>
@@ -140,12 +187,14 @@ git show f52c633
 	<div class="container footer__container flex">
 		
 		<div class="footer__copyright">
-			&copy; 2023 DEVIN 0x01.
+			&copy; 2023 Devin.
 			<span class="footer__copyright-credits">Generated with <a href="https://gohugo.io/" rel="nofollow noopener" target="_blank">Hugo</a> and <a href="https://github.com/Vimux/Mainroad/" rel="nofollow noopener" target="_blank">Mainroad</a> theme.</span>
 		</div>
 	</div>
 </footer>
 	</div>
 <script async defer src="/js/menu.js"></script>
+<script src="/js/custom.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.6/MathJax.js?config=TeX-AMS-MML_HTMLorMML" async></script>
 </body>
 </html>
