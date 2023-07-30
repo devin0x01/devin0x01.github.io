@@ -1,12 +1,23 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Qt on DEVIN&#39;s BLOG</title>
-    <link>https://devin0x01.github.io/tags/qt/</link>
-    <description>Recent content in Qt on DEVIN&#39;s BLOG</description>
+    <title>Docker on DEVIN&#39;s BLOG</title>
+    <link>https://devin0x01.github.io/tags/docker/</link>
+    <description>Recent content in Docker on DEVIN&#39;s BLOG</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 28 Jul 2023 16:05:25 +0800</lastBuildDate><atom:link href="https://devin0x01.github.io/tags/qt/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 30 Jul 2023 12:10:05 +0800</lastBuildDate><atom:link href="https://devin0x01.github.io/tags/docker/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Docker内显示图形界面</title>
+      <link>https://devin0x01.github.io/post/linux%E8%BF%90%E7%BB%B4/wireguard%E9%85%8D%E7%BD%AE%E6%95%99%E7%A8%8B/</link>
+      <pubDate>Sun, 30 Jul 2023 12:10:05 +0800</pubDate>
+      
+      <guid>https://devin0x01.github.io/post/linux%E8%BF%90%E7%BB%B4/wireguard%E9%85%8D%E7%BD%AE%E6%95%99%E7%A8%8B/</guid>
+      <description>Run WireGuard VPN Server in Docker Container with Docker Compose - TechViewLeo &amp;ndash; 主要参考这个 基于Wireguard技术的虚拟个人网络搭建: 基于wireguard的内网穿透技术~
+公网机器: IP=100.101.102.103, Name=TencentVM1 私网机器: IP=192.168.123.189, Name=LocalMint1 1.公网配置 1.1.安装docker-compose Docker Compose | 菜鸟教程
+sudo curl -L &amp;#34;https://github.com/docker/compose/releases/download/v2.19.1/docker-compose-$(uname -s)-$(uname -m)&amp;#34; -o /usr/local/bin/docker-compose sudo chmod 755 /usr/local/bin/docker-compose docker-compose version 1.2.安装linuxserver/wireguard镜像 sudo mkdir /opt/wireguard-server vim docker-compose.yaml # yaml里需要配置容器的名字，server的地址 docker compose up -d # 检查WireGuard服务器的状态 docker exec -it wireguard wg docker exec -it wireguard /bin/bash # 其他docker compose命令 docker compose start wireguard docker compose restart wireguard docker compose ps 配置文件的目录结构</description>
+    </item>
+    
     <item>
       <title>Docker内显示图形界面</title>
       <link>https://devin0x01.github.io/post/linux%E8%BF%90%E7%BB%B4/docker%E5%86%85%E6%98%BE%E7%A4%BA%E5%9B%BE%E5%BD%A2%E7%95%8C%E9%9D%A2/</link>
@@ -23,16 +34,6 @@ X11采用了C/S的架构，在其设计下，整个图形视窗系统主要分�
 常用命令 xorg - What does $DISPLAY environment variable mean - Ask Ubuntu
 x11 forwarding - How to fix &amp;ldquo;MobaXterm X11 proxy: Unsupported authorisation protocol&amp;rdquo; - Super User
 echo $DISPLAY # 注意：`xauth add` 之后可能需要重新连接才能生效!! xauth add $DISPLAY .</description>
-    </item>
-    
-    <item>
-      <title>Qt开发总结篇一</title>
-      <link>https://devin0x01.github.io/post/qt/qt%E5%BC%80%E5%8F%91%E6%80%BB%E7%BB%93%E7%AF%87%E4%B8%80/</link>
-      <pubDate>Sun, 18 Jun 2023 14:05:25 +0800</pubDate>
-      
-      <guid>https://devin0x01.github.io/post/qt/qt%E5%BC%80%E5%8F%91%E6%80%BB%E7%BB%93%E7%AF%87%E4%B8%80/</guid>
-      <description>GUI界面 限制输入的内容 QValidator *validator = new QIntValidator(100, 999, this); // 这样文本框只能输入100~999之间的数字 ui-&amp;gt;lineEdit-&amp;gt;setValidator(validator); 显示格式控制 ui-&amp;gt;textEdit-&amp;gt;setWordWrapMode(QTextOption::WrapAnywhere); // 任意地方换行 ui-&amp;gt;tableWidget-&amp;gt;setTextElideMode(Qt::ElideMode); // 不显示省略号 Qt序列化 通过全局流操作运算符重载实现，可以序列化到文件等设备中，也可以序列化到QByteArray中。
-// cmdinfo.h // BaseInfo已经实现序列化 class CmdInfo : public BaseInfo { public: friend QDataStream&amp;amp; operator&amp;gt;&amp;gt;(QDataStream&amp;amp;, CmdInfo&amp;amp;); friend QDataStream&amp;amp; operator&amp;lt;&amp;lt;(QDataStream&amp;amp;, const CmdInfo&amp;amp;); private: QString command_; CmdType type_; }; // cmdinfo.cpp QDataStream&amp;amp; operator&amp;gt;&amp;gt;(QDataStream &amp;amp;in, CmdInfo &amp;amp;data) { BaseInfo &amp;amp;base = data; qint32 tmpInt; in &amp;gt;&amp;gt; base &amp;gt;&amp;gt; data.command_ &amp;gt;&amp;gt; tmpInt; data.setType((CmdType)tmpInt); return in; } QDataStream&amp;amp; operator&amp;lt;&amp;lt;(QDataStream &amp;amp;out, const CmdInfo &amp;amp;data) { const BaseInfo &amp;amp;base = data; out &amp;lt;&amp;lt; base &amp;lt;&amp;lt; data.</description>
     </item>
     
   </channel>

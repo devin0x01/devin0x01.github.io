@@ -6,25 +6,7 @@
     <description>Recent content in Linux开发 on DEVIN&#39;s BLOG</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 28 Jul 2023 16:05:25 +0800</lastBuildDate><atom:link href="https://devin0x01.github.io/tags/linux%E5%BC%80%E5%8F%91/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Docker内显示图形界面</title>
-      <link>https://devin0x01.github.io/post/linux%E5%BC%80%E5%8F%91/docker%E5%86%85%E6%98%BE%E7%A4%BA%E5%9B%BE%E5%BD%A2%E7%95%8C%E9%9D%A2/</link>
-      <pubDate>Fri, 28 Jul 2023 16:05:25 +0800</pubDate>
-      
-      <guid>https://devin0x01.github.io/post/linux%E5%BC%80%E5%8F%91/docker%E5%86%85%E6%98%BE%E7%A4%BA%E5%9B%BE%E5%BD%A2%E7%95%8C%E9%9D%A2/</guid>
-      <description>关于X11 x(7) - Linux man page
-Cygwin系列（十二）：了解X - 知乎
-X11采用了C/S的架构，在其设计下，整个图形视窗系统主要分为3个部分：
-1.X Server（X服务器）。X Server一方面负责和设备驱动交互，监听显示器和键盘鼠标，另一方面响应X Client需求传递键盘、鼠标事件、（通过设备驱动）绘制图形文字等。反直觉之一，X Server运行在本地。
-2.X Client（X客户端）。X Client也叫X应用程序，负责实现程序逻辑，在收到设备事件后计算出绘图数据，由于本身没有绘制能力，只能向X Server发送绘制请求和绘图数据，告诉X Server在哪里绘制一个什么样的图形。X Client可以和X Server在同一个主机上，也可以通过TCP/IP网络连接。
-3.Window Manager（窗口管理器，简称WM），或者叫合成器（Compositor）。多个X Client向X Server发送绘制请求时，各X Client程序并不知道彼此的存在，绘制图形出现重叠、颜色干扰等问题是大概率事件，这就需要一个管理者统一协调，即Window Manager，它掌管各X Client的Window（窗口）视觉外观，如形状、排列、移动、重叠渲染等。反直觉之二，Window Manager并非X Server的一部分，而是一个特殊的X Client程序。
-3个部分， X Server是整个X Window System的中心，协调X客户端和窗口管理器的通信。
-常用命令 xorg - What does $DISPLAY environment variable mean - Ask Ubuntu
-x11 forwarding - How to fix &amp;ldquo;MobaXterm X11 proxy: Unsupported authorisation protocol&amp;rdquo; - Super User
-echo $DISPLAY # 注意：`xauth add` 之后可能需要重新连接才能生效!! xauth add $DISPLAY .</description>
-    </item>
-    
+    <lastBuildDate>Sun, 18 Jun 2023 14:05:25 +0800</lastBuildDate><atom:link href="https://devin0x01.github.io/tags/linux%E5%BC%80%E5%8F%91/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Linux网络编程</title>
       <link>https://devin0x01.github.io/post/linux%E5%BC%80%E5%8F%91/linux%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/</link>

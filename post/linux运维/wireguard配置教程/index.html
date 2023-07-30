@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <script type="application/javascript" src='https://devin0x01.github.io/js/theme-mode.js'></script>
+    <link rel="stylesheet" href='https://devin0x01.github.io/css/frameworks.min.css' />
+    <link rel="stylesheet" href='https://devin0x01.github.io/css/github.min.css' />
+    <link rel="stylesheet" href='https://devin0x01.github.io/css/github-style.css' />
+    <link rel="stylesheet" href='https://devin0x01.github.io/css/light.css' />
+    <link rel="stylesheet" href='https://devin0x01.github.io/css/dark.css' />
+    <link rel="stylesheet" href='https://devin0x01.github.io/css/syntax.css' />
+    <title>Docker内显示图形界面 - DEVIN&#39;s BLOG</title>
+    
+    <link rel="icon" type="image/x-icon" href='/images/github.png'>
+    
+    <meta name="theme-color" content="#1e2327">
+
+    
+    <meta name="description"
+  content="Run WireGuard VPN Server in Docker Container with Docker Compose - TechViewLeo &amp;ndash; 主要参考这个 基于Wireguard技术的虚拟个人网络搭建: 基于wireguard的内网穿透技术~
+公网机器: IP=100.101.102.103, Name=TencentVM1 私网机器: IP=192.168.123.189, Name=LocalMint1 1.公网配置 1.1.安装docker-compose Docker Compose | 菜鸟教程
+sudo curl -L &amp;#34;https://github.com/docker/compose/releases/download/v2.19.1/docker-compose-$(uname -s)-$(uname -m)&amp;#34; -o /usr/local/bin/docker-compose sudo chmod 755 /usr/local/bin/docker-compose docker-compose version 1.2.安装linuxserver/wireguard镜像 sudo mkdir /opt/wireguard-server vim docker-compose.yaml # yaml里需要配置容器的名字，server的地址 docker compose up -d # 检查WireGuard服务器的状态 docker exec -it wireguard wg docker exec -it wireguard /bin/bash # 其他docker compose命令 docker compose start wireguard docker compose restart wireguard docker compose ps 配置文件的目录结构" />
+<meta name="keywords"
+  content='blog, google analytics' />
+<meta name="robots" content="noodp" />
+<link rel="canonical" href="https://devin0x01.github.io/post/linux%E8%BF%90%E7%BB%B4/wireguard%E9%85%8D%E7%BD%AE%E6%95%99%E7%A8%8B/" />
+
+
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="Docker内显示图形界面 - DEVIN&#39;s BLOG" />
+<meta name="twitter:description"
+  content="Run WireGuard VPN Server in Docker Container with Docker Compose - TechViewLeo &amp;ndash; 主要参考这个 基于Wireguard技术的虚拟个人网络搭建: 基于wireguard的内网穿透技术~
+公网机器: IP=100.101.102.103, Name=TencentVM1 私网机器: IP=192.168.123.189, Name=LocalMint1 1.公网配置 1.1.安装docker-compose Docker Compose | 菜鸟教程
+sudo curl -L &amp;#34;https://github.com/docker/compose/releases/download/v2.19.1/docker-compose-$(uname -s)-$(uname -m)&amp;#34; -o /usr/local/bin/docker-compose sudo chmod 755 /usr/local/bin/docker-compose docker-compose version 1.2.安装linuxserver/wireguard镜像 sudo mkdir /opt/wireguard-server vim docker-compose.yaml # yaml里需要配置容器的名字，server的地址 docker compose up -d # 检查WireGuard服务器的状态 docker exec -it wireguard wg docker exec -it wireguard /bin/bash # 其他docker compose命令 docker compose start wireguard docker compose restart wireguard docker compose ps 配置文件的目录结构" />
+<meta name="twitter:site" content="https://devin0x01.github.io" />
+<meta name="twitter:creator" content="" />
+<meta name="twitter:image"
+  content="https://devin0x01.github.io">
+
+
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Docker内显示图形界面 - DEVIN&#39;s BLOG">
+<meta property="og:description"
+  content="Run WireGuard VPN Server in Docker Container with Docker Compose - TechViewLeo &amp;ndash; 主要参考这个 基于Wireguard技术的虚拟个人网络搭建: 基于wireguard的内网穿透技术~
+公网机器: IP=100.101.102.103, Name=TencentVM1 私网机器: IP=192.168.123.189, Name=LocalMint1 1.公网配置 1.1.安装docker-compose Docker Compose | 菜鸟教程
+sudo curl -L &amp;#34;https://github.com/docker/compose/releases/download/v2.19.1/docker-compose-$(uname -s)-$(uname -m)&amp;#34; -o /usr/local/bin/docker-compose sudo chmod 755 /usr/local/bin/docker-compose docker-compose version 1.2.安装linuxserver/wireguard镜像 sudo mkdir /opt/wireguard-server vim docker-compose.yaml # yaml里需要配置容器的名字，server的地址 docker compose up -d # 检查WireGuard服务器的状态 docker exec -it wireguard wg docker exec -it wireguard /bin/bash # 其他docker compose命令 docker compose start wireguard docker compose restart wireguard docker compose ps 配置文件的目录结构" />
+<meta property="og:url" content="https://devin0x01.github.io/post/linux%E8%BF%90%E7%BB%B4/wireguard%E9%85%8D%E7%BD%AE%E6%95%99%E7%A8%8B/" />
+<meta property="og:site_name" content="Docker内显示图形界面" />
+<meta property="og:image"
+  content="https://devin0x01.github.io">
+<meta property="og:image:width" content="2048">
+<meta property="og:image:height" content="1024">
+
+<meta property="article:published_time" content="2023-07-30 12:10:05 &#43;0800 &#43;0800" />
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body>
+  <div style="position: relative">
+  <header class="Header js-details-container Details px-3 px-md-4 px-lg-5 flex-wrap flex-md-nowrap open Details--on">
+    <div class="Header-item mobile-none" style="margin-top: -4px; margin-bottom: -4px;">
+      <a class="Header-link" href="https://devin0x01.github.io">
+        <svg class="octicon" height="32" viewBox="0 0 16 16" version="1.1" width="32">
+          <path fill-rule="evenodd"
+            d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z">
+          </path>
+        </svg>
+      </a>
+    </div>
+    <div class="Header-item d-md-none">
+      <button class="Header-link btn-link js-details-target" type="button"
+        onclick="document.querySelector('#header-search').style.display = document.querySelector('#header-search').style.display == 'none'? 'block': 'none'">
+        <svg height="24" class="octicon octicon-three-bars" viewBox="0 0 16 16" version="1.1" width="24">
+          <path fill-rule="evenodd"
+            d="M1 2.75A.75.75 0 011.75 2h12.5a.75.75 0 110 1.5H1.75A.75.75 0 011 2.75zm0 5A.75.75 0 011.75 7h12.5a.75.75 0 110 1.5H1.75A.75.75 0 011 7.75zM1.75 12a.75.75 0 100 1.5h12.5a.75.75 0 100-1.5H1.75z">
+          </path>
+        </svg>
+      </button>
+    </div>
+    <div style="display: none;" id="header-search"
+      class="Header-item Header-item--full flex-column flex-md-row width-full flex-order-2 flex-md-order-none mr-0 mr-md-3 mt-3 mt-md-0 Details-content--hidden-not-important d-md-flex">
+      <div
+        class="Header-search header-search flex-auto js-site-search position-relative flex-self-stretch flex-md-self-auto mb-3 mb-md-0 mr-0 mr-md-3 scoped-search site-scoped-search js-jump-to">
+        <div class="position-relative">
+          <form target="_blank" action="https://www.google.com/search" accept-charset="UTF-8" method="get"
+            autocomplete="off">
+            <label
+              class="Header-search-label form-control input-sm header-search-wrapper p-0 js-chromeless-input-container header-search-wrapper-jump-to position-relative d-flex flex-justify-between flex-items-center">
+              <input type="text"
+                class="Header-search-input form-control input-sm header-search-input jump-to-field js-jump-to-field js-site-search-focus js-site-search-field is-clearable"
+                name="q" value="" placeholder="Search" autocomplete="off">
+              <input type="hidden" name="q" value="site:https://devin0x01.github.io">
+            </label>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <div class="Header-item Header-item--full flex-justify-center d-md-none position-relative">
+      <a class="Header-link " href="https://devin0x01.github.io">
+        <svg class="octicon octicon-mark-github v-align-middle" height="32" viewBox="0 0 16 16" version="1.1"
+          width="32">
+          <path fill-rule="evenodd"
+            d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z">
+          </path>
+        </svg>
+      </a>
+    </div>
+    <div class="Header-item" style="margin-right: 0;">
+      <a href="javascript:void(0)" class="Header-link no-select" onclick="switchTheme()">
+        <svg style="fill: var(--color-profile-color-modes-toggle-moon);" class="no-select" viewBox="0 0 16 16"
+          version="1.1" width="16" height="16">
+          <path fill-rule="evenodd" clip-rule="evenodd"
+            d="M4.52208 7.71754C7.5782 7.71754 10.0557 5.24006 10.0557 2.18394C10.0557 1.93498 10.0392 1.68986 10.0074 1.44961C9.95801 1.07727 10.3495 0.771159 10.6474 0.99992C12.1153 2.12716 13.0615 3.89999 13.0615 5.89383C13.0615 9.29958 10.3006 12.0605 6.89485 12.0605C3.95334 12.0605 1.49286 10.001 0.876728 7.24527C0.794841 6.87902 1.23668 6.65289 1.55321 6.85451C2.41106 7.40095 3.4296 7.71754 4.52208 7.71754Z">
+          </path>
+        </svg>
+      </a>
+    </div>
+  </header>
+</div>
+  
+<div>
+  <main>
+    <div class="gisthead pagehead bg-gray-light pb-0 pt-3 mb-4">
+      <div class="px-0">
+        <div class="mb-3 d-flex px-3 px-md-3 px-lg-5">
+          <div class="flex-auto min-width-0 width-fit mr-3">
+            <div class="d-flex">
+              <div class="d-none d-md-block">
+                <a class="avatar mr-2 flex-shrink-0" href="https://devin0x01.github.io">
+                  <img class=" avatar-user"
+                    src="https://devin0x01.github.io/images/avatar.png"
+                    width="32" height="32"></a>
+              </div>
+              <div class="d-flex flex-column">
+                <h1 class="break-word f3 text-normal mb-md-0 mb-1">
+                  <span class="author">
+                    <a href="https://devin0x01.github.io">DEVIN</a></span><span
+                    class="path-divider">/</span><strong class="css-truncate-target mr-1" style="max-width: 410px"><a
+                      href="https://devin0x01.github.io/post/linux%E8%BF%90%E7%BB%B4/wireguard%E9%85%8D%E7%BD%AE%E6%95%99%E7%A8%8B/">Docker内显示图形界面</a></strong>
+                </h1>
+                <div class="note m-0">
+                  Created <relative-time datetime="Sun, 30 Jul 2023 12:10:05 &#43;0800"
+                    class="no-wrap">
+                    Sun, 30 Jul 2023 12:10:05 &#43;0800</relative-time>
+
+                  
+                  <span class="file-info-divider"></span>
+                  Modified <relative-time datetime="Sun, 30 Jul 2023 12:59:21 &#43;0000"
+                    class="no-wrap">
+                    Sun, 30 Jul 2023 12:59:21 &#43;0000</relative-time>
+                  
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-lg px-3 new-discussion-timeline">
+      <div class="repository-content gist-content">
+        <div>
+          <div class="js-gist-file-update-container js-task-list-container file-box">
+            <div id="file-pytest" class="file my-2">
+              <div id="post-header" class="file-header d-flex flex-md-items-center flex-items-start sticky-header" style="z-index: 2">
+                <div class="file-info d-flex flex-md-items-center flex-items-start flex-order-1 flex-auto">
+                  <div class="text-mono f6 flex-auto pr-3 flex-order-2 flex-md-order-1 mt-2 mt-md-0">
+                    
+                    <summary id="toc-toggle" onclick="clickToc()" class="btn btn-octicon m-0 mr-2 p-2">
+                      <svg aria-hidden="true" viewBox="0 0 16 16" height="16" width="16" class="octicon octicon-list-unordered">
+                        <path fill-rule="evenodd" d="M2 4a1 1 0 100-2 1 1 0 000 2zm3.75-1.5a.75.75 0 000 1.5h8.5a.75.75 0 000-1.5h-8.5zm0 5a.75.75 0 000 1.5h8.5a.75.75 0 000-1.5h-8.5zm0 5a.75.75 0 000 1.5h8.5a.75.75 0 000-1.5h-8.5zM3 8a1 1 0 11-2 0 1 1 0 012 0zm-1 6a1 1 0 100-2 1 1 0 000 2z"></path>
+                      </svg>
+                    </summary>
+                    <details-menu class="SelectMenu" id="toc-details" style="display: none;">
+                      <div class="SelectMenu-modal rounded-3 mt-1" style="max-height: 340px;">
+                        <div class="SelectMenu-list SelectMenu-list--borderless p-2" style="overscroll-behavior: contain;" id="toc-list">
+                        </div>
+                      </div>
+                    </details-menu>
+                      616 Words
+                    
+
+                  </div>
+                  <div class="file-actions flex-order-2 pt-0">
+                    
+                    
+                    <a class="muted-link mr-3" href="/tags/linux%E8%BF%90%E7%BB%B4">
+                      <svg class="octicon octicon-tag" viewBox="0 0 16 16" version="1.1" width="16" height="16">
+                        <path fill-rule="evenodd"
+                          d="M2.5 7.775V2.75a.25.25 0 01.25-.25h5.025a.25.25 0 01.177.073l6.25 6.25a.25.25 0 010 .354l-5.025 5.025a.25.25 0 01-.354 0l-6.25-6.25a.25.25 0 01-.073-.177zm-1.5 0V2.75C1 1.784 1.784 1 2.75 1h5.025c.464 0 .91.184 1.238.513l6.25 6.25a1.75 1.75 0 010 2.474l-5.026 5.026a1.75 1.75 0 01-2.474 0l-6.25-6.25A1.75 1.75 0 011 7.775zM6 5a1 1 0 100 2 1 1 0 000-2z">
+                        </path>
+                      </svg>
+                      Linux运维
+                    </a>
+                    
+                    <a class="muted-link mr-3" href="/tags/docker">
+                      <svg class="octicon octicon-tag" viewBox="0 0 16 16" version="1.1" width="16" height="16">
+                        <path fill-rule="evenodd"
+                          d="M2.5 7.775V2.75a.25.25 0 01.25-.25h5.025a.25.25 0 01.177.073l6.25 6.25a.25.25 0 010 .354l-5.025 5.025a.25.25 0 01-.354 0l-6.25-6.25a.25.25 0 01-.073-.177zm-1.5 0V2.75C1 1.784 1.784 1 2.75 1h5.025c.464 0 .91.184 1.238.513l6.25 6.25a1.75 1.75 0 010 2.474l-5.026 5.026a1.75 1.75 0 01-2.474 0l-6.25-6.25A1.75 1.75 0 011 7.775zM6 5a1 1 0 100 2 1 1 0 000-2z">
+                        </path>
+                      </svg>
+                      Docker
+                    </a>
+                    
+                    
+                  </div>
+                </div>
+              </div>
+
+
+              <div class="Box-body px-5 pb-5" style="z-index: 1">
+                <article class="markdown-body entry-content container-lg"><p><a href="https://techviewleo.com/run-wireguard-server-in-docker-container/?expand_article=1">Run WireGuard VPN Server in Docker Container with Docker Compose - TechViewLeo</a> &ndash; 主要参考这个
+<a href="https://gitee.com/spoto/wireguard">基于Wireguard技术的虚拟个人网络搭建: 基于wireguard的内网穿透技术~</a></p>
+<ul>
+<li>公网机器: IP=100.101.102.103, Name=TencentVM1</li>
+<li>私网机器: IP=192.168.123.189, Name=LocalMint1</li>
+</ul>
+<h1 id="1公网配置">1.公网配置</h1>
+<h2 id="11安装docker-compose">1.1.安装<code>docker-compose</code></h2>
+<p><a href="https://www.runoob.com/docker/docker-compose.html">Docker Compose | 菜鸟教程</a></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">sudo curl -L <span class="s2">&#34;https://github.com/docker/compose/releases/download/v2.19.1/docker-compose-</span><span class="k">$(</span>uname -s<span class="k">)</span><span class="s2">-</span><span class="k">$(</span>uname -m<span class="k">)</span><span class="s2">&#34;</span> -o /usr/local/bin/docker-compose
+</span></span><span class="line"><span class="cl">sudo chmod <span class="m">755</span> /usr/local/bin/docker-compose
+</span></span><span class="line"><span class="cl">docker-compose version
+</span></span></code></pre></div><h2 id="12安装linuxserverwireguard镜像">1.2.安装<code>linuxserver/wireguard</code>镜像</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">sudo mkdir /opt/wireguard-server
+</span></span><span class="line"><span class="cl">vim docker-compose.yaml <span class="c1"># yaml里需要配置容器的名字，server的地址</span>
+</span></span><span class="line"><span class="cl">docker compose up -d
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 检查WireGuard服务器的状态</span>
+</span></span><span class="line"><span class="cl">docker <span class="nb">exec</span> -it wireguard wg
+</span></span><span class="line"><span class="cl">docker <span class="nb">exec</span> -it wireguard /bin/bash
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 其他docker compose命令</span>
+</span></span><span class="line"><span class="cl">docker compose start wireguard
+</span></span><span class="line"><span class="cl">docker compose restart wireguard
+</span></span><span class="line"><span class="cl">docker compose ps
+</span></span></code></pre></div><p>配置文件的目录结构</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">ubuntu@VM-4-3-ubuntu:/opt/wireguard-server $ tree
+</span></span><span class="line"><span class="cl">.
+</span></span><span class="line"><span class="cl">├── config
+</span></span><span class="line"><span class="cl">│   ├── coredns
+</span></span><span class="line"><span class="cl">│   │   └── Corefile
+</span></span><span class="line"><span class="cl">│   ├── peer1
+</span></span><span class="line"><span class="cl">│   │   ├── peer1.conf
+</span></span><span class="line"><span class="cl">│   │   ├── peer1.png
+</span></span><span class="line"><span class="cl">│   │   ├── presharedkey-peer1
+</span></span><span class="line"><span class="cl">│   │   ├── privatekey-peer1
+</span></span><span class="line"><span class="cl">│   │   └── publickey-peer1
+</span></span><span class="line"><span class="cl">│   ├── server
+</span></span><span class="line"><span class="cl">│   │   ├── privatekey-server
+</span></span><span class="line"><span class="cl">│   │   └── publickey-server
+</span></span><span class="line"><span class="cl">│   ├── templates
+</span></span><span class="line"><span class="cl">│   │   ├── peer.conf
+</span></span><span class="line"><span class="cl">│   │   └── server.conf
+</span></span><span class="line"><span class="cl">│   └── wg0.conf
+</span></span><span class="line"><span class="cl">└── docker-compose.yaml
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="m">5</span> directories, <span class="m">12</span> files
+</span></span></code></pre></div><p><code>/opt/wireguard-server/docker-compose.yaml</code>内容如下，需要修改<code>SERVERURL</code>字段</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;3.7&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">services</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">wireguard</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l">linuxserver/wireguard</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">container_name</span><span class="p">:</span><span class="w"> </span><span class="l">wireguard</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">cap_add</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">NET_ADMIN</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">SYS_MODULE</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">environment</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">PUID=1000</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">PGID=1000</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">TZ=Africa/Nairobi</span><span class="w"> </span><span class="c">#set correct timezone</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">SERVERPORT=51820</span><span class="w"> </span><span class="c">#optional</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">PEERS=1</span><span class="w"> </span><span class="c">#optional</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">PEERDNS=auto</span><span class="w"> </span><span class="c">#optional</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">ALLOWEDIPS=0.0.0.0/0</span><span class="w"> </span><span class="c">#Peer addresses allowed</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">INTERNAL_SUBNET=10.13.13.0/24</span><span class="w"> </span><span class="c">#Subnet used in VPN tunnel</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">SERVERURL=100.101.102.103</span><span class="w"> </span><span class="c">#Wireguard VPN server address</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">volumes</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">/opt/wireguard-server/config:/config</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">/usr/src:/usr/src</span><span class="w"> </span><span class="c"># location of kernel headers</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">/lib/modules:/lib/modules</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">ports</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="m">51820</span><span class="p">:</span><span class="m">51820</span><span class="l">/udp</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">sysctls</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">net.ipv4.conf.all.src_valid_mark=1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">restart</span><span class="p">:</span><span class="w"> </span><span class="l">always</span><span class="w">
+</span></span></span></code></pre></div><h2 id="13防火墙设置">1.3.防火墙设置</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="c1">### on Redhat Based ###</span>
+</span></span><span class="line"><span class="cl">sudo firewall-cmd --permanent --add-port<span class="o">=</span>51820/udp
+</span></span><span class="line"><span class="cl">sudo firewall-cmd --reload
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">### On Debian Based ###</span>
+</span></span><span class="line"><span class="cl">sudo apt install ufw
+</span></span><span class="line"><span class="cl">sudo ufw allow 51820/udp
+</span></span></code></pre></div><p><img src="https://cdn.jsdelivr.net/gh/devin0x01/myimages@master/githubpages/image_48ff7bf1ae7a6ae1fa4979f8fecfccec.png" alt="腾讯云服务器防火墙设置"></p>
+<h1 id="2私网配置">2.私网配置</h1>
+<h2 id="21拷贝配置文件到localmint1">2.1.拷贝配置文件到LocalMint1</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="c1"># 拷贝配置文件</span>
+</span></span><span class="line"><span class="cl">scp /opt/wireguard-server/config/peer1/peer1.conf username@serverIP:~/peer1.conf
+</span></span><span class="line"><span class="cl">sudo mv ~/peer1.conf /etc/wireguard/wg0.conf
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 设置服务开机自启动</span>
+</span></span><span class="line"><span class="cl">sudo systemctl <span class="nb">enable</span> wg-quick@wg0
+</span></span><span class="line"><span class="cl">sudo reboot
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 检查状态</span>
+</span></span><span class="line"><span class="cl">systemctl status wg-quick@wg0
+</span></span><span class="line"><span class="cl">ip ad
+</span></span><span class="line"><span class="cl">ping 10.13.13.1
+</span></span></code></pre></div><h1 id="3添加更多的节点">3.添加更多的节点</h1>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="c1"># Edit on the server side</span>
+</span></span><span class="line"><span class="cl">$ sudo vim /opt/wireguard-server/config/wg0.conf
+</span></span><span class="line"><span class="cl"><span class="c1"># peer2</span>
+</span></span><span class="line"><span class="cl"><span class="nv">PublicKey</span> <span class="o">=</span> <span class="nv">7ANB0SuBUsnetjqHrL99YIhpbqetJ9yYy0CRsNiuzls</span><span class="o">=</span>
+</span></span><span class="line"><span class="cl"><span class="nv">PresharedKey</span> <span class="o">=</span> gbMDUgQM7levlYLcwhyf1E1dHF/PG489UGeeSHr7tro<span class="o">=</span>
+</span></span><span class="line"><span class="cl"><span class="nv">AllowedIPs</span> <span class="o">=</span> 10.13.13.3/32
+</span></span></code></pre></div></article>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+<script type="application/javascript" src='https://devin0x01.github.io/js/toc.js'></script>
+<link rel="stylesheet" href='https://devin0x01.github.io/css/toc.css' />
+
+
+  <div class="footer container-xl width-full p-responsive">
+  <div
+    class="position-relative d-flex flex-row-reverse flex-lg-row flex-wrap flex-lg-nowrap flex-justify-center flex-lg-justify-between flex-sm-items-center pt-6 pb-2 mt-6 f6 text-gray border-top border-gray-light ">
+    <a aria-label="Homepage" title="GitHub" class="footer-octicon d-none d-lg-block mr-lg-4" href="https://devin0x01.github.io">
+      <svg height="24" class="octicon octicon-mark-github" viewBox="0 0 16 16" version="1.1" width="24">
+        <path fill-rule="evenodd"
+          d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z">
+        </path>
+      </svg>
+    </a>
+    <ul class="list-style-none d-flex flex-wrap col-12 flex-justify-center flex-lg-justify-between mb-2 mb-lg-0">
+      
+      <li class="mr-3 mr-lg-0">Theme by <a href='https://github.com/MeiK2333/github-style'>github-style</a></li>
+      
+    </ul>
+  </div>
+  <div class="d-flex flex-justify-center pb-6">
+    <span class="f6 text-gray-light"></span>
+  </div>
+
+
+</div>
+</body>
+
+<script type="application/javascript" src="https://devin0x01.github.io/js/github-style.js"></script>
+
+
+
+
+</html>
