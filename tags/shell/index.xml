@@ -9,10 +9,10 @@
     <lastBuildDate>Sun, 18 Jun 2023 14:05:25 +0800</lastBuildDate><atom:link href="https://devin0x01.github.io/tags/shell/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>expect实现交互式输入</title>
-      <link>https://devin0x01.github.io/post/expect%E5%AE%9E%E7%8E%B0%E4%BA%A4%E4%BA%92%E5%BC%8F%E8%BE%93%E5%85%A5/</link>
+      <link>https://devin0x01.github.io/post/shell/expect%E5%AE%9E%E7%8E%B0%E4%BA%A4%E4%BA%92%E5%BC%8F%E8%BE%93%E5%85%A5/</link>
       <pubDate>Sun, 18 Jun 2023 14:05:25 +0800</pubDate>
       
-      <guid>https://devin0x01.github.io/post/expect%E5%AE%9E%E7%8E%B0%E4%BA%A4%E4%BA%92%E5%BC%8F%E8%BE%93%E5%85%A5/</guid>
+      <guid>https://devin0x01.github.io/post/shell/expect%E5%AE%9E%E7%8E%B0%E4%BA%A4%E4%BA%92%E5%BC%8F%E8%BE%93%E5%85%A5/</guid>
       <description>1.常用命令 选项： -c:执行脚本前先执行的命令，可多次使用。 -d:debug模式，可以在运行时输出一些诊断信息，与在脚本开始处使用exp_internal 1相似。 -D:启用交换调式器,可设一整数参数。 -f:从文件读取命令，仅用于使用#!时。如果文件名为&amp;quot;-&amp;quot;，则从stdin读取(使用&amp;quot;./-&amp;ldquo;从文件名为-的文件读取)。 -i:交互式输入命令，使用&amp;quot;exit&amp;quot;或&amp;quot;EOF&amp;quot;退出输入状态。 &amp;ndash;:标示选项结束(如果你需要传递与expect选项相似的参数给脚本时)，可放到#!行:#!/usr/bin/expect &amp;ndash;。 -v:显示expect版本信息。
 # 命令行参数 # $argv，参数数组，使用[lindex $argv n]获取，$argv 0为脚本名字 # $argc，参数个数 set username [lindex $argv 1] # 获取第1个参数 set passwd [lindex $argv 2] # 获取第2个参数 set timeout 30 # 设置超时 # spawn是expect内部命令，开启ssh连接 spawn ssh -l username 192.168.1.1 # 判断上次输出结果里是否包含“password:”的字符串，如果有则立即返回，否则就等待一段时间(timeout)后返回 expect &amp;#34;password:&amp;#34; # 发送内容ispass(密码、命令等) send &amp;#34;ispass\r&amp;#34; # 发送内容给用户 send_user &amp;#34;$argv0 [lrange $argv 0 2]\n&amp;#34; send_user &amp;#34;It&amp;#39;s OK\r&amp;#34; # 执行完成后保持交互状态，控制权交给控制台(手工操作)。否则会完成后会退出。 interact 2.例子 2.1自动telnet会话 #!</description>
     </item>
