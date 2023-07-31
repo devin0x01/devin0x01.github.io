@@ -6,7 +6,16 @@
     <description>Recent content on DEVIN&#39;s BLOG</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 30 Jul 2023 12:10:05 +0800</lastBuildDate><atom:link href="https://devin0x01.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 31 Jul 2023 12:05:25 +0800</lastBuildDate><atom:link href="https://devin0x01.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Docker常用命令</title>
+      <link>https://devin0x01.github.io/post/linux%E8%BF%90%E7%BB%B4/docker%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</link>
+      <pubDate>Mon, 31 Jul 2023 12:05:25 +0800</pubDate>
+      
+      <guid>https://devin0x01.github.io/post/linux%E8%BF%90%E7%BB%B4/docker%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</guid>
+      <description>docker docker info #docker配置信息 docker inspect $cid #查看容器的配置信息 docker images docker ps -a docker run -it $image_id --rm #rm表示退出容器后就删除该容器 docker exec -it $cid /bin/bash docker start $cid docker stop $cid docker restart $cid docker rm -f $cid docker logs $cid #查看容器日志 docker system df #查看docker缓存大小 docker builder prune #一键清理 Build Cache docker builder prune --filter &amp;#39;until=240h&amp;#39; #保留最近10天的缓存 docker tag ca1b6b825289 devincpp/rk3568:v1.0 #重命名镜像 docker commit -a &amp;#34;author&amp;#34; -m &amp;#34;description&amp;#34; a404c6c174a2 devincpp/mysql:v1 #-p表示在提交时暂停容器 docker compose docker compose build | Docker Documentation</description>
+    </item>
+    
     <item>
       <title>WireGuard配置教程.md</title>
       <link>https://devin0x01.github.io/post/linux%E8%BF%90%E7%BB%B4/wireguard%E9%85%8D%E7%BD%AE%E6%95%99%E7%A8%8B/</link>
@@ -36,15 +45,6 @@ X11采用了C/S的架构，在其设计下，整个图形视窗系统主要分�
 常用命令 xorg - What does $DISPLAY environment variable mean - Ask Ubuntu
 x11 forwarding - How to fix &amp;ldquo;MobaXterm X11 proxy: Unsupported authorisation protocol&amp;rdquo; - Super User
 echo $DISPLAY # 注意：`xauth add` 之后可能需要重新连接才能生效!! xauth add $DISPLAY .</description>
-    </item>
-    
-    <item>
-      <title>Docker常用命令</title>
-      <link>https://devin0x01.github.io/post/linux%E8%BF%90%E7%BB%B4/docker%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</link>
-      <pubDate>Fri, 28 Jul 2023 16:05:25 +0800</pubDate>
-      
-      <guid>https://devin0x01.github.io/post/linux%E8%BF%90%E7%BB%B4/docker%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</guid>
-      <description>docker docker info #docker配置信息 docker inspect $cid #查看容器的配置信息 docker images docker ps -a docker run -it $image_id --rm #rm表示退出容器后就删除该容器 docker exec -it $cid /bin/bash docker start $cid docker stop $cid docker restart $cid docker rm -f $cid docker logs $cid #查看容器日志 docker system df #查看docker缓存大小 docker builder prune #一键清理 Build Cache docker builder prune --filter &amp;#39;until=240h&amp;#39; #保留最近10天的缓存 docker tag ca1b6b825289 devincpp/rk3568:v1.0 #重命名镜像 docker commit -a &amp;#34;author&amp;#34; -m &amp;#34;description&amp;#34; a404c6c174a2 devincpp/mysql:v1 #-p表示在提交时暂停容器 docker compose docker compose build | Docker Documentation</description>
     </item>
     
     <item>
