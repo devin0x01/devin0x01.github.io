@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <script type="application/javascript" src='https://devin0x01.github.io/js/theme-mode.js'></script>
+    <link rel="stylesheet" href='https://devin0x01.github.io/css/frameworks.min.css' />
+    <link rel="stylesheet" href='https://devin0x01.github.io/css/github.min.css' />
+    <link rel="stylesheet" href='https://devin0x01.github.io/css/github-style.css' />
+    <link rel="stylesheet" href='https://devin0x01.github.io/css/light.css' />
+    <link rel="stylesheet" href='https://devin0x01.github.io/css/dark.css' />
+    <link rel="stylesheet" href='https://devin0x01.github.io/css/syntax.css' />
+    <title>Systemd教程 - DEVIN&#39;s BLOG</title>
+    
+    <link rel="icon" type="image/x-icon" href='/images/github.png'>
+    
+    <meta name="theme-color" content="#1e2327">
+
+    
+    <meta name="description"
+  content="Systemd 入门教程：实战篇 - 阮一峰的网络日志
+配置文件 $ systemctl cat sshd.service [Unit] Description=OpenSSH server daemon Documentation=man:sshd(8) man:sshd_config(5) After=network.target sshd-keygen.service Wants=sshd-keygen.service [Service] EnvironmentFile=/etc/sysconfig/sshd ExecStart=/usr/sbin/sshd -D $OPTIONS ExecReload=/bin/kill -HUP $MAINPID Type=simple KillMode=process Restart=on-failure RestartSec=42s [Install] WantedBy=multi-user.target Unit区块 Unit区块：启动顺序与依赖关系。
+Description字段给出当前服务的简单描述。
+Documentation字段给出文档位置。
+After字段表示如果network.target或sshd-keygen.service需要启动，那么sshd.service应该在它们之后启动。
+Before字段定义sshd.service应该在哪些服务之前启动。
+注意，After和Before字段只涉及启动顺序，不涉及依赖关系。
+设置依赖关系，需要使用Wants字段和Requires字段。 Wants字段表示sshd.service与sshd-keygen.service之间存在&amp;quot;弱依赖&amp;quot;关系，即如果sshd-keygen.service启动失败或停止运行，不影响sshd.service继续执行。 Requires字段则表示&amp;quot;强依赖&amp;quot;关系，即如果该服务启动失败或异常退出，那么sshd.service也必须退出。 注意，Wants字段与Requires字段只涉及依赖关系，与启动顺序无关，默认情况下是同时启动的。
+举例来说，某 Web 应用需要 postgresql 数据库储存数据。在配置文件中，它只定义要在 postgresql 之后启动，而没有定义依赖 postgresql 。上线后，由于某种原因，postgresql 需要重新启动，在停止服务期间，该 Web 应用就会无法建立数据库连接。
+Service区块 Service区块：启动行为，Service区块定义如何启动当前服务。
+EnvironmentFile字段指定当前服务的环境参数文件。该文件内部的key=value键值对，可以用$key的形式，在当前配置文件中获取。上面的例子中，sshd 的环境参数文件是/etc/sysconfig/sshd。
+配置文件里面最重要的字段是ExecStart。ExecStart字段：定义启动进程时执行的命令。
+上面的例子中，启动sshd，执行的命令是/usr/sbin/sshd -D $OPTIONS，其中的变量$OPTIONS就来自EnvironmentFile字段指定的环境参数文件。
+Install区块 Install区块，定义如何安装这个配置文件，即怎样做到开机启动。
+WantedBy字段：表示该服务所在的 Target。" />
+<meta name="keywords"
+  content='blog, google analytics' />
+<meta name="robots" content="noodp" />
+<link rel="canonical" href="https://devin0x01.github.io/post/linux%E8%BF%90%E7%BB%B4/systemd%E6%95%99%E7%A8%8B/" />
+
+
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="Systemd教程 - DEVIN&#39;s BLOG" />
+<meta name="twitter:description"
+  content="Systemd 入门教程：实战篇 - 阮一峰的网络日志
+配置文件 $ systemctl cat sshd.service [Unit] Description=OpenSSH server daemon Documentation=man:sshd(8) man:sshd_config(5) After=network.target sshd-keygen.service Wants=sshd-keygen.service [Service] EnvironmentFile=/etc/sysconfig/sshd ExecStart=/usr/sbin/sshd -D $OPTIONS ExecReload=/bin/kill -HUP $MAINPID Type=simple KillMode=process Restart=on-failure RestartSec=42s [Install] WantedBy=multi-user.target Unit区块 Unit区块：启动顺序与依赖关系。
+Description字段给出当前服务的简单描述。
+Documentation字段给出文档位置。
+After字段表示如果network.target或sshd-keygen.service需要启动，那么sshd.service应该在它们之后启动。
+Before字段定义sshd.service应该在哪些服务之前启动。
+注意，After和Before字段只涉及启动顺序，不涉及依赖关系。
+设置依赖关系，需要使用Wants字段和Requires字段。 Wants字段表示sshd.service与sshd-keygen.service之间存在&amp;quot;弱依赖&amp;quot;关系，即如果sshd-keygen.service启动失败或停止运行，不影响sshd.service继续执行。 Requires字段则表示&amp;quot;强依赖&amp;quot;关系，即如果该服务启动失败或异常退出，那么sshd.service也必须退出。 注意，Wants字段与Requires字段只涉及依赖关系，与启动顺序无关，默认情况下是同时启动的。
+举例来说，某 Web 应用需要 postgresql 数据库储存数据。在配置文件中，它只定义要在 postgresql 之后启动，而没有定义依赖 postgresql 。上线后，由于某种原因，postgresql 需要重新启动，在停止服务期间，该 Web 应用就会无法建立数据库连接。
+Service区块 Service区块：启动行为，Service区块定义如何启动当前服务。
+EnvironmentFile字段指定当前服务的环境参数文件。该文件内部的key=value键值对，可以用$key的形式，在当前配置文件中获取。上面的例子中，sshd 的环境参数文件是/etc/sysconfig/sshd。
+配置文件里面最重要的字段是ExecStart。ExecStart字段：定义启动进程时执行的命令。
+上面的例子中，启动sshd，执行的命令是/usr/sbin/sshd -D $OPTIONS，其中的变量$OPTIONS就来自EnvironmentFile字段指定的环境参数文件。
+Install区块 Install区块，定义如何安装这个配置文件，即怎样做到开机启动。
+WantedBy字段：表示该服务所在的 Target。" />
+<meta name="twitter:site" content="https://devin0x01.github.io" />
+<meta name="twitter:creator" content="" />
+<meta name="twitter:image"
+  content="https://devin0x01.github.io">
+
+
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Systemd教程 - DEVIN&#39;s BLOG">
+<meta property="og:description"
+  content="Systemd 入门教程：实战篇 - 阮一峰的网络日志
+配置文件 $ systemctl cat sshd.service [Unit] Description=OpenSSH server daemon Documentation=man:sshd(8) man:sshd_config(5) After=network.target sshd-keygen.service Wants=sshd-keygen.service [Service] EnvironmentFile=/etc/sysconfig/sshd ExecStart=/usr/sbin/sshd -D $OPTIONS ExecReload=/bin/kill -HUP $MAINPID Type=simple KillMode=process Restart=on-failure RestartSec=42s [Install] WantedBy=multi-user.target Unit区块 Unit区块：启动顺序与依赖关系。
+Description字段给出当前服务的简单描述。
+Documentation字段给出文档位置。
+After字段表示如果network.target或sshd-keygen.service需要启动，那么sshd.service应该在它们之后启动。
+Before字段定义sshd.service应该在哪些服务之前启动。
+注意，After和Before字段只涉及启动顺序，不涉及依赖关系。
+设置依赖关系，需要使用Wants字段和Requires字段。 Wants字段表示sshd.service与sshd-keygen.service之间存在&amp;quot;弱依赖&amp;quot;关系，即如果sshd-keygen.service启动失败或停止运行，不影响sshd.service继续执行。 Requires字段则表示&amp;quot;强依赖&amp;quot;关系，即如果该服务启动失败或异常退出，那么sshd.service也必须退出。 注意，Wants字段与Requires字段只涉及依赖关系，与启动顺序无关，默认情况下是同时启动的。
+举例来说，某 Web 应用需要 postgresql 数据库储存数据。在配置文件中，它只定义要在 postgresql 之后启动，而没有定义依赖 postgresql 。上线后，由于某种原因，postgresql 需要重新启动，在停止服务期间，该 Web 应用就会无法建立数据库连接。
+Service区块 Service区块：启动行为，Service区块定义如何启动当前服务。
+EnvironmentFile字段指定当前服务的环境参数文件。该文件内部的key=value键值对，可以用$key的形式，在当前配置文件中获取。上面的例子中，sshd 的环境参数文件是/etc/sysconfig/sshd。
+配置文件里面最重要的字段是ExecStart。ExecStart字段：定义启动进程时执行的命令。
+上面的例子中，启动sshd，执行的命令是/usr/sbin/sshd -D $OPTIONS，其中的变量$OPTIONS就来自EnvironmentFile字段指定的环境参数文件。
+Install区块 Install区块，定义如何安装这个配置文件，即怎样做到开机启动。
+WantedBy字段：表示该服务所在的 Target。" />
+<meta property="og:url" content="https://devin0x01.github.io/post/linux%E8%BF%90%E7%BB%B4/systemd%E6%95%99%E7%A8%8B/" />
+<meta property="og:site_name" content="Systemd教程" />
+<meta property="og:image"
+  content="https://devin0x01.github.io">
+<meta property="og:image:width" content="2048">
+<meta property="og:image:height" content="1024">
+
+<meta property="article:published_time" content="2023-07-31 16:05:25 &#43;0800 &#43;0800" />
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body>
+  <div style="position: relative">
+  <header class="Header js-details-container Details px-3 px-md-4 px-lg-5 flex-wrap flex-md-nowrap open Details--on">
+    <div class="Header-item mobile-none" style="margin-top: -4px; margin-bottom: -4px;">
+      <a class="Header-link" href="https://devin0x01.github.io">
+        <svg class="octicon" height="32" viewBox="0 0 16 16" version="1.1" width="32">
+          <path fill-rule="evenodd"
+            d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z">
+          </path>
+        </svg>
+      </a>
+    </div>
+    <div class="Header-item d-md-none">
+      <button class="Header-link btn-link js-details-target" type="button"
+        onclick="document.querySelector('#header-search').style.display = document.querySelector('#header-search').style.display == 'none'? 'block': 'none'">
+        <svg height="24" class="octicon octicon-three-bars" viewBox="0 0 16 16" version="1.1" width="24">
+          <path fill-rule="evenodd"
+            d="M1 2.75A.75.75 0 011.75 2h12.5a.75.75 0 110 1.5H1.75A.75.75 0 011 2.75zm0 5A.75.75 0 011.75 7h12.5a.75.75 0 110 1.5H1.75A.75.75 0 011 7.75zM1.75 12a.75.75 0 100 1.5h12.5a.75.75 0 100-1.5H1.75z">
+          </path>
+        </svg>
+      </button>
+    </div>
+    <div style="display: none;" id="header-search"
+      class="Header-item Header-item--full flex-column flex-md-row width-full flex-order-2 flex-md-order-none mr-0 mr-md-3 mt-3 mt-md-0 Details-content--hidden-not-important d-md-flex">
+      <div
+        class="Header-search header-search flex-auto js-site-search position-relative flex-self-stretch flex-md-self-auto mb-3 mb-md-0 mr-0 mr-md-3 scoped-search site-scoped-search js-jump-to">
+        <div class="position-relative">
+          <form target="_blank" action="https://www.google.com/search" accept-charset="UTF-8" method="get"
+            autocomplete="off">
+            <label
+              class="Header-search-label form-control input-sm header-search-wrapper p-0 js-chromeless-input-container header-search-wrapper-jump-to position-relative d-flex flex-justify-between flex-items-center">
+              <input type="text"
+                class="Header-search-input form-control input-sm header-search-input jump-to-field js-jump-to-field js-site-search-focus js-site-search-field is-clearable"
+                name="q" value="" placeholder="Search" autocomplete="off">
+              <input type="hidden" name="q" value="site:https://devin0x01.github.io">
+            </label>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <div class="Header-item Header-item--full flex-justify-center d-md-none position-relative">
+      <a class="Header-link " href="https://devin0x01.github.io">
+        <svg class="octicon octicon-mark-github v-align-middle" height="32" viewBox="0 0 16 16" version="1.1"
+          width="32">
+          <path fill-rule="evenodd"
+            d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z">
+          </path>
+        </svg>
+      </a>
+    </div>
+    <div class="Header-item" style="margin-right: 0;">
+      <a href="javascript:void(0)" class="Header-link no-select" onclick="switchTheme()">
+        <svg style="fill: var(--color-profile-color-modes-toggle-moon);" class="no-select" viewBox="0 0 16 16"
+          version="1.1" width="16" height="16">
+          <path fill-rule="evenodd" clip-rule="evenodd"
+            d="M4.52208 7.71754C7.5782 7.71754 10.0557 5.24006 10.0557 2.18394C10.0557 1.93498 10.0392 1.68986 10.0074 1.44961C9.95801 1.07727 10.3495 0.771159 10.6474 0.99992C12.1153 2.12716 13.0615 3.89999 13.0615 5.89383C13.0615 9.29958 10.3006 12.0605 6.89485 12.0605C3.95334 12.0605 1.49286 10.001 0.876728 7.24527C0.794841 6.87902 1.23668 6.65289 1.55321 6.85451C2.41106 7.40095 3.4296 7.71754 4.52208 7.71754Z">
+          </path>
+        </svg>
+      </a>
+    </div>
+  </header>
+</div>
+  
+<div>
+  <main>
+    <div class="gisthead pagehead bg-gray-light pb-0 pt-3 mb-4">
+      <div class="px-0">
+        <div class="mb-3 d-flex px-3 px-md-3 px-lg-5">
+          <div class="flex-auto min-width-0 width-fit mr-3">
+            <div class="d-flex">
+              <div class="d-none d-md-block">
+                <a class="avatar mr-2 flex-shrink-0" href="https://devin0x01.github.io">
+                  <img class=" avatar-user"
+                    src="https://devin0x01.github.io/images/avatar.png"
+                    width="32" height="32"></a>
+              </div>
+              <div class="d-flex flex-column">
+                <h1 class="break-word f3 text-normal mb-md-0 mb-1">
+                  <span class="author">
+                    <a href="https://devin0x01.github.io">DEVIN</a></span><span
+                    class="path-divider">/</span><strong class="css-truncate-target mr-1" style="max-width: 410px"><a
+                      href="https://devin0x01.github.io/post/linux%E8%BF%90%E7%BB%B4/systemd%E6%95%99%E7%A8%8B/">Systemd教程</a></strong>
+                </h1>
+                <div class="note m-0">
+                  Created <relative-time datetime="Mon, 31 Jul 2023 16:05:25 &#43;0800"
+                    class="no-wrap">
+                    Mon, 31 Jul 2023 16:05:25 &#43;0800</relative-time>
+
+                  
+                  <span class="file-info-divider"></span>
+                  Modified <relative-time datetime="Mon, 31 Jul 2023 13:18:47 &#43;0000"
+                    class="no-wrap">
+                    Mon, 31 Jul 2023 13:18:47 &#43;0000</relative-time>
+                  
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-lg px-3 new-discussion-timeline">
+      <div class="repository-content gist-content">
+        <div>
+          <div class="js-gist-file-update-container js-task-list-container file-box">
+            <div id="file-pytest" class="file my-2">
+              <div id="post-header" class="file-header d-flex flex-md-items-center flex-items-start sticky-header" style="z-index: 2">
+                <div class="file-info d-flex flex-md-items-center flex-items-start flex-order-1 flex-auto">
+                  <div class="text-mono f6 flex-auto pr-3 flex-order-2 flex-md-order-1 mt-2 mt-md-0">
+                    
+                    <summary id="toc-toggle" onclick="clickToc()" class="btn btn-octicon m-0 mr-2 p-2">
+                      <svg aria-hidden="true" viewBox="0 0 16 16" height="16" width="16" class="octicon octicon-list-unordered">
+                        <path fill-rule="evenodd" d="M2 4a1 1 0 100-2 1 1 0 000 2zm3.75-1.5a.75.75 0 000 1.5h8.5a.75.75 0 000-1.5h-8.5zm0 5a.75.75 0 000 1.5h8.5a.75.75 0 000-1.5h-8.5zm0 5a.75.75 0 000 1.5h8.5a.75.75 0 000-1.5h-8.5zM3 8a1 1 0 11-2 0 1 1 0 012 0zm-1 6a1 1 0 100-2 1 1 0 000 2z"></path>
+                      </svg>
+                    </summary>
+                    <details-menu class="SelectMenu" id="toc-details" style="display: none;">
+                      <div class="SelectMenu-modal rounded-3 mt-1" style="max-height: 340px;">
+                        <div class="SelectMenu-list SelectMenu-list--borderless p-2" style="overscroll-behavior: contain;" id="toc-list">
+                        </div>
+                      </div>
+                    </details-menu>
+                      979 Words
+                    
+
+                  </div>
+                  <div class="file-actions flex-order-2 pt-0">
+                    
+                    
+                    <a class="muted-link mr-3" href="/tags/linux%E8%BF%90%E7%BB%B4">
+                      <svg class="octicon octicon-tag" viewBox="0 0 16 16" version="1.1" width="16" height="16">
+                        <path fill-rule="evenodd"
+                          d="M2.5 7.775V2.75a.25.25 0 01.25-.25h5.025a.25.25 0 01.177.073l6.25 6.25a.25.25 0 010 .354l-5.025 5.025a.25.25 0 01-.354 0l-6.25-6.25a.25.25 0 01-.073-.177zm-1.5 0V2.75C1 1.784 1.784 1 2.75 1h5.025c.464 0 .91.184 1.238.513l6.25 6.25a1.75 1.75 0 010 2.474l-5.026 5.026a1.75 1.75 0 01-2.474 0l-6.25-6.25A1.75 1.75 0 011 7.775zM6 5a1 1 0 100 2 1 1 0 000-2z">
+                        </path>
+                      </svg>
+                      Linux运维
+                    </a>
+                    
+                    
+                  </div>
+                </div>
+              </div>
+
+
+              <div class="Box-body px-5 pb-5" style="z-index: 1">
+                <article class="markdown-body entry-content container-lg"><p><a href="https://www.ruanyifeng.com/blog/2016/03/systemd-tutorial-part-two.html">Systemd 入门教程：实战篇 - 阮一峰的网络日志</a></p>
+<h1 id="配置文件">配置文件</h1>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">$ systemctl cat sshd.service
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">[</span>Unit<span class="o">]</span>
+</span></span><span class="line"><span class="cl"><span class="nv">Description</span><span class="o">=</span>OpenSSH server daemon
+</span></span><span class="line"><span class="cl"><span class="nv">Documentation</span><span class="o">=</span>man:sshd<span class="o">(</span>8<span class="o">)</span> man:sshd_config<span class="o">(</span>5<span class="o">)</span>
+</span></span><span class="line"><span class="cl"><span class="nv">After</span><span class="o">=</span>network.target sshd-keygen.service
+</span></span><span class="line"><span class="cl"><span class="nv">Wants</span><span class="o">=</span>sshd-keygen.service
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">[</span>Service<span class="o">]</span>
+</span></span><span class="line"><span class="cl"><span class="nv">EnvironmentFile</span><span class="o">=</span>/etc/sysconfig/sshd
+</span></span><span class="line"><span class="cl"><span class="nv">ExecStart</span><span class="o">=</span>/usr/sbin/sshd -D <span class="nv">$OPTIONS</span>
+</span></span><span class="line"><span class="cl"><span class="nv">ExecReload</span><span class="o">=</span>/bin/kill -HUP <span class="nv">$MAINPID</span>
+</span></span><span class="line"><span class="cl"><span class="nv">Type</span><span class="o">=</span>simple
+</span></span><span class="line"><span class="cl"><span class="nv">KillMode</span><span class="o">=</span>process
+</span></span><span class="line"><span class="cl"><span class="nv">Restart</span><span class="o">=</span>on-failure
+</span></span><span class="line"><span class="cl"><span class="nv">RestartSec</span><span class="o">=</span>42s
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">[</span>Install<span class="o">]</span>
+</span></span><span class="line"><span class="cl"><span class="nv">WantedBy</span><span class="o">=</span>multi-user.target
+</span></span></code></pre></div><h2 id="unit区块">Unit区块</h2>
+<p><code>Unit</code>区块：启动顺序与依赖关系。<br>
+<code>Description</code>字段给出当前服务的简单描述。<br>
+<code>Documentation</code>字段给出文档位置。<br>
+<code>After</code>字段表示如果<code>network.target</code>或<code>sshd-keygen.service</code>需要启动，那么<code>sshd.service</code>应该在它们之后启动。<br>
+<code>Before</code>字段定义<code>sshd.service</code>应该在哪些服务之前启动。<br>
+<strong>注意，After和Before字段只涉及启动顺序，不涉及依赖关系。</strong></p>
+<p>设置依赖关系，需要使用<code>Wants</code>字段和<code>Requires</code>字段。
+<code>Wants</code>字段表示<code>sshd.service</code>与<code>sshd-keygen.service</code>之间存在&quot;弱依赖&quot;关系，即如果<code>sshd-keygen.service</code>启动失败或停止运行，不影响sshd.service继续执行。
+<code>Requires</code>字段则表示&quot;强依赖&quot;关系，即如果该服务启动失败或异常退出，那么<code>sshd.service</code>也必须退出。
+<strong>注意，Wants字段与Requires字段只涉及依赖关系，与启动顺序无关，默认情况下是同时启动的。</strong></p>
+<p>举例来说，某 Web 应用需要 postgresql 数据库储存数据。在配置文件中，它只定义要在 postgresql 之后启动，而没有定义依赖 postgresql 。上线后，由于某种原因，postgresql 需要重新启动，在停止服务期间，该 Web 应用就会无法建立数据库连接。</p>
+<h2 id="service区块">Service区块</h2>
+<p><code>Service</code>区块：启动行为，Service区块定义如何启动当前服务。</p>
+<p><code>EnvironmentFile</code>字段指定当前服务的环境参数文件。该文件内部的key=value键值对，可以用$key的形式，在当前配置文件中获取。上面的例子中，sshd 的环境参数文件是<code>/etc/sysconfig/sshd</code>。<br>
+配置文件里面最重要的字段是<code>ExecStart</code>。<code>ExecStart</code>字段：定义启动进程时执行的命令。<br>
+上面的例子中，启动sshd，执行的命令是<code>/usr/sbin/sshd -D $OPTIONS</code>，其中的变量<code>$OPTIONS</code>就来自<code>EnvironmentFile</code>字段指定的环境参数文件。</p>
+<h2 id="install区块">Install区块</h2>
+<p><code>Install</code>区块，定义如何安装这个配置文件，即怎样做到开机启动。<br>
+<code>WantedBy</code>字段：表示该服务所在的 <code>Target</code>。</p>
+</article>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+<script type="application/javascript" src='https://devin0x01.github.io/js/toc.js'></script>
+<link rel="stylesheet" href='https://devin0x01.github.io/css/toc.css' />
+
+
+  <div class="footer container-xl width-full p-responsive">
+  <div
+    class="position-relative d-flex flex-row-reverse flex-lg-row flex-wrap flex-lg-nowrap flex-justify-center flex-lg-justify-between flex-sm-items-center pt-6 pb-2 mt-6 f6 text-gray border-top border-gray-light ">
+    <a aria-label="Homepage" title="GitHub" class="footer-octicon d-none d-lg-block mr-lg-4" href="https://devin0x01.github.io">
+      <svg height="24" class="octicon octicon-mark-github" viewBox="0 0 16 16" version="1.1" width="24">
+        <path fill-rule="evenodd"
+          d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z">
+        </path>
+      </svg>
+    </a>
+    <ul class="list-style-none d-flex flex-wrap col-12 flex-justify-center flex-lg-justify-between mb-2 mb-lg-0">
+      
+      <li class="mr-3 mr-lg-0">Theme by <a href='https://github.com/MeiK2333/github-style'>github-style</a></li>
+      
+    </ul>
+  </div>
+  <div class="d-flex flex-justify-center pb-6">
+    <span class="f6 text-gray-light"></span>
+  </div>
+
+
+</div>
+</body>
+
+<script type="application/javascript" src="https://devin0x01.github.io/js/github-style.js"></script>
+
+
+
+
+</html>

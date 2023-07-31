@@ -154,7 +154,7 @@
                 </path>
               </svg>
               Posts
-              <span class="Counter">25</span>
+              <span class="Counter">26</span>
             </a>
           </nav>
           <div class="profile-color-modes js-promo-color-modes-banner-profile isInitialToggle">
@@ -478,7 +478,7 @@
         </path>
       </svg>
       Posts
-      <span class="Counter ">25</span>
+      <span class="Counter ">26</span>
     </a>
   </nav>
 </div>
@@ -604,6 +604,48 @@
         
       
       <ul>
+        
+        <li class="col-12 d-flex width-full py-4 border-bottom color-border-secondary public source">
+          <div class="col-12 d-inline-block">
+            <div class="d-inline-block mb-1">
+              <h3 class="wb-break-all">
+                <a href="https://devin0x01.github.io/post/%E7%BC%96%E8%AF%91%E8%B0%83%E8%AF%95/%E5%85%B1%E4%BA%AB%E5%BA%93%E6%90%9C%E7%B4%A2%E8%B7%AF%E5%BE%84/">共享库搜索路径</a>
+              </h3>
+            </div>
+
+            <div>
+              <div class="col-12 d-inline-block text-gray mb-2 pr-4">
+                基本原理 -L编译选项是编译期间使用
+LD_LIBRARY_PATH环境变量是运行期间使用，可以用来指定so的加载路径，并且优先级高于系统默认的。
+RPATH和RUNPATH是ELF格式里面的一个数据，rpath编译选项实际上是在可执行文件中加入了RUNPATH或者RPATH。
+小结一下一个ELF文件自身加载so的情况(不可信，仅供参考）：
+其实这三者的关系概括起来没有几点：
+LD_LIBRARY_PATH是个环境变量，优先级高于系统默认的。 RPATH是ELF格式里面的一个数据，他的优先级比LD_LIBRARY_PATH还要高 RUNPATH很特殊，如果他出现了RPATH就躲起来了，LD_LIBRARY_PATH 又成了首选?? ELF 中 RPATH ELF 中 RUNPATH LD_LIBRARY_PATH 变量 尝试加载目录的顺序 未设置 未设置 未设置 /lib =&gt; /usr/lib 未设置 未设置 设置 ${LD_LIBRARY_PATH} =&gt; /lib =&gt; /usr/lib 设置 未设置 未设置 ${RPATH} =&gt; /lib =&gt; /usr/lib 设置 未设置 设置 ${RPATH} =&gt; ${LD_LIBRARY_PATH} =&gt; /lib =&gt; /usr/lib 设置 或 未设置 设置 设置 ${LD_LIBRARY_PATH} =&gt; ${RUN_PATH} =&gt; /lib =&gt; /usr/lib 设置 或 未设置 设置 未设置 ${RUN_PATH} =&gt; /lib =&gt; /usr/lib LD_LIBRARY_PATH 例子 // a.
+              </div>
+            </div>
+
+            <div class="f6 text-gray mt-2">
+              
+              
+              <a class="muted-link mr-3" href="/tags/%E7%BC%96%E8%AF%91%E8%B0%83%E8%AF%95">
+                <svg class="octicon octicon-tag" viewBox="0 0 16 16" version="1.1" width="16" height="16">
+                  <path fill-rule="evenodd"
+                    d="M2.5 7.775V2.75a.25.25 0 01.25-.25h5.025a.25.25 0 01.177.073l6.25 6.25a.25.25 0 010 .354l-5.025 5.025a.25.25 0 01-.354 0l-6.25-6.25a.25.25 0 01-.073-.177zm-1.5 0V2.75C1 1.784 1.784 1 2.75 1h5.025c.464 0 .91.184 1.238.513l6.25 6.25a1.75 1.75 0 010 2.474l-5.026 5.026a1.75 1.75 0 01-2.474 0l-6.25-6.25A1.75 1.75 0 011 7.775zM6 5a1 1 0 100 2 1 1 0 000-2z">
+                  </path>
+                </svg>
+                编译调试
+              </a>
+              
+              
+
+              Created
+              <relative-time datetime=" Sun, 18 Jun 2023 14:05:25 &#43;0800" class="no-wrap"
+                title=" Sun, 18 Jun 2023 14:05:25 &#43;0800">
+                Sun, 18 Jun 2023 14:05:25 &#43;0800
+              </relative-time>
+            </div>
+          </div>
+        </li>
         
         <li class="col-12 d-flex width-full py-4 border-bottom color-border-secondary public source">
           <div class="col-12 d-inline-block">
