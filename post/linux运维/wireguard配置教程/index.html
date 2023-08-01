@@ -162,9 +162,9 @@
 
                   
                   <span class="file-info-divider"></span>
-                  Modified <relative-time datetime="Mon, 31 Jul 2023 13:18:47 &#43;0000"
+                  Modified <relative-time datetime="Tue, 01 Aug 2023 14:42:55 &#43;0000"
                     class="no-wrap">
-                    Mon, 31 Jul 2023 13:18:47 &#43;0000</relative-time>
+                    Tue, 01 Aug 2023 14:42:55 &#43;0000</relative-time>
                   
                 </div>
               </div>
@@ -194,7 +194,7 @@
                         </div>
                       </div>
                     </details-menu>
-                      801 Words
+                      873 Words
                     
 
                   </div>
@@ -337,6 +337,30 @@
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="c1"># 这时候可以在server段检查下状态，会发现peer已经连接上去了</span>
 </span></span><span class="line"><span class="cl">docker <span class="nb">exec</span> -it wireguard wg
+</span></span></code></pre></div><p><code>wg-quick up wg0</code>会自动去找配置文件<code>/etc/wireguard/wg0.conf</code></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">$ systemctl cat wg-quick@wg0
+</span></span><span class="line"><span class="cl"><span class="c1"># /lib/systemd/system/wg-quick@.service</span>
+</span></span><span class="line"><span class="cl"><span class="o">[</span>Unit<span class="o">]</span>
+</span></span><span class="line"><span class="cl"><span class="nv">Description</span><span class="o">=</span>WireGuard via wg-quick<span class="o">(</span>8<span class="o">)</span> <span class="k">for</span> %I
+</span></span><span class="line"><span class="cl"><span class="nv">After</span><span class="o">=</span>network-online.target nss-lookup.target
+</span></span><span class="line"><span class="cl"><span class="nv">Wants</span><span class="o">=</span>network-online.target nss-lookup.target
+</span></span><span class="line"><span class="cl"><span class="nv">PartOf</span><span class="o">=</span>wg-quick.target
+</span></span><span class="line"><span class="cl"><span class="nv">Documentation</span><span class="o">=</span>man:wg-quick<span class="o">(</span>8<span class="o">)</span>
+</span></span><span class="line"><span class="cl"><span class="nv">Documentation</span><span class="o">=</span>man:wg<span class="o">(</span>8<span class="o">)</span>
+</span></span><span class="line"><span class="cl"><span class="nv">Documentation</span><span class="o">=</span>https://www.wireguard.com/
+</span></span><span class="line"><span class="cl"><span class="nv">Documentation</span><span class="o">=</span>https://www.wireguard.com/quickstart/
+</span></span><span class="line"><span class="cl"><span class="nv">Documentation</span><span class="o">=</span>https://git.zx2c4.com/wireguard-tools/about/src/man/wg-quick.8
+</span></span><span class="line"><span class="cl"><span class="nv">Documentation</span><span class="o">=</span>https://git.zx2c4.com/wireguard-tools/about/src/man/wg.8
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">[</span>Service<span class="o">]</span>
+</span></span><span class="line"><span class="cl"><span class="nv">Type</span><span class="o">=</span>oneshot
+</span></span><span class="line"><span class="cl"><span class="nv">RemainAfterExit</span><span class="o">=</span>yes
+</span></span><span class="line"><span class="cl"><span class="nv">ExecStart</span><span class="o">=</span>/usr/bin/wg-quick up %i
+</span></span><span class="line"><span class="cl"><span class="nv">ExecStop</span><span class="o">=</span>/usr/bin/wg-quick down %i
+</span></span><span class="line"><span class="cl"><span class="nv">Environment</span><span class="o">=</span><span class="nv">WG_ENDPOINT_RESOLUTION_RETRIES</span><span class="o">=</span>infinity
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">[</span>Install<span class="o">]</span>
+</span></span><span class="line"><span class="cl"><span class="nv">WantedBy</span><span class="o">=</span>multi-user.target
 </span></span></code></pre></div><h1 id="3添加更多的节点">3.添加更多的节点</h1>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="c1"># Edit on the server side</span>
 </span></span><span class="line"><span class="cl">$ sudo vim /opt/wireguard-server/config/wg0.conf
