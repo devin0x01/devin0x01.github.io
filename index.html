@@ -667,7 +667,10 @@ WantedBy字段：表示该服务所在的 Target。
 基于Wireguard技术的虚拟个人网络搭建: 基于wireguard的内网穿透技术~
 搭建WireGuard-腾讯云开发者社区-腾讯云
 公网机器: IP=100.101.102.103, Name=TencentVM1 私网机器: IP=192.168.123.189, Name=LocalMint1 1.公网配置 1.1.安装Docke和docker-compose Docker Compose | 菜鸟教程
-# 安装docker-compose sudo curl -L &#34;https://github.com/docker/compose/releases/download/v2.19.1/docker-compose-$(uname -s)-$(uname -m)&#34; -o /usr/local/bin/docker-compose sudo chmod 755 /usr/local/bin/docker-compose docker-compose version 1.2.安装linuxserver/wireguard镜像 sudo mkdir /opt/wireguard-server vim docker-compose.yaml # yaml里需要配置容器的名字，server的地址 docker compose up -d # 检查WireGuard服务器的状态 docker exec -it wireguard wg docker exec -it wireguard /bin/bash # 其他docker compose命令 docker compose start wireguard docker compose restart wireguard docker compose ps 配置文件的目录结构
+# 安装docker-compose sudo curl -L &#34;https://github.com/docker/compose/releases/download/v2.19.1/docker-compose-$(uname -s)-$(uname -m)&#34; -o /usr/local/bin/docker-compose sudo chmod 755 /usr/local/bin/docker-compose docker-compose version 1.2.安装wg-easy镜像 wg-easy/wg-easy: The easiest way to run WireGuard VPN + Web-based Admin UI.
+基于Wireguard技术的虚拟个人网络搭建: 基于wireguard的内网穿透技术~
+使用 WireGuard 无缝接入内网 - Devld
+Wireguard 全互联模式（full mesh）配置指南 – 云原生实验室 - Kubernetes|Docker|Istio|Envoy|Hugo|Golang|云原生
                 </div>
 
                 <p class="mb-0 f6 text-gray">
