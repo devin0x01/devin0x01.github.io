@@ -622,11 +622,10 @@ docker docker info #docker配置信息 docker inspect $cid #查看容器的配�
                 Run WireGuard VPN Server in Docker Container with Docker Compose - TechViewLeo &ndash; 主要参考这个
 基于Wireguard技术的虚拟个人网络搭建: 基于wireguard的内网穿透技术~
 搭建WireGuard-腾讯云开发者社区-腾讯云
-公网机器: IP=100.101.102.103, Name=TencentVM1 私网机器: IP=192.168.123.189, Name=LocalMint1 1.公网配置 1.1.安装Docke和docker-compose Docker Compose | 菜鸟教程
-# 安装docker-compose sudo curl -L &#34;https://github.com/docker/compose/releases/download/v2.19.1/docker-compose-$(uname -s)-$(uname -m)&#34; -o /usr/local/bin/docker-compose sudo chmod 755 /usr/local/bin/docker-compose docker-compose version 1.2.安装wg-easy镜像 wg-easy/wg-easy: The easiest way to run WireGuard VPN + Web-based Admin UI.
+公网机器: IP=100.101.102.103, Name=TencentVM1 私网机器: IP=192.168.123.189, Name=LocalMint1 1.服务端配置 1.1.安装wg-easy镜像 wg-easy/wg-easy: The easiest way to run WireGuard VPN + Web-based Admin UI.
 基于Wireguard技术的虚拟个人网络搭建: 基于wireguard的内网穿透技术~
-使用 WireGuard 无缝接入内网 - Devld
 Wireguard 全互联模式（full mesh）配置指南 – 云原生实验室 - Kubernetes|Docker|Istio|Envoy|Hugo|Golang|云原生
+docker run -d \ --name=wg-easy \ -e WG_HOST=🚨YOUR_SERVER_IP \ -e PASSWORD=🚨YOUR_ADMIN_PASSWORD \ -v ~/.wg-easy:/etc/wireguard \ -p 51820:51820/udp \ -p 51821:51821/tcp \ --cap-add=NET_ADMIN \ --cap-add=SYS_MODULE \ --sysctl=&#34;net.
               </div>
             </div>
 
