@@ -154,7 +154,7 @@
                 </path>
               </svg>
               Posts
-              <span class="Counter">27</span>
+              <span class="Counter">28</span>
             </a>
           </nav>
           <div class="profile-color-modes js-promo-color-modes-banner-profile isInitialToggle">
@@ -478,7 +478,7 @@
         </path>
       </svg>
       Posts
-      <span class="Counter ">27</span>
+      <span class="Counter ">28</span>
     </a>
   </nav>
 </div>
@@ -525,6 +525,15 @@
 					</path>
 				</svg>
 				docker
+			</a>
+		
+			<a class="muted-link mr-3" href="/tags/frp/">
+				<svg class="octicon octicon-tag" viewBox="0 0 16 16" version="1.1" width="16" height="16">
+					<path fill-rule="evenodd"
+						d="M2.5 7.775V2.75a.25.25 0 01.25-.25h5.025a.25.25 0 01.177.073l6.25 6.25a.25.25 0 010 .354l-5.025 5.025a.25.25 0 01-.354 0l-6.25-6.25a.25.25 0 01-.073-.177zm-1.5 0V2.75C1 1.784 1.784 1 2.75 1h5.025c.464 0 .91.184 1.238.513l6.25 6.25a1.75 1.75 0 010 2.474l-5.026 5.026a1.75 1.75 0 01-2.474 0l-6.25-6.25A1.75 1.75 0 011 7.775zM6 5a1 1 0 100 2 1 1 0 000-2z">
+					</path>
+				</svg>
+				frp
 			</a>
 		
 			<a class="muted-link mr-3" href="/tags/git/">
@@ -613,6 +622,45 @@
         
       
       <ul>
+        
+        <li class="col-12 d-flex width-full py-4 border-bottom color-border-secondary public source">
+          <div class="col-12 d-inline-block">
+            <div class="d-inline-block mb-1">
+              <h3 class="wb-break-all">
+                <a href="https://devin0x01.github.io/post/cpp/%E4%BD%8D%E5%9F%9F%E7%94%A8%E6%B3%95/">位域用法</a>
+              </h3>
+            </div>
+
+            <div>
+              <div class="col-12 d-inline-block text-gray mb-2 pr-4">
+                [toc]
+如果有字段定义为int类型的话，那么符号位的判断需要特别注意。 例如：下面的 B::f2 字段是有符号类型，其符号位是f2的最高位，可以表示的范围是-64~63
+#include &lt;iostream&gt; struct B { unsigned int f1:1; int f2:7; }; int main() { B b1 = {0, 10}; B b2 = {0, 127}; std::cout &lt;&lt; std::boolalpha &lt;&lt; (b1.f2 &gt;= 0) &lt;&lt; std::endl; // true std::cout &lt;&lt; std::boolalpha &lt;&lt; (b2.f2 &gt;= 0) &lt;&lt; std::endl; // false } 
+              </div>
+            </div>
+
+            <div class="f6 text-gray mt-2">
+              
+              
+              <a class="muted-link mr-3" href="/tags/c&#43;&#43;">
+                <svg class="octicon octicon-tag" viewBox="0 0 16 16" version="1.1" width="16" height="16">
+                  <path fill-rule="evenodd"
+                    d="M2.5 7.775V2.75a.25.25 0 01.25-.25h5.025a.25.25 0 01.177.073l6.25 6.25a.25.25 0 010 .354l-5.025 5.025a.25.25 0 01-.354 0l-6.25-6.25a.25.25 0 01-.073-.177zm-1.5 0V2.75C1 1.784 1.784 1 2.75 1h5.025c.464 0 .91.184 1.238.513l6.25 6.25a1.75 1.75 0 010 2.474l-5.026 5.026a1.75 1.75 0 01-2.474 0l-6.25-6.25A1.75 1.75 0 011 7.775zM6 5a1 1 0 100 2 1 1 0 000-2z">
+                  </path>
+                </svg>
+                C&#43;&#43;
+              </a>
+              
+              
+
+              Created
+              <relative-time datetime=" Thu, 13 Jul 2023 14:05:25 &#43;0800" class="no-wrap"
+                title=" Thu, 13 Jul 2023 14:05:25 &#43;0800">
+                Thu, 13 Jul 2023 14:05:25 &#43;0800
+              </relative-time>
+            </div>
+          </div>
+        </li>
         
         <li class="col-12 d-flex width-full py-4 border-bottom color-border-secondary public source">
           <div class="col-12 d-inline-block">
@@ -957,44 +1005,6 @@ shutdown优雅的断开TCP连接 /* Shut down all or part of the connection open
                   </path>
                 </svg>
                 工具
-              </a>
-              
-              
-
-              Created
-              <relative-time datetime=" Sun, 18 Jun 2023 14:05:25 &#43;0800" class="no-wrap"
-                title=" Sun, 18 Jun 2023 14:05:25 &#43;0800">
-                Sun, 18 Jun 2023 14:05:25 &#43;0800
-              </relative-time>
-            </div>
-          </div>
-        </li>
-        
-        <li class="col-12 d-flex width-full py-4 border-bottom color-border-secondary public source">
-          <div class="col-12 d-inline-block">
-            <div class="d-inline-block mb-1">
-              <h3 class="wb-break-all">
-                <a href="https://devin0x01.github.io/post/qt/qt%E5%BC%80%E5%8F%91%E6%80%BB%E7%BB%93%E7%AF%87%E4%B8%80/">Qt开发总结篇一</a>
-              </h3>
-            </div>
-
-            <div>
-              <div class="col-12 d-inline-block text-gray mb-2 pr-4">
-                GUI界面 限制输入的内容 QValidator *validator = new QIntValidator(100, 999, this); // 这样文本框只能输入100~999之间的数字 ui-&gt;lineEdit-&gt;setValidator(validator); 显示格式控制 ui-&gt;textEdit-&gt;setWordWrapMode(QTextOption::WrapAnywhere); // 任意地方换行 ui-&gt;tableWidget-&gt;setTextElideMode(Qt::ElideMode); // 不显示省略号 Qt序列化 通过全局流操作运算符重载实现，可以序列化到文件等设备中，也可以序列化到QByteArray中。
-// cmdinfo.h // BaseInfo已经实现序列化 class CmdInfo : public BaseInfo { public: friend QDataStream&amp; operator&gt;&gt;(QDataStream&amp;, CmdInfo&amp;); friend QDataStream&amp; operator&lt;&lt;(QDataStream&amp;, const CmdInfo&amp;); private: QString command_; CmdType type_; }; // cmdinfo.cpp QDataStream&amp; operator&gt;&gt;(QDataStream &amp;in, CmdInfo &amp;data) { BaseInfo &amp;base = data; qint32 tmpInt; in &gt;&gt; base &gt;&gt; data.command_ &gt;&gt; tmpInt; data.setType((CmdType)tmpInt); return in; } QDataStream&amp; operator&lt;&lt;(QDataStream &amp;out, const CmdInfo &amp;data) { const BaseInfo &amp;base = data; out &lt;&lt; base &lt;&lt; data.
-              </div>
-            </div>
-
-            <div class="f6 text-gray mt-2">
-              
-              
-              <a class="muted-link mr-3" href="/tags/qt">
-                <svg class="octicon octicon-tag" viewBox="0 0 16 16" version="1.1" width="16" height="16">
-                  <path fill-rule="evenodd"
-                    d="M2.5 7.775V2.75a.25.25 0 01.25-.25h5.025a.25.25 0 01.177.073l6.25 6.25a.25.25 0 010 .354l-5.025 5.025a.25.25 0 01-.354 0l-6.25-6.25a.25.25 0 01-.073-.177zm-1.5 0V2.75C1 1.784 1.784 1 2.75 1h5.025c.464 0 .91.184 1.238.513l6.25 6.25a1.75 1.75 0 010 2.474l-5.026 5.026a1.75 1.75 0 01-2.474 0l-6.25-6.25A1.75 1.75 0 011 7.775zM6 5a1 1 0 100 2 1 1 0 000-2z">
-                  </path>
-                </svg>
-                Qt
               </a>
               
               
