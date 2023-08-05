@@ -168,9 +168,9 @@ $ tree /opt/frp /opt/frp ├── frpc ├── frpc_full.ini ├── frpc.i
 
                   
                   <span class="file-info-divider"></span>
-                  Modified <relative-time datetime="Sat, 05 Aug 2023 15:18:56 &#43;0000"
+                  Modified <relative-time datetime="Sat, 05 Aug 2023 15:20:25 &#43;0000"
                     class="no-wrap">
-                    Sat, 05 Aug 2023 15:18:56 &#43;0000</relative-time>
+                    Sat, 05 Aug 2023 15:20:25 &#43;0000</relative-time>
                   
                 </div>
               </div>
@@ -200,7 +200,7 @@ $ tree /opt/frp /opt/frp ├── frpc ├── frpc_full.ini ├── frpc.i
                         </div>
                       </div>
                     </details-menu>
-                      681 Words
+                      680 Words
                     
 
                   </div>
@@ -272,8 +272,8 @@ local_ip 和 local_port 配置为本地需要暴露到公网的服务地址和�
 </span></span><span class="line"><span class="cl"><span class="na">remote_port</span> <span class="o">=</span> <span class="s">6000 # 注意：需要在云服务器上开放6000端口</span>
 </span></span></code></pre></div><p>运行方式：<code>/opt/frp/frpc -c /opt/frp/frpc.ini</code><br>
 访问内网机器的方式：<code>ssh -p 6000 test@x.x.x.x</code></p>
-<p>注意：不要使用后台方式运行(<code>nohup /opt/frp/frpc -c /opt/frp/frpc.ini 2&gt;&amp;1 &amp;</code>
-)，否则下次连接可能会遇到以下报错：<a href="https://blog.csdn.net/wzying25/article/details/105482746">frp错误，frp报错，[ssh] start error: proxy name [ssh] is already in use_狗狗25的博客-CSDN博客</a></p>
+<p>注意：不要使用后台方式运行，<code>nohup /opt/frp/frpc -c /opt/frp/frpc.ini 2&gt;&amp;1 &amp;</code>
+，否则下次连接可能会遇到以下报错：<a href="https://blog.csdn.net/wzying25/article/details/105482746">frp错误，frp报错，[ssh] start error: proxy name [ssh] is already in use_狗狗25的博客-CSDN博客</a></p>
 <h2 id="13设置服务端frp开机自启动">1.3.设置服务端frp开机自启动</h2>
 <p><a href="https://gofrp.org/docs/setup/systemd/">使用 systemd | frp</a></p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">sudo apt install systemd
