@@ -724,20 +724,19 @@ $ tree /opt/frp /opt/frp ├── frpc ├── frpc_full.ini ├── frpc.i
             <div>
               <div class="col-12 d-inline-block text-gray mb-2 pr-4">
                 Systemd 入门教程：实战篇 - 阮一峰的网络日志
-配置文件 $ systemctl cat sshd.service [Unit] Description=OpenSSH server daemon Documentation=man:sshd(8) man:sshd_config(5) After=network.target sshd-keygen.service Wants=sshd-keygen.service [Service] EnvironmentFile=/etc/sysconfig/sshd ExecStart=/usr/sbin/sshd -D $OPTIONS ExecReload=/bin/kill -HUP $MAINPID Type=simple KillMode=process Restart=on-failure RestartSec=42s [Install] WantedBy=multi-user.target Unit区块 Unit区块：启动顺序与依赖关系。
-Description字段给出当前服务的简单描述。
+配置文件 $ systemctl cat sshd.service [Unit] Description=OpenSSH server daemon Documentation=man:sshd(8) man:sshd_config(5) After=network.target sshd-keygen.service Wants=sshd-keygen.service [Service] EnvironmentFile=/etc/sysconfig/sshd ExecStart=/usr/sbin/sshd -D $OPTIONS ExecReload=/bin/kill -HUP $MAINPID Type=simple KillMode=process Restart=on-failure RestartSec=42s [Install] WantedBy=multi-user.target Unit区块：启动顺序和依赖关系 Description字段给出当前服务的简单描述。
 Documentation字段给出文档位置。
 After字段表示如果network.target或sshd-keygen.service需要启动，那么sshd.service应该在它们之后启动。
 Before字段定义sshd.service应该在哪些服务之前启动。
+Wants字段表示sshd.service与sshd-keygen.service之间存在&quot;弱依赖&quot;关系，即如果sshd-keygen.service启动失败或停止运行，不影响sshd.service继续执行。
+Requires字段则表示&quot;强依赖&quot;关系，即如果该服务启动失败或异常退出，那么sshd.service也必须退出。
 注意，After和Before字段只涉及启动顺序，不涉及依赖关系。
-设置依赖关系，需要使用Wants字段和Requires字段。 Wants字段表示sshd.service与sshd-keygen.service之间存在&quot;弱依赖&quot;关系，即如果sshd-keygen.service启动失败或停止运行，不影响sshd.service继续执行。 Requires字段则表示&quot;强依赖&quot;关系，即如果该服务启动失败或异常退出，那么sshd.service也必须退出。 注意，Wants字段与Requires字段只涉及依赖关系，与启动顺序无关，默认情况下是同时启动的。
+注意，Wants字段与Requires字段只涉及依赖关系，与启动顺序无关，默认情况下是同时启动的。
 举例来说，某 Web 应用需要 postgresql 数据库储存数据。在配置文件中，它只定义要在 postgresql 之后启动，而没有定义依赖 postgresql 。上线后，由于某种原因，postgresql 需要重新启动，在停止服务期间，该 Web 应用就会无法建立数据库连接。
-Service区块 Service区块：启动行为，Service区块定义如何启动当前服务。
-EnvironmentFile字段指定当前服务的环境参数文件。该文件内部的key=value键值对，可以用$key的形式，在当前配置文件中获取。上面的例子中，sshd 的环境参数文件是/etc/sysconfig/sshd。
-配置文件里面最重要的字段是ExecStart。ExecStart字段：定义启动进程时执行的命令。
-上面的例子中，启动sshd，执行的命令是/usr/sbin/sshd -D $OPTIONS，其中的变量$OPTIONS就来自EnvironmentFile字段指定的环境参数文件。
-Install区块 Install区块，定义如何安装这个配置文件，即怎样做到开机启动。
-WantedBy字段：表示该服务所在的 Target。
+Service区块：如何启动当前服务 EnvironmentFile字段指定当前服务的环境参数文件。该文件内部的key=value键值对，可以用$key的形式，在当前配置文件中获取。上面的例子中，sshd 的环境参数文件是/etc/sysconfig/sshd。
+ExecStart字段：定义启动进程时执行的命令。上面的例子中，启动sshd，执行的命令是/usr/sbin/sshd -D $OPTIONS，其中的变量$OPTIONS就来自EnvironmentFile字段指定的环境参数文件。
+Install区块：如何安装这个配置文件，即怎样做到开机启动。 WantedBy字段：表示该服务所在的Target。Target的含义是服务组，表示一组服务。WantedBy=multi-user.target指的是，sshd所在的Target是multi-user.target。 这个设置非常重要，因为执行systemctl enable sshd.service命令时，sshd.service的一个符号链接，就会放在/etc/systemd/system目录下面的multi-user.target.wants子目录之中。
+Systemd 有默认的启动 Target，下面的结果表示，默认的启动 Target 是multi-user.target。在这个组里的所有服务，都将开机启动。这就是为什么systemctl enable命令能设置开机启动的原因。
               </div>
             </div>
 
