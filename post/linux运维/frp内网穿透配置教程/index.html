@@ -168,9 +168,9 @@ $ tree /opt/frp /opt/frp ├── frpc ├── frpc_full.ini ├── frpc.i
 
                   
                   <span class="file-info-divider"></span>
-                  Modified <relative-time datetime="Sun, 06 Aug 2023 05:09:42 &#43;0000"
+                  Modified <relative-time datetime="Sun, 06 Aug 2023 05:58:22 &#43;0000"
                     class="no-wrap">
-                    Sun, 06 Aug 2023 05:09:42 &#43;0000</relative-time>
+                    Sun, 06 Aug 2023 05:58:22 &#43;0000</relative-time>
                   
                 </div>
               </div>
@@ -200,7 +200,7 @@ $ tree /opt/frp /opt/frp ├── frpc ├── frpc_full.ini ├── frpc.i
                         </div>
                       </div>
                     </details-menu>
-                      680 Words
+                      909 Words
                     
 
                   </div>
@@ -274,23 +274,10 @@ local_ip 和 local_port 配置为本地需要暴露到公网的服务地址和�
 访问内网机器的方式：<code>ssh -p 6000 test@x.x.x.x</code></p>
 <p>注意：不要使用后台方式运行，<code>nohup /opt/frp/frpc -c /opt/frp/frpc.ini 2&gt;&amp;1 &amp;</code>
 ，否则下次连接可能会遇到以下报错：<a href="https://blog.csdn.net/wzying25/article/details/105482746">frp错误，frp报错，[ssh] start error: proxy name [ssh] is already in use_狗狗25的博客-CSDN博客</a></p>
-<h2 id="13设置服务端frp开机自启动">1.3.设置服务端frp开机自启动</h2>
+<h2 id="13设置frps开机自启动">1.3.设置frps开机自启动</h2>
 <p><a href="https://gofrp.org/docs/setup/systemd/">使用 systemd | frp</a></p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">sudo apt install systemd
-</span></span><span class="line"><span class="cl">sudo vim /etc/systemd/system/frps.service <span class="c1"># 见下面 frps.service 的文件内容</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># 配置 frps 开机自启</span>
-</span></span><span class="line"><span class="cl">systemctl <span class="nb">enable</span> frps
-</span></span><span class="line"><span class="cl"><span class="c1"># 启动frp</span>
-</span></span><span class="line"><span class="cl">systemctl start frps
-</span></span><span class="line"><span class="cl"><span class="c1"># 停止frp</span>
-</span></span><span class="line"><span class="cl">systemctl stop frps
-</span></span><span class="line"><span class="cl"><span class="c1"># 重启frp</span>
-</span></span><span class="line"><span class="cl">systemctl restart frps
-</span></span><span class="line"><span class="cl"><span class="c1"># 查看frp状态</span>
-</span></span><span class="line"><span class="cl">systemctl status frps
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ini" data-lang="ini"><span class="line"><span class="cl"><span class="na">$ systemctl cat frps</span>
-</span></span><span class="line"><span class="cl">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ini" data-lang="ini"><span class="line"><span class="cl"><span class="na">$ sudo vim /etc/systemd/system/frps.service</span>
+</span></span><span class="line"><span class="cl"><span class="na">$ systemctl cat frps</span>
 </span></span><span class="line"><span class="cl"><span class="c1"># /etc/systemd/system/frps.service</span>
 </span></span><span class="line"><span class="cl"><span class="k">[Unit]</span>
 </span></span><span class="line"><span class="cl"><span class="c1"># 服务名称，可自定义</span>
@@ -305,6 +292,57 @@ local_ip 和 local_port 配置为本地需要暴露到公网的服务地址和�
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="k">[Install]</span>
 </span></span><span class="line"><span class="cl"><span class="na">WantedBy</span> <span class="o">=</span> <span class="s">multi-user.target</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="c1"># 配置 frps 开机自启</span>
+</span></span><span class="line"><span class="cl">systemctl <span class="nb">enable</span> frps
+</span></span><span class="line"><span class="cl"><span class="c1"># 启动frp</span>
+</span></span><span class="line"><span class="cl">systemctl start frps
+</span></span><span class="line"><span class="cl"><span class="c1"># 停止frp</span>
+</span></span><span class="line"><span class="cl">systemctl stop frps
+</span></span><span class="line"><span class="cl"><span class="c1"># 重启frp</span>
+</span></span><span class="line"><span class="cl">systemctl restart frps
+</span></span><span class="line"><span class="cl"><span class="c1"># 查看frp状态</span>
+</span></span><span class="line"><span class="cl">systemctl status frps
+</span></span></code></pre></div><h2 id="14设置frpc开机自启动">1.4.设置frpc开机自启动</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">$ sudo systemctl cat frpc
+</span></span><span class="line"><span class="cl"><span class="c1"># /etc/systemd/system/frpc.service</span>
+</span></span><span class="line"><span class="cl"><span class="o">[</span>Unit<span class="o">]</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 服务名称，可自定义</span>
+</span></span><span class="line"><span class="cl"><span class="nv">Description</span> <span class="o">=</span> frp client
+</span></span><span class="line"><span class="cl"><span class="nv">After</span> <span class="o">=</span> network.target syslog.target
+</span></span><span class="line"><span class="cl"><span class="nv">Wants</span> <span class="o">=</span> network.target
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">[</span>Service<span class="o">]</span>
+</span></span><span class="line"><span class="cl"><span class="nv">Type</span> <span class="o">=</span> simple
+</span></span><span class="line"><span class="cl"><span class="c1"># 启动frps的命令，需修改为您的frps的安装路径</span>
+</span></span><span class="line"><span class="cl"><span class="nv">ExecStartPre</span> <span class="o">=</span> /bin/sleep <span class="m">10</span>
+</span></span><span class="line"><span class="cl"><span class="nv">ExecStart</span> <span class="o">=</span> /opt/frp/frpc -c /opt/frp/frpc.ini
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">[</span>Install<span class="o">]</span>
+</span></span><span class="line"><span class="cl"><span class="nv">WantedBy</span> <span class="o">=</span> multi-user.target
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">$ systemctl get-default
+</span></span><span class="line"><span class="cl">graphical.target
+</span></span><span class="line"><span class="cl">$ <span class="nb">cd</span> /etc/systemd/system
+</span></span><span class="line"><span class="cl">$ sudo vim frpc.service
+</span></span><span class="line"><span class="cl">$ sudo systemctl <span class="nb">enable</span> frpc
+</span></span><span class="line"><span class="cl">Created symlink /etc/systemd/system/multi-user.target.wants/frpc.service → /etc/systemd/system/frpc.service.
+</span></span><span class="line"><span class="cl">$ sudo systemctl status frpc
+</span></span><span class="line"><span class="cl">● frpc.service - frp client
+</span></span><span class="line"><span class="cl">   Loaded: loaded <span class="o">(</span>/etc/systemd/system/frpc.service<span class="p">;</span> enabled<span class="p">;</span> vendor preset: enabled<span class="o">)</span>
+</span></span><span class="line"><span class="cl">   Active: inactive <span class="o">(</span>dead<span class="o">)</span>
+</span></span><span class="line"><span class="cl">$ sudo systemctl restart frpc
+</span></span><span class="line"><span class="cl">$ sudo systemctl status frpc
+</span></span><span class="line"><span class="cl">● frpc.service - frp client
+</span></span><span class="line"><span class="cl">   Loaded: loaded <span class="o">(</span>/etc/systemd/system/frpc.service<span class="p">;</span> enabled<span class="p">;</span> vendor preset: enabled<span class="o">)</span>
+</span></span><span class="line"><span class="cl">   Active: active <span class="o">(</span>running<span class="o">)</span> since Sun 2023-08-06 05:13:52 UTC<span class="p">;</span> 8s ago
+</span></span><span class="line"><span class="cl"> Main PID: <span class="m">1361</span> <span class="o">(</span>frpc<span class="o">)</span>
+</span></span><span class="line"><span class="cl">   CGroup: /system.slice/frpc.service
+</span></span><span class="line"><span class="cl">           └─1361 /opt/frp/frpc -c /opt/frp/frpc.ini
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Aug <span class="m">06</span> 05:13:52 firefly systemd<span class="o">[</span>1<span class="o">]</span>: Started frp client.
+</span></span><span class="line"><span class="cl">Aug <span class="m">06</span> 05:13:52 firefly frpc<span class="o">[</span>1361<span class="o">]</span>: 2023/08/06 05:13:52 <span class="o">[</span>I<span class="o">]</span> <span class="o">[</span>root.go:220<span class="o">]</span> start frpc service <span class="k">for</span> config file <span class="o">[</span>/opt/frp/frpc.ini<span class="o">]</span>
+</span></span><span class="line"><span class="cl">Aug <span class="m">06</span> 05:13:53 firefly frpc<span class="o">[</span>1361<span class="o">]</span>: 2023/08/06 05:13:53 <span class="o">[</span>I<span class="o">]</span> <span class="o">[</span>service.go:301<span class="o">]</span> <span class="o">[</span>f8d3384fbb8c1471<span class="o">]</span> login to server success, get run id <span class="o">[</span>f8d3384fbb8c1471<span class="o">]</span>
+</span></span><span class="line"><span class="cl">Aug <span class="m">06</span> 05:13:53 firefly frpc<span class="o">[</span>1361<span class="o">]</span>: 2023/08/06 05:13:53 <span class="o">[</span>I<span class="o">]</span> <span class="o">[</span>proxy_manager.go:150<span class="o">]</span> <span class="o">[</span>f8d3384fbb8c1471<span class="o">]</span> proxy added: <span class="o">[</span>ssh<span class="o">]</span>
+</span></span><span class="line"><span class="cl">Aug <span class="m">06</span> 05:13:53 firefly frpc<span class="o">[</span>1361<span class="o">]</span>: 2023/08/06 05:13:53 <span class="o">[</span>I<span class="o">]</span> <span class="o">[</span>control.go:172<span class="o">]</span> <span class="o">[</span>f8d3384fbb8c1471<span class="o">]</span> <span class="o">[</span>ssh<span class="o">]</span> start proxy success
 </span></span></code></pre></div></article>
               </div>
             </div>
