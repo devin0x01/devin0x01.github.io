@@ -154,7 +154,7 @@
                 </path>
               </svg>
               Posts
-              <span class="Counter">28</span>
+              <span class="Counter">29</span>
             </a>
           </nav>
           <div class="profile-color-modes js-promo-color-modes-banner-profile isInitialToggle">
@@ -478,7 +478,7 @@
         </path>
       </svg>
       Posts
-      <span class="Counter ">28</span>
+      <span class="Counter ">29</span>
     </a>
   </nav>
 </div>
@@ -590,6 +590,15 @@
 				qt
 			</a>
 		
+			<a class="muted-link mr-3" href="/tags/rss/">
+				<svg class="octicon octicon-tag" viewBox="0 0 16 16" version="1.1" width="16" height="16">
+					<path fill-rule="evenodd"
+						d="M2.5 7.775V2.75a.25.25 0 01.25-.25h5.025a.25.25 0 01.177.073l6.25 6.25a.25.25 0 010 .354l-5.025 5.025a.25.25 0 01-.354 0l-6.25-6.25a.25.25 0 01-.073-.177zm-1.5 0V2.75C1 1.784 1.784 1 2.75 1h5.025c.464 0 .91.184 1.238.513l6.25 6.25a1.75 1.75 0 010 2.474l-5.026 5.026a1.75 1.75 0 01-2.474 0l-6.25-6.25A1.75 1.75 0 011 7.775zM6 5a1 1 0 100 2 1 1 0 000-2z">
+					</path>
+				</svg>
+				rss
+			</a>
+		
 			<a class="muted-link mr-3" href="/tags/shell/">
 				<svg class="octicon octicon-tag" viewBox="0 0 16 16" version="1.1" width="16" height="16">
 					<path fill-rule="evenodd"
@@ -622,6 +631,48 @@
         
       
       <ul>
+        
+        <li class="col-12 d-flex width-full py-4 border-bottom color-border-secondary public source">
+          <div class="col-12 d-inline-block">
+            <div class="d-inline-block mb-1">
+              <h3 class="wb-break-all">
+                <a href="https://devin0x01.github.io/post/linux%E8%BF%90%E7%BB%B4/%E8%87%AA%E5%BB%BArss%E6%9C%8D%E5%8A%A1/"></a>
+              </h3>
+            </div>
+
+            <div>
+              <div class="col-12 d-inline-block text-gray mb-2 pr-4">
+                参考链接：
+docker-compose 部署 RSS 服务订阅、安装tiny-tiny-rss、RSSHub - 贝尔塔猫 - 博客园
+我的 RSS 最佳实践
+1.部署过程 # 下载 docker-compose.yml 配置文件 mkdir -p /opt/ttrss &amp;&amp; cd /opt/ttrss curl -fLo docker-compose.yml https://raw.githubusercontent.com/HenryQW/Awesome-TTRSS/main/docker-compose.yml # 删除 Docker 容器 docker-compose down # 删除已停止的 Docker 容器 docker-compose rm # 开启 Docker 服务 docker-compose up -d 默认账户：admin/password
+访问地址：配置文件中的SELF_URL_PATH字段
+1.1.docker-compose.yml 配置文件 version: &#34;3&#34; services: service.rss: image: wangqiru/ttrss:latest container_name: ttrss ports: - 12345:80 environment: - SELF_URL_PATH=http://100.101.102.103:12345 # please change to your own domain - DB_PASS=ttrss # use the same password defined in `database.
+              </div>
+            </div>
+
+            <div class="f6 text-gray mt-2">
+              
+              
+              <a class="muted-link mr-3" href="/tags/rss">
+                <svg class="octicon octicon-tag" viewBox="0 0 16 16" version="1.1" width="16" height="16">
+                  <path fill-rule="evenodd"
+                    d="M2.5 7.775V2.75a.25.25 0 01.25-.25h5.025a.25.25 0 01.177.073l6.25 6.25a.25.25 0 010 .354l-5.025 5.025a.25.25 0 01-.354 0l-6.25-6.25a.25.25 0 01-.073-.177zm-1.5 0V2.75C1 1.784 1.784 1 2.75 1h5.025c.464 0 .91.184 1.238.513l6.25 6.25a1.75 1.75 0 010 2.474l-5.026 5.026a1.75 1.75 0 01-2.474 0l-6.25-6.25A1.75 1.75 0 011 7.775zM6 5a1 1 0 100 2 1 1 0 000-2z">
+                  </path>
+                </svg>
+                RSS
+              </a>
+              
+              
+
+              Created
+              <relative-time datetime=" Tue, 08 Aug 2023 16:05:25 &#43;0800" class="no-wrap"
+                title=" Tue, 08 Aug 2023 16:05:25 &#43;0800">
+                Tue, 08 Aug 2023 16:05:25 &#43;0800
+              </relative-time>
+            </div>
+          </div>
+        </li>
         
         <li class="col-12 d-flex width-full py-4 border-bottom color-border-secondary public source">
           <div class="col-12 d-inline-block">
@@ -1041,43 +1092,6 @@ If your header files other than your source files include the headers of another
               <relative-time datetime=" Thu, 20 Jul 2023 14:05:25 &#43;0800" class="no-wrap"
                 title=" Thu, 20 Jul 2023 14:05:25 &#43;0800">
                 Thu, 20 Jul 2023 14:05:25 &#43;0800
-              </relative-time>
-            </div>
-          </div>
-        </li>
-        
-        <li class="col-12 d-flex width-full py-4 border-bottom color-border-secondary public source">
-          <div class="col-12 d-inline-block">
-            <div class="d-inline-block mb-1">
-              <h3 class="wb-break-all">
-                <a href="https://devin0x01.github.io/post/cpp/vector%E7%9A%84push_back%E4%B8%8Eemplace_back/">vector的push_back与emplace_back.md</a>
-              </h3>
-            </div>
-
-            <div>
-              <div class="col-12 d-inline-block text-gray mb-2 pr-4">
-                push_back与emplace_back #include &lt;iostream&gt; #include &lt;vector&gt; using namespace std; class A { public: A() = default; A(string name) : _name(name) { cout &lt;&lt; &#34;ctor: &#34; &lt;&lt; _name &lt;&lt; endl; } ~A() { cout &lt;&lt; &#34;dtor: &#34; &lt;&lt; _name &lt;&lt; endl; } // 拷贝构造函数 A(const A &amp;other) { _name += &#34;cp-&#34; + other._name; cout &lt;&lt; &#34;cp-ctor: &#34; &lt;&lt; _name &lt;&lt; endl; } // 赋值运算符 A&amp; operator=(const A &amp;other) { if (this != &amp;other) { _name += &#34;cp-&#34; + other.
-              </div>
-            </div>
-
-            <div class="f6 text-gray mt-2">
-              
-              
-              <a class="muted-link mr-3" href="/tags/c&#43;&#43;">
-                <svg class="octicon octicon-tag" viewBox="0 0 16 16" version="1.1" width="16" height="16">
-                  <path fill-rule="evenodd"
-                    d="M2.5 7.775V2.75a.25.25 0 01.25-.25h5.025a.25.25 0 01.177.073l6.25 6.25a.25.25 0 010 .354l-5.025 5.025a.25.25 0 01-.354 0l-6.25-6.25a.25.25 0 01-.073-.177zm-1.5 0V2.75C1 1.784 1.784 1 2.75 1h5.025c.464 0 .91.184 1.238.513l6.25 6.25a1.75 1.75 0 010 2.474l-5.026 5.026a1.75 1.75 0 01-2.474 0l-6.25-6.25A1.75 1.75 0 011 7.775zM6 5a1 1 0 100 2 1 1 0 000-2z">
-                  </path>
-                </svg>
-                C&#43;&#43;
-              </a>
-              
-              
-
-              Created
-              <relative-time datetime=" Mon, 17 Jul 2023 14:05:25 &#43;0800" class="no-wrap"
-                title=" Mon, 17 Jul 2023 14:05:25 &#43;0800">
-                Mon, 17 Jul 2023 14:05:25 &#43;0800
               </relative-time>
             </div>
           </div>

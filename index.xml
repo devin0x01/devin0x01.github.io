@@ -6,7 +6,21 @@
     <description>Recent content on DEVIN&#39;s BLOG</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 04 Aug 2023 16:05:25 +0800</lastBuildDate><atom:link href="https://devin0x01.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 08 Aug 2023 16:05:25 +0800</lastBuildDate><atom:link href="https://devin0x01.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title></title>
+      <link>https://devin0x01.github.io/post/linux%E8%BF%90%E7%BB%B4/%E8%87%AA%E5%BB%BArss%E6%9C%8D%E5%8A%A1/</link>
+      <pubDate>Tue, 08 Aug 2023 16:05:25 +0800</pubDate>
+      
+      <guid>https://devin0x01.github.io/post/linux%E8%BF%90%E7%BB%B4/%E8%87%AA%E5%BB%BArss%E6%9C%8D%E5%8A%A1/</guid>
+      <description>参考链接：
+docker-compose 部署 RSS 服务订阅、安装tiny-tiny-rss、RSSHub - 贝尔塔猫 - 博客园
+我的 RSS 最佳实践
+1.部署过程 # 下载 docker-compose.yml 配置文件 mkdir -p /opt/ttrss &amp;amp;&amp;amp; cd /opt/ttrss curl -fLo docker-compose.yml https://raw.githubusercontent.com/HenryQW/Awesome-TTRSS/main/docker-compose.yml # 删除 Docker 容器 docker-compose down # 删除已停止的 Docker 容器 docker-compose rm # 开启 Docker 服务 docker-compose up -d 默认账户：admin/password
+访问地址：配置文件中的SELF_URL_PATH字段
+1.1.docker-compose.yml 配置文件 version: &amp;#34;3&amp;#34; services: service.rss: image: wangqiru/ttrss:latest container_name: ttrss ports: - 12345:80 environment: - SELF_URL_PATH=http://100.101.102.103:12345 # please change to your own domain - DB_PASS=ttrss # use the same password defined in `database.</description>
+    </item>
+    
     <item>
       <title>frp内网穿透配置教程</title>
       <link>https://devin0x01.github.io/post/linux%E8%BF%90%E7%BB%B4/frp%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F%E9%85%8D%E7%BD%AE%E6%95%99%E7%A8%8B/</link>
