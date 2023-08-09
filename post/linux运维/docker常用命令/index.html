@@ -19,6 +19,7 @@
     
     <meta name="description"
   content="Docker — 从入门到实践
+Docker Guide
 清理Docker的container，image与volume · 零壹軒·笔记
 docker docker info #docker配置信息 docker inspect $cid #查看容器的配置信息 docker images docker ps -a docker run -it $image_id --rm #rm表示退出容器后就删除该容器 docker exec -it $cid /bin/bash docker start $cid docker stop $cid docker restart $cid docker rm -f $cid docker rm -v $cid #同时删除 /var/lib/docker 目录下的数据卷 docker logs $cid #查看容器日志 docker system df #查看docker缓存大小 docker builder prune #一键清理 Build Cache docker builder prune --filter &amp;#39;until=240h&amp;#39; #保留最近10天的缓存 docker tag ca1b6b825289 devincpp/rk3568:v1." />
 <meta name="keywords"
@@ -31,6 +32,7 @@ docker docker info #docker配置信息 docker inspect $cid #查看容器的配�
 <meta name="twitter:title" content="Docker常用命令 - DEVIN&#39;s BLOG" />
 <meta name="twitter:description"
   content="Docker — 从入门到实践
+Docker Guide
 清理Docker的container，image与volume · 零壹軒·笔记
 docker docker info #docker配置信息 docker inspect $cid #查看容器的配置信息 docker images docker ps -a docker run -it $image_id --rm #rm表示退出容器后就删除该容器 docker exec -it $cid /bin/bash docker start $cid docker stop $cid docker restart $cid docker rm -f $cid docker rm -v $cid #同时删除 /var/lib/docker 目录下的数据卷 docker logs $cid #查看容器日志 docker system df #查看docker缓存大小 docker builder prune #一键清理 Build Cache docker builder prune --filter &amp;#39;until=240h&amp;#39; #保留最近10天的缓存 docker tag ca1b6b825289 devincpp/rk3568:v1." />
 <meta name="twitter:site" content="https://devin0x01.github.io" />
@@ -43,6 +45,7 @@ docker docker info #docker配置信息 docker inspect $cid #查看容器的配�
 <meta property="og:title" content="Docker常用命令 - DEVIN&#39;s BLOG">
 <meta property="og:description"
   content="Docker — 从入门到实践
+Docker Guide
 清理Docker的container，image与volume · 零壹軒·笔记
 docker docker info #docker配置信息 docker inspect $cid #查看容器的配置信息 docker images docker ps -a docker run -it $image_id --rm #rm表示退出容器后就删除该容器 docker exec -it $cid /bin/bash docker start $cid docker stop $cid docker restart $cid docker rm -f $cid docker rm -v $cid #同时删除 /var/lib/docker 目录下的数据卷 docker logs $cid #查看容器日志 docker system df #查看docker缓存大小 docker builder prune #一键清理 Build Cache docker builder prune --filter &amp;#39;until=240h&amp;#39; #保留最近10天的缓存 docker tag ca1b6b825289 devincpp/rk3568:v1." />
 <meta property="og:url" content="https://devin0x01.github.io/post/linux%E8%BF%90%E7%BB%B4/docker%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" />
@@ -156,9 +159,9 @@ docker docker info #docker配置信息 docker inspect $cid #查看容器的配�
 
                   
                   <span class="file-info-divider"></span>
-                  Modified <relative-time datetime="Tue, 08 Aug 2023 14:16:03 &#43;0000"
+                  Modified <relative-time datetime="Wed, 09 Aug 2023 13:55:01 &#43;0000"
                     class="no-wrap">
-                    Tue, 08 Aug 2023 14:16:03 &#43;0000</relative-time>
+                    Wed, 09 Aug 2023 13:55:01 &#43;0000</relative-time>
                   
                 </div>
               </div>
@@ -188,7 +191,7 @@ docker docker info #docker配置信息 docker inspect $cid #查看容器的配�
                         </div>
                       </div>
                     </details-menu>
-                      452 Words
+                      520 Words
                     
 
                   </div>
@@ -221,6 +224,7 @@ docker docker info #docker配置信息 docker inspect $cid #查看容器的配�
 
               <div class="Box-body px-5 pb-5" style="z-index: 1">
                 <article class="markdown-body entry-content container-lg"><p><a href="https://yeasy.gitbook.io/docker_practice/">Docker — 从入门到实践</a><br>
+<a href="https://jiajially.gitbooks.io/dockerguide/content/">Docker Guide</a><br>
 <a href="https://note.qidong.name/2017/06/26/docker-clean/">清理Docker的container，image与volume · 零壹軒·笔记</a></p>
 <h1 id="docker">docker</h1>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">docker info <span class="c1">#docker配置信息</span>
@@ -247,6 +251,9 @@ docker docker info #docker配置信息 docker inspect $cid #查看容器的配�
 </span></span><span class="line"><span class="cl"><span class="c1">#数据卷是被设计用来持久化数据的，生命周期独立于容器，Docker不会在容器被删除后自动删除数据卷，并且也不存在垃圾回收机制。</span>
 </span></span><span class="line"><span class="cl">docker image prune <span class="c1">#清理悬挂镜像</span>
 </span></span><span class="line"><span class="cl">docker volume prune <span class="c1">#清理无用数据卷</span>
+</span></span><span class="line"><span class="cl">docker volume list <span class="c1">#查看数据卷</span>
+</span></span><span class="line"><span class="cl">docker volume create v2 <span class="c1">#创建一个名为v2的数据卷，之后docker run时可以作为本地目录映射</span>
+</span></span><span class="line"><span class="cl">docker volume rm v2 <span class="c1">#删除一个名为v2的数据卷</span>
 </span></span></code></pre></div><h1 id="docker-compose">docker compose</h1>
 <p><a href="https://docs.docker.com/engine/reference/commandline/compose_build/">docker compose build | Docker Documentation</a><br>
 <a href="https://www.runoob.com/docker/docker-compose.html">Docker Compose | 菜鸟教程</a></p>
