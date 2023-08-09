@@ -689,8 +689,7 @@ docker run -d --restart unless-stopped --log-opt max-size=10m \ -p 8282:80 \ -e 
 司波图/自建内网穿透服务器 - 码云
 $ tree /opt/frp /opt/frp ├── frpc ├── frpc_full.ini ├── frpc.ini ├── frps ├── frps_full.ini ├── frps.ini └── LICENSE 1.SSH访问内网机器 通过 SSH 访问内网机器 | frp
 1.1.Server配置 在具有公网 IP 的机器上部署 frps，修改 frps.ini 文件，这里使用了最简化的配置，设置了 frp 服务器用户接收客户端连接的端口。
-#/opt/frp/frps.ini [common] bind_port = 7000 # 注意：需要在云服务设置开放7000端口 # 身份验证(可选) token = i*RY2KI9^A7H 运行方式：/opt/frp/frps -c /opt/frp/frps.ini
-1.2.Client配置 在需要被访问的内网机器上（SSH 服务通常监听在 22 端口）部署 frpc，修改 frpc.ini 文件，假设 frps 所在服务器的公网 IP 为 x.
+#/opt/frp/frps.ini [common] bind_port = 7000 # 注意：需要在云服务设置开放7000端口 # 身份验证(可选) token = i*RY2KI9^A7H # web界面 dashboard_port = 7500 # dashboard 用户名密码，可选，默认为空 dashboard_user = admin dashboard_pwd = admin 运行方式：/opt/frp/frps -c /opt/frp/frps.
               </div>
             </div>
 
