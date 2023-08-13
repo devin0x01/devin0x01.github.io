@@ -690,7 +690,7 @@
               <div class="col-12 d-inline-block text-gray mb-2 pr-4">
                 [toc]
 如果有字段定义为int类型的话，那么符号位的判断需要特别注意。 例如：下面的 B::f2 字段是有符号类型，其符号位是f2的最高位，可以表示的范围是-64~63
-#include &lt;iostream&gt; struct B { unsigned int f1:1; int f2:7; }; int main() { B b1 = {0, 10}; B b2 = {0, 127}; std::cout &lt;&lt; std::boolalpha &lt;&lt; (b1.f2 &gt;= 0) &lt;&lt; std::endl; // true std::cout &lt;&lt; std::boolalpha &lt;&lt; (b2.f2 &gt;= 0) &lt;&lt; std::endl; // false } 
+#include &lt;iostream&gt; struct B { unsigned int f1:1; int f2:7; }; int main() { B b1 = {0, 10}; B b2 = {0, 127}; std::cout &lt;&lt; std::boolalpha &lt;&lt; (b1.f2 &gt;= 0) &lt;&lt; std::endl; // true std::cout &lt;&lt; std::boolalpha &lt;&lt; (b2.f2 &gt;= 0) &lt;&lt; std::endl; // false } #include &lt;iostream&gt; #include &lt;cstring&gt; using namespace std; struct Flags { uint32_t k1 : 1; }; struct AA { // Flags flag : 1; // error: bit-field ‘flag’ with non-integral type ‘Flags’ Flags flag; bool a1 : 1; uint32_t a2 : 4; }; int main() { cout &lt;&lt; sizeof (AA) &lt;&lt; endl; AA obj; memset(&amp;obj, 0, sizeof(AA)); obj.
               </div>
             </div>
 

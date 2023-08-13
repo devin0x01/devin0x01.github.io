@@ -20,7 +20,7 @@
     <meta name="description"
   content="[toc]
 如果有字段定义为int类型的话，那么符号位的判断需要特别注意。 例如：下面的 B::f2 字段是有符号类型，其符号位是f2的最高位，可以表示的范围是-64~63
-#include &amp;lt;iostream&amp;gt; struct B { unsigned int f1:1; int f2:7; }; int main() { B b1 = {0, 10}; B b2 = {0, 127}; std::cout &amp;lt;&amp;lt; std::boolalpha &amp;lt;&amp;lt; (b1.f2 &amp;gt;= 0) &amp;lt;&amp;lt; std::endl; // true std::cout &amp;lt;&amp;lt; std::boolalpha &amp;lt;&amp;lt; (b2.f2 &amp;gt;= 0) &amp;lt;&amp;lt; std::endl; // false } " />
+#include &amp;lt;iostream&amp;gt; struct B { unsigned int f1:1; int f2:7; }; int main() { B b1 = {0, 10}; B b2 = {0, 127}; std::cout &amp;lt;&amp;lt; std::boolalpha &amp;lt;&amp;lt; (b1.f2 &amp;gt;= 0) &amp;lt;&amp;lt; std::endl; // true std::cout &amp;lt;&amp;lt; std::boolalpha &amp;lt;&amp;lt; (b2.f2 &amp;gt;= 0) &amp;lt;&amp;lt; std::endl; // false } #include &amp;lt;iostream&amp;gt; #include &amp;lt;cstring&amp;gt; using namespace std; struct Flags { uint32_t k1 : 1; }; struct AA { // Flags flag : 1; // error: bit-field ‘flag’ with non-integral type ‘Flags’ Flags flag; bool a1 : 1; uint32_t a2 : 4; }; int main() { cout &amp;lt;&amp;lt; sizeof (AA) &amp;lt;&amp;lt; endl; AA obj; memset(&amp;amp;obj, 0, sizeof(AA)); obj." />
 <meta name="keywords"
   content='blog, google analytics' />
 <meta name="robots" content="noodp" />
@@ -32,7 +32,7 @@
 <meta name="twitter:description"
   content="[toc]
 如果有字段定义为int类型的话，那么符号位的判断需要特别注意。 例如：下面的 B::f2 字段是有符号类型，其符号位是f2的最高位，可以表示的范围是-64~63
-#include &amp;lt;iostream&amp;gt; struct B { unsigned int f1:1; int f2:7; }; int main() { B b1 = {0, 10}; B b2 = {0, 127}; std::cout &amp;lt;&amp;lt; std::boolalpha &amp;lt;&amp;lt; (b1.f2 &amp;gt;= 0) &amp;lt;&amp;lt; std::endl; // true std::cout &amp;lt;&amp;lt; std::boolalpha &amp;lt;&amp;lt; (b2.f2 &amp;gt;= 0) &amp;lt;&amp;lt; std::endl; // false } " />
+#include &amp;lt;iostream&amp;gt; struct B { unsigned int f1:1; int f2:7; }; int main() { B b1 = {0, 10}; B b2 = {0, 127}; std::cout &amp;lt;&amp;lt; std::boolalpha &amp;lt;&amp;lt; (b1.f2 &amp;gt;= 0) &amp;lt;&amp;lt; std::endl; // true std::cout &amp;lt;&amp;lt; std::boolalpha &amp;lt;&amp;lt; (b2.f2 &amp;gt;= 0) &amp;lt;&amp;lt; std::endl; // false } #include &amp;lt;iostream&amp;gt; #include &amp;lt;cstring&amp;gt; using namespace std; struct Flags { uint32_t k1 : 1; }; struct AA { // Flags flag : 1; // error: bit-field ‘flag’ with non-integral type ‘Flags’ Flags flag; bool a1 : 1; uint32_t a2 : 4; }; int main() { cout &amp;lt;&amp;lt; sizeof (AA) &amp;lt;&amp;lt; endl; AA obj; memset(&amp;amp;obj, 0, sizeof(AA)); obj." />
 <meta name="twitter:site" content="https://devin0x01.github.io" />
 <meta name="twitter:creator" content="" />
 <meta name="twitter:image"
@@ -44,7 +44,7 @@
 <meta property="og:description"
   content="[toc]
 如果有字段定义为int类型的话，那么符号位的判断需要特别注意。 例如：下面的 B::f2 字段是有符号类型，其符号位是f2的最高位，可以表示的范围是-64~63
-#include &amp;lt;iostream&amp;gt; struct B { unsigned int f1:1; int f2:7; }; int main() { B b1 = {0, 10}; B b2 = {0, 127}; std::cout &amp;lt;&amp;lt; std::boolalpha &amp;lt;&amp;lt; (b1.f2 &amp;gt;= 0) &amp;lt;&amp;lt; std::endl; // true std::cout &amp;lt;&amp;lt; std::boolalpha &amp;lt;&amp;lt; (b2.f2 &amp;gt;= 0) &amp;lt;&amp;lt; std::endl; // false } " />
+#include &amp;lt;iostream&amp;gt; struct B { unsigned int f1:1; int f2:7; }; int main() { B b1 = {0, 10}; B b2 = {0, 127}; std::cout &amp;lt;&amp;lt; std::boolalpha &amp;lt;&amp;lt; (b1.f2 &amp;gt;= 0) &amp;lt;&amp;lt; std::endl; // true std::cout &amp;lt;&amp;lt; std::boolalpha &amp;lt;&amp;lt; (b2.f2 &amp;gt;= 0) &amp;lt;&amp;lt; std::endl; // false } #include &amp;lt;iostream&amp;gt; #include &amp;lt;cstring&amp;gt; using namespace std; struct Flags { uint32_t k1 : 1; }; struct AA { // Flags flag : 1; // error: bit-field ‘flag’ with non-integral type ‘Flags’ Flags flag; bool a1 : 1; uint32_t a2 : 4; }; int main() { cout &amp;lt;&amp;lt; sizeof (AA) &amp;lt;&amp;lt; endl; AA obj; memset(&amp;amp;obj, 0, sizeof(AA)); obj." />
 <meta property="og:url" content="https://devin0x01.github.io/post/cpp/%E4%BD%8D%E5%9F%9F%E7%94%A8%E6%B3%95/" />
 <meta property="og:site_name" content="位域用法" />
 <meta property="og:image"
@@ -156,9 +156,9 @@
 
                   
                   <span class="file-info-divider"></span>
-                  Modified <relative-time datetime="Sun, 13 Aug 2023 05:29:13 &#43;0000"
+                  Modified <relative-time datetime="Sun, 13 Aug 2023 14:42:56 &#43;0000"
                     class="no-wrap">
-                    Sun, 13 Aug 2023 05:29:13 &#43;0000</relative-time>
+                    Sun, 13 Aug 2023 14:42:56 &#43;0000</relative-time>
                   
                 </div>
               </div>
@@ -188,7 +188,7 @@
                         </div>
                       </div>
                     </details-menu>
-                      121 Words
+                      237 Words
                     
 
                   </div>
@@ -229,7 +229,42 @@
 </span></span><span class="line"><span class="cl">    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">boolalpha</span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="n">b1</span><span class="p">.</span><span class="n">f2</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span> <span class="c1">// true
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">boolalpha</span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="n">b2</span><span class="p">.</span><span class="n">f2</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span> <span class="c1">// false
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">}</span>
-</span></span></code></pre></div></article>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;cstring&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">struct</span> <span class="nc">Flags</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">uint32_t</span> <span class="nl">k1</span> <span class="p">:</span> <span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">struct</span> <span class="nc">AA</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// Flags flag : 1; // error: bit-field ‘flag’ with non-integral type ‘Flags’
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">Flags</span> <span class="n">flag</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">bool</span> <span class="nl">a1</span> <span class="p">:</span> <span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">uint32_t</span> <span class="nl">a2</span> <span class="p">:</span> <span class="mi">4</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="k">sizeof</span> <span class="p">(</span><span class="n">AA</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">AA</span> <span class="n">obj</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">memset</span><span class="p">(</span><span class="o">&amp;</span><span class="n">obj</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">AA</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">    <span class="n">obj</span><span class="p">.</span><span class="n">flag</span><span class="p">.</span><span class="n">k1</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">obj</span><span class="p">.</span><span class="n">a1</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">obj</span><span class="p">.</span><span class="n">a2</span> <span class="o">=</span> <span class="mb">0b1111</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kt">uint64_t</span> <span class="n">val</span> <span class="o">=</span> <span class="o">*</span><span class="p">(</span><span class="kt">uint64_t</span> <span class="o">*</span><span class="p">)(</span><span class="o">&amp;</span><span class="n">obj</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">len</span> <span class="o">=</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">AA</span><span class="p">)</span> <span class="o">*</span> <span class="mi">8</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">len</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="p">((</span><span class="n">val</span> <span class="o">&gt;&gt;</span> <span class="p">(</span><span class="n">len</span> <span class="o">-</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">i</span><span class="p">))</span> <span class="o">&amp;</span> <span class="mh">0x01</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// output: 
+</span></span></span><span class="line"><span class="cl"><span class="c1">// 8
+</span></span></span><span class="line"><span class="cl"><span class="c1">// 0000000000000000000000000001111100000000000000000000000000000001
+</span></span></span></code></pre></div></article>
               </div>
             </div>
           </div>

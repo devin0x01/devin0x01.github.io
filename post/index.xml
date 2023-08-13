@@ -164,7 +164,7 @@ If your header files other than your source files include the headers of another
       <guid>https://devin0x01.github.io/post/cpp/%E4%BD%8D%E5%9F%9F%E7%94%A8%E6%B3%95/</guid>
       <description>[toc]
 如果有字段定义为int类型的话，那么符号位的判断需要特别注意。 例如：下面的 B::f2 字段是有符号类型，其符号位是f2的最高位，可以表示的范围是-64~63
-#include &amp;lt;iostream&amp;gt; struct B { unsigned int f1:1; int f2:7; }; int main() { B b1 = {0, 10}; B b2 = {0, 127}; std::cout &amp;lt;&amp;lt; std::boolalpha &amp;lt;&amp;lt; (b1.f2 &amp;gt;= 0) &amp;lt;&amp;lt; std::endl; // true std::cout &amp;lt;&amp;lt; std::boolalpha &amp;lt;&amp;lt; (b2.f2 &amp;gt;= 0) &amp;lt;&amp;lt; std::endl; // false } </description>
+#include &amp;lt;iostream&amp;gt; struct B { unsigned int f1:1; int f2:7; }; int main() { B b1 = {0, 10}; B b2 = {0, 127}; std::cout &amp;lt;&amp;lt; std::boolalpha &amp;lt;&amp;lt; (b1.f2 &amp;gt;= 0) &amp;lt;&amp;lt; std::endl; // true std::cout &amp;lt;&amp;lt; std::boolalpha &amp;lt;&amp;lt; (b2.f2 &amp;gt;= 0) &amp;lt;&amp;lt; std::endl; // false } #include &amp;lt;iostream&amp;gt; #include &amp;lt;cstring&amp;gt; using namespace std; struct Flags { uint32_t k1 : 1; }; struct AA { // Flags flag : 1; // error: bit-field ‘flag’ with non-integral type ‘Flags’ Flags flag; bool a1 : 1; uint32_t a2 : 4; }; int main() { cout &amp;lt;&amp;lt; sizeof (AA) &amp;lt;&amp;lt; endl; AA obj; memset(&amp;amp;obj, 0, sizeof(AA)); obj.</description>
     </item>
     
     <item>
