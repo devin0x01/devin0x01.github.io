@@ -6,7 +6,20 @@
     <description>Recent content in C&#43;&#43; on DEVIN&#39;s BLOG</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 20 Jul 2023 14:05:25 +0800</lastBuildDate><atom:link href="https://devin0x01.github.io/tags/c++/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 14 Aug 2023 16:05:25 +0800</lastBuildDate><atom:link href="https://devin0x01.github.io/tags/c++/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>operator bool 函数</title>
+      <link>https://devin0x01.github.io/post/cpp/operator-bool-%E5%87%BD%E6%95%B0/</link>
+      <pubDate>Mon, 14 Aug 2023 16:05:25 +0800</pubDate>
+      
+      <guid>https://devin0x01.github.io/post/cpp/operator-bool-%E5%87%BD%E6%95%B0/</guid>
+      <description>参考文档 user-defined conversion function - cppreference.com
+The Safe Bool Idiom - 知乎
+为什么operator bool()需要用explicit修饰? c++ - Why does declaring an operator bool() const member overload the [] operator? - Stack Overflow
+The operator is coming from the built-in subscript operator which treats expressions A[B] as *(A + B).
+This results in the evaluation of *(1 + &amp;quot;wut&amp;quot;) =&amp;gt; &#39;u&#39;, which then causes the if condition to pass, as &#39;u&#39; is a non-zero value.</description>
+    </item>
+    
     <item>
       <title>调用成员模板</title>
       <link>https://devin0x01.github.io/post/cpp/%E8%B0%83%E7%94%A8%E6%88%90%E5%91%98%E6%A8%A1%E6%9D%BF/</link>

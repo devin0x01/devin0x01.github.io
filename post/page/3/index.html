@@ -154,7 +154,7 @@
                 </path>
               </svg>
               Posts
-              <span class="Counter">29</span>
+              <span class="Counter">30</span>
             </a>
           </nav>
           <div class="profile-color-modes js-promo-color-modes-banner-profile isInitialToggle">
@@ -478,7 +478,7 @@
         </path>
       </svg>
       Posts
-      <span class="Counter ">29</span>
+      <span class="Counter ">30</span>
     </a>
   </nav>
 </div>
@@ -640,6 +640,55 @@
         
       
       <ul>
+        
+        <li class="col-12 d-flex width-full py-4 border-bottom color-border-secondary public source">
+          <div class="col-12 d-inline-block">
+            <div class="d-inline-block mb-1">
+              <h3 class="wb-break-all">
+                <a href="https://devin0x01.github.io/post/linux%E5%BC%80%E5%8F%91/linux%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/">Linux网络编程</a>
+              </h3>
+            </div>
+
+            <div>
+              <div class="col-12 d-inline-block text-gray mb-2 pr-4">
+                查看端口占用情况 netstat -tunlp
+-t (tcp) 仅显示tcp相关选项 -u (udp) 仅显示udp相关选项
+-n 拒绝显示列名，能显示数字的全部转化为数字
+-l 仅显示出在listen(监听）的服务状态
+-p 显示潜力相关链接的程序名
+linux查看端口被哪个进程占用的方法
+本机地址 127.0.0.1: 这个地址通常分配给loopback接口，loopback是一个特殊的网络IP，可以理解为虚拟网卡，用于本机中各个应用之间的网络交互，只要操作系统网络组建正常，loopback就能工作。所以这里需要明白使用127.0.0.1进行通信时，必须要保证client和server在同一台机器上。
+INADDR_ANY: 从字面上的any可以看出，转换过来其实是0.0.0.0，泛指本机的意思，也就是标识本机的所有IP，因为有些机器是不止一块网卡的，在多网卡的情况下，这个就表示所有的网卡IP地址的意思，不管数据是从哪个网卡过来的，只要是绑定的端口号过来的数据，都可以接收到。
+如果现在有两台PC在同一个局域网内，分别为PC1与PC2，PC1上有一个网卡，IP地址为192.168.10.128
+PC1中sever监听127.0.0.1，则PC1中的client可以连上127.0.0.1，192.168.10.128连不上；而PC2中client都连不上。 PC1中sever监听192.168.10.128，则PC1中的client可以连上192.168.10.128，127.0.0.1连不上；而PC2中client能连上192.168.10.128。 PC1中sever监听0.0.0.0，则PC1中的client可以连上127.0.0.1和192.168.10.128，PC2中的client能连上192.168.10.128。 socket基础接口 close关闭socket 调用close函数，会向连接的对应套接字发送EOF (ch04/echo_server.c)
+文件结束符：如果 read()调用成功，将返回实际读取的字节数，如果遇到文件结束（EOF）则返回 0，如果出现错误则返回-1。ssize_t 数据类型属于有符号的整数类型，用来存放（读取的）字节数或-1（表示错误）。
+终端特殊字符：EOF 是传统模式下的文件结尾字符（通常是 Ctrl-D）。在一行的开始处输入这个字符会导致在终端上读取输入的进程检测到文件结尾的情况（即，read()返回 0）。如果不在一行的开始处，而在其他地方输入这个字符，那么该字符会立刻导致 read()完成调用，返回这一行中目前为止读取到的字符数。在这两种情况下，EOF 字符本身都不会传递给读取的进程。
+shutdown优雅的断开TCP连接 /* Shut down all or part of the connection open on socket FD. HOW determines what to shut down: SHUT_RD = No more receptions; SHUT_WR = No more transmissions; SHUT_RDWR = No more receptions or transmissions.
+              </div>
+            </div>
+
+            <div class="f6 text-gray mt-2">
+              
+              
+              <a class="muted-link mr-3" href="/tags/linux%E5%BC%80%E5%8F%91">
+                <svg class="octicon octicon-tag" viewBox="0 0 16 16" version="1.1" width="16" height="16">
+                  <path fill-rule="evenodd"
+                    d="M2.5 7.775V2.75a.25.25 0 01.25-.25h5.025a.25.25 0 01.177.073l6.25 6.25a.25.25 0 010 .354l-5.025 5.025a.25.25 0 01-.354 0l-6.25-6.25a.25.25 0 01-.073-.177zm-1.5 0V2.75C1 1.784 1.784 1 2.75 1h5.025c.464 0 .91.184 1.238.513l6.25 6.25a1.75 1.75 0 010 2.474l-5.026 5.026a1.75 1.75 0 01-2.474 0l-6.25-6.25A1.75 1.75 0 011 7.775zM6 5a1 1 0 100 2 1 1 0 000-2z">
+                  </path>
+                </svg>
+                Linux开发
+              </a>
+              
+              
+
+              Created
+              <relative-time datetime=" Sun, 18 Jun 2023 14:05:25 &#43;0800" class="no-wrap"
+                title=" Sun, 18 Jun 2023 14:05:25 &#43;0800">
+                Sun, 18 Jun 2023 14:05:25 &#43;0800
+              </relative-time>
+            </div>
+          </div>
+        </li>
         
         <li class="col-12 d-flex width-full py-4 border-bottom color-border-secondary public source">
           <div class="col-12 d-inline-block">

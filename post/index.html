@@ -154,7 +154,7 @@
                 </path>
               </svg>
               Posts
-              <span class="Counter">29</span>
+              <span class="Counter">30</span>
             </a>
           </nav>
           <div class="profile-color-modes js-promo-color-modes-banner-profile isInitialToggle">
@@ -478,7 +478,7 @@
         </path>
       </svg>
       Posts
-      <span class="Counter ">29</span>
+      <span class="Counter ">30</span>
     </a>
   </nav>
 </div>
@@ -640,6 +640,47 @@
         
       
       <ul>
+        
+        <li class="col-12 d-flex width-full py-4 border-bottom color-border-secondary public source">
+          <div class="col-12 d-inline-block">
+            <div class="d-inline-block mb-1">
+              <h3 class="wb-break-all">
+                <a href="https://devin0x01.github.io/post/cpp/operator-bool-%E5%87%BD%E6%95%B0/">operator bool 函数</a>
+              </h3>
+            </div>
+
+            <div>
+              <div class="col-12 d-inline-block text-gray mb-2 pr-4">
+                参考文档 user-defined conversion function - cppreference.com
+The Safe Bool Idiom - 知乎
+为什么operator bool()需要用explicit修饰? c++ - Why does declaring an operator bool() const member overload the [] operator? - Stack Overflow
+The operator is coming from the built-in subscript operator which treats expressions A[B] as *(A + B).
+This results in the evaluation of *(1 + &quot;wut&quot;) =&gt; 'u', which then causes the if condition to pass, as 'u' is a non-zero value.
+              </div>
+            </div>
+
+            <div class="f6 text-gray mt-2">
+              
+              
+              <a class="muted-link mr-3" href="/tags/c&#43;&#43;">
+                <svg class="octicon octicon-tag" viewBox="0 0 16 16" version="1.1" width="16" height="16">
+                  <path fill-rule="evenodd"
+                    d="M2.5 7.775V2.75a.25.25 0 01.25-.25h5.025a.25.25 0 01.177.073l6.25 6.25a.25.25 0 010 .354l-5.025 5.025a.25.25 0 01-.354 0l-6.25-6.25a.25.25 0 01-.073-.177zm-1.5 0V2.75C1 1.784 1.784 1 2.75 1h5.025c.464 0 .91.184 1.238.513l6.25 6.25a1.75 1.75 0 010 2.474l-5.026 5.026a1.75 1.75 0 01-2.474 0l-6.25-6.25A1.75 1.75 0 011 7.775zM6 5a1 1 0 100 2 1 1 0 000-2z">
+                  </path>
+                </svg>
+                C&#43;&#43;
+              </a>
+              
+              
+
+              Created
+              <relative-time datetime=" Mon, 14 Aug 2023 16:05:25 &#43;0800" class="no-wrap"
+                title=" Mon, 14 Aug 2023 16:05:25 &#43;0800">
+                Mon, 14 Aug 2023 16:05:25 &#43;0800
+              </relative-time>
+            </div>
+          </div>
+        </li>
         
         <li class="col-12 d-flex width-full py-4 border-bottom color-border-secondary public source">
           <div class="col-12 d-inline-block">
@@ -1072,44 +1113,6 @@ If your header files other than your source files include the headers of another
               <relative-time datetime=" Mon, 24 Jul 2023 18:05:25 &#43;0800" class="no-wrap"
                 title=" Mon, 24 Jul 2023 18:05:25 &#43;0800">
                 Mon, 24 Jul 2023 18:05:25 &#43;0800
-              </relative-time>
-            </div>
-          </div>
-        </li>
-        
-        <li class="col-12 d-flex width-full py-4 border-bottom color-border-secondary public source">
-          <div class="col-12 d-inline-block">
-            <div class="d-inline-block mb-1">
-              <h3 class="wb-break-all">
-                <a href="https://devin0x01.github.io/post/cpp/%E8%B0%83%E7%94%A8%E6%88%90%E5%91%98%E6%A8%A1%E6%9D%BF/">调用成员模板</a>
-              </h3>
-            </div>
-
-            <div>
-              <div class="col-12 d-inline-block text-gray mb-2 pr-4">
-                C++访问成员模板需要加template关键字
-#include &lt;iostream&gt; using namespace std; class A { public: template &lt;typename TypeNum&gt; int getSize() { return sizeof(TypeNum); } }; // 调用成员模板函数需要加template template &lt;typename T&gt; void f1() { T t1; cout &lt;&lt; (t1.template getSize&lt;float&gt;()) &lt;&lt; endl; cout &lt;&lt; (t1.template getSize&lt;double&gt;()) &lt;&lt; endl; } // 调用成员模板函数不需要加template void f2() { A a1; cout &lt;&lt; (a1.getSize&lt;long&gt;()) &lt;&lt; endl; cout &lt;&lt; (a1.getSize&lt;long long&gt;()) &lt;&lt; endl; } int main() { f1&lt;A&gt;(); f2(); return 0; } 
-              </div>
-            </div>
-
-            <div class="f6 text-gray mt-2">
-              
-              
-              <a class="muted-link mr-3" href="/tags/c&#43;&#43;">
-                <svg class="octicon octicon-tag" viewBox="0 0 16 16" version="1.1" width="16" height="16">
-                  <path fill-rule="evenodd"
-                    d="M2.5 7.775V2.75a.25.25 0 01.25-.25h5.025a.25.25 0 01.177.073l6.25 6.25a.25.25 0 010 .354l-5.025 5.025a.25.25 0 01-.354 0l-6.25-6.25a.25.25 0 01-.073-.177zm-1.5 0V2.75C1 1.784 1.784 1 2.75 1h5.025c.464 0 .91.184 1.238.513l6.25 6.25a1.75 1.75 0 010 2.474l-5.026 5.026a1.75 1.75 0 01-2.474 0l-6.25-6.25A1.75 1.75 0 011 7.775zM6 5a1 1 0 100 2 1 1 0 000-2z">
-                  </path>
-                </svg>
-                C&#43;&#43;
-              </a>
-              
-              
-
-              Created
-              <relative-time datetime=" Thu, 20 Jul 2023 14:05:25 &#43;0800" class="no-wrap"
-                title=" Thu, 20 Jul 2023 14:05:25 &#43;0800">
-                Thu, 20 Jul 2023 14:05:25 &#43;0800
               </relative-time>
             </div>
           </div>
