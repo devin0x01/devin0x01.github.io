@@ -154,7 +154,7 @@
                 </path>
               </svg>
               Posts
-              <span class="Counter">31</span>
+              <span class="Counter">32</span>
             </a>
           </nav>
           <div class="profile-color-modes js-promo-color-modes-banner-profile isInitialToggle">
@@ -478,7 +478,7 @@
         </path>
       </svg>
       Posts
-      <span class="Counter ">31</span>
+      <span class="Counter ">32</span>
     </a>
   </nav>
 </div>
@@ -608,6 +608,15 @@
 				shell
 			</a>
 		
+			<a class="muted-link mr-3" href="/tags/vim/">
+				<svg class="octicon octicon-tag" viewBox="0 0 16 16" version="1.1" width="16" height="16">
+					<path fill-rule="evenodd"
+						d="M2.5 7.775V2.75a.25.25 0 01.25-.25h5.025a.25.25 0 01.177.073l6.25 6.25a.25.25 0 010 .354l-5.025 5.025a.25.25 0 01-.354 0l-6.25-6.25a.25.25 0 01-.073-.177zm-1.5 0V2.75C1 1.784 1.784 1 2.75 1h5.025c.464 0 .91.184 1.238.513l6.25 6.25a1.75 1.75 0 010 2.474l-5.026 5.026a1.75 1.75 0 01-2.474 0l-6.25-6.25A1.75 1.75 0 011 7.775zM6 5a1 1 0 100 2 1 1 0 000-2z">
+					</path>
+				</svg>
+				vim
+			</a>
+		
 			<a class="muted-link mr-3" href="/tags/wireguard/">
 				<svg class="octicon octicon-tag" viewBox="0 0 16 16" version="1.1" width="16" height="16">
 					<path fill-rule="evenodd"
@@ -640,6 +649,43 @@
         
       
       <ul>
+        
+        <li class="col-12 d-flex width-full py-4 border-bottom color-border-secondary public source">
+          <div class="col-12 d-inline-block">
+            <div class="d-inline-block mb-1">
+              <h3 class="wb-break-all">
+                <a href="https://devin0x01.github.io/post/%E5%B7%A5%E5%85%B7/git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">Git常用命令</a>
+              </h3>
+            </div>
+
+            <div>
+              <div class="col-12 d-inline-block text-gray mb-2 pr-4">
+                1.git remote 关联远端仓库 git remote add origin git@github.com:git_username/repository_name.git git remote remove origin git remote -v 2.git branch 本地分支关联远程分支(目的是在执行git pull/push操作时就不需要指定对应的远程分支) git branch --set-upstream-to=origin/master git branch -u origin/master 切换分支 git checkout -b &lt;new_branch&gt; 查看所有分支 git branch -a 更改分支名称 git branch -m br_old br_new 3.git push 删除远程分支 git push origin --delete &lt;branch&gt; 同步到远程分支 git push -u origin &lt;local_branch&gt;:&lt;remote_branch&gt; 4.git diff 查看当前没有add的内容修改 git diff 查看已经add没有commit的改动 git diff --cached 查看当前没有add和commit的改动 git diff HEAD 或者 git status 再查看任意连个版本之间的改动 git diff &lt;版本号码1&gt; &lt;版本号码2&gt; 比较两个版本号src文件夹的差异 git diff &lt;版本号码1&gt; &lt;版本号码2&gt; src 5.
+              </div>
+            </div>
+
+            <div class="f6 text-gray mt-2">
+              
+              
+              <a class="muted-link mr-3" href="/tags/git">
+                <svg class="octicon octicon-tag" viewBox="0 0 16 16" version="1.1" width="16" height="16">
+                  <path fill-rule="evenodd"
+                    d="M2.5 7.775V2.75a.25.25 0 01.25-.25h5.025a.25.25 0 01.177.073l6.25 6.25a.25.25 0 010 .354l-5.025 5.025a.25.25 0 01-.354 0l-6.25-6.25a.25.25 0 01-.073-.177zm-1.5 0V2.75C1 1.784 1.784 1 2.75 1h5.025c.464 0 .91.184 1.238.513l6.25 6.25a1.75 1.75 0 010 2.474l-5.026 5.026a1.75 1.75 0 01-2.474 0l-6.25-6.25A1.75 1.75 0 011 7.775zM6 5a1 1 0 100 2 1 1 0 000-2z">
+                  </path>
+                </svg>
+                Git
+              </a>
+              
+              
+
+              Created
+              <relative-time datetime=" Sun, 18 Jun 2023 14:05:25 &#43;0800" class="no-wrap"
+                title=" Sun, 18 Jun 2023 14:05:25 &#43;0800">
+                Sun, 18 Jun 2023 14:05:25 &#43;0800
+              </relative-time>
+            </div>
+          </div>
+        </li>
         
         <li class="col-12 d-flex width-full py-4 border-bottom color-border-secondary public source">
           <div class="col-12 d-inline-block">
@@ -979,49 +1025,6 @@ String(byte[] bytes)通过使用平台的默认字符集解码指定的 byte 数
 3.拷贝构造函数 拷贝构造函数的参数**必须是引用类型。**参数是指针不会编译报错，但是3.1中的场景不能触发调用拷贝构造函数。
 3.1 调用拷贝构造函数的3种场景 用一个类的对象去初始化另一个类的对象时 Point a(1, 2); Point b(a); // 调用复制构造函数 Point c = a; // 调用复制构造函数 函数的形参是类对象，当调用函数，进行形参和实参结合时 void fun(Point obj) {} int main() { Point a(1, 2); fun(a); // 调用复制构造函数 } 如果函数的返回值是类对象，当函数执行完成返回调用者时 实际上，由于编译器的优化，可能不会调用。例如：gcc需要指定**-fno-elide-constructors**编译选项才会调用。
 Point fun() { Point a(1, 2); return a; // 调用复制构造函数 } b = fun(); 4.赋值运算符 4.1 注意点 **拷贝构造函数必须以引用的方式传递参数，**基本上都是传常量引用的方式传递函数参数。 赋值运算符函数的返回值类型要声明为该类型的引用，并在函数结束前返回实例自身的的引用（this）*。**只有返回一个引用，才能进行连续赋值。否则，如果函数的返回值是void，则应用该赋值运算符将不能进行连续赋值。假设有3个Person对象：p1、p2、p3，在程序中语句p1=p2=p3将不能通过编译。 关于深拷贝和浅拷贝：当类有指针成员或有动态分配空间，都应实现自定义的拷贝构造函数。提供了拷贝构造函数，最后也实现赋值运算符。 4.2 和拷贝构造函数的区别 区别：拷贝构造函数使用已有的对象创建一个新的对象，赋值运算符是将一个对象的值复制给另一个已存在的对象。区分是调用拷贝构造函数还是赋值运算符，主要是否有新的对象产生。 #include &lt;iostream&gt; using namespace std; class A { public: A(string str) : name(str) { cout &lt;&lt; &#34;construct &#34; &lt;&lt; name &lt;&lt; endl; } // 构造函数 A(const A &amp;other) { // 拷贝构造函数 name = &#34;copy &#34; + other.
-              </div>
-            </div>
-
-            <div class="f6 text-gray mt-2">
-              
-              
-              <a class="muted-link mr-3" href="/tags/c&#43;&#43;">
-                <svg class="octicon octicon-tag" viewBox="0 0 16 16" version="1.1" width="16" height="16">
-                  <path fill-rule="evenodd"
-                    d="M2.5 7.775V2.75a.25.25 0 01.25-.25h5.025a.25.25 0 01.177.073l6.25 6.25a.25.25 0 010 .354l-5.025 5.025a.25.25 0 01-.354 0l-6.25-6.25a.25.25 0 01-.073-.177zm-1.5 0V2.75C1 1.784 1.784 1 2.75 1h5.025c.464 0 .91.184 1.238.513l6.25 6.25a1.75 1.75 0 010 2.474l-5.026 5.026a1.75 1.75 0 01-2.474 0l-6.25-6.25A1.75 1.75 0 011 7.775zM6 5a1 1 0 100 2 1 1 0 000-2z">
-                  </path>
-                </svg>
-                C&#43;&#43;
-              </a>
-              
-              
-
-              Created
-              <relative-time datetime=" Sun, 18 Jun 2023 14:05:25 &#43;0800" class="no-wrap"
-                title=" Sun, 18 Jun 2023 14:05:25 &#43;0800">
-                Sun, 18 Jun 2023 14:05:25 &#43;0800
-              </relative-time>
-            </div>
-          </div>
-        </li>
-        
-        <li class="col-12 d-flex width-full py-4 border-bottom color-border-secondary public source">
-          <div class="col-12 d-inline-block">
-            <div class="d-inline-block mb-1">
-              <h3 class="wb-break-all">
-                <a href="https://devin0x01.github.io/post/cpp/%E9%87%8D%E8%BD%BD%E8%A6%86%E7%9B%96%E9%9A%90%E8%97%8F/">重载、覆盖、隐藏</a>
-              </h3>
-            </div>
-
-            <div>
-              <div class="col-12 d-inline-block text-gray mb-2 pr-4">
-                C++类层次中的同名函数，有三种关系：
-1.重载**（overload）** 概念：相同的范围（同一个类）中的同名函数，参数列表不同。 1)与返回值类型没有关系。 2)const是有效的重载。 3)virutal是无效的重载。virtual关键字可有可无，不影响是否是重载函数。
-2.重写、覆盖**（override）** 概念：在派生类中覆盖基类中的同名函数，要求 1)基类函数必须是虚函数 2)与基类的虚函数有相同的参数列表 3)与基类的虚函数有相同的返回类型、或者满足赋值兼容规则的指针/引用类型返回值(见下面的例子)。
-以下情况不能实现多态：同名函数缺省参数不一致、同名函数用const修饰
-3.隐藏**（hide，oversee）** 概念：隐藏指在某些情况下，派生类中的函数屏蔽了基类中的同名函数。这些情况包括两个函数参数相同，但是基类不是虚函数。&mdash;（参数不同可以实现重载） 区别：和覆盖的区别在于基类函数是否是虚函数。
-可以使用using声明解决基类成员被隐藏的问题，例如：
-class Base { public: virtual void f(int) { std::cout &lt;&lt; &#34;Base::f\n&#34;; } void g(char) { std::cout &lt;&lt; &#34;Base::g\n&#34;; } void h(int) { std::cout &lt;&lt; &#34;Base::h\n&#34;; } protected: int m; private: int k; }; class Derived : public Base { public: using Base::m; // 此时 m 为public // using Base::k; // error报错 using Base::f; void f(int) { std::cout &lt;&lt; &#34;Derived::f\n&#34;; } // D::f(int) 覆盖 B::f(int) using Base::g; // 不声明的话，需要通过 obj.
               </div>
             </div>
 

@@ -10,7 +10,7 @@
     <link rel="stylesheet" href='https://devin0x01.github.io/css/light.css' />
     <link rel="stylesheet" href='https://devin0x01.github.io/css/dark.css' />
     <link rel="stylesheet" href='https://devin0x01.github.io/css/syntax.css' />
-    <title>Photoshop按比例裁剪压缩图片 - DEVIN&#39;s BLOG</title>
+    <title>nvim配置教程 - DEVIN&#39;s BLOG</title>
     
     <link rel="icon" type="image/x-icon" href='/images/github.png'>
     
@@ -18,19 +18,47 @@
 
     
     <meta name="description"
-  content="1.选择侧边栏的裁剪工具，然后修改裁剪比例，点击对号
-2.点击 文件/存储为 菜单会跳出下面的对话框，可以修改图片的大小" />
+  content="1.安装NerdFont字体 ryanoasis/nerd-fonts: Iconic font aggregator
+How do I install fonts? - Ask Ubuntu
+bash - MobaXTerm Powerline Font Issue - Super User
+没有root权限时，ttf文件放在~/.fonts或者~/.local/share/fonts目录下
+有root权限时，放在/usr/local/share/fonts目录下
+# 安装字体 fc-cache -fv fc-list | grep &amp;lt;name-of-font&amp;gt; 2.掘金小册配置 2.1.目录结构 首先 init.lua 是整个配置的入口文件，负责引用所有其他的模块，基本上想要打开或关闭某个插件只要在这里修改一行代码即可。
+basic.lua： 基础配置，是对默认配置的一个重置。
+colorscheme.lua： 我们安装的主题皮肤配置，在这里切换主题。
+keybindings.lua： 快捷键的设置，所有插件的快捷键也都会放在这里。
+plugins.lua： 插件安装管理，插件安装或卸载全在这里设置。
+lsp 文件夹： 是对 Neovim 内置 LSP 功能的配置，包括常见编程语言与语法提示等。
+config ： 文件夹包含各种语言服务器单独的配置文件。
+setup.lua ： 内置 LSP 的配置。
+cmp.lua ： 语法自动补全补全的配置，包括各种补全源，与自定义代码段。
+ui.lua： 对内置 LSP 功能增强和 UI 美化。
+formatter.lua： 独立代码格式化功能。" />
 <meta name="keywords"
   content='blog, google analytics' />
 <meta name="robots" content="noodp" />
-<link rel="canonical" href="https://devin0x01.github.io/post/%E5%8A%9E%E5%85%AC/photoshop%E6%8C%89%E6%AF%94%E4%BE%8B%E8%A3%81%E5%89%AA%E5%8E%8B%E7%BC%A9%E5%9B%BE%E7%89%87/" />
+<link rel="canonical" href="https://devin0x01.github.io/post/%E5%B7%A5%E5%85%B7/nvim%E9%85%8D%E7%BD%AE%E6%95%99%E7%A8%8B/" />
 
 
 <meta name="twitter:card" content="summary" />
-<meta name="twitter:title" content="Photoshop按比例裁剪压缩图片 - DEVIN&#39;s BLOG" />
+<meta name="twitter:title" content="nvim配置教程 - DEVIN&#39;s BLOG" />
 <meta name="twitter:description"
-  content="1.选择侧边栏的裁剪工具，然后修改裁剪比例，点击对号
-2.点击 文件/存储为 菜单会跳出下面的对话框，可以修改图片的大小" />
+  content="1.安装NerdFont字体 ryanoasis/nerd-fonts: Iconic font aggregator
+How do I install fonts? - Ask Ubuntu
+bash - MobaXTerm Powerline Font Issue - Super User
+没有root权限时，ttf文件放在~/.fonts或者~/.local/share/fonts目录下
+有root权限时，放在/usr/local/share/fonts目录下
+# 安装字体 fc-cache -fv fc-list | grep &amp;lt;name-of-font&amp;gt; 2.掘金小册配置 2.1.目录结构 首先 init.lua 是整个配置的入口文件，负责引用所有其他的模块，基本上想要打开或关闭某个插件只要在这里修改一行代码即可。
+basic.lua： 基础配置，是对默认配置的一个重置。
+colorscheme.lua： 我们安装的主题皮肤配置，在这里切换主题。
+keybindings.lua： 快捷键的设置，所有插件的快捷键也都会放在这里。
+plugins.lua： 插件安装管理，插件安装或卸载全在这里设置。
+lsp 文件夹： 是对 Neovim 内置 LSP 功能的配置，包括常见编程语言与语法提示等。
+config ： 文件夹包含各种语言服务器单独的配置文件。
+setup.lua ： 内置 LSP 的配置。
+cmp.lua ： 语法自动补全补全的配置，包括各种补全源，与自定义代码段。
+ui.lua： 对内置 LSP 功能增强和 UI 美化。
+formatter.lua： 独立代码格式化功能。" />
 <meta name="twitter:site" content="https://devin0x01.github.io" />
 <meta name="twitter:creator" content="" />
 <meta name="twitter:image"
@@ -38,18 +66,32 @@
 
 
 <meta property="og:type" content="article" />
-<meta property="og:title" content="Photoshop按比例裁剪压缩图片 - DEVIN&#39;s BLOG">
+<meta property="og:title" content="nvim配置教程 - DEVIN&#39;s BLOG">
 <meta property="og:description"
-  content="1.选择侧边栏的裁剪工具，然后修改裁剪比例，点击对号
-2.点击 文件/存储为 菜单会跳出下面的对话框，可以修改图片的大小" />
-<meta property="og:url" content="https://devin0x01.github.io/post/%E5%8A%9E%E5%85%AC/photoshop%E6%8C%89%E6%AF%94%E4%BE%8B%E8%A3%81%E5%89%AA%E5%8E%8B%E7%BC%A9%E5%9B%BE%E7%89%87/" />
-<meta property="og:site_name" content="Photoshop按比例裁剪压缩图片" />
+  content="1.安装NerdFont字体 ryanoasis/nerd-fonts: Iconic font aggregator
+How do I install fonts? - Ask Ubuntu
+bash - MobaXTerm Powerline Font Issue - Super User
+没有root权限时，ttf文件放在~/.fonts或者~/.local/share/fonts目录下
+有root权限时，放在/usr/local/share/fonts目录下
+# 安装字体 fc-cache -fv fc-list | grep &amp;lt;name-of-font&amp;gt; 2.掘金小册配置 2.1.目录结构 首先 init.lua 是整个配置的入口文件，负责引用所有其他的模块，基本上想要打开或关闭某个插件只要在这里修改一行代码即可。
+basic.lua： 基础配置，是对默认配置的一个重置。
+colorscheme.lua： 我们安装的主题皮肤配置，在这里切换主题。
+keybindings.lua： 快捷键的设置，所有插件的快捷键也都会放在这里。
+plugins.lua： 插件安装管理，插件安装或卸载全在这里设置。
+lsp 文件夹： 是对 Neovim 内置 LSP 功能的配置，包括常见编程语言与语法提示等。
+config ： 文件夹包含各种语言服务器单独的配置文件。
+setup.lua ： 内置 LSP 的配置。
+cmp.lua ： 语法自动补全补全的配置，包括各种补全源，与自定义代码段。
+ui.lua： 对内置 LSP 功能增强和 UI 美化。
+formatter.lua： 独立代码格式化功能。" />
+<meta property="og:url" content="https://devin0x01.github.io/post/%E5%B7%A5%E5%85%B7/nvim%E9%85%8D%E7%BD%AE%E6%95%99%E7%A8%8B/" />
+<meta property="og:site_name" content="nvim配置教程" />
 <meta property="og:image"
   content="https://devin0x01.github.io">
 <meta property="og:image:width" content="2048">
 <meta property="og:image:height" content="1024">
 
-<meta property="article:published_time" content="2023-08-03 14:05:25 &#43;0800 &#43;0800" />
+<meta property="article:published_time" content="2023-08-16 16:05:25 &#43;0800 &#43;0800" />
 
 
 
@@ -144,12 +186,12 @@
                   <span class="author">
                     <a href="https://devin0x01.github.io">DEVIN</a></span><span
                     class="path-divider">/</span><strong class="css-truncate-target mr-1" style="max-width: 410px"><a
-                      href="https://devin0x01.github.io/post/%E5%8A%9E%E5%85%AC/photoshop%E6%8C%89%E6%AF%94%E4%BE%8B%E8%A3%81%E5%89%AA%E5%8E%8B%E7%BC%A9%E5%9B%BE%E7%89%87/">Photoshop按比例裁剪压缩图片</a></strong>
+                      href="https://devin0x01.github.io/post/%E5%B7%A5%E5%85%B7/nvim%E9%85%8D%E7%BD%AE%E6%95%99%E7%A8%8B/">nvim配置教程</a></strong>
                 </h1>
                 <div class="note m-0">
-                  Created <relative-time datetime="Thu, 03 Aug 2023 14:05:25 &#43;0800"
+                  Created <relative-time datetime="Wed, 16 Aug 2023 16:05:25 &#43;0800"
                     class="no-wrap">
-                    Thu, 03 Aug 2023 14:05:25 &#43;0800</relative-time>
+                    Wed, 16 Aug 2023 16:05:25 &#43;0800</relative-time>
 
                   
                   <span class="file-info-divider"></span>
@@ -185,20 +227,20 @@
                         </div>
                       </div>
                     </details-menu>
-                      57 Words
+                      975 Words
                     
 
                   </div>
                   <div class="file-actions flex-order-2 pt-0">
                     
                     
-                    <a class="muted-link mr-3" href="/tags/photoshop">
+                    <a class="muted-link mr-3" href="/tags/vim">
                       <svg class="octicon octicon-tag" viewBox="0 0 16 16" version="1.1" width="16" height="16">
                         <path fill-rule="evenodd"
                           d="M2.5 7.775V2.75a.25.25 0 01.25-.25h5.025a.25.25 0 01.177.073l6.25 6.25a.25.25 0 010 .354l-5.025 5.025a.25.25 0 01-.354 0l-6.25-6.25a.25.25 0 01-.073-.177zm-1.5 0V2.75C1 1.784 1.784 1 2.75 1h5.025c.464 0 .91.184 1.238.513l6.25 6.25a1.75 1.75 0 010 2.474l-5.026 5.026a1.75 1.75 0 01-2.474 0l-6.25-6.25A1.75 1.75 0 011 7.775zM6 5a1 1 0 100 2 1 1 0 000-2z">
                         </path>
                       </svg>
-                      Photoshop
+                      vim
                     </a>
                     
                     
@@ -208,10 +250,56 @@
 
 
               <div class="Box-body px-5 pb-5" style="z-index: 1">
-                <article class="markdown-body entry-content container-lg"><p>1.选择侧边栏的裁剪工具，然后修改裁剪比例，点击对号<br>
-<img src="https://cdn.jsdelivr.net/gh/devin0x01/myimages@master/githubpages/image_ff2d07e5750ec245dcde867e2a22e9bb.png" alt=""></p>
-<p>2.点击 文件/存储为 菜单会跳出下面的对话框，可以修改图片的大小<br>
-<img src="https://cdn.jsdelivr.net/gh/devin0x01/myimages@master/githubpages/image_8fe80b7fa1036c9d4f4da686abf233bc.png" alt=""></p>
+                <article class="markdown-body entry-content container-lg"><h1 id="1安装nerdfont字体">1.安装NerdFont字体</h1>
+<p><a href="https://github.com/ryanoasis/nerd-fonts">ryanoasis/nerd-fonts: Iconic font aggregator</a><br>
+<a href="https://askubuntu.com/questions/3697/how-do-i-install-fonts">How do I install fonts? - Ask Ubuntu</a><br>
+<a href="https://superuser.com/questions/1134268/mobaxterm-powerline-font-issue/1251965">bash - MobaXTerm Powerline Font Issue - Super User</a></p>
+<p>没有root权限时，ttf文件放在<code>~/.fonts</code>或者<code>~/.local/share/fonts</code>目录下<br>
+有root权限时，放在<code>/usr/local/share/fonts</code>目录下</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="c1"># 安装字体</span>
+</span></span><span class="line"><span class="cl">fc-cache -fv
+</span></span><span class="line"><span class="cl">fc-list <span class="p">|</span> grep &lt;name-of-font&gt;
+</span></span></code></pre></div><h1 id="2掘金小册配置">2.掘金小册配置</h1>
+<h2 id="21目录结构">2.1.目录结构</h2>
+<p>首先 init.lua 是整个配置的入口文件，负责引用所有其他的模块，基本上想要打开或关闭某个插件只要在这里修改一行代码即可。</p>
+<p>basic.lua： 基础配置，是对默认配置的一个重置。<br>
+colorscheme.lua： 我们安装的主题皮肤配置，在这里切换主题。<br>
+keybindings.lua： 快捷键的设置，所有插件的快捷键也都会放在这里。<br>
+plugins.lua： 插件安装管理，插件安装或卸载全在这里设置。<br>
+lsp 文件夹： 是对 Neovim 内置 LSP 功能的配置，包括常见编程语言与语法提示等。<br>
+config ： 文件夹包含各种语言服务器单独的配置文件。<br>
+setup.lua ： 内置 LSP 的配置。<br>
+cmp.lua ： 语法自动补全补全的配置，包括各种补全源，与自定义代码段。<br>
+ui.lua： 对内置 LSP 功能增强和 UI 美化。<br>
+formatter.lua： 独立代码格式化功能。<br>
+plugin-config 文件夹： 是对第三方插件的配置，未来每添加一个插件，这里就多一个配置文件。<br>
+utils 文件夹： 是对常见问题的修改，包括输入法切换，针对 windows 的特殊配置等。</p>
+<h2 id="22手动下载插件管理器">2.2.手动下载插件管理器</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">git clone --depth <span class="m">1</span> https://github.com/wbthomason/packer.nvim<span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span> ~/.local/share/nvim/site/pack/packer/start/packer.nvim
+</span></span></code></pre></div><p><code>PackerSync</code>下载插件</p>
+<p>Neovim 推荐将数据存储在 标准数据目录下（:h base-directories 查看详细文档），标准数据目录默认是 ~/.local/share/nvim/ ，你可以通过调用 :echo stdpath(&ldquo;data&rdquo;) 命令查看你系统下的实际路径。
+Packer 会将插件默认安装在 标准数据目录/site/pack/packer/start 中，完整目录也就是~/.local/share/nvim/site/pack/packer/start 目录下。</p>
+<h2 id="23安装插件">2.3.安装插件</h2>
+<h3 id="侧边栏">侧边栏</h3>
+<h3 id="状态栏">状态栏</h3>
+<h3 id="标签页">标签页</h3>
+<h3 id="模糊搜索">模糊搜索</h3>
+<p>telescope 依赖 ripgrep 和 fd-find</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="c1">#riggrep</span>
+</span></span><span class="line"><span class="cl">curl -LO https://github.com/BurntSushi/ripgrep/releases/download/12.1.1/ripgrep_12.1.1_amd64.deb
+</span></span><span class="line"><span class="cl">sudo dpkg -i ripgrep_12.1.1_amd64.deb
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">#fd-find</span>
+</span></span><span class="line"><span class="cl">wget https://ghproxy.com/https://github.com/sharkdp/fd/releases/download/v8.5.3/fd_8.5.3_amd64.deb
+</span></span><span class="line"><span class="cl">sudo dpkg -i fd_8.5.3_amd64.deb
+</span></span></code></pre></div><h3 id="语法高亮">语法高亮</h3>
+<p>Tree-sitter 是一个解析器生成器工具和增量解析库，它可以在源文件编辑的同时高效的实时生成语法树。</p>
+<p><code>:TSInstallInfo</code> 命令查看 language parsers 列表与安装状态。<br>
+<code>:TSInstall &lt;language_to_install&gt;</code> 调用 TSInstall 命令的时候，插件会在目录<code>~/.local/share/nvim/site/pack/packer/start/nvim-treesitter/parser</code>生成一个 <!-- raw HTML omitted -->.so 语法文件。<br>
+<code>:TSUninstall &lt;language_to_uninstall&gt;</code> 命令用于卸载 language parser 。<br>
+<code>:TSModuleInfo</code> 命令来查看你的模块是否开启成功。<br>
+<code>:TSBufToggle highlight</code> 命令可以切换打开关闭代码高亮功能。</p>
 </article>
               </div>
             </div>
