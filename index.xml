@@ -9,10 +9,10 @@
     <lastBuildDate>Tue, 15 Aug 2023 14:05:25 +0800</lastBuildDate><atom:link href="https://devin0x01.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>指向成员函数的指针</title>
-      <link>https://devin0x01.github.io/post/%E6%8C%87%E5%90%91%E6%88%90%E5%91%98%E5%87%BD%E6%95%B0%E7%9A%84%E6%8C%87%E9%92%88/</link>
+      <link>https://devin0x01.github.io/post/cpp/%E6%8C%87%E5%90%91%E6%88%90%E5%91%98%E5%87%BD%E6%95%B0%E7%9A%84%E6%8C%87%E9%92%88/</link>
       <pubDate>Tue, 15 Aug 2023 14:05:25 +0800</pubDate>
       
-      <guid>https://devin0x01.github.io/post/%E6%8C%87%E5%90%91%E6%88%90%E5%91%98%E5%87%BD%E6%95%B0%E7%9A%84%E6%8C%87%E9%92%88/</guid>
+      <guid>https://devin0x01.github.io/post/cpp/%E6%8C%87%E5%90%91%E6%88%90%E5%91%98%E5%87%BD%E6%95%B0%E7%9A%84%E6%8C%87%E9%92%88/</guid>
       <description>c++ - How do I typedef a function pointer with the C++11 using syntax? - Stack Overflow
 #include &amp;lt;iostream&amp;gt; class A { public: void display() { std::cout &amp;lt;&amp;lt; &amp;#34;A display&amp;#34; &amp;lt;&amp;lt; std::endl; } }; int main() { typedef void (A::*PF1)(); PF1 pf1 = &amp;amp;A::display; A a1; (a1.*pf1)(); using PF2 = void (A::*)(); PF2 pf2 = &amp;amp;A::display; A* a2 = new A; (a2-&amp;gt;*pf2)(); return 0; } // output: // A display // A display </description>
     </item>
