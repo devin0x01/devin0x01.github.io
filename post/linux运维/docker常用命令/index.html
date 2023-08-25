@@ -21,7 +21,7 @@
   content="Docker — 从入门到实践
 Docker Guide
 清理Docker的container，image与volume · 零壹軒·笔记
-docker docker info #docker配置信息 docker inspect $cid #查看容器的配置信息 docker images docker ps -a docker run -it $image_id --rm #rm表示退出容器后就删除该容器 docker exec -it $cid /bin/bash docker start $cid docker stop $cid docker restart $cid docker rm -f $cid docker rm -v $cid #同时删除 /var/lib/docker 目录下的数据卷 docker logs $cid #查看容器日志 docker system df #查看docker缓存大小 docker builder prune #一键清理 Build Cache docker builder prune --filter &amp;#39;until=240h&amp;#39; #保留最近10天的缓存 docker tag ca1b6b825289 devincpp/rk3568:v1." />
+docker docker info #docker配置信息 docker inspect $cid #查看容器的配置信息 docker images docker ps -a docker run -it $image_id --rm #rm表示退出容器后就删除该容器 docker exec -it $cid /bin/bash docker start $cid docker stop $cid docker restart $cid docker rm -f $cid docker rm -v $cid #同时删除 /var/lib/docker 目录下的数据卷 docker logs $cid #查看容器日志 docker system df #查看docker缓存大小 docker system prune docker builder prune #一键清理 Build Cache docker builder prune --filter &amp;#39;until=240h&amp;#39; #保留最近10天的缓存 docker tag ca1b6b825289 devincpp/rk3568:v1." />
 <meta name="keywords"
   content='blog, google analytics' />
 <meta name="robots" content="noodp" />
@@ -34,7 +34,7 @@ docker docker info #docker配置信息 docker inspect $cid #查看容器的配�
   content="Docker — 从入门到实践
 Docker Guide
 清理Docker的container，image与volume · 零壹軒·笔记
-docker docker info #docker配置信息 docker inspect $cid #查看容器的配置信息 docker images docker ps -a docker run -it $image_id --rm #rm表示退出容器后就删除该容器 docker exec -it $cid /bin/bash docker start $cid docker stop $cid docker restart $cid docker rm -f $cid docker rm -v $cid #同时删除 /var/lib/docker 目录下的数据卷 docker logs $cid #查看容器日志 docker system df #查看docker缓存大小 docker builder prune #一键清理 Build Cache docker builder prune --filter &amp;#39;until=240h&amp;#39; #保留最近10天的缓存 docker tag ca1b6b825289 devincpp/rk3568:v1." />
+docker docker info #docker配置信息 docker inspect $cid #查看容器的配置信息 docker images docker ps -a docker run -it $image_id --rm #rm表示退出容器后就删除该容器 docker exec -it $cid /bin/bash docker start $cid docker stop $cid docker restart $cid docker rm -f $cid docker rm -v $cid #同时删除 /var/lib/docker 目录下的数据卷 docker logs $cid #查看容器日志 docker system df #查看docker缓存大小 docker system prune docker builder prune #一键清理 Build Cache docker builder prune --filter &amp;#39;until=240h&amp;#39; #保留最近10天的缓存 docker tag ca1b6b825289 devincpp/rk3568:v1." />
 <meta name="twitter:site" content="https://devin0x01.github.io" />
 <meta name="twitter:creator" content="" />
 <meta name="twitter:image"
@@ -47,7 +47,7 @@ docker docker info #docker配置信息 docker inspect $cid #查看容器的配�
   content="Docker — 从入门到实践
 Docker Guide
 清理Docker的container，image与volume · 零壹軒·笔记
-docker docker info #docker配置信息 docker inspect $cid #查看容器的配置信息 docker images docker ps -a docker run -it $image_id --rm #rm表示退出容器后就删除该容器 docker exec -it $cid /bin/bash docker start $cid docker stop $cid docker restart $cid docker rm -f $cid docker rm -v $cid #同时删除 /var/lib/docker 目录下的数据卷 docker logs $cid #查看容器日志 docker system df #查看docker缓存大小 docker builder prune #一键清理 Build Cache docker builder prune --filter &amp;#39;until=240h&amp;#39; #保留最近10天的缓存 docker tag ca1b6b825289 devincpp/rk3568:v1." />
+docker docker info #docker配置信息 docker inspect $cid #查看容器的配置信息 docker images docker ps -a docker run -it $image_id --rm #rm表示退出容器后就删除该容器 docker exec -it $cid /bin/bash docker start $cid docker stop $cid docker restart $cid docker rm -f $cid docker rm -v $cid #同时删除 /var/lib/docker 目录下的数据卷 docker logs $cid #查看容器日志 docker system df #查看docker缓存大小 docker system prune docker builder prune #一键清理 Build Cache docker builder prune --filter &amp;#39;until=240h&amp;#39; #保留最近10天的缓存 docker tag ca1b6b825289 devincpp/rk3568:v1." />
 <meta property="og:url" content="https://devin0x01.github.io/post/linux%E8%BF%90%E7%BB%B4/docker%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" />
 <meta property="og:site_name" content="Docker常用命令" />
 <meta property="og:image"
@@ -159,9 +159,9 @@ docker docker info #docker配置信息 docker inspect $cid #查看容器的配�
 
                   
                   <span class="file-info-divider"></span>
-                  Modified <relative-time datetime="Wed, 16 Aug 2023 14:47:32 &#43;0000"
+                  Modified <relative-time datetime="Fri, 25 Aug 2023 14:09:58 &#43;0000"
                     class="no-wrap">
-                    Wed, 16 Aug 2023 14:47:32 &#43;0000</relative-time>
+                    Fri, 25 Aug 2023 14:09:58 &#43;0000</relative-time>
                   
                 </div>
               </div>
@@ -191,7 +191,7 @@ docker docker info #docker配置信息 docker inspect $cid #查看容器的配�
                         </div>
                       </div>
                     </details-menu>
-                      520 Words
+                      523 Words
                     
 
                   </div>
@@ -243,6 +243,7 @@ docker docker info #docker配置信息 docker inspect $cid #查看容器的配�
 </span></span><span class="line"><span class="cl">docker logs <span class="nv">$cid</span> <span class="c1">#查看容器日志</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">docker system df <span class="c1">#查看docker缓存大小</span>
+</span></span><span class="line"><span class="cl">docker system prune
 </span></span><span class="line"><span class="cl">docker builder prune <span class="c1">#一键清理 Build Cache</span>
 </span></span><span class="line"><span class="cl">docker builder prune --filter <span class="s1">&#39;until=240h&#39;</span> <span class="c1">#保留最近10天的缓存</span>
 </span></span><span class="line"><span class="cl">docker tag ca1b6b825289 devincpp/rk3568:v1.0 <span class="c1">#重命名镜像</span>
