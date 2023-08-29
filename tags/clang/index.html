@@ -10,7 +10,7 @@
     <link rel="stylesheet" href='https://devin0x01.github.io/css/light.css' />
     <link rel="stylesheet" href='https://devin0x01.github.io/css/dark.css' />
     <link rel="stylesheet" href='https://devin0x01.github.io/css/syntax.css' />
-    <title>Shell - DEVIN&#39;s BLOG</title>
+    <title>clang - DEVIN&#39;s BLOG</title>
     
     <link rel="icon" type="image/x-icon" href='/images/github.png'>
     
@@ -22,11 +22,11 @@
 <meta name="keywords"
   content='blog, google analytics' />
 <meta name="robots" content="noodp" />
-<link rel="canonical" href="https://devin0x01.github.io/tags/shell/" />
+<link rel="canonical" href="https://devin0x01.github.io/tags/clang/" />
 
 
 <meta name="twitter:card" content="summary" />
-<meta name="twitter:title" content="Shell - DEVIN&#39;s BLOG" />
+<meta name="twitter:title" content="clang - DEVIN&#39;s BLOG" />
 <meta name="twitter:description"
   content="" />
 <meta name="twitter:site" content="https://devin0x01.github.io" />
@@ -36,11 +36,11 @@
 
 
 <meta property="og:type" content="website" />
-<meta property="og:title" content="Shell - DEVIN&#39;s BLOG">
+<meta property="og:title" content="clang - DEVIN&#39;s BLOG">
 <meta property="og:description"
   content="" />
-<meta property="og:url" content="https://devin0x01.github.io/tags/shell/" />
-<meta property="og:site_name" content="Shell" />
+<meta property="og:url" content="https://devin0x01.github.io/tags/clang/" />
+<meta property="og:site_name" content="clang" />
 <meta property="og:image"
   content="https://devin0x01.github.io">
 <meta property="og:image:width" content="2048">
@@ -49,7 +49,7 @@
 
 
 
-<link href="/tags/shell/index.xml" rel="alternate" type="application/rss+xml" title="DEVIN&#39;s BLOG" />
+<link href="/tags/clang/index.xml" rel="alternate" type="application/rss+xml" title="DEVIN&#39;s BLOG" />
 
 
 
@@ -493,7 +493,7 @@
         <div class="user-repo-search-results-summary TableObject-item TableObject-item--primary v-align-top">
           <strong>1</strong>
           results
-          for <strong>Shell</strong>
+          for <strong>clang</strong>
         </div>
         <div class="TableObject-item text-right v-align-top">
           <a class="issues-reset-query text-normal d-inline-block ml-3" href="https://devin0x01.github.io/post/">
@@ -514,35 +514,39 @@
           <div class="col-12 d-inline-block">
             <div class="d-inline-block mb-1">
               <h3 class="wb-break-all">
-                <a href="https://devin0x01.github.io/post/shell/expect%E5%AE%9E%E7%8E%B0%E4%BA%A4%E4%BA%92%E5%BC%8F%E8%BE%93%E5%85%A5/">expect实现交互式输入</a>
+                <a href="https://devin0x01.github.io/post/%E5%B7%A5%E5%85%B7/clang-format%E9%85%8D%E7%BD%AE%E6%95%99%E7%A8%8B/">clang-format配置教程</a>
               </h3>
             </div>
 
             <div>
               <div class="col-12 d-inline-block text-gray mb-2 pr-4">
-                1.常用命令 选项： -c:执行脚本前先执行的命令，可多次使用。 -d:debug模式，可以在运行时输出一些诊断信息，与在脚本开始处使用exp_internal 1相似。 -D:启用交换调式器,可设一整数参数。 -f:从文件读取命令，仅用于使用#!时。如果文件名为&quot;-&quot;，则从stdin读取(使用&quot;./-&ldquo;从文件名为-的文件读取)。 -i:交互式输入命令，使用&quot;exit&quot;或&quot;EOF&quot;退出输入状态。 &ndash;:标示选项结束(如果你需要传递与expect选项相似的参数给脚本时)，可放到#!行:#!/usr/bin/expect &ndash;。 -v:显示expect版本信息。
-# 命令行参数 # $argv，参数数组，使用[lindex $argv n]获取，$argv 0为脚本名字 # $argc，参数个数 set username [lindex $argv 1] # 获取第1个参数 set passwd [lindex $argv 2] # 获取第2个参数 set timeout 30 # 设置超时 # spawn是expect内部命令，开启ssh连接 spawn ssh -l username 192.168.1.1 # 判断上次输出结果里是否包含“password:”的字符串，如果有则立即返回，否则就等待一段时间(timeout)后返回 expect &#34;password:&#34; # 发送内容ispass(密码、命令等) send &#34;ispass\r&#34; # 发送内容给用户 send_user &#34;$argv0 [lrange $argv 0 2]\n&#34; send_user &#34;It&#39;s OK\r&#34; # 执行完成后保持交互状态，控制权交给控制台(手工操作)。否则会完成后会退出。 interact 2.例子 2.1自动telnet会话 #!
+                配置clang-format Qt Creator使用clang-format_利白的博客-CSDN博客
+Git 如何将clang-formatting添加到预提交钩子|极客教程
+Qt中自定义的clang-format配置文件的位置：C:\Users\&lt;username&gt;\AppData\Roaming\QtProject\qtcreator\beautifier\clangformat
+clang-format选项 Clang-Format Style Options — Clang 3.8 documentation
+.clang-format文件时yaml格式
+# 语言 Language: Cpp # 基础样式 BasedOnStyle: LLVM # 允许修改头文件顺序 SortIncludes: false # 指针的*的挨着哪边,例如: int* ptr DerivePointerAlignment: false PointerAlignment: Left # 访问修饰符前的空格,例如: public/private AccessModifierOffset: -4 # 缩进宽度 IndentWidth: 4 # 要保留的最大连续空行数 MaxEmptyLinesToKeep: 2 # 大括号{}的换行方式，也可以定义为Custom，然后对if/class等分别设置 BreakBeforeBraces: Linux # 是否允许短方法单行,例如: int f() { return 0; } AllowShortFunctionsOnASingleLine: true # 支持一行的if表达式，例如: if (a) return; AllowShortIfStatementsOnASingleLine: false # 在未封闭(括号的开始和结束不在同一行)的括号中的代码是否对齐,为true,则将参数在左方括号后水平对齐 AlignAfterOpenBracket: true # switch的case缩进 IndentCaseLabels: true # 每行字符的长度 ColumnLimit: 120 # 注释对齐 AlignTrailingComments: true # 括号后加空格,例如: (int) i; SpaceAfterCStyleCast: false # 换行的时候对齐操作符 AlignOperands: true # 中括号两边空格 [] SpacesInSquareBrackets: false # 多行声明语句按照=对齐 AlignConsecutiveDeclarations: false # 容器类的空格 例如: OC的字典 SpacesInContainerLiterals: false # 在构造函数初始化时按逗号断行，并以冒号对齐 BreakConstructorInitializersBeforeComma: true # 函数参数换行 AllowAllParametersOfDeclarationOnNextLine: true # 在续行(#下一行)时的缩进长度 ContinuationIndentWidth: 4 # tab键盘的宽度 TabWidth: 4 # 赋值运算符前加空格 SpaceBeforeAssignmentOperators: true # 行尾的注释前加1个空格 SpacesBeforeTrailingComments: 1 
               </div>
             </div>
 
             <div class="f6 text-gray mt-2">
               
               
-              <a class="muted-link mr-3" href="/tags/shell">
+              <a class="muted-link mr-3" href="/tags/clang">
                 <svg class="octicon octicon-tag" viewBox="0 0 16 16" version="1.1" width="16" height="16">
                   <path fill-rule="evenodd"
                     d="M2.5 7.775V2.75a.25.25 0 01.25-.25h5.025a.25.25 0 01.177.073l6.25 6.25a.25.25 0 010 .354l-5.025 5.025a.25.25 0 01-.354 0l-6.25-6.25a.25.25 0 01-.073-.177zm-1.5 0V2.75C1 1.784 1.784 1 2.75 1h5.025c.464 0 .91.184 1.238.513l6.25 6.25a1.75 1.75 0 010 2.474l-5.026 5.026a1.75 1.75 0 01-2.474 0l-6.25-6.25A1.75 1.75 0 011 7.775zM6 5a1 1 0 100 2 1 1 0 000-2z">
                   </path>
                 </svg>
-                Shell
+                clang
               </a>
               
               
 
               Created
-              <relative-time datetime=" Sun, 18 Jun 2023 14:05:25 &#43;0800" class="no-wrap"
-                title=" Sun, 18 Jun 2023 14:05:25 &#43;0800">
-                Sun, 18 Jun 2023 14:05:25 &#43;0800
+              <relative-time datetime=" Tue, 29 Aug 2023 16:05:25 &#43;0800" class="no-wrap"
+                title=" Tue, 29 Aug 2023 16:05:25 &#43;0800">
+                Tue, 29 Aug 2023 16:05:25 &#43;0800
               </relative-time>
             </div>
           </div>

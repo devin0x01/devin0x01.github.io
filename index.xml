@@ -6,7 +6,21 @@
     <description>Recent content on DEVIN&#39;s BLOG</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 16 Aug 2023 16:05:25 +0800</lastBuildDate><atom:link href="https://devin0x01.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 29 Aug 2023 16:05:25 +0800</lastBuildDate><atom:link href="https://devin0x01.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>clang-format配置教程</title>
+      <link>https://devin0x01.github.io/post/%E5%B7%A5%E5%85%B7/clang-format%E9%85%8D%E7%BD%AE%E6%95%99%E7%A8%8B/</link>
+      <pubDate>Tue, 29 Aug 2023 16:05:25 +0800</pubDate>
+      
+      <guid>https://devin0x01.github.io/post/%E5%B7%A5%E5%85%B7/clang-format%E9%85%8D%E7%BD%AE%E6%95%99%E7%A8%8B/</guid>
+      <description>配置clang-format Qt Creator使用clang-format_利白的博客-CSDN博客
+Git 如何将clang-formatting添加到预提交钩子|极客教程
+Qt中自定义的clang-format配置文件的位置：C:\Users\&amp;lt;username&amp;gt;\AppData\Roaming\QtProject\qtcreator\beautifier\clangformat
+clang-format选项 Clang-Format Style Options — Clang 3.8 documentation
+.clang-format文件时yaml格式
+# 语言 Language: Cpp # 基础样式 BasedOnStyle: LLVM # 允许修改头文件顺序 SortIncludes: false # 指针的*的挨着哪边,例如: int* ptr DerivePointerAlignment: false PointerAlignment: Left # 访问修饰符前的空格,例如: public/private AccessModifierOffset: -4 # 缩进宽度 IndentWidth: 4 # 要保留的最大连续空行数 MaxEmptyLinesToKeep: 2 # 大括号{}的换行方式，也可以定义为Custom，然后对if/class等分别设置 BreakBeforeBraces: Linux # 是否允许短方法单行,例如: int f() { return 0; } AllowShortFunctionsOnASingleLine: true # 支持一行的if表达式，例如: if (a) return; AllowShortIfStatementsOnASingleLine: false # 在未封闭(括号的开始和结束不在同一行)的括号中的代码是否对齐,为true,则将参数在左方括号后水平对齐 AlignAfterOpenBracket: true # switch的case缩进 IndentCaseLabels: true # 每行字符的长度 ColumnLimit: 120 # 注释对齐 AlignTrailingComments: true # 括号后加空格,例如: (int) i; SpaceAfterCStyleCast: false # 换行的时候对齐操作符 AlignOperands: true # 中括号两边空格 [] SpacesInSquareBrackets: false # 多行声明语句按照=对齐 AlignConsecutiveDeclarations: false # 容器类的空格 例如: OC的字典 SpacesInContainerLiterals: false # 在构造函数初始化时按逗号断行，并以冒号对齐 BreakConstructorInitializersBeforeComma: true # 函数参数换行 AllowAllParametersOfDeclarationOnNextLine: true # 在续行(#下一行)时的缩进长度 ContinuationIndentWidth: 4 # tab键盘的宽度 TabWidth: 4 # 赋值运算符前加空格 SpaceBeforeAssignmentOperators: true # 行尾的注释前加1个空格 SpacesBeforeTrailingComments: 1 </description>
+    </item>
+    
     <item>
       <title>nvim配置教程</title>
       <link>https://devin0x01.github.io/post/%E5%B7%A5%E5%85%B7/nvim%E9%85%8D%E7%BD%AE%E6%95%99%E7%A8%8B/</link>
