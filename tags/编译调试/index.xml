@@ -6,30 +6,26 @@
     <description>Recent content in 编译调试 on DEVIN&#39;s BLOG</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 18 Jun 2023 14:05:25 +0800</lastBuildDate><atom:link href="https://devin0x01.github.io/tags/%E7%BC%96%E8%AF%91%E8%B0%83%E8%AF%95/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 18 Jun 2023 14:05:25 +0800</lastBuildDate>
+    <atom:link href="https://devin0x01.github.io/tags/%E7%BC%96%E8%AF%91%E8%B0%83%E8%AF%95/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>cgdb配置</title>
       <link>https://devin0x01.github.io/post/%E7%BC%96%E8%AF%91%E8%B0%83%E8%AF%95/cgdb%E9%85%8D%E7%BD%AE/</link>
       <pubDate>Sun, 18 Jun 2023 14:05:25 +0800</pubDate>
-      
       <guid>https://devin0x01.github.io/post/%E7%BC%96%E8%AF%91%E8%B0%83%E8%AF%95/cgdb%E9%85%8D%E7%BD%AE/</guid>
       <description>1.安装 git clone git://github.com/cgdb/cgdb.git cd cgdb ./autogen.sh ./configure --prefix=/usr/local make sudo make install # 报错解决方法 sudo apt-get install automake libncurses5-dev flex texinfo libreadline-dev 2.配置 vim ~/.cgdb/cgdbrc set ignorecaseset ts=4 set wso=vertical set eld=shortarrow set hls map &amp;lt;F9&amp;gt; :until&amp;lt;cr&amp;gt; 3.快捷键 F5 - Send a run command to GDB. F6 - Send a continue command to GDB. F7 - Send a finish command to GDB. F8 - Send a next command to GDB.</description>
     </item>
-    
     <item>
       <title>coredump配置</title>
       <link>https://devin0x01.github.io/post/%E7%BC%96%E8%AF%91%E8%B0%83%E8%AF%95/coreddump%E9%85%8D%E7%BD%AE/</link>
       <pubDate>Sun, 18 Jun 2023 14:05:25 +0800</pubDate>
-      
       <guid>https://devin0x01.github.io/post/%E7%BC%96%E8%AF%91%E8%B0%83%E8%AF%95/coreddump%E9%85%8D%E7%BD%AE/</guid>
       <description>ulimit -c unlimited echo &amp;#34;1&amp;#34; &amp;gt; /proc/sys/kernel/core_uses_pid mkdir -p /opt/debug echo &amp;#34;/opt/debug/core-%e-%p-%t&amp;#34; &amp;gt; /proc/sys/kernel/core_pattern gdb &amp;lt;program&amp;gt; -c &amp;lt;coredump_file&amp;gt; up &amp;lt;n&amp;gt; #调用栈向上n次 </description>
     </item>
-    
     <item>
       <title>共享库搜索路径</title>
       <link>https://devin0x01.github.io/post/%E7%BC%96%E8%AF%91%E8%B0%83%E8%AF%95/%E5%85%B1%E4%BA%AB%E5%BA%93%E6%90%9C%E7%B4%A2%E8%B7%AF%E5%BE%84/</link>
       <pubDate>Sun, 18 Jun 2023 14:05:25 +0800</pubDate>
-      
       <guid>https://devin0x01.github.io/post/%E7%BC%96%E8%AF%91%E8%B0%83%E8%AF%95/%E5%85%B1%E4%BA%AB%E5%BA%93%E6%90%9C%E7%B4%A2%E8%B7%AF%E5%BE%84/</guid>
       <description>基本原理 -L编译选项是编译期间使用
 LD_LIBRARY_PATH环境变量是运行期间使用，可以用来指定so的加载路径，并且优先级高于系统默认的。
@@ -38,6 +34,5 @@ RPATH和RUNPATH是ELF格式里面的一个数据，rpath编译选项实际上是
 其实这三者的关系概括起来没有几点：
 LD_LIBRARY_PATH是个环境变量，优先级高于系统默认的。 RPATH是ELF格式里面的一个数据，他的优先级比LD_LIBRARY_PATH还要高 RUNPATH很特殊，如果他出现了RPATH就躲起来了，LD_LIBRARY_PATH 又成了首选?? ELF 中 RPATH ELF 中 RUNPATH LD_LIBRARY_PATH 变量 尝试加载目录的顺序 未设置 未设置 未设置 /lib =&amp;gt; /usr/lib 未设置 未设置 设置 ${LD_LIBRARY_PATH} =&amp;gt; /lib =&amp;gt; /usr/lib 设置 未设置 未设置 ${RPATH} =&amp;gt; /lib =&amp;gt; /usr/lib 设置 未设置 设置 ${RPATH} =&amp;gt; ${LD_LIBRARY_PATH} =&amp;gt; /lib =&amp;gt; /usr/lib 设置 或 未设置 设置 设置 ${LD_LIBRARY_PATH} =&amp;gt; ${RUN_PATH} =&amp;gt; /lib =&amp;gt; /usr/lib 设置 或 未设置 设置 未设置 ${RUN_PATH} =&amp;gt; /lib =&amp;gt; /usr/lib LD_LIBRARY_PATH 例子 // a.</description>
     </item>
-    
   </channel>
 </rss>

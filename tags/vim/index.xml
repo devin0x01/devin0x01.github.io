@@ -6,12 +6,12 @@
     <description>Recent content in vim on DEVIN&#39;s BLOG</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 16 Aug 2023 16:05:25 +0800</lastBuildDate><atom:link href="https://devin0x01.github.io/tags/vim/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 16 Aug 2023 16:05:25 +0800</lastBuildDate>
+    <atom:link href="https://devin0x01.github.io/tags/vim/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>nvim配置教程</title>
       <link>https://devin0x01.github.io/post/%E5%B7%A5%E5%85%B7/nvim%E9%85%8D%E7%BD%AE%E6%95%99%E7%A8%8B/</link>
       <pubDate>Wed, 16 Aug 2023 16:05:25 +0800</pubDate>
-      
       <guid>https://devin0x01.github.io/post/%E5%B7%A5%E5%85%B7/nvim%E9%85%8D%E7%BD%AE%E6%95%99%E7%A8%8B/</guid>
       <description>1.安装NerdFont字体 ryanoasis/nerd-fonts: Iconic font aggregator
 How do I install fonts? - Ask Ubuntu
@@ -30,6 +30,5 @@ cmp.lua ： 语法自动补全补全的配置，包括各种补全源，与自�
 ui.lua： 对内置 LSP 功能增强和 UI 美化。
 formatter.lua： 独立代码格式化功能。</description>
     </item>
-    
   </channel>
 </rss>

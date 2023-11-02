@@ -6,22 +6,20 @@
     <description>Recent content in C&#43;&#43; on DEVIN&#39;s BLOG</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 15 Aug 2023 14:05:25 +0800</lastBuildDate><atom:link href="https://devin0x01.github.io/tags/c++/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 15 Aug 2023 14:05:25 +0800</lastBuildDate>
+    <atom:link href="https://devin0x01.github.io/tags/c++/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>指向成员函数的指针</title>
       <link>https://devin0x01.github.io/post/cpp/%E6%8C%87%E5%90%91%E6%88%90%E5%91%98%E5%87%BD%E6%95%B0%E7%9A%84%E6%8C%87%E9%92%88/</link>
       <pubDate>Tue, 15 Aug 2023 14:05:25 +0800</pubDate>
-      
       <guid>https://devin0x01.github.io/post/cpp/%E6%8C%87%E5%90%91%E6%88%90%E5%91%98%E5%87%BD%E6%95%B0%E7%9A%84%E6%8C%87%E9%92%88/</guid>
       <description>c++ - How do I typedef a function pointer with the C++11 using syntax? - Stack Overflow
 #include &amp;lt;iostream&amp;gt; class A { public: void display() { std::cout &amp;lt;&amp;lt; &amp;#34;A display&amp;#34; &amp;lt;&amp;lt; std::endl; } }; int main() { typedef void (A::*PF1)(); PF1 pf1 = &amp;amp;A::display; A a1; (a1.*pf1)(); using PF2 = void (A::*)(); PF2 pf2 = &amp;amp;A::display; A* a2 = new A; (a2-&amp;gt;*pf2)(); return 0; } // output: // A display // A display </description>
     </item>
-    
     <item>
       <title>operator bool 函数</title>
       <link>https://devin0x01.github.io/post/cpp/operator-bool-%E5%87%BD%E6%95%B0/</link>
       <pubDate>Mon, 14 Aug 2023 16:05:25 +0800</pubDate>
-      
       <guid>https://devin0x01.github.io/post/cpp/operator-bool-%E5%87%BD%E6%95%B0/</guid>
       <description>参考文档 user-defined conversion function - cppreference.com
 The Safe Bool Idiom - 知乎
@@ -29,53 +27,43 @@ The Safe Bool Idiom - 知乎
 The operator is coming from the built-in subscript operator which treats expressions A[B] as *(A + B).
 This results in the evaluation of *(1 + &amp;quot;wut&amp;quot;) =&amp;gt; &#39;u&#39;, which then causes the if condition to pass, as &#39;u&#39; is a non-zero value.</description>
     </item>
-    
     <item>
       <title>调用成员模板</title>
       <link>https://devin0x01.github.io/post/cpp/%E8%B0%83%E7%94%A8%E6%88%90%E5%91%98%E6%A8%A1%E6%9D%BF/</link>
       <pubDate>Thu, 20 Jul 2023 14:05:25 +0800</pubDate>
-      
       <guid>https://devin0x01.github.io/post/cpp/%E8%B0%83%E7%94%A8%E6%88%90%E5%91%98%E6%A8%A1%E6%9D%BF/</guid>
       <description>C++访问成员模板需要加template关键字
 #include &amp;lt;iostream&amp;gt; using namespace std; class A { public: template &amp;lt;typename TypeNum&amp;gt; int getSize() { return sizeof(TypeNum); } }; // 调用成员模板函数需要加template template &amp;lt;typename T&amp;gt; void f1() { T t1; cout &amp;lt;&amp;lt; (t1.template getSize&amp;lt;float&amp;gt;()) &amp;lt;&amp;lt; endl; cout &amp;lt;&amp;lt; (t1.template getSize&amp;lt;double&amp;gt;()) &amp;lt;&amp;lt; endl; } // 调用成员模板函数不需要加template void f2() { A a1; cout &amp;lt;&amp;lt; (a1.getSize&amp;lt;long&amp;gt;()) &amp;lt;&amp;lt; endl; cout &amp;lt;&amp;lt; (a1.getSize&amp;lt;long long&amp;gt;()) &amp;lt;&amp;lt; endl; } int main() { f1&amp;lt;A&amp;gt;(); f2(); return 0; } </description>
     </item>
-    
     <item>
       <title>vector的push_back与emplace_back.md</title>
       <link>https://devin0x01.github.io/post/cpp/vector%E7%9A%84push_back%E4%B8%8Eemplace_back/</link>
       <pubDate>Mon, 17 Jul 2023 14:05:25 +0800</pubDate>
-      
       <guid>https://devin0x01.github.io/post/cpp/vector%E7%9A%84push_back%E4%B8%8Eemplace_back/</guid>
       <description>push_back与emplace_back #include &amp;lt;iostream&amp;gt; #include &amp;lt;vector&amp;gt; using namespace std; class A { public: A() = default; A(string name) : _name(name) { cout &amp;lt;&amp;lt; &amp;#34;ctor: &amp;#34; &amp;lt;&amp;lt; _name &amp;lt;&amp;lt; endl; } ~A() { cout &amp;lt;&amp;lt; &amp;#34;dtor: &amp;#34; &amp;lt;&amp;lt; _name &amp;lt;&amp;lt; endl; } // 拷贝构造函数 A(const A &amp;amp;other) { _name += &amp;#34;cp-&amp;#34; + other._name; cout &amp;lt;&amp;lt; &amp;#34;cp-ctor: &amp;#34; &amp;lt;&amp;lt; _name &amp;lt;&amp;lt; endl; } // 赋值运算符 A&amp;amp; operator=(const A &amp;amp;other) { if (this != &amp;amp;other) { _name += &amp;#34;cp-&amp;#34; + other.</description>
     </item>
-    
     <item>
       <title>位域用法</title>
       <link>https://devin0x01.github.io/post/cpp/%E4%BD%8D%E5%9F%9F%E7%94%A8%E6%B3%95/</link>
       <pubDate>Thu, 13 Jul 2023 14:05:25 +0800</pubDate>
-      
       <guid>https://devin0x01.github.io/post/cpp/%E4%BD%8D%E5%9F%9F%E7%94%A8%E6%B3%95/</guid>
       <description>[toc]
 如果有字段定义为int类型的话，那么符号位的判断需要特别注意。 例如：下面的 B::f2 字段是有符号类型，其符号位是f2的最高位，可以表示的范围是-64~63
 #include &amp;lt;iostream&amp;gt; struct B { unsigned int f1:1; int f2:7; }; int main() { B b1 = {0, 10}; B b2 = {0, 127}; std::cout &amp;lt;&amp;lt; std::boolalpha &amp;lt;&amp;lt; (b1.f2 &amp;gt;= 0) &amp;lt;&amp;lt; std::endl; // true std::cout &amp;lt;&amp;lt; std::boolalpha &amp;lt;&amp;lt; (b2.f2 &amp;gt;= 0) &amp;lt;&amp;lt; std::endl; // false } #include &amp;lt;iostream&amp;gt; #include &amp;lt;cstring&amp;gt; using namespace std; struct Flags { uint32_t k1 : 1; }; struct AA { // Flags flag : 1; // error: bit-field ‘flag’ with non-integral type ‘Flags’ Flags flag; bool a1 : 1; uint32_t a2 : 4; }; int main() { cout &amp;lt;&amp;lt; sizeof (AA) &amp;lt;&amp;lt; endl; AA obj; memset(&amp;amp;obj, 0, sizeof(AA)); obj.</description>
     </item>
-    
     <item>
       <title>C&#43;&#43;17特性</title>
       <link>https://devin0x01.github.io/post/cpp/c&#43;&#43;17%E7%89%B9%E6%80%A7/</link>
       <pubDate>Sun, 18 Jun 2023 14:05:25 +0800</pubDate>
-      
       <guid>https://devin0x01.github.io/post/cpp/c&#43;&#43;17%E7%89%B9%E6%80%A7/</guid>
       <description>构造函数模板推导 在C++17前构造一个模板类对象需要指明类型：
 pair&amp;lt;int, double&amp;gt; p(1, 2.2); // before c++17 C++17就不需要特殊指定，直接可以推导出类型，代码如下：
 pair p(1, 2.2); // c++17 自动推导 vector v = {1, 2, 3}; // c++17 结构化绑定 1.获取值 // 绑定tuple std::tuple&amp;lt;int, double&amp;gt; func() { return std::tuple(1, 2.2); } int main() { auto[i, d] = func(); cout &amp;lt;&amp;lt; i &amp;lt;&amp;lt; endl; cout &amp;lt;&amp;lt; d &amp;lt;&amp;lt; endl; } // 绑定map void f() { map&amp;lt;int, string&amp;gt; m = {{0, &amp;#34;a&amp;#34;}, {1, &amp;#34;b&amp;#34;}}; for (const auto &amp;amp;[i, s] : m) { cout &amp;lt;&amp;lt; i &amp;lt;&amp;lt; &amp;#34; &amp;#34; &amp;lt;&amp;lt; s &amp;lt;&amp;lt; endl; } } // 绑定pair int main() { std::pair a(1, 2.</description>
     </item>
-    
     <item>
       <title>C&#43;&#43;练习题</title>
       <link>https://devin0x01.github.io/post/cpp/c&#43;&#43;%E7%BB%83%E4%B9%A0%E9%A2%98/</link>
       <pubDate>Sun, 18 Jun 2023 14:05:25 +0800</pubDate>
-      
       <guid>https://devin0x01.github.io/post/cpp/c&#43;&#43;%E7%BB%83%E4%B9%A0%E9%A2%98/</guid>
       <description>多态 判断 Q1: 虚函数可以是内联的？ A1: 错误。内联是编译时刻决定的，虚函数是运行时刻动态决定的，所以虚函数不能是内联函数。虚函数前加上inline不会报错，但是会被忽略。
 Q2: 一个类内部，可以同时声明 static void fun() 和 virutal void fun() 两个函数？ A2: 错误。虽然静态函数不存在this指针，但是还是不能声明同参的虚函数和静态函数。
@@ -87,23 +75,19 @@ Q3: 基类的析构函数非虚，派生类的析构函数是虚函数。delete�
 构造函数不能是虚函数，析构函数可以是虚函数。
 编程 析构函数需要声明为virtual #include &amp;lt;iostream&amp;gt; using namespace std; int g_num = 0; class Base { public: Base() {} ~Base() { g_num += 1; } }; class Derived:public Base { public: Derived() {} ~Derived() { g_num += 2; } }; int main() { Base *p = new Derived(); delete p; cout &amp;lt;&amp;lt; g_num &amp;lt;&amp;lt; endl; return 0; } // 输出：1 动态绑定依赖于指针或者引用 #include &amp;lt;iostream&amp;gt; using namespace std; class Base { public: virtual void fun() {cout &amp;lt;&amp;lt; &amp;#34;base&amp;#34; &amp;lt;&amp;lt; endl;} }; class Derived:public Base { public: virtual void fun() { cout &amp;lt;&amp;lt; &amp;#34;derived&amp;#34; &amp;lt;&amp;lt; endl;} }; void func1(Base &amp;amp;obj) { obj.</description>
     </item>
-    
     <item>
       <title>函数重载及其匹配顺序</title>
       <link>https://devin0x01.github.io/post/cpp/%E5%87%BD%E6%95%B0%E9%87%8D%E8%BD%BD%E5%8F%8A%E5%85%B6%E5%8C%B9%E9%85%8D%E9%A1%BA%E5%BA%8F/</link>
       <pubDate>Sun, 18 Jun 2023 14:05:25 +0800</pubDate>
-      
       <guid>https://devin0x01.github.io/post/cpp/%E5%87%BD%E6%95%B0%E9%87%8D%E8%BD%BD%E5%8F%8A%E5%85%B6%E5%8C%B9%E9%85%8D%E9%A1%BA%E5%BA%8F/</guid>
       <description>1.函数重载 概念：同一个作用域内，同名函数，参数列表不同(参数个数、类型或顺序不同)。
 与返回值类型没有关系。如果函数名和参数列表相同，无论返回值类型是否相同，会编译错误（函数重定义） const是有效的重载。 仅默认参数值不同不是有效的重载。例如 int fun(int a = 0); // void fun(int a = 1); // error: functions that differ only in their return type cannot be overloaded virutal是无效的重载。virtual关键字可有可无，不影响是否是重载函数。 2.函数重载匹配顺序 编译器根据最佳匹配确定调用哪个函数。C++ 编译器遵循以下先后顺序：
 先找参数完全匹配的普通函数（非由模板实例化得到的函数）。 再找参数完全匹配的模板函数。 再找实参经过自动类型转换后能够匹配的普通函数。 如果上面的都找不到，则报错。 template &amp;lt;class T&amp;gt; void fun(T x, T y) { cout &amp;lt;&amp;lt; &amp;#34;fun1&amp;#34; &amp;lt;&amp;lt; endl; } template &amp;lt;class T1, class T2&amp;gt; void fun(T1 x, T2 y) { cout &amp;lt;&amp;lt; &amp;#34;fun2&amp;#34; &amp;lt;&amp;lt; endl; } void fun(int x, int y, int z = 0) { cout &amp;lt;&amp;lt; &amp;#34;fun3&amp;#34; &amp;lt;&amp;lt; endl; } void fun(char x, char y) { cout &amp;lt;&amp;lt; &amp;#34;fun4&amp;#34; &amp;lt;&amp;lt; endl; } int main() { int i1=2, i2=3, i3=5; char c1=&amp;#39;a&amp;#39;, c2=&amp;#39;c&amp;#39;, c3=&amp;#39;d&amp;#39;; double f1=2.</description>
     </item>
-    
     <item>
       <title>调用拷贝构造函数的场景</title>
       <link>https://devin0x01.github.io/post/cpp/%E8%B0%83%E7%94%A8%E6%8B%B7%E8%B4%9D%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0%E7%9A%84%E5%9C%BA%E6%99%AF/</link>
       <pubDate>Sun, 18 Jun 2023 14:05:25 +0800</pubDate>
-      
       <guid>https://devin0x01.github.io/post/cpp/%E8%B0%83%E7%94%A8%E6%8B%B7%E8%B4%9D%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0%E7%9A%84%E5%9C%BA%E6%99%AF/</guid>
       <description>1.默认构造函数 默认构造函数是一个系统生成的，参数列表和函数体都为空的函数。 如果类中声明了默认构造函数（无论是否有参数），编译器便不再会为之生成隐含的构造函数。
 2.析构函数 析构函数的函数列表为空，因此不能实现重载。 可以显式调用析构函数。例如可以通过对象名等进行调用，obj.~A(); 参考文献：显式调用析构函数
@@ -111,12 +95,10 @@ Q3: 基类的析构函数非虚，派生类的析构函数是虚函数。delete�
 3.1 调用拷贝构造函数的3种场景 用一个类的对象去初始化另一个类的对象时 Point a(1, 2); Point b(a); // 调用复制构造函数 Point c = a; // 调用复制构造函数 函数的形参是类对象，当调用函数，进行形参和实参结合时 void fun(Point obj) {} int main() { Point a(1, 2); fun(a); // 调用复制构造函数 } 如果函数的返回值是类对象，当函数执行完成返回调用者时 实际上，由于编译器的优化，可能不会调用。例如：gcc需要指定**-fno-elide-constructors**编译选项才会调用。
 Point fun() { Point a(1, 2); return a; // 调用复制构造函数 } b = fun(); 4.赋值运算符 4.1 注意点 **拷贝构造函数必须以引用的方式传递参数，**基本上都是传常量引用的方式传递函数参数。 赋值运算符函数的返回值类型要声明为该类型的引用，并在函数结束前返回实例自身的的引用（this）*。**只有返回一个引用，才能进行连续赋值。否则，如果函数的返回值是void，则应用该赋值运算符将不能进行连续赋值。假设有3个Person对象：p1、p2、p3，在程序中语句p1=p2=p3将不能通过编译。 关于深拷贝和浅拷贝：当类有指针成员或有动态分配空间，都应实现自定义的拷贝构造函数。提供了拷贝构造函数，最后也实现赋值运算符。 4.2 和拷贝构造函数的区别 区别：拷贝构造函数使用已有的对象创建一个新的对象，赋值运算符是将一个对象的值复制给另一个已存在的对象。区分是调用拷贝构造函数还是赋值运算符，主要是否有新的对象产生。 #include &amp;lt;iostream&amp;gt; using namespace std; class A { public: A(string str) : name(str) { cout &amp;lt;&amp;lt; &amp;#34;construct &amp;#34; &amp;lt;&amp;lt; name &amp;lt;&amp;lt; endl; } // 构造函数 A(const A &amp;amp;other) { // 拷贝构造函数 name = &amp;#34;copy &amp;#34; + other.</description>
     </item>
-    
     <item>
       <title>重载、覆盖、隐藏</title>
       <link>https://devin0x01.github.io/post/cpp/%E9%87%8D%E8%BD%BD%E8%A6%86%E7%9B%96%E9%9A%90%E8%97%8F/</link>
       <pubDate>Sun, 18 Jun 2023 14:05:25 +0800</pubDate>
-      
       <guid>https://devin0x01.github.io/post/cpp/%E9%87%8D%E8%BD%BD%E8%A6%86%E7%9B%96%E9%9A%90%E8%97%8F/</guid>
       <description>C++类层次中的同名函数，有三种关系：
 1.重载**（overload）** 概念：相同的范围（同一个类）中的同名函数，参数列表不同。 1)与返回值类型没有关系。 2)const是有效的重载。 3)virutal是无效的重载。virtual关键字可有可无，不影响是否是重载函数。
@@ -126,6 +108,5 @@ Point fun() { Point a(1, 2); return a; // 调用复制构造函数 } b = fun(); 
 可以使用using声明解决基类成员被隐藏的问题，例如：
 class Base { public: virtual void f(int) { std::cout &amp;lt;&amp;lt; &amp;#34;Base::f\n&amp;#34;; } void g(char) { std::cout &amp;lt;&amp;lt; &amp;#34;Base::g\n&amp;#34;; } void h(int) { std::cout &amp;lt;&amp;lt; &amp;#34;Base::h\n&amp;#34;; } protected: int m; private: int k; }; class Derived : public Base { public: using Base::m; // 此时 m 为public // using Base::k; // error报错 using Base::f; void f(int) { std::cout &amp;lt;&amp;lt; &amp;#34;Derived::f\n&amp;#34;; } // D::f(int) 覆盖 B::f(int) using Base::g; // 不声明的话，需要通过 obj.</description>
     </item>
-    
   </channel>
 </rss>

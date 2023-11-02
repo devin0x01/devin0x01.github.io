@@ -6,12 +6,12 @@
     <description>Recent content in Linux开发 on DEVIN&#39;s BLOG</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 18 Jun 2023 14:05:25 +0800</lastBuildDate><atom:link href="https://devin0x01.github.io/tags/linux%E5%BC%80%E5%8F%91/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 18 Jun 2023 14:05:25 +0800</lastBuildDate>
+    <atom:link href="https://devin0x01.github.io/tags/linux%E5%BC%80%E5%8F%91/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Linux网络编程</title>
       <link>https://devin0x01.github.io/post/linux%E5%BC%80%E5%8F%91/linux%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/</link>
       <pubDate>Sun, 18 Jun 2023 14:05:25 +0800</pubDate>
-      
       <guid>https://devin0x01.github.io/post/linux%E5%BC%80%E5%8F%91/linux%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/</guid>
       <description>查看端口占用情况 netstat -tunlp
 -t (tcp) 仅显示tcp相关选项 -u (udp) 仅显示udp相关选项
@@ -27,6 +27,5 @@ PC1中sever监听127.0.0.1，则PC1中的client可以连上127.0.0.1，192.168.1
 终端特殊字符：EOF 是传统模式下的文件结尾字符（通常是 Ctrl-D）。在一行的开始处输入这个字符会导致在终端上读取输入的进程检测到文件结尾的情况（即，read()返回 0）。如果不在一行的开始处，而在其他地方输入这个字符，那么该字符会立刻导致 read()完成调用，返回这一行中目前为止读取到的字符数。在这两种情况下，EOF 字符本身都不会传递给读取的进程。
 shutdown优雅的断开TCP连接 /* Shut down all or part of the connection open on socket FD. HOW determines what to shut down: SHUT_RD = No more receptions; SHUT_WR = No more transmissions; SHUT_RDWR = No more receptions or transmissions.</description>
     </item>
-    
   </channel>
 </rss>

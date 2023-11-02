@@ -6,21 +6,19 @@
     <description>Recent content in Java on DEVIN&#39;s BLOG</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 18 Jun 2023 14:05:25 +0800</lastBuildDate><atom:link href="https://devin0x01.github.io/tags/java/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 18 Jun 2023 14:05:25 +0800</lastBuildDate>
+    <atom:link href="https://devin0x01.github.io/tags/java/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Java基础</title>
       <link>https://devin0x01.github.io/post/java/java%E5%9F%BA%E7%A1%80/</link>
       <pubDate>Sun, 18 Jun 2023 14:05:25 +0800</pubDate>
-      
       <guid>https://devin0x01.github.io/post/java/java%E5%9F%BA%E7%A1%80/</guid>
       <description>数据类型 INFINITY和NaN // INFINITY定义 public static final double POSITIVE_INFINITY = 1.0 / 0.0; public static final double NEGATIVE_INFINITY = -1.0 / 0.0; public static final float POSITIVE_INFINITY = 1.0f / 0.0f; public static final float NEGATIVE_INFINITY = -1.0f / 0.0f; // 无穷大*0=NAN System.out.println(Float.POSITIVE_INFINITY * 0); // output: NAN // 无穷大 System.out.println((Float.POSITIVE_INFINITY / 0) == Float.POSITIVE_INFINITY); // output: true System.out.println(Float.POSITIVE_INFINITY == (Float.POSITIVE_INFINITY + 10000)); // output: true System.out.println(Float.POSITIVE_INFINITY == (Float.POSITIVE_INFINITY / 10000)); // output: true // 判断是否为INFINITY System.</description>
     </item>
-    
     <item>
       <title>字符集与编码</title>
       <link>https://devin0x01.github.io/post/java/%E5%AD%97%E7%AC%A6%E9%9B%86%E4%B8%8E%E7%BC%96%E7%A0%81/</link>
       <pubDate>Sun, 18 Jun 2023 14:05:25 +0800</pubDate>
-      
       <guid>https://devin0x01.github.io/post/java/%E5%AD%97%E7%AC%A6%E9%9B%86%E4%B8%8E%E7%BC%96%E7%A0%81/</guid>
       <description>术语 字符(character)是具有语义值的文本的最小单位。 字符集(character set)是可能由多种语言使用的字符的集合。例：拉丁语字符集由英语和大多数欧洲语言使用，但希腊语字符集仅由希腊语使用。 编码字符集(coded character set)是一个字符集，其中每个字符对应于一个唯一的数字。 一个编码字符集的编码点(code point)是字符集中或编码空间中允许的任何值。 编码空间(code space)是一个整数范围，其值为编码点。 编码单元(code unit)是一个位序列，用于在给定的编码表单中对库的每个字符进行编码。有的文档中称之为编码值(code value)。
 编码单元例子：US-ASCII: 7 bits，UTF-8, GB18030: 8 bits，UTF-16: 16 bits，UTF-32: 32 bits
@@ -31,6 +29,5 @@ Java中的编码 首先Java的String使用的编码是Unicode，但是当String�
 所以Java里面String是不带编码格式的，而String.toByteArray(String charsetName)得到的byteArray是带编码格式的，格式就是你传入的charsetName，我们不妨把toByteArray的这个过程叫做==编码==；另外，new String(byte bytes[], String charsetName)是把一个byte数组(带编码格式)以charsetName指定的编码格式翻译为一个不带编码格式的String对象，我们不妨把这个过程叫==解码==。
 String(byte[] bytes)通过使用平台的默认字符集解码指定的 byte 数组，构造一个新的 String。 String(byte[] bytes, Charset charset)通过使用指定的 charset 解码指定的 byte 数组，构造一个新的 String。</description>
     </item>
-    
   </channel>
 </rss>
