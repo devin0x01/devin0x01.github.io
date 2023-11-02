@@ -6,8 +6,15 @@
     <description>Recent content on DEVIN&#39;s BLOG</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 29 Aug 2023 16:05:25 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 02 Nov 2023 01:05:25 +0800</lastBuildDate>
     <atom:link href="https://devin0x01.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>模板例子</title>
+      <link>https://devin0x01.github.io/post/cpp/%E6%A8%A1%E6%9D%BF%E4%BE%8B%E5%AD%90/</link>
+      <pubDate>Thu, 02 Nov 2023 01:05:25 +0800</pubDate>
+      <guid>https://devin0x01.github.io/post/cpp/%E6%A8%A1%E6%9D%BF%E4%BE%8B%E5%AD%90/</guid>
+      <description>#include &amp;lt;vector&amp;gt; #include &amp;lt;type_traits&amp;gt; using namespace std; class AA {}; class BB {}; class Test { public: template &amp;lt;class T, template &amp;lt;class&amp;gt; class Container, std::enable_if_t&amp;lt;std::is_same_v&amp;lt;T, int&amp;gt;&amp;gt; * = nullptr&amp;gt; void f1(Container&amp;lt;T&amp;gt; &amp;amp;ret); template&amp;lt;template&amp;lt;class&amp;gt; class Container&amp;gt; void f2(Container&amp;lt;AA&amp;gt; *); template&amp;lt;template&amp;lt;class&amp;gt; class Container&amp;gt; void f3(Container&amp;lt;BB&amp;gt; *); }; template &amp;lt;class T, template &amp;lt;class&amp;gt; class Container, std::enable_if_t&amp;lt;std::is_same_v&amp;lt;T, int&amp;gt;&amp;gt; * = nullptr&amp;gt; void Test::f1(Container&amp;lt;T&amp;gt; &amp;amp;ret) { cout &amp;lt;&amp;lt; __func__ &amp;lt;&amp;lt; std::endl; ret.push_back(1); // if constexpr (std::is_same_v&amp;lt;int, T&amp;gt;) { // std::cout &amp;lt;&amp;lt; &amp;#34;inst&amp;#34; &amp;lt;&amp;lt; std::endl; // } } template &amp;lt;template&amp;lt;class&amp;gt; class Container&amp;gt; void Test::f2(Container&amp;lt;AA&amp;gt; *c) { std::cout &amp;lt;&amp;lt; __func__ &amp;lt;&amp;lt; std::endl; } template &amp;lt;template&amp;lt;class&amp;gt; class Container&amp;gt; void Test::f3(Container&amp;lt;BB&amp;gt; *c) { std::cout &amp;lt;&amp;lt; __func__ &amp;lt;&amp;lt; std::endl; } struct X {enum { value1 = false, value2 = true };}; template&amp;lt;class T, std::enable_if_t&amp;lt;T::value2, int&amp;gt; = 0&amp;gt; void func() { std::cout &amp;lt;&amp;lt; __func__ &amp;lt;&amp;lt; std::endl; } int main() { vector&amp;lt;int&amp;gt; vec(10); Test *test = new Test; test-&amp;gt;template f1&amp;lt;int, std::vector&amp;gt;(vec); test-&amp;gt;template f2&amp;lt;std::vector&amp;gt;(nullptr); test-&amp;gt;template f3&amp;lt;std::vector&amp;gt;(nullptr); func&amp;lt;X&amp;gt;(); return 0; } </description>
+    </item>
     <item>
       <title>clang-format配置教程</title>
       <link>https://devin0x01.github.io/post/%E5%B7%A5%E5%85%B7/clang-format%E9%85%8D%E7%BD%AE%E6%95%99%E7%A8%8B/</link>

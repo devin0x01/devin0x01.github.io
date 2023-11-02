@@ -154,7 +154,7 @@
                 </path>
               </svg>
               Posts
-              <span class="Counter">33</span>
+              <span class="Counter">34</span>
             </a>
           </nav>
           <div class="profile-color-modes js-promo-color-modes-banner-profile isInitialToggle">
@@ -478,7 +478,7 @@
         </path>
       </svg>
       Posts
-      <span class="Counter ">33</span>
+      <span class="Counter ">34</span>
     </a>
   </nav>
 </div>
@@ -491,7 +491,7 @@
       
       <div class="TableObject border-bottom border-gray-light py-3">
         <div class="user-repo-search-results-summary TableObject-item TableObject-item--primary v-align-top">
-          <strong>10</strong>
+          <strong>11</strong>
           results
           for <strong>C&#43;&#43;</strong>
         </div>
@@ -509,6 +509,43 @@
       </div>
       
       <ul>
+        
+        <li class="col-12 d-flex width-full py-4 border-bottom color-border-secondary public source">
+          <div class="col-12 d-inline-block">
+            <div class="d-inline-block mb-1">
+              <h3 class="wb-break-all">
+                <a href="https://devin0x01.github.io/post/cpp/%E6%A8%A1%E6%9D%BF%E4%BE%8B%E5%AD%90/">模板例子</a>
+              </h3>
+            </div>
+
+            <div>
+              <div class="col-12 d-inline-block text-gray mb-2 pr-4">
+                #include &lt;vector&gt; #include &lt;type_traits&gt; using namespace std; class AA {}; class BB {}; class Test { public: template &lt;class T, template &lt;class&gt; class Container, std::enable_if_t&lt;std::is_same_v&lt;T, int&gt;&gt; * = nullptr&gt; void f1(Container&lt;T&gt; &amp;ret); template&lt;template&lt;class&gt; class Container&gt; void f2(Container&lt;AA&gt; *); template&lt;template&lt;class&gt; class Container&gt; void f3(Container&lt;BB&gt; *); }; template &lt;class T, template &lt;class&gt; class Container, std::enable_if_t&lt;std::is_same_v&lt;T, int&gt;&gt; * = nullptr&gt; void Test::f1(Container&lt;T&gt; &amp;ret) { cout &lt;&lt; __func__ &lt;&lt; std::endl; ret.push_back(1); // if constexpr (std::is_same_v&lt;int, T&gt;) { // std::cout &lt;&lt; &#34;inst&#34; &lt;&lt; std::endl; // } } template &lt;template&lt;class&gt; class Container&gt; void Test::f2(Container&lt;AA&gt; *c) { std::cout &lt;&lt; __func__ &lt;&lt; std::endl; } template &lt;template&lt;class&gt; class Container&gt; void Test::f3(Container&lt;BB&gt; *c) { std::cout &lt;&lt; __func__ &lt;&lt; std::endl; } struct X {enum { value1 = false, value2 = true };}; template&lt;class T, std::enable_if_t&lt;T::value2, int&gt; = 0&gt; void func() { std::cout &lt;&lt; __func__ &lt;&lt; std::endl; } int main() { vector&lt;int&gt; vec(10); Test *test = new Test; test-&gt;template f1&lt;int, std::vector&gt;(vec); test-&gt;template f2&lt;std::vector&gt;(nullptr); test-&gt;template f3&lt;std::vector&gt;(nullptr); func&lt;X&gt;(); return 0; } 
+              </div>
+            </div>
+
+            <div class="f6 text-gray mt-2">
+              
+              
+              <a class="muted-link mr-3" href="/tags/c&#43;&#43;">
+                <svg class="octicon octicon-tag" viewBox="0 0 16 16" version="1.1" width="16" height="16">
+                  <path fill-rule="evenodd"
+                    d="M2.5 7.775V2.75a.25.25 0 01.25-.25h5.025a.25.25 0 01.177.073l6.25 6.25a.25.25 0 010 .354l-5.025 5.025a.25.25 0 01-.354 0l-6.25-6.25a.25.25 0 01-.073-.177zm-1.5 0V2.75C1 1.784 1.784 1 2.75 1h5.025c.464 0 .91.184 1.238.513l6.25 6.25a1.75 1.75 0 010 2.474l-5.026 5.026a1.75 1.75 0 01-2.474 0l-6.25-6.25A1.75 1.75 0 011 7.775zM6 5a1 1 0 100 2 1 1 0 000-2z">
+                  </path>
+                </svg>
+                C&#43;&#43;
+              </a>
+              
+              
+
+              Created
+              <relative-time datetime=" Thu, 02 Nov 2023 01:05:25 &#43;0800" class="no-wrap"
+                title=" Thu, 02 Nov 2023 01:05:25 &#43;0800">
+                Thu, 02 Nov 2023 01:05:25 &#43;0800
+              </relative-time>
+            </div>
+          </div>
+        </li>
         
         <li class="col-12 d-flex width-full py-4 border-bottom color-border-secondary public source">
           <div class="col-12 d-inline-block">
@@ -867,49 +904,6 @@ Point fun() { Point a(1, 2); return a; // 调用复制构造函数 } b = fun(); 
           </div>
         </li>
         
-        <li class="col-12 d-flex width-full py-4 border-bottom color-border-secondary public source">
-          <div class="col-12 d-inline-block">
-            <div class="d-inline-block mb-1">
-              <h3 class="wb-break-all">
-                <a href="https://devin0x01.github.io/post/cpp/%E9%87%8D%E8%BD%BD%E8%A6%86%E7%9B%96%E9%9A%90%E8%97%8F/">重载、覆盖、隐藏</a>
-              </h3>
-            </div>
-
-            <div>
-              <div class="col-12 d-inline-block text-gray mb-2 pr-4">
-                C++类层次中的同名函数，有三种关系：
-1.重载**（overload）** 概念：相同的范围（同一个类）中的同名函数，参数列表不同。 1)与返回值类型没有关系。 2)const是有效的重载。 3)virutal是无效的重载。virtual关键字可有可无，不影响是否是重载函数。
-2.重写、覆盖**（override）** 概念：在派生类中覆盖基类中的同名函数，要求 1)基类函数必须是虚函数 2)与基类的虚函数有相同的参数列表 3)与基类的虚函数有相同的返回类型、或者满足赋值兼容规则的指针/引用类型返回值(见下面的例子)。
-以下情况不能实现多态：同名函数缺省参数不一致、同名函数用const修饰
-3.隐藏**（hide，oversee）** 概念：隐藏指在某些情况下，派生类中的函数屏蔽了基类中的同名函数。这些情况包括两个函数参数相同，但是基类不是虚函数。&mdash;（参数不同可以实现重载） 区别：和覆盖的区别在于基类函数是否是虚函数。
-可以使用using声明解决基类成员被隐藏的问题，例如：
-class Base { public: virtual void f(int) { std::cout &lt;&lt; &#34;Base::f\n&#34;; } void g(char) { std::cout &lt;&lt; &#34;Base::g\n&#34;; } void h(int) { std::cout &lt;&lt; &#34;Base::h\n&#34;; } protected: int m; private: int k; }; class Derived : public Base { public: using Base::m; // 此时 m 为public // using Base::k; // error报错 using Base::f; void f(int) { std::cout &lt;&lt; &#34;Derived::f\n&#34;; } // D::f(int) 覆盖 B::f(int) using Base::g; // 不声明的话，需要通过 obj.
-              </div>
-            </div>
-
-            <div class="f6 text-gray mt-2">
-              
-              
-              <a class="muted-link mr-3" href="/tags/c&#43;&#43;">
-                <svg class="octicon octicon-tag" viewBox="0 0 16 16" version="1.1" width="16" height="16">
-                  <path fill-rule="evenodd"
-                    d="M2.5 7.775V2.75a.25.25 0 01.25-.25h5.025a.25.25 0 01.177.073l6.25 6.25a.25.25 0 010 .354l-5.025 5.025a.25.25 0 01-.354 0l-6.25-6.25a.25.25 0 01-.073-.177zm-1.5 0V2.75C1 1.784 1.784 1 2.75 1h5.025c.464 0 .91.184 1.238.513l6.25 6.25a1.75 1.75 0 010 2.474l-5.026 5.026a1.75 1.75 0 01-2.474 0l-6.25-6.25A1.75 1.75 0 011 7.775zM6 5a1 1 0 100 2 1 1 0 000-2z">
-                  </path>
-                </svg>
-                C&#43;&#43;
-              </a>
-              
-              
-
-              Created
-              <relative-time datetime=" Sun, 18 Jun 2023 14:05:25 &#43;0800" class="no-wrap"
-                title=" Sun, 18 Jun 2023 14:05:25 &#43;0800">
-                Sun, 18 Jun 2023 14:05:25 &#43;0800
-              </relative-time>
-            </div>
-          </div>
-        </li>
-        
       </ul>
       <div class="paginate-container">
         <div class="BtnGroup">
@@ -917,7 +911,7 @@ class Base { public: virtual void f(int) { std::cout &lt;&lt; &#34;Base::f\n&#34
           <button class="btn btn-outline BtnGroup-item" disabled="disabled">Previous</button>
           
           
-          <button class="btn btn-outline BtnGroup-item" disabled="disabled">Next</button>
+          <a rel="nofollow" class="btn btn-outline BtnGroup-item" href="/tags/c&#43;&#43;/page/2/">Next</a>
           
         </div>
       </div>
