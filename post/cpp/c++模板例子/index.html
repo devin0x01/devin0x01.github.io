@@ -10,7 +10,7 @@
     <link rel="stylesheet" href='https://devin0x01.github.io/css/light.css' />
     <link rel="stylesheet" href='https://devin0x01.github.io/css/dark.css' />
     <link rel="stylesheet" href='https://devin0x01.github.io/css/syntax.css' />
-    <title>模板例子 - DEVIN&#39;s BLOG</title>
+    <title>C&#43;&#43;模板例子 - DEVIN&#39;s BLOG</title>
     
     <link rel="icon" type="image/x-icon" href='/images/github.png'>
     
@@ -22,11 +22,11 @@
 <meta name="keywords"
   content='blog, google analytics' />
 <meta name="robots" content="noodp" />
-<link rel="canonical" href="https://devin0x01.github.io/post/cpp/%E6%A8%A1%E6%9D%BF%E4%BE%8B%E5%AD%90/" />
+<link rel="canonical" href="https://devin0x01.github.io/post/cpp/c&#43;&#43;%E6%A8%A1%E6%9D%BF%E4%BE%8B%E5%AD%90/" />
 
 
 <meta name="twitter:card" content="summary" />
-<meta name="twitter:title" content="模板例子 - DEVIN&#39;s BLOG" />
+<meta name="twitter:title" content="C&#43;&#43;模板例子 - DEVIN&#39;s BLOG" />
 <meta name="twitter:description"
   content="#include &amp;lt;vector&amp;gt; #include &amp;lt;type_traits&amp;gt; using namespace std; class AA {}; class BB {}; class Test { public: template &amp;lt;class T, template &amp;lt;class&amp;gt; class Container, std::enable_if_t&amp;lt;std::is_same_v&amp;lt;T, int&amp;gt;&amp;gt; * = nullptr&amp;gt; void f1(Container&amp;lt;T&amp;gt; &amp;amp;ret); template&amp;lt;template&amp;lt;class&amp;gt; class Container&amp;gt; void f2(Container&amp;lt;AA&amp;gt; *); template&amp;lt;template&amp;lt;class&amp;gt; class Container&amp;gt; void f3(Container&amp;lt;BB&amp;gt; *); }; template &amp;lt;class T, template &amp;lt;class&amp;gt; class Container, std::enable_if_t&amp;lt;std::is_same_v&amp;lt;T, int&amp;gt;&amp;gt; * = nullptr&amp;gt; void Test::f1(Container&amp;lt;T&amp;gt; &amp;amp;ret) { cout &amp;lt;&amp;lt; __func__ &amp;lt;&amp;lt; std::endl; ret.push_back(1); // if constexpr (std::is_same_v&amp;lt;int, T&amp;gt;) { // std::cout &amp;lt;&amp;lt; &amp;#34;inst&amp;#34; &amp;lt;&amp;lt; std::endl; // } } template &amp;lt;template&amp;lt;class&amp;gt; class Container&amp;gt; void Test::f2(Container&amp;lt;AA&amp;gt; *c) { std::cout &amp;lt;&amp;lt; __func__ &amp;lt;&amp;lt; std::endl; } template &amp;lt;template&amp;lt;class&amp;gt; class Container&amp;gt; void Test::f3(Container&amp;lt;BB&amp;gt; *c) { std::cout &amp;lt;&amp;lt; __func__ &amp;lt;&amp;lt; std::endl; } struct X {enum { value1 = false, value2 = true };}; template&amp;lt;class T, std::enable_if_t&amp;lt;T::value2, int&amp;gt; = 0&amp;gt; void func() { std::cout &amp;lt;&amp;lt; __func__ &amp;lt;&amp;lt; std::endl; } int main() { vector&amp;lt;int&amp;gt; vec(10); Test *test = new Test; test-&amp;gt;template f1&amp;lt;int, std::vector&amp;gt;(vec); test-&amp;gt;template f2&amp;lt;std::vector&amp;gt;(nullptr); test-&amp;gt;template f3&amp;lt;std::vector&amp;gt;(nullptr); func&amp;lt;X&amp;gt;(); return 0; } " />
 <meta name="twitter:site" content="https://devin0x01.github.io" />
@@ -36,11 +36,11 @@
 
 
 <meta property="og:type" content="article" />
-<meta property="og:title" content="模板例子 - DEVIN&#39;s BLOG">
+<meta property="og:title" content="C&#43;&#43;模板例子 - DEVIN&#39;s BLOG">
 <meta property="og:description"
   content="#include &amp;lt;vector&amp;gt; #include &amp;lt;type_traits&amp;gt; using namespace std; class AA {}; class BB {}; class Test { public: template &amp;lt;class T, template &amp;lt;class&amp;gt; class Container, std::enable_if_t&amp;lt;std::is_same_v&amp;lt;T, int&amp;gt;&amp;gt; * = nullptr&amp;gt; void f1(Container&amp;lt;T&amp;gt; &amp;amp;ret); template&amp;lt;template&amp;lt;class&amp;gt; class Container&amp;gt; void f2(Container&amp;lt;AA&amp;gt; *); template&amp;lt;template&amp;lt;class&amp;gt; class Container&amp;gt; void f3(Container&amp;lt;BB&amp;gt; *); }; template &amp;lt;class T, template &amp;lt;class&amp;gt; class Container, std::enable_if_t&amp;lt;std::is_same_v&amp;lt;T, int&amp;gt;&amp;gt; * = nullptr&amp;gt; void Test::f1(Container&amp;lt;T&amp;gt; &amp;amp;ret) { cout &amp;lt;&amp;lt; __func__ &amp;lt;&amp;lt; std::endl; ret.push_back(1); // if constexpr (std::is_same_v&amp;lt;int, T&amp;gt;) { // std::cout &amp;lt;&amp;lt; &amp;#34;inst&amp;#34; &amp;lt;&amp;lt; std::endl; // } } template &amp;lt;template&amp;lt;class&amp;gt; class Container&amp;gt; void Test::f2(Container&amp;lt;AA&amp;gt; *c) { std::cout &amp;lt;&amp;lt; __func__ &amp;lt;&amp;lt; std::endl; } template &amp;lt;template&amp;lt;class&amp;gt; class Container&amp;gt; void Test::f3(Container&amp;lt;BB&amp;gt; *c) { std::cout &amp;lt;&amp;lt; __func__ &amp;lt;&amp;lt; std::endl; } struct X {enum { value1 = false, value2 = true };}; template&amp;lt;class T, std::enable_if_t&amp;lt;T::value2, int&amp;gt; = 0&amp;gt; void func() { std::cout &amp;lt;&amp;lt; __func__ &amp;lt;&amp;lt; std::endl; } int main() { vector&amp;lt;int&amp;gt; vec(10); Test *test = new Test; test-&amp;gt;template f1&amp;lt;int, std::vector&amp;gt;(vec); test-&amp;gt;template f2&amp;lt;std::vector&amp;gt;(nullptr); test-&amp;gt;template f3&amp;lt;std::vector&amp;gt;(nullptr); func&amp;lt;X&amp;gt;(); return 0; } " />
-<meta property="og:url" content="https://devin0x01.github.io/post/cpp/%E6%A8%A1%E6%9D%BF%E4%BE%8B%E5%AD%90/" />
-<meta property="og:site_name" content="模板例子" />
+<meta property="og:url" content="https://devin0x01.github.io/post/cpp/c&#43;&#43;%E6%A8%A1%E6%9D%BF%E4%BE%8B%E5%AD%90/" />
+<meta property="og:site_name" content="C&#43;&#43;模板例子" />
 <meta property="og:image"
   content="https://devin0x01.github.io">
 <meta property="og:image:width" content="2048">
@@ -141,7 +141,7 @@
                   <span class="author">
                     <a href="https://devin0x01.github.io">DEVIN</a></span><span
                     class="path-divider">/</span><strong class="css-truncate-target mr-1" style="max-width: 410px"><a
-                      href="https://devin0x01.github.io/post/cpp/%E6%A8%A1%E6%9D%BF%E4%BE%8B%E5%AD%90/">模板例子</a></strong>
+                      href="https://devin0x01.github.io/post/cpp/c&#43;&#43;%E6%A8%A1%E6%9D%BF%E4%BE%8B%E5%AD%90/">C&#43;&#43;模板例子</a></strong>
                 </h1>
                 <div class="note m-0">
                   Created <relative-time datetime="Thu, 02 Nov 2023 01:05:25 &#43;0800"
@@ -150,9 +150,9 @@
 
                   
                   <span class="file-info-divider"></span>
-                  Modified <relative-time datetime="Thu, 02 Nov 2023 06:07:53 &#43;0000"
+                  Modified <relative-time datetime="Thu, 11 Jan 2024 08:12:18 &#43;0000"
                     class="no-wrap">
-                    Thu, 02 Nov 2023 06:07:53 &#43;0000</relative-time>
+                    Thu, 11 Jan 2024 08:12:18 &#43;0000</relative-time>
                   
                 </div>
               </div>

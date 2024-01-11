@@ -27,12 +27,7 @@
       <link>https://devin0x01.github.io/post/%E7%BC%96%E8%AF%91%E8%B0%83%E8%AF%95/%E5%85%B1%E4%BA%AB%E5%BA%93%E6%90%9C%E7%B4%A2%E8%B7%AF%E5%BE%84/</link>
       <pubDate>Sun, 18 Jun 2023 14:05:25 +0800</pubDate>
       <guid>https://devin0x01.github.io/post/%E7%BC%96%E8%AF%91%E8%B0%83%E8%AF%95/%E5%85%B1%E4%BA%AB%E5%BA%93%E6%90%9C%E7%B4%A2%E8%B7%AF%E5%BE%84/</guid>
-      <description>基本原理 -L编译选项是编译期间使用
-LD_LIBRARY_PATH环境变量是运行期间使用，可以用来指定so的加载路径，并且优先级高于系统默认的。
-RPATH和RUNPATH是ELF格式里面的一个数据，rpath编译选项实际上是在可执行文件中加入了RUNPATH或者RPATH。
-小结一下一个ELF文件自身加载so的情况(不可信，仅供参考）：
-其实这三者的关系概括起来没有几点：
-LD_LIBRARY_PATH是个环境变量，优先级高于系统默认的。 RPATH是ELF格式里面的一个数据，他的优先级比LD_LIBRARY_PATH还要高 RUNPATH很特殊，如果他出现了RPATH就躲起来了，LD_LIBRARY_PATH 又成了首选?? ELF 中 RPATH ELF 中 RUNPATH LD_LIBRARY_PATH 变量 尝试加载目录的顺序 未设置 未设置 未设置 /lib =&amp;gt; /usr/lib 未设置 未设置 设置 ${LD_LIBRARY_PATH} =&amp;gt; /lib =&amp;gt; /usr/lib 设置 未设置 未设置 ${RPATH} =&amp;gt; /lib =&amp;gt; /usr/lib 设置 未设置 设置 ${RPATH} =&amp;gt; ${LD_LIBRARY_PATH} =&amp;gt; /lib =&amp;gt; /usr/lib 设置 或 未设置 设置 设置 ${LD_LIBRARY_PATH} =&amp;gt; ${RUN_PATH} =&amp;gt; /lib =&amp;gt; /usr/lib 设置 或 未设置 设置 未设置 ${RUN_PATH} =&amp;gt; /lib =&amp;gt; /usr/lib LD_LIBRARY_PATH 例子 // a.</description>
+      <description>基本原理 -L编译选项是编译期间使用&#xA;LD_LIBRARY_PATH环境变量是运行期间使用，可以用来指定so的加载路径，并且优先级高于系统默认的。&#xA;RPATH和RUNPATH是ELF格式里面的一个数据，rpath编译选项实际上是在可执行文件中加入了RUNPATH或者RPATH。&#xA;小结一下一个ELF文件自身加载so的情况(不可信，仅供参考）：&#xA;其实这三者的关系概括起来没有几点：&#xA;LD_LIBRARY_PATH是个环境变量，优先级高于系统默认的。 RPATH是ELF格式里面的一个数据，他的优先级比LD_LIBRARY_PATH还要高 RUNPATH很特殊，如果他出现了RPATH就躲起来了，LD_LIBRARY_PATH 又成了首选?? ELF 中 RPATH ELF 中 RUNPATH LD_LIBRARY_PATH 变量 尝试加载目录的顺序 未设置 未设置 未设置 /lib =&amp;gt; /usr/lib 未设置 未设置 设置 ${LD_LIBRARY_PATH} =&amp;gt; /lib =&amp;gt; /usr/lib 设置 未设置 未设置 ${RPATH} =&amp;gt; /lib =&amp;gt; /usr/lib 设置 未设置 设置 ${RPATH} =&amp;gt; ${LD_LIBRARY_PATH} =&amp;gt; /lib =&amp;gt; /usr/lib 设置 或 未设置 设置 设置 ${LD_LIBRARY_PATH} =&amp;gt; ${RUN_PATH} =&amp;gt; /lib =&amp;gt; /usr/lib 设置 或 未设置 设置 未设置 ${RUN_PATH} =&amp;gt; /lib =&amp;gt; /usr/lib LD_LIBRARY_PATH 例子 // a.</description>
     </item>
   </channel>
 </rss>

@@ -154,7 +154,7 @@
                 </path>
               </svg>
               Posts
-              <span class="Counter">34</span>
+              <span class="Counter">35</span>
             </a>
           </nav>
           <div class="profile-color-modes js-promo-color-modes-banner-profile isInitialToggle">
@@ -478,7 +478,7 @@
         </path>
       </svg>
       Posts
-      <span class="Counter ">34</span>
+      <span class="Counter ">35</span>
     </a>
   </nav>
 </div>
@@ -658,6 +658,43 @@
         
       
       <ul>
+        
+        <li class="col-12 d-flex width-full py-4 border-bottom color-border-secondary public source">
+          <div class="col-12 d-inline-block">
+            <div class="d-inline-block mb-1">
+              <h3 class="wb-break-all">
+                <a href="https://devin0x01.github.io/post/%E7%BC%96%E8%AF%91%E8%B0%83%E8%AF%95/cgdb%E9%85%8D%E7%BD%AE/">cgdb配置</a>
+              </h3>
+            </div>
+
+            <div>
+              <div class="col-12 d-inline-block text-gray mb-2 pr-4">
+                1.安装 git clone git://github.com/cgdb/cgdb.git cd cgdb ./autogen.sh ./configure --prefix=/usr/local make sudo make install # 报错解决方法 sudo apt-get install automake libncurses5-dev flex texinfo libreadline-dev 2.配置 vim ~/.cgdb/cgdbrc set ignorecaseset ts=4 set wso=vertical set eld=shortarrow set hls map &lt;F9&gt; :until&lt;cr&gt; 3.快捷键 F5 - Send a run command to GDB. F6 - Send a continue command to GDB. F7 - Send a finish command to GDB. F8 - Send a next command to GDB.
+              </div>
+            </div>
+
+            <div class="f6 text-gray mt-2">
+              
+              
+              <a class="muted-link mr-3" href="/tags/%E7%BC%96%E8%AF%91%E8%B0%83%E8%AF%95">
+                <svg class="octicon octicon-tag" viewBox="0 0 16 16" version="1.1" width="16" height="16">
+                  <path fill-rule="evenodd"
+                    d="M2.5 7.775V2.75a.25.25 0 01.25-.25h5.025a.25.25 0 01.177.073l6.25 6.25a.25.25 0 010 .354l-5.025 5.025a.25.25 0 01-.354 0l-6.25-6.25a.25.25 0 01-.073-.177zm-1.5 0V2.75C1 1.784 1.784 1 2.75 1h5.025c.464 0 .91.184 1.238.513l6.25 6.25a1.75 1.75 0 010 2.474l-5.026 5.026a1.75 1.75 0 01-2.474 0l-6.25-6.25A1.75 1.75 0 011 7.775zM6 5a1 1 0 100 2 1 1 0 000-2z">
+                  </path>
+                </svg>
+                编译调试
+              </a>
+              
+              
+
+              Created
+              <relative-time datetime=" Sun, 18 Jun 2023 14:05:25 &#43;0800" class="no-wrap"
+                title=" Sun, 18 Jun 2023 14:05:25 &#43;0800">
+                Sun, 18 Jun 2023 14:05:25 &#43;0800
+              </relative-time>
+            </div>
+          </div>
+        </li>
         
         <li class="col-12 d-flex width-full py-4 border-bottom color-border-secondary public source">
           <div class="col-12 d-inline-block">
@@ -998,45 +1035,6 @@ LD_LIBRARY_PATH是个环境变量，优先级高于系统默认的。 RPATH是EL
                   </path>
                 </svg>
                 编译调试
-              </a>
-              
-              
-
-              Created
-              <relative-time datetime=" Sun, 18 Jun 2023 14:05:25 &#43;0800" class="no-wrap"
-                title=" Sun, 18 Jun 2023 14:05:25 &#43;0800">
-                Sun, 18 Jun 2023 14:05:25 &#43;0800
-              </relative-time>
-            </div>
-          </div>
-        </li>
-        
-        <li class="col-12 d-flex width-full py-4 border-bottom color-border-secondary public source">
-          <div class="col-12 d-inline-block">
-            <div class="d-inline-block mb-1">
-              <h3 class="wb-break-all">
-                <a href="https://devin0x01.github.io/post/cpp/%E5%87%BD%E6%95%B0%E9%87%8D%E8%BD%BD%E5%8F%8A%E5%85%B6%E5%8C%B9%E9%85%8D%E9%A1%BA%E5%BA%8F/">函数重载及其匹配顺序</a>
-              </h3>
-            </div>
-
-            <div>
-              <div class="col-12 d-inline-block text-gray mb-2 pr-4">
-                1.函数重载 概念：同一个作用域内，同名函数，参数列表不同(参数个数、类型或顺序不同)。
-与返回值类型没有关系。如果函数名和参数列表相同，无论返回值类型是否相同，会编译错误（函数重定义） const是有效的重载。 仅默认参数值不同不是有效的重载。例如 int fun(int a = 0); // void fun(int a = 1); // error: functions that differ only in their return type cannot be overloaded virutal是无效的重载。virtual关键字可有可无，不影响是否是重载函数。 2.函数重载匹配顺序 编译器根据最佳匹配确定调用哪个函数。C++ 编译器遵循以下先后顺序：
-先找参数完全匹配的普通函数（非由模板实例化得到的函数）。 再找参数完全匹配的模板函数。 再找实参经过自动类型转换后能够匹配的普通函数。 如果上面的都找不到，则报错。 template &lt;class T&gt; void fun(T x, T y) { cout &lt;&lt; &#34;fun1&#34; &lt;&lt; endl; } template &lt;class T1, class T2&gt; void fun(T1 x, T2 y) { cout &lt;&lt; &#34;fun2&#34; &lt;&lt; endl; } void fun(int x, int y, int z = 0) { cout &lt;&lt; &#34;fun3&#34; &lt;&lt; endl; } void fun(char x, char y) { cout &lt;&lt; &#34;fun4&#34; &lt;&lt; endl; } int main() { int i1=2, i2=3, i3=5; char c1=&#39;a&#39;, c2=&#39;c&#39;, c3=&#39;d&#39;; double f1=2.
-              </div>
-            </div>
-
-            <div class="f6 text-gray mt-2">
-              
-              
-              <a class="muted-link mr-3" href="/tags/c&#43;&#43;">
-                <svg class="octicon octicon-tag" viewBox="0 0 16 16" version="1.1" width="16" height="16">
-                  <path fill-rule="evenodd"
-                    d="M2.5 7.775V2.75a.25.25 0 01.25-.25h5.025a.25.25 0 01.177.073l6.25 6.25a.25.25 0 010 .354l-5.025 5.025a.25.25 0 01-.354 0l-6.25-6.25a.25.25 0 01-.073-.177zm-1.5 0V2.75C1 1.784 1.784 1 2.75 1h5.025c.464 0 .91.184 1.238.513l6.25 6.25a1.75 1.75 0 010 2.474l-5.026 5.026a1.75 1.75 0 01-2.474 0l-6.25-6.25A1.75 1.75 0 011 7.775zM6 5a1 1 0 100 2 1 1 0 000-2z">
-                  </path>
-                </svg>
-                C&#43;&#43;
               </a>
               
               

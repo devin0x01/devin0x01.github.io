@@ -13,24 +13,14 @@
       <link>https://devin0x01.github.io/post/linux%E8%BF%90%E7%BB%B4/docker%E5%86%85%E6%98%BE%E7%A4%BA%E5%9B%BE%E5%BD%A2%E7%95%8C%E9%9D%A2/</link>
       <pubDate>Fri, 28 Jul 2023 16:05:25 +0800</pubDate>
       <guid>https://devin0x01.github.io/post/linux%E8%BF%90%E7%BB%B4/docker%E5%86%85%E6%98%BE%E7%A4%BA%E5%9B%BE%E5%BD%A2%E7%95%8C%E9%9D%A2/</guid>
-      <description>关于X11 x(7) - Linux man page
-Cygwin系列（十二）：了解X - 知乎
-X11采用了C/S的架构，在其设计下，整个图形视窗系统主要分为3个部分：
-1.X Server（X服务器）。X Server一方面负责和设备驱动交互，监听显示器和键盘鼠标，另一方面响应X Client需求传递键盘、鼠标事件、（通过设备驱动）绘制图形文字等。反直觉之一，X Server运行在本地。
-2.X Client（X客户端）。X Client也叫X应用程序，负责实现程序逻辑，在收到设备事件后计算出绘图数据，由于本身没有绘制能力，只能向X Server发送绘制请求和绘图数据，告诉X Server在哪里绘制一个什么样的图形。X Client可以和X Server在同一个主机上，也可以通过TCP/IP网络连接。
-3.Window Manager（窗口管理器，简称WM），或者叫合成器（Compositor）。多个X Client向X Server发送绘制请求时，各X Client程序并不知道彼此的存在，绘制图形出现重叠、颜色干扰等问题是大概率事件，这就需要一个管理者统一协调，即Window Manager，它掌管各X Client的Window（窗口）视觉外观，如形状、排列、移动、重叠渲染等。反直觉之二，Window Manager并非X Server的一部分，而是一个特殊的X Client程序。
-3个部分， X Server是整个X Window System的中心，协调X客户端和窗口管理器的通信。
-常用命令 xorg - What does $DISPLAY environment variable mean - Ask Ubuntu
-x11 forwarding - How to fix &amp;ldquo;MobaXterm X11 proxy: Unsupported authorisation protocol&amp;rdquo; - Super User
-echo $DISPLAY # 注意：`xauth add` 之后可能需要重新连接才能生效!! xauth add $DISPLAY .</description>
+      <description>关于X11 x(7) - Linux man page&#xA;Cygwin系列（十二）：了解X - 知乎&#xA;X11采用了C/S的架构，在其设计下，整个图形视窗系统主要分为3个部分：&#xA;1.X Server（X服务器）。X Server一方面负责和设备驱动交互，监听显示器和键盘鼠标，另一方面响应X Client需求传递键盘、鼠标事件、（通过设备驱动）绘制图形文字等。反直觉之一，X Server运行在本地。&#xA;2.X Client（X客户端）。X Client也叫X应用程序，负责实现程序逻辑，在收到设备事件后计算出绘图数据，由于本身没有绘制能力，只能向X Server发送绘制请求和绘图数据，告诉X Server在哪里绘制一个什么样的图形。X Client可以和X Server在同一个主机上，也可以通过TCP/IP网络连接。&#xA;3.Window Manager（窗口管理器，简称WM），或者叫合成器（Compositor）。多个X Client向X Server发送绘制请求时，各X Client程序并不知道彼此的存在，绘制图形出现重叠、颜色干扰等问题是大概率事件，这就需要一个管理者统一协调，即Window Manager，它掌管各X Client的Window（窗口）视觉外观，如形状、排列、移动、重叠渲染等。反直觉之二，Window Manager并非X Server的一部分，而是一个特殊的X Client程序。&#xA;3个部分， X Server是整个X Window System的中心，协调X客户端和窗口管理器的通信。&#xA;常用命令 xorg - What does $DISPLAY environment variable mean - Ask Ubuntu&#xA;x11 forwarding - How to fix &amp;ldquo;MobaXterm X11 proxy: Unsupported authorisation protocol&amp;rdquo; - Super User&#xA;echo $DISPLAY # 注意：`xauth add` 之后可能需要重新连接才能生效!! xauth add $DISPLAY .</description>
     </item>
     <item>
       <title>Qt开发总结篇一</title>
       <link>https://devin0x01.github.io/post/qt/qt%E5%BC%80%E5%8F%91%E6%80%BB%E7%BB%93%E7%AF%87%E4%B8%80/</link>
       <pubDate>Sun, 18 Jun 2023 14:05:25 +0800</pubDate>
       <guid>https://devin0x01.github.io/post/qt/qt%E5%BC%80%E5%8F%91%E6%80%BB%E7%BB%93%E7%AF%87%E4%B8%80/</guid>
-      <description>GUI界面 限制输入的内容 QValidator *validator = new QIntValidator(100, 999, this); // 这样文本框只能输入100~999之间的数字 ui-&amp;gt;lineEdit-&amp;gt;setValidator(validator); 显示格式控制 ui-&amp;gt;textEdit-&amp;gt;setWordWrapMode(QTextOption::WrapAnywhere); // 任意地方换行 ui-&amp;gt;tableWidget-&amp;gt;setTextElideMode(Qt::ElideMode); // 不显示省略号 Qt序列化 通过全局流操作运算符重载实现，可以序列化到文件等设备中，也可以序列化到QByteArray中。
-// cmdinfo.h // BaseInfo已经实现序列化 class CmdInfo : public BaseInfo { public: friend QDataStream&amp;amp; operator&amp;gt;&amp;gt;(QDataStream&amp;amp;, CmdInfo&amp;amp;); friend QDataStream&amp;amp; operator&amp;lt;&amp;lt;(QDataStream&amp;amp;, const CmdInfo&amp;amp;); private: QString command_; CmdType type_; }; // cmdinfo.cpp QDataStream&amp;amp; operator&amp;gt;&amp;gt;(QDataStream &amp;amp;in, CmdInfo &amp;amp;data) { BaseInfo &amp;amp;base = data; qint32 tmpInt; in &amp;gt;&amp;gt; base &amp;gt;&amp;gt; data.command_ &amp;gt;&amp;gt; tmpInt; data.setType((CmdType)tmpInt); return in; } QDataStream&amp;amp; operator&amp;lt;&amp;lt;(QDataStream &amp;amp;out, const CmdInfo &amp;amp;data) { const BaseInfo &amp;amp;base = data; out &amp;lt;&amp;lt; base &amp;lt;&amp;lt; data.</description>
+      <description>GUI界面 限制输入的内容 QValidator *validator = new QIntValidator(100, 999, this); // 这样文本框只能输入100~999之间的数字 ui-&amp;gt;lineEdit-&amp;gt;setValidator(validator); 显示格式控制 ui-&amp;gt;textEdit-&amp;gt;setWordWrapMode(QTextOption::WrapAnywhere); // 任意地方换行 ui-&amp;gt;tableWidget-&amp;gt;setTextElideMode(Qt::ElideMode); // 不显示省略号 Qt序列化 通过全局流操作运算符重载实现，可以序列化到文件等设备中，也可以序列化到QByteArray中。&#xA;// cmdinfo.h // BaseInfo已经实现序列化 class CmdInfo : public BaseInfo { public: friend QDataStream&amp;amp; operator&amp;gt;&amp;gt;(QDataStream&amp;amp;, CmdInfo&amp;amp;); friend QDataStream&amp;amp; operator&amp;lt;&amp;lt;(QDataStream&amp;amp;, const CmdInfo&amp;amp;); private: QString command_; CmdType type_; }; // cmdinfo.cpp QDataStream&amp;amp; operator&amp;gt;&amp;gt;(QDataStream &amp;amp;in, CmdInfo &amp;amp;data) { BaseInfo &amp;amp;base = data; qint32 tmpInt; in &amp;gt;&amp;gt; base &amp;gt;&amp;gt; data.command_ &amp;gt;&amp;gt; tmpInt; data.setType((CmdType)tmpInt); return in; } QDataStream&amp;amp; operator&amp;lt;&amp;lt;(QDataStream &amp;amp;out, const CmdInfo &amp;amp;data) { const BaseInfo &amp;amp;base = data; out &amp;lt;&amp;lt; base &amp;lt;&amp;lt; data.</description>
     </item>
   </channel>
 </rss>
