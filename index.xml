@@ -6,7 +6,16 @@
     <description>Recent content on DEVIN&#39;s BLOG</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 02 Nov 2023 01:05:25 +0800</lastBuildDate><atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 17 Jan 2024 15:05:25 +0800</lastBuildDate><atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>VimScript笔记</title>
+      <link>http://localhost:1313/post/%E5%B7%A5%E5%85%B7/vimscript%E7%AC%94%E8%AE%B0/</link>
+      <pubDate>Wed, 17 Jan 2024 15:05:25 +0800</pubDate>
+      
+      <guid>http://localhost:1313/post/%E5%B7%A5%E5%85%B7/vimscript%E7%AC%94%E8%AE%B0/</guid>
+      <description>VimScript 五分钟入门（翻译） - 知乎 wsdjeg/vim-plugin-dev-guide: Vim 插件开发指南 基本语法:source %: %表示当前文件的路径 e #: 切换到最近编辑的另一个文件 expand() 将具有特殊意义的标记（</description>
+    </item>
+    
     <item>
       <title>C&#43;&#43;模板例子</title>
       <link>http://localhost:1313/post/cpp/c&#43;&#43;%E6%A8%A1%E6%9D%BF%E4%BE%8B%E5%AD%90/</link>
@@ -31,7 +40,7 @@
       <pubDate>Fri, 25 Aug 2023 16:05:25 +0800</pubDate>
       
       <guid>http://localhost:1313/post/%E5%B7%A5%E5%85%B7/vim%E9%85%8D%E7%BD%AE%E6%95%99%E7%A8%8B/</guid>
-      <description>vim 快速入门 — z42-doc 0.1 文档 插件1.vim-plug插件管理 junegunn/vim-plug: 🌺 Minimalist Vim Plugin Manager 1curl -fLo ~/.vim/autoload/plug.vim --create-dirs \ 2 https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim PlugInstall [name &amp;hellip;] PlugUpdate [name &amp;hellip;] PlugClean[!] PlugUpgrade: Upgrade vim-plug itself PlugStatus: Check the status of plugins PlugDiff: Examine changes from the previous update and the pending changes PlugSnapshot[!] [output path]:</description>
+      <description>vim 快速入门 — z42-doc 0.1 文档 编译vim91./configure --with-luajit --enable-pythoninterp=yes --enable-python3interp=yes \ 2 --enable-multibyte --prefix=$HOME/.local/vim9 插件1.vim-plug插件管理 junegunn/vim-plug: 🌺 Minimalist Vim Plugin Manager 1curl -fLo ~/.vim/autoload/plug.vim --create-dirs \ 2 https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim PlugInstall [name &amp;hellip;] PlugUpdate [name &amp;hellip;]</description>
     </item>
     
     <item>
@@ -166,7 +175,7 @@
       <pubDate>Thu, 13 Jul 2023 14:05:25 +0800</pubDate>
       
       <guid>http://localhost:1313/post/cpp/%E4%BD%8D%E5%9F%9F%E7%94%A8%E6%B3%95/</guid>
-      <description>[toc] 如果有字段定义为int类型的话，那么符号位的判断需要特别注意。 例如：下面的 B::f2 字段是有符号类型，其符号位是f2的最高位，可以表示的范围是-6</description>
+      <description>如果有字段定义为int类型的话，那么符号位的判断需要特别注意。 例如：下面的 B::f2 字段是有符号类型，其符号位是f2的最高位，可以表示的范围是-64</description>
     </item>
     
     <item>
@@ -319,7 +328,7 @@
       <pubDate>Sat, 13 May 2023 14:05:25 +0800</pubDate>
       
       <guid>http://localhost:1313/post/%E5%B7%A5%E5%85%B7/%E9%85%8D%E7%BD%AEgithub-pages%E6%95%99%E7%A8%8B/</guid>
-      <description>1.基础配置关于删除submodule: Git submodule add: &amp;ldquo;a git directory is found locally&amp;rdquo; issue - Stack Overflow 1mkdir myblog &amp;amp;&amp;amp; cd myblog 2hugo new site . 3 4git init 5git submodule add git@github.com:MeiK2333/github-style.git themes/github-style 6vim .gitignore 7git add . 8git push -u origin master 更新主题github</description>
+      <description>1.基础配置关于删除submodule: Git中submodule的使用 - 知乎 Git submodule add: &amp;ldquo;a git directory is found locally&amp;rdquo; issue - Stack Overflow 1mkdir myblog &amp;amp;&amp;amp; cd myblog 2hugo new site . 3 4git init 5git submodule add git@github.com:MeiK2333/github-style.git themes/github-style 6vim</description>
     </item>
     
   </channel>

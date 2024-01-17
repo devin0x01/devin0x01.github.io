@@ -58,7 +58,7 @@
       <pubDate>Thu, 13 Jul 2023 14:05:25 +0800</pubDate>
       
       <guid>http://localhost:1313/post/cpp/%E4%BD%8D%E5%9F%9F%E7%94%A8%E6%B3%95/</guid>
-      <description>[toc] 如果有字段定义为int类型的话，那么符号位的判断需要特别注意。 例如：下面的 B::f2 字段是有符号类型，其符号位是f2的最高位，可以表示的范围是-6</description>
+      <description>如果有字段定义为int类型的话，那么符号位的判断需要特别注意。 例如：下面的 B::f2 字段是有符号类型，其符号位是f2的最高位，可以表示的范围是-64</description>
     </item>
     
     <item>
