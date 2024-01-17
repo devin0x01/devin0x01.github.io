@@ -1,0 +1,938 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  
+    
+  <title>Linux网络编程 | DEVIN&#39;s BLOG</title>
+  <meta name="author" content="DEVIN">
+  <meta name="description" content="查看端口占用情况 netstat -tunlp -t (tcp) 仅显示tcp相关选项 -u (udp) 仅显示udp相关选项 -n 拒绝显示列名，能显示数字的全部转化为数字 -l 仅显示出在listen(监听">
+  <meta name="keywords" content="blog,developer,personal">
+
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Linux网络编程"/>
+<meta name="twitter:description" content="查看端口占用情况 netstat -tunlp -t (tcp) 仅显示tcp相关选项 -u (udp) 仅显示udp相关选项 -n 拒绝显示列名，能显示数字的全部转化为数字 -l 仅显示出在listen(监听"/>
+
+  <meta property="og:title" content="Linux网络编程" />
+<meta property="og:description" content="查看端口占用情况 netstat -tunlp -t (tcp) 仅显示tcp相关选项 -u (udp) 仅显示udp相关选项 -n 拒绝显示列名，能显示数字的全部转化为数字 -l 仅显示出在listen(监听" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:1313/post/linux%E5%BC%80%E5%8F%91/linux%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2023-06-18T14:05:25+08:00" />
+<meta property="article:modified_time" content="2023-06-18T14:05:25+08:00" />
+
+  <link rel="stylesheet" href="/css/bootstrap.min.css"  crossorigin="anonymous">
+  
+  <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.1/css/all.min.css" rel="stylesheet" type="text/css">
+
+  <link rel="stylesheet" href="/sass/main.css">
+
+  <link rel="stylesheet" href="/zoomjs/zoom.min.css">
+
+  <script src=/js/lazysizes.min.js></script>
+
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  
+
+</head>
+
+
+
+<body ontouchstart="">
+  
+  
+  <nav class="navbar navbar-default navbar-custom navbar-fixed-top invert">
+  <div class="container-fluid">
+    
+    <div class="navbar-header page-scroll">
+      <button type="button" class="navbar-toggle">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="http://localhost:1313">DEVIN&#39;s BLOG</a>
+    </div>
+    
+    <div id="huxblog_navbar">
+      <div class="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          
+          <li><a href="/" title="Home">Home</a></li>
+          
+          <li><a href="/archive/" title="Archive">Archive</a></li>
+          
+          <li><a href="https://www.cnblogs.com" title="CNBLOGS">CNBLOGS</a></li>
+          
+          <li><a href="https://github.com/devin0x01" title="Github">Github</a></li>
+          
+          <li><a href="/about/" title="About">About</a></li>
+          
+
+          <li class="search-icon">
+            <a href="javascript:void(0)">
+              <i class="fa fa-search"></i>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    
+  </div>
+  
+</nav>
+<script>
+  
+  
+  
+  var $body = document.body;
+  var $toggle = document.querySelector(".navbar-toggle");
+  var $navbar = document.querySelector("#huxblog_navbar");
+  var $collapse = document.querySelector(".navbar-collapse");
+
+  var __HuxNav__ = {
+    close: function () {
+      $navbar.className = " ";
+      
+      setTimeout(function () {
+        
+        if ($navbar.className.indexOf("in") < 0) {
+          $collapse.style.height = "0px";
+        }
+      }, 400);
+    },
+    open: function () {
+      $collapse.style.height = "auto";
+      $navbar.className += " in";
+    },
+  };
+
+  
+  $toggle.addEventListener("click", function (e) {
+    if ($navbar.className.indexOf("in") > 0) {
+      __HuxNav__.close();
+    } else {
+      __HuxNav__.open();
+    }
+  });
+
+  
+
+  document.addEventListener("click", function (e) {
+    if (e.target == $toggle) return;
+    if (e.target.className == "icon-bar") return;
+    __HuxNav__.close();
+  });
+</script>
+  
+<div class="search-page">
+  <div class="search-icon-close-container">
+    <span class="search-icon-close">
+      <i class="fa fa-chevron-down"></i>
+    </span>
+  </div>
+  <div class="search-main container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <form></form>
+        <input type="text" id="search-input" placeholder="$ grep...">
+        </form>
+        <div id="search-results" class="mini-post-list"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+  
+  
+
+
+<style type="text/css">
+  header.intro-header {
+    position: relative;
+    background-image: url('');
+  }
+</style>
+
+<header class="intro-header style-text">
+
+  <div class="header-mask"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="post-heading">
+          <div class="tags">
+            
+            <a class="tag" href="/tags/linux%E5%BC%80%E5%8F%91/" title="Linux开发">Linux开发</a>
+            
+          </div>
+          <h1>Linux网络编程</h1>
+          <h2 class="subheading"></h2>
+          <span class="meta">
+            Posted by  DEVIN 
+            on Sun, Jun 18, 2023
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+
+  
+
+
+<article>
+  <div class="container">
+    <div class="row">
+
+      
+      <div class="
+              col-lg-8 col-lg-offset-2
+              col-md-10 col-md-offset-1
+              post-container">
+        <h2 id="查看端口占用情况">查看端口占用情况<a class="anchorjs-link" href="#%e6%9f%a5%e7%9c%8b%e7%ab%af%e5%8f%a3%e5%8d%a0%e7%94%a8%e6%83%85%e5%86%b5"></a></h2><blockquote>
+<p><strong>netstat -tunlp</strong></p>
+<p>-t (tcp) 仅显示tcp相关选项     -u (udp) 仅显示udp相关选项</p>
+<p>-n 拒绝显示列名，能显示数字的全部转化为数字</p>
+<p>-l 仅显示出在listen(监听）的服务状态</p>
+<p>-p 显示潜力相关链接的程序名</p>
+</blockquote>
+<p><a href="https://www.yisu.com/zixun/311818.html" target="_blank">linux查看端口被哪个进程占用的方法</a></p>
+<h2 id="本机地址">本机地址<a class="anchorjs-link" href="#%e6%9c%ac%e6%9c%ba%e5%9c%b0%e5%9d%80"></a></h2><blockquote>
+<p><strong>127.0.0.1</strong>: 这个地址通常分配给loopback接口，loopback是一个特殊的网络IP，可以理解为虚拟网卡，用于本机中各个应用之间的网络交互，只要操作系统网络组建正常，loopback就能工作。所以这里需要明白使用127.0.0.1进行通信时，必须要保证client和server在<strong>同一台机器上</strong>。</p>
+<p><strong>INADDR_ANY</strong>: 从字面上的any可以看出，转换过来其实是0.0.0.0，泛指本机的意思，也就是标识本机的所有IP，因为有些机器是不止一块网卡的，在多网卡的情况下，这个就表示<strong>所有的网卡IP地址</strong>的意思，不管数据是从哪个网卡过来的，只要是绑定的端口号过来的数据，都可以接收到。</p>
+</blockquote>
+<p>如果现在有两台PC在同一个局域网内，分别为PC1与PC2，PC1上有一个网卡，IP地址为<code>192.168.10.128</code></p>
+<ul>
+<li>PC1中sever监听<code>127.0.0.1</code>，则PC1中的client可以连上<code>127.0.0.1</code>，<code>192.168.10.128</code>连不上；而PC2中client都连不上。</li>
+<li>PC1中sever监听<code>192.168.10.128</code>，则PC1中的client可以连上<code>192.168.10.128</code>，<code>127.0.0.1</code>连不上；而PC2中client能连上<code>192.168.10.128</code>。</li>
+<li>PC1中sever监听<code>0.0.0.0</code>，则PC1中的client可以连上<code>127.0.0.1</code>和<code>192.168.10.128</code>，PC2中的client能连上<code>192.168.10.128</code>。</li>
+</ul>
+<h2 id="socket基础接口">socket基础接口<a class="anchorjs-link" href="#socket%e5%9f%ba%e7%a1%80%e6%8e%a5%e5%8f%a3"></a></h2><h3 id="close关闭socket">close关闭socket<a class="anchorjs-link" href="#close%e5%85%b3%e9%97%adsocket"></a></h3><p>调用<code>close</code>函数，会向连接的对应套接字发送<code>EOF</code> (<em>ch04/echo_server.c</em>)</p>
+<blockquote>
+<p><strong>文件结束符</strong>：如果 read()调用成功，将返回实际读取的字节数，如果遇到文件结束（EOF）则返回 0，如果出现错误则返回-1。ssize_t 数据类型属于有符号的整数类型，用来存放（读取的）字节数或-1（表示错误）。</p>
+<p><strong>终端特殊字符</strong>：EOF 是传统模式下的文件结尾字符（通常是 <strong>Ctrl-D</strong>）。在一行的开始处输入这个字符会导致在终端上读取输入的进程检测到文件结尾的情况（即，read()返回 0）。如果不在一行的开始处，而在其他地方输入这个字符，那么该字符会立刻导致 read()完成调用，返回这一行中目前为止读取到的字符数。在这两种情况下，EOF 字符本身都不会传递给读取的进程。</p>
+</blockquote>
+<p><figure>
+  <a class="paragraph-image">
+    <img data-src="https://cdn.jsdelivr.net/gh/devin0x01/myimages@master/githubpages/image_bb12f6be8f2d72b768f70889cd3d83c8.png" data-action="zoom" alt=""  class="lazyload">
+  </a>
+  
+</figure></p>
+<h3 id="shutdown优雅的断开tcp连接">shutdown优雅的断开TCP连接<a class="anchorjs-link" href="#shutdown%e4%bc%98%e9%9b%85%e7%9a%84%e6%96%ad%e5%bc%80tcp%e8%bf%9e%e6%8e%a5"></a></h3><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span><span style="color:#6272a4">/* Shut down all or part of the connection open on socket FD.
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span><span style="color:#6272a4">   HOW determines what to shut down:
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span><span style="color:#6272a4">     SHUT_RD   = No more receptions;
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span><span><span style="color:#6272a4">     SHUT_WR   = No more transmissions;
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span><span><span style="color:#6272a4">     SHUT_RDWR = No more receptions or transmissions.
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6</span><span><span style="color:#6272a4">   Returns 0 on success, -1 for errors.  */</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7</span><span><span style="color:#ff79c6">extern</span> <span style="color:#8be9fd">int</span> <span style="color:#50fa7b">shutdown</span> (<span style="color:#8be9fd">int</span> __fd, <span style="color:#8be9fd">int</span> __how) __THROW;
+</span></span></code></pre></div><h2 id="io复用">IO复用<a class="anchorjs-link" href="#io%e5%a4%8d%e7%94%a8"></a></h2><h3 id="1select接口">1.select接口<a class="anchorjs-link" href="#1select%e6%8e%a5%e5%8f%a3"></a></h3><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span><span style="color:#6272a4">// echo_client.c
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span><span><span style="color:#6272a4"></span><span style="color:#ff79c6">#include</span> <span style="color:#ff79c6">&lt;stdio.h&gt;</span><span style="color:#ff79c6">
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span><span><span style="color:#ff79c6">#include</span> <span style="color:#ff79c6">&lt;stdlib.h&gt;</span><span style="color:#ff79c6">
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span><span><span style="color:#ff79c6">#include</span> <span style="color:#ff79c6">&lt;string.h&gt;</span><span style="color:#ff79c6">
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span><span><span style="color:#ff79c6">#include</span> <span style="color:#ff79c6">&lt;unistd.h&gt;</span><span style="color:#ff79c6">
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span><span><span style="color:#ff79c6">#include</span> <span style="color:#ff79c6">&lt;arpa/inet.h&gt;</span><span style="color:#ff79c6">
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span><span><span style="color:#ff79c6">#include</span> <span style="color:#ff79c6">&lt;sys/socket.h&gt;</span><span style="color:#ff79c6">
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span><span><span style="color:#ff79c6"></span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span><span><span style="color:#ff79c6">#define BUF_SIZE 1024
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span><span><span style="color:#ff79c6"></span><span style="color:#8be9fd">void</span> <span style="color:#50fa7b">error_handling</span>(<span style="color:#8be9fd">char</span> <span style="color:#ff79c6">*</span>message);
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12</span><span><span style="color:#8be9fd">int</span> <span style="color:#50fa7b">main</span>(<span style="color:#8be9fd">int</span> argc, <span style="color:#8be9fd">char</span> <span style="color:#ff79c6">*</span>argv[])
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13</span><span>{
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14</span><span>    <span style="color:#8be9fd">int</span> sock;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15</span><span>    <span style="color:#8be9fd">char</span> message[BUF_SIZE];
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16</span><span>    <span style="color:#8be9fd">int</span> str_len;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17</span><span>    <span style="color:#ff79c6">struct</span> <span style="color:#50fa7b">sockaddr_in</span> serv_adr;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19</span><span>    <span style="color:#ff79c6">if</span> (argc <span style="color:#ff79c6">!=</span> <span style="color:#bd93f9">3</span>)
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20</span><span>    {
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21</span><span>        printf(<span style="color:#f1fa8c">&#34;Usage : %s &lt;IP&gt; &lt;port&gt;</span><span style="color:#f1fa8c">\n</span><span style="color:#f1fa8c">&#34;</span>, argv[<span style="color:#bd93f9">0</span>]);
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22</span><span>        exit(<span style="color:#bd93f9">1</span>);
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23</span><span>    }
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25</span><span>    sock <span style="color:#ff79c6">=</span> socket(PF_INET, SOCK_STREAM, <span style="color:#bd93f9">0</span>);
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26</span><span>    <span style="color:#ff79c6">if</span> (sock <span style="color:#ff79c6">==</span> <span style="color:#ff79c6">-</span><span style="color:#bd93f9">1</span>)
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27</span><span>        error_handling(<span style="color:#f1fa8c">&#34;socket() error&#34;</span>);
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29</span><span>    memset(<span style="color:#ff79c6">&amp;</span>serv_adr, <span style="color:#bd93f9">0</span>, <span style="color:#ff79c6">sizeof</span>(serv_adr));
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30</span><span>    serv_adr.sin_family <span style="color:#ff79c6">=</span> AF_INET;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31</span><span>    serv_adr.sin_addr.s_addr <span style="color:#ff79c6">=</span> inet_addr(argv[<span style="color:#bd93f9">1</span>]);
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32</span><span>    serv_adr.sin_port <span style="color:#ff79c6">=</span> htons(atoi(argv[<span style="color:#bd93f9">2</span>]));
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34</span><span>    <span style="color:#ff79c6">if</span> (connect(sock, (<span style="color:#ff79c6">struct</span> <span style="color:#50fa7b">sockaddr</span> <span style="color:#ff79c6">*</span>)<span style="color:#ff79c6">&amp;</span>serv_adr, <span style="color:#ff79c6">sizeof</span>(serv_adr)) <span style="color:#ff79c6">==</span> <span style="color:#ff79c6">-</span><span style="color:#bd93f9">1</span>)
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35</span><span>        error_handling(<span style="color:#f1fa8c">&#34;connect() error!&#34;</span>);
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">36</span><span>    <span style="color:#ff79c6">else</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">37</span><span>        puts(<span style="color:#f1fa8c">&#34;Connected...........&#34;</span>);
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">38</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">39</span><span>    <span style="color:#ff79c6">while</span> (<span style="color:#bd93f9">1</span>)
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">40</span><span>    {
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">41</span><span>        fputs(<span style="color:#f1fa8c">&#34;Input message(Q to quit): &#34;</span>, stdout);
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">42</span><span>        fgets(message, BUF_SIZE, stdin);
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">43</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">44</span><span>        <span style="color:#ff79c6">if</span> (<span style="color:#ff79c6">!</span>strcmp(message, <span style="color:#f1fa8c">&#34;q</span><span style="color:#f1fa8c">\n</span><span style="color:#f1fa8c">&#34;</span>) <span style="color:#ff79c6">||</span> <span style="color:#ff79c6">!</span>strcmp(message, <span style="color:#f1fa8c">&#34;Q</span><span style="color:#f1fa8c">\n</span><span style="color:#f1fa8c">&#34;</span>))
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">45</span><span>            <span style="color:#ff79c6">break</span>;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">46</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">47</span><span>        write(sock, message, strlen(message));
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">48</span><span>        str_len <span style="color:#ff79c6">=</span> read(sock, message, BUF_SIZE <span style="color:#ff79c6">-</span> <span style="color:#bd93f9">1</span>);
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">49</span><span>        message[str_len] <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">0</span>;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">50</span><span>        printf(<span style="color:#f1fa8c">&#34;Message from server: %s&#34;</span>, message);
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">51</span><span>    }
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">52</span><span>    close(sock);
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">53</span><span>    <span style="color:#ff79c6">return</span> <span style="color:#bd93f9">0</span>;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">54</span><span>}
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">55</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">56</span><span><span style="color:#8be9fd">void</span> <span style="color:#50fa7b">error_handling</span>(<span style="color:#8be9fd">char</span> <span style="color:#ff79c6">*</span>message)
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">57</span><span>{
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">58</span><span>    fputs(message, stderr);
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">59</span><span>    fputc(<span style="color:#f1fa8c">&#39;\n&#39;</span>, stderr);
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">60</span><span>    exit(<span style="color:#bd93f9">1</span>);
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">61</span><span>}
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span><span style="color:#6272a4">// echo_selectserv.c
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span><span><span style="color:#6272a4"></span><span style="color:#ff79c6">#include</span> <span style="color:#ff79c6">&lt;stdio.h&gt;</span><span style="color:#ff79c6">
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span><span><span style="color:#ff79c6">#include</span> <span style="color:#ff79c6">&lt;stdlib.h&gt;</span><span style="color:#ff79c6">
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span><span><span style="color:#ff79c6">#include</span> <span style="color:#ff79c6">&lt;string.h&gt;</span><span style="color:#ff79c6">
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span><span><span style="color:#ff79c6">#include</span> <span style="color:#ff79c6">&lt;unistd.h&gt;</span><span style="color:#ff79c6">
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span><span><span style="color:#ff79c6">#include</span> <span style="color:#ff79c6">&lt;arpa/inet.h&gt;</span><span style="color:#ff79c6">
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span><span><span style="color:#ff79c6">#include</span> <span style="color:#ff79c6">&lt;sys/socket.h&gt;</span><span style="color:#ff79c6">
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span><span><span style="color:#ff79c6">#include</span> <span style="color:#ff79c6">&lt;sys/time.h&gt;</span><span style="color:#ff79c6">
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span><span><span style="color:#ff79c6">#include</span> <span style="color:#ff79c6">&lt;sys/select.h&gt;</span><span style="color:#ff79c6">
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span><span><span style="color:#ff79c6"></span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span><span><span style="color:#ff79c6">#define BUF_SIZE 100
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12</span><span><span style="color:#ff79c6"></span><span style="color:#8be9fd">void</span> <span style="color:#50fa7b">error_handling</span>(<span style="color:#8be9fd">char</span> <span style="color:#ff79c6">*</span>message);
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14</span><span><span style="color:#8be9fd">int</span> <span style="color:#50fa7b">main</span>(<span style="color:#8be9fd">int</span> argc, <span style="color:#8be9fd">char</span> <span style="color:#ff79c6">*</span>argv[])
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15</span><span>{
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16</span><span>    <span style="color:#8be9fd">int</span> serv_sock, clnt_sock;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17</span><span>    <span style="color:#ff79c6">struct</span> <span style="color:#50fa7b">sockaddr_in</span> serv_adr, clnt_adr;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18</span><span>    <span style="color:#ff79c6">struct</span> <span style="color:#50fa7b">timeval</span> timeout;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19</span><span>    fd_set reads, cpy_reads;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21</span><span>    socklen_t adr_sz;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22</span><span>    <span style="color:#8be9fd">int</span> fd_max, str_len, fd_num, i;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23</span><span>    <span style="color:#8be9fd">char</span> buf[BUF_SIZE];
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24</span><span>    <span style="color:#ff79c6">if</span> (argc <span style="color:#ff79c6">!=</span> <span style="color:#bd93f9">2</span>)
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25</span><span>    {
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26</span><span>        printf(<span style="color:#f1fa8c">&#34;Usage : %s &lt;port&gt;</span><span style="color:#f1fa8c">\n</span><span style="color:#f1fa8c">&#34;</span>, argv[<span style="color:#bd93f9">0</span>]);
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27</span><span>        exit(<span style="color:#bd93f9">1</span>);
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28</span><span>    }
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29</span><span>    serv_sock <span style="color:#ff79c6">=</span> socket(PF_INET, SOCK_STREAM, <span style="color:#bd93f9">0</span>);
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30</span><span>    memset(<span style="color:#ff79c6">&amp;</span>serv_adr, <span style="color:#bd93f9">0</span>, <span style="color:#ff79c6">sizeof</span>(serv_adr));
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31</span><span>    serv_adr.sin_family <span style="color:#ff79c6">=</span> AF_INET;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32</span><span>    serv_adr.sin_addr.s_addr <span style="color:#ff79c6">=</span> htonl(INADDR_ANY);
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33</span><span>    serv_adr.sin_port <span style="color:#ff79c6">=</span> htons(atoi(argv[<span style="color:#bd93f9">1</span>]));
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35</span><span>    <span style="color:#ff79c6">if</span> (bind(serv_sock, (<span style="color:#ff79c6">struct</span> <span style="color:#50fa7b">sockaddr</span> <span style="color:#ff79c6">*</span>)<span style="color:#ff79c6">&amp;</span>serv_adr, <span style="color:#ff79c6">sizeof</span>(serv_adr)) <span style="color:#ff79c6">==</span> <span style="color:#ff79c6">-</span><span style="color:#bd93f9">1</span>)
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">36</span><span>        error_handling(<span style="color:#f1fa8c">&#34;bind() error&#34;</span>);
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">37</span><span>    <span style="color:#ff79c6">if</span> (listen(serv_sock, <span style="color:#bd93f9">5</span>) <span style="color:#ff79c6">==</span> <span style="color:#ff79c6">-</span><span style="color:#bd93f9">1</span>)
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">38</span><span>        error_handling(<span style="color:#f1fa8c">&#34;listen() error&#34;</span>);
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">39</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">40</span><span>    FD_ZERO(<span style="color:#ff79c6">&amp;</span>reads);
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">41</span><span>    FD_SET(serv_sock, <span style="color:#ff79c6">&amp;</span>reads); <span style="color:#6272a4">//注册服务端套接字
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">42</span><span><span style="color:#6272a4"></span>    fd_max <span style="color:#ff79c6">=</span> serv_sock;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">43</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">44</span><span>    <span style="color:#ff79c6">while</span> (<span style="color:#bd93f9">1</span>)
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">45</span><span>    {
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">46</span><span>        cpy_reads <span style="color:#ff79c6">=</span> reads;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">47</span><span>        timeout.tv_sec <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">5</span>;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">48</span><span>        timeout.tv_usec <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">5000</span>;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">49</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">50</span><span>        <span style="color:#ff79c6">if</span> ((fd_num <span style="color:#ff79c6">=</span> select(fd_max <span style="color:#ff79c6">+</span> <span style="color:#bd93f9">1</span>, <span style="color:#ff79c6">&amp;</span>cpy_reads, <span style="color:#bd93f9">0</span>, <span style="color:#bd93f9">0</span>, <span style="color:#ff79c6">&amp;</span>timeout)) <span style="color:#ff79c6">==</span> <span style="color:#ff79c6">-</span><span style="color:#bd93f9">1</span>) <span style="color:#6272a4">//开始监视,每次重新监听
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">51</span><span><span style="color:#6272a4"></span>            <span style="color:#ff79c6">break</span>;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">52</span><span>        <span style="color:#ff79c6">if</span> (fd_num <span style="color:#ff79c6">==</span> <span style="color:#bd93f9">0</span>)
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">53</span><span>            <span style="color:#ff79c6">continue</span>;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">54</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">55</span><span>        <span style="color:#ff79c6">for</span> (i <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">0</span>; i <span style="color:#ff79c6">&lt;</span> fd_max <span style="color:#ff79c6">+</span> <span style="color:#bd93f9">1</span>; i<span style="color:#ff79c6">++</span>)
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">56</span><span>        {
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">57</span><span>            <span style="color:#ff79c6">if</span> (FD_ISSET(i, <span style="color:#ff79c6">&amp;</span>cpy_reads)) <span style="color:#6272a4">//查找发生变化的套接字文件描述符
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">58</span><span><span style="color:#6272a4"></span>            {
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">59</span><span>                <span style="color:#ff79c6">if</span> (i <span style="color:#ff79c6">==</span> serv_sock) <span style="color:#6272a4">//如果是服务端套接字时,受理连接请求
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">60</span><span><span style="color:#6272a4"></span>                {
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">61</span><span>                    adr_sz <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">sizeof</span>(clnt_adr);
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">62</span><span>                    clnt_sock <span style="color:#ff79c6">=</span> accept(serv_sock, (<span style="color:#ff79c6">struct</span> <span style="color:#50fa7b">sockaddr</span> <span style="color:#ff79c6">*</span>)<span style="color:#ff79c6">&amp;</span>clnt_adr, <span style="color:#ff79c6">&amp;</span>adr_sz);
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">63</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">64</span><span>                    FD_SET(clnt_sock, <span style="color:#ff79c6">&amp;</span>reads); <span style="color:#6272a4">//注册一个clnt_sock
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">65</span><span><span style="color:#6272a4"></span>                    <span style="color:#ff79c6">if</span> (fd_max <span style="color:#ff79c6">&lt;</span> clnt_sock)
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">66</span><span>                        fd_max <span style="color:#ff79c6">=</span> clnt_sock;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">67</span><span>                    printf(<span style="color:#f1fa8c">&#34;Connected client: %d </span><span style="color:#f1fa8c">\n</span><span style="color:#f1fa8c">&#34;</span>, clnt_sock);
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">68</span><span>                }
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">69</span><span>                <span style="color:#ff79c6">else</span> <span style="color:#6272a4">//不是服务端套接字时
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">70</span><span><span style="color:#6272a4"></span>                {
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">71</span><span>                    str_len <span style="color:#ff79c6">=</span> read(i, buf, BUF_SIZE); <span style="color:#6272a4">//i指的是当前发起请求的客户端
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">72</span><span><span style="color:#6272a4"></span>                    <span style="color:#ff79c6">if</span> (str_len <span style="color:#ff79c6">==</span> <span style="color:#bd93f9">0</span>)
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">73</span><span>                    {
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">74</span><span>                        FD_CLR(i, <span style="color:#ff79c6">&amp;</span>reads);
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">75</span><span>                        close(i);
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">76</span><span>                        printf(<span style="color:#f1fa8c">&#34;closed client: %d </span><span style="color:#f1fa8c">\n</span><span style="color:#f1fa8c">&#34;</span>, i);
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">77</span><span>                    }
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">78</span><span>                    <span style="color:#ff79c6">else</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">79</span><span>                    {
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">80</span><span>                        write(i, buf, str_len);
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">81</span><span>                    }
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">82</span><span>                }
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">83</span><span>            }
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">84</span><span>        }
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">85</span><span>    }
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">86</span><span>    close(serv_sock);
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">87</span><span>    <span style="color:#ff79c6">return</span> <span style="color:#bd93f9">0</span>;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">88</span><span>}
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">89</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">90</span><span><span style="color:#8be9fd">void</span> <span style="color:#50fa7b">error_handling</span>(<span style="color:#8be9fd">char</span> <span style="color:#ff79c6">*</span>message)
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">91</span><span>{
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">92</span><span>    fputs(message, stderr);
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">93</span><span>    fputc(<span style="color:#f1fa8c">&#39;\n&#39;</span>, stderr);
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">94</span><span>    exit(<span style="color:#bd93f9">1</span>);
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">95</span><span>}
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span><span style="color:#ff79c6">extern</span> <span style="color:#8be9fd">int</span> <span style="color:#50fa7b">select</span>(<span style="color:#8be9fd">int</span> maxfds, fd_set <span style="color:#ff79c6">*</span>readfds, fd_set <span style="color:#ff79c6">*</span>writefds, fd_set <span style="color:#ff79c6">*</span>exceptfds,
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span>                  <span style="color:#ff79c6">struct</span> <span style="color:#50fa7b">timeval</span> <span style="color:#ff79c6">*</span>__timeout);
+</span></span></code></pre></div><p><figure>
+  <a class="paragraph-image">
+    <img data-src="https://cdn.jsdelivr.net/gh/devin0x01/myimages@master/githubpages/image_122999c4ec9f2f1b4a88eee6165a9de4.png" data-action="zoom" alt=""  class="lazyload">
+  </a>
+  
+</figure></p>
+<h3 id="2epoll系列接口">2.epoll系列接口<a class="anchorjs-link" href="#2epoll%e7%b3%bb%e5%88%97%e6%8e%a5%e5%8f%a3"></a></h3><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span><span style="color:#6272a4">// 水平触发 echo_EPLTserv.c
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span><span><span style="color:#6272a4"></span><span style="color:#ff79c6">#include</span> <span style="color:#ff79c6">&lt;stdio.h&gt;</span><span style="color:#ff79c6">
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span><span><span style="color:#ff79c6">#include</span> <span style="color:#ff79c6">&lt;stdlib.h&gt;</span><span style="color:#ff79c6">
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span><span><span style="color:#ff79c6">#include</span> <span style="color:#ff79c6">&lt;string.h&gt;</span><span style="color:#ff79c6">
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span><span><span style="color:#ff79c6">#include</span> <span style="color:#ff79c6">&lt;unistd.h&gt;</span><span style="color:#ff79c6">
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span><span><span style="color:#ff79c6">#include</span> <span style="color:#ff79c6">&lt;arpa/inet.h&gt;</span><span style="color:#ff79c6">
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span><span><span style="color:#ff79c6">#include</span> <span style="color:#ff79c6">&lt;sys/socket.h&gt;</span><span style="color:#ff79c6">
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span><span><span style="color:#ff79c6">#include</span> <span style="color:#ff79c6">&lt;sys/epoll.h&gt;</span><span style="color:#ff79c6">
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span><span><span style="color:#ff79c6"></span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span><span><span style="color:#ff79c6">#define BUF_SIZE 2
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span><span><span style="color:#ff79c6">#define EPOLL_SIZE 50
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12</span><span><span style="color:#ff79c6"></span><span style="color:#8be9fd">void</span> <span style="color:#50fa7b">error_handling</span>(<span style="color:#8be9fd">char</span> <span style="color:#ff79c6">*</span>message);
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14</span><span><span style="color:#8be9fd">int</span> <span style="color:#50fa7b">main</span>(<span style="color:#8be9fd">int</span> argc, <span style="color:#8be9fd">char</span> <span style="color:#ff79c6">*</span>argv[])
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15</span><span>{
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16</span><span>    <span style="color:#8be9fd">int</span> serv_sock, clnt_sock;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17</span><span>    <span style="color:#ff79c6">struct</span> <span style="color:#50fa7b">sockaddr_in</span> serv_adr, clnt_adr;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18</span><span>    socklen_t adr_sz;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19</span><span>    <span style="color:#8be9fd">int</span> str_len, i;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20</span><span>    <span style="color:#8be9fd">char</span> buf[BUF_SIZE];
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22</span><span>    <span style="color:#ff79c6">struct</span> <span style="color:#50fa7b">epoll_event</span> <span style="color:#ff79c6">*</span>ep_events;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23</span><span>    <span style="color:#ff79c6">struct</span> <span style="color:#50fa7b">epoll_event</span> event;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24</span><span>    <span style="color:#8be9fd">int</span> epfd, event_cnt;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26</span><span>    <span style="color:#ff79c6">if</span> (argc <span style="color:#ff79c6">!=</span> <span style="color:#bd93f9">2</span>)
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27</span><span>    {
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28</span><span>        printf(<span style="color:#f1fa8c">&#34;Usage : %s &lt;port&gt; </span><span style="color:#f1fa8c">\n</span><span style="color:#f1fa8c">&#34;</span>, argv[<span style="color:#bd93f9">0</span>]);
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29</span><span>        exit(<span style="color:#bd93f9">1</span>);
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30</span><span>    }
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31</span><span>    serv_sock <span style="color:#ff79c6">=</span> socket(PF_INET, SOCK_STREAM, <span style="color:#bd93f9">0</span>);
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32</span><span>    memset(<span style="color:#ff79c6">&amp;</span>serv_adr, <span style="color:#bd93f9">0</span>, <span style="color:#ff79c6">sizeof</span>(serv_adr));
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33</span><span>    serv_adr.sin_family <span style="color:#ff79c6">=</span> AF_INET;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34</span><span>    serv_adr.sin_addr.s_addr <span style="color:#ff79c6">=</span> htonl(INADDR_ANY);
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35</span><span>    serv_adr.sin_port <span style="color:#ff79c6">=</span> htons(atoi(argv[<span style="color:#bd93f9">1</span>]));
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">36</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">37</span><span>    <span style="color:#ff79c6">if</span> (bind(serv_sock, (<span style="color:#ff79c6">struct</span> <span style="color:#50fa7b">sockaddr</span> <span style="color:#ff79c6">*</span>)<span style="color:#ff79c6">&amp;</span>serv_adr, <span style="color:#ff79c6">sizeof</span>(serv_adr)) <span style="color:#ff79c6">==</span> <span style="color:#ff79c6">-</span><span style="color:#bd93f9">1</span>)
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">38</span><span>        error_handling(<span style="color:#f1fa8c">&#34;bind() error&#34;</span>);
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">39</span><span>    <span style="color:#ff79c6">if</span> (listen(serv_sock, <span style="color:#bd93f9">5</span>) <span style="color:#ff79c6">==</span> <span style="color:#ff79c6">-</span><span style="color:#bd93f9">1</span>)
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">40</span><span>        error_handling(<span style="color:#f1fa8c">&#34;listen() error&#34;</span>);
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">41</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">42</span><span>    epfd <span style="color:#ff79c6">=</span> epoll_create(EPOLL_SIZE); <span style="color:#6272a4">//可以忽略这个参数，填入的参数为操作系统参考
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">43</span><span><span style="color:#6272a4"></span>    ep_events <span style="color:#ff79c6">=</span> malloc(<span style="color:#ff79c6">sizeof</span>(<span style="color:#ff79c6">struct</span> <span style="color:#50fa7b">epoll_event</span>) <span style="color:#ff79c6">*</span> EPOLL_SIZE);
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">44</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">45</span><span>    event.events <span style="color:#ff79c6">=</span> EPOLLIN; <span style="color:#6272a4">//需要读取数据的情况
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">46</span><span><span style="color:#6272a4"></span>    event.data.fd <span style="color:#ff79c6">=</span> serv_sock;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">47</span><span>    epoll_ctl(epfd, EPOLL_CTL_ADD, serv_sock, <span style="color:#ff79c6">&amp;</span>event); <span style="color:#6272a4">//例程epfd 中添加文件描述符 serv_sock，目的是监听 enevt 中的事件
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">48</span><span><span style="color:#6272a4"></span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">49</span><span>    <span style="color:#ff79c6">while</span> (<span style="color:#bd93f9">1</span>)
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">50</span><span>    {
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">51</span><span>        event_cnt <span style="color:#ff79c6">=</span> epoll_wait(epfd, ep_events, EPOLL_SIZE, <span style="color:#ff79c6">-</span><span style="color:#bd93f9">1</span>); <span style="color:#6272a4">//获取改变了的文件描述符，返回数量
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">52</span><span><span style="color:#6272a4"></span>        <span style="color:#ff79c6">if</span> (event_cnt <span style="color:#ff79c6">==</span> <span style="color:#ff79c6">-</span><span style="color:#bd93f9">1</span>)
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">53</span><span>        {
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">54</span><span>            puts(<span style="color:#f1fa8c">&#34;epoll_wait() error&#34;</span>);
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">55</span><span>            <span style="color:#ff79c6">break</span>;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">56</span><span>        }
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">57</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">58</span><span>        puts(<span style="color:#f1fa8c">&#34;return epoll_wait&#34;</span>);
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">59</span><span>        <span style="color:#ff79c6">for</span> (i <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">0</span>; i <span style="color:#ff79c6">&lt;</span> event_cnt; i<span style="color:#ff79c6">++</span>)
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">60</span><span>        {
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">61</span><span>            <span style="color:#ff79c6">if</span> (ep_events[i].data.fd <span style="color:#ff79c6">==</span> serv_sock) <span style="color:#6272a4">//客户端请求连接时
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">62</span><span><span style="color:#6272a4"></span>            {
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">63</span><span>                adr_sz <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">sizeof</span>(clnt_adr);
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">64</span><span>                clnt_sock <span style="color:#ff79c6">=</span> accept(serv_sock, (<span style="color:#ff79c6">struct</span> <span style="color:#50fa7b">sockaddr</span> <span style="color:#ff79c6">*</span>)<span style="color:#ff79c6">&amp;</span>clnt_adr, <span style="color:#ff79c6">&amp;</span>adr_sz);
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">65</span><span>                event.events <span style="color:#ff79c6">=</span> EPOLLIN;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">66</span><span>                event.data.fd <span style="color:#ff79c6">=</span> clnt_sock; <span style="color:#6272a4">//把客户端套接字添加进去
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">67</span><span><span style="color:#6272a4"></span>                epoll_ctl(epfd, EPOLL_CTL_ADD, clnt_sock, <span style="color:#ff79c6">&amp;</span>event);
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">68</span><span>                printf(<span style="color:#f1fa8c">&#34;connected client : %d </span><span style="color:#f1fa8c">\n</span><span style="color:#f1fa8c">&#34;</span>, clnt_sock);
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">69</span><span>            }
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">70</span><span>            <span style="color:#ff79c6">else</span> <span style="color:#6272a4">//是客户端套接字时
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">71</span><span><span style="color:#6272a4"></span>            {
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">72</span><span>                str_len <span style="color:#ff79c6">=</span> read(ep_events[i].data.fd, buf, BUF_SIZE);
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">73</span><span>                <span style="color:#ff79c6">if</span> (str_len <span style="color:#ff79c6">==</span> <span style="color:#bd93f9">0</span>)
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">74</span><span>                {
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">75</span><span>                    epoll_ctl(epfd, EPOLL_CTL_DEL, ep_events[i].data.fd, <span style="color:#8be9fd;font-style:italic">NULL</span>); <span style="color:#6272a4">//从epoll中删除套接字
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">76</span><span><span style="color:#6272a4"></span>                    close(ep_events[i].data.fd);
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">77</span><span>                    printf(<span style="color:#f1fa8c">&#34;closed client : %d </span><span style="color:#f1fa8c">\n</span><span style="color:#f1fa8c">&#34;</span>, ep_events[i].data.fd);
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">78</span><span>                }
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">79</span><span>                <span style="color:#ff79c6">else</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">80</span><span>                {
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">81</span><span>                    write(ep_events[i].data.fd, buf, str_len);
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">82</span><span>                }
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">83</span><span>            }
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">84</span><span>        }
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">85</span><span>    }
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">86</span><span>    close(serv_sock);
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">87</span><span>    close(epfd);
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">88</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">89</span><span>    <span style="color:#ff79c6">return</span> <span style="color:#bd93f9">0</span>;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">90</span><span>}
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">91</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">92</span><span><span style="color:#8be9fd">void</span> <span style="color:#50fa7b">error_handling</span>(<span style="color:#8be9fd">char</span> <span style="color:#ff79c6">*</span>message)
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">93</span><span>{
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">94</span><span>    fputs(message, stderr);
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">95</span><span>    fputc(<span style="color:#f1fa8c">&#39;\n&#39;</span>, stderr);
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">96</span><span>    exit(<span style="color:#bd93f9">1</span>);
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">97</span><span>}
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  1</span><span><span style="color:#6272a4">// 边沿触发 echo_EPETserv.c
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  2</span><span><span style="color:#6272a4"></span><span style="color:#ff79c6">#include</span> <span style="color:#ff79c6">&lt;stdio.h&gt;</span><span style="color:#ff79c6">
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  3</span><span><span style="color:#ff79c6">#include</span> <span style="color:#ff79c6">&lt;stdlib.h&gt;</span><span style="color:#ff79c6">
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  4</span><span><span style="color:#ff79c6">#include</span> <span style="color:#ff79c6">&lt;string.h&gt;</span><span style="color:#ff79c6">
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  5</span><span><span style="color:#ff79c6">#include</span> <span style="color:#ff79c6">&lt;unistd.h&gt;</span><span style="color:#ff79c6">
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  6</span><span><span style="color:#ff79c6">#include</span> <span style="color:#ff79c6">&lt;arpa/inet.h&gt;</span><span style="color:#ff79c6">
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  7</span><span><span style="color:#ff79c6">#include</span> <span style="color:#ff79c6">&lt;sys/socket.h&gt;</span><span style="color:#ff79c6">
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  8</span><span><span style="color:#ff79c6">#include</span> <span style="color:#ff79c6">&lt;sys/epoll.h&gt;</span><span style="color:#ff79c6">
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  9</span><span><span style="color:#ff79c6">#include</span> <span style="color:#ff79c6">&lt;fcntl.h&gt;</span><span style="color:#ff79c6">
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 10</span><span><span style="color:#ff79c6">#include</span> <span style="color:#ff79c6">&lt;errno.h&gt;</span><span style="color:#ff79c6">
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 11</span><span><span style="color:#ff79c6"></span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 12</span><span><span style="color:#ff79c6">#define BUF_SIZE 4 </span><span style="color:#6272a4">//缓冲区设置为 4 字节
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 13</span><span><span style="color:#6272a4"></span><span style="color:#ff79c6">#define EPOLL_SIZE 50
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 14</span><span><span style="color:#ff79c6"></span><span style="color:#8be9fd">void</span> <span style="color:#50fa7b">setnonblockingmode</span>(<span style="color:#8be9fd">int</span> fd);
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 15</span><span><span style="color:#8be9fd">void</span> <span style="color:#50fa7b">error_handling</span>(<span style="color:#8be9fd">char</span> <span style="color:#ff79c6">*</span>message);
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 16</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 17</span><span><span style="color:#8be9fd">int</span> <span style="color:#50fa7b">main</span>(<span style="color:#8be9fd">int</span> argc, <span style="color:#8be9fd">char</span> <span style="color:#ff79c6">*</span>argv[])
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 18</span><span>{
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 19</span><span>    <span style="color:#8be9fd">int</span> serv_sock, clnt_sock;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 20</span><span>    <span style="color:#ff79c6">struct</span> <span style="color:#50fa7b">sockaddr_in</span> serv_adr, clnt_adr;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 21</span><span>    socklen_t adr_sz;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 22</span><span>    <span style="color:#8be9fd">int</span> str_len, i;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 23</span><span>    <span style="color:#8be9fd">char</span> buf[BUF_SIZE];
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 24</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 25</span><span>    <span style="color:#ff79c6">struct</span> <span style="color:#50fa7b">epoll_event</span> <span style="color:#ff79c6">*</span>ep_events;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 26</span><span>    <span style="color:#ff79c6">struct</span> <span style="color:#50fa7b">epoll_event</span> event;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 27</span><span>    <span style="color:#8be9fd">int</span> epfd, event_cnt;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 28</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 29</span><span>    <span style="color:#ff79c6">if</span> (argc <span style="color:#ff79c6">!=</span> <span style="color:#bd93f9">2</span>)
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 30</span><span>    {
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 31</span><span>        printf(<span style="color:#f1fa8c">&#34;Usage : %s &lt;port&gt; </span><span style="color:#f1fa8c">\n</span><span style="color:#f1fa8c">&#34;</span>, argv[<span style="color:#bd93f9">0</span>]);
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 32</span><span>        exit(<span style="color:#bd93f9">1</span>);
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 33</span><span>    }
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 34</span><span>    serv_sock <span style="color:#ff79c6">=</span> socket(PF_INET, SOCK_STREAM, <span style="color:#bd93f9">0</span>);
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 35</span><span>    memset(<span style="color:#ff79c6">&amp;</span>serv_adr, <span style="color:#bd93f9">0</span>, <span style="color:#ff79c6">sizeof</span>(serv_adr));
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 36</span><span>    serv_adr.sin_family <span style="color:#ff79c6">=</span> AF_INET;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 37</span><span>    serv_adr.sin_addr.s_addr <span style="color:#ff79c6">=</span> htonl(INADDR_ANY);
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 38</span><span>    serv_adr.sin_port <span style="color:#ff79c6">=</span> htons(atoi(argv[<span style="color:#bd93f9">1</span>]));
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 39</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 40</span><span>    <span style="color:#ff79c6">if</span> (bind(serv_sock, (<span style="color:#ff79c6">struct</span> <span style="color:#50fa7b">sockaddr</span> <span style="color:#ff79c6">*</span>)<span style="color:#ff79c6">&amp;</span>serv_adr, <span style="color:#ff79c6">sizeof</span>(serv_adr)) <span style="color:#ff79c6">==</span> <span style="color:#ff79c6">-</span><span style="color:#bd93f9">1</span>)
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 41</span><span>        error_handling(<span style="color:#f1fa8c">&#34;bind() error&#34;</span>);
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 42</span><span>    <span style="color:#ff79c6">if</span> (listen(serv_sock, <span style="color:#bd93f9">5</span>) <span style="color:#ff79c6">==</span> <span style="color:#ff79c6">-</span><span style="color:#bd93f9">1</span>)
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 43</span><span>        error_handling(<span style="color:#f1fa8c">&#34;listen() error&#34;</span>);
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 44</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 45</span><span>    epfd <span style="color:#ff79c6">=</span> epoll_create(EPOLL_SIZE); <span style="color:#6272a4">//可以忽略这个参数，填入的参数为操作系统参考
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 46</span><span><span style="color:#6272a4"></span>    ep_events <span style="color:#ff79c6">=</span> malloc(<span style="color:#ff79c6">sizeof</span>(<span style="color:#ff79c6">struct</span> <span style="color:#50fa7b">epoll_event</span>) <span style="color:#ff79c6">*</span> EPOLL_SIZE);
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 47</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 48</span><span>    setnonblockingmode(serv_sock);
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 49</span><span>    event.events <span style="color:#ff79c6">=</span> EPOLLIN; <span style="color:#6272a4">//需要读取数据的情况
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 50</span><span><span style="color:#6272a4"></span>    event.data.fd <span style="color:#ff79c6">=</span> serv_sock;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 51</span><span>    epoll_ctl(epfd, EPOLL_CTL_ADD, serv_sock, <span style="color:#ff79c6">&amp;</span>event); <span style="color:#6272a4">//例程epfd 中添加文件描述符 serv_sock，目的是监听 enevt 中的事件
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 52</span><span><span style="color:#6272a4"></span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 53</span><span>    <span style="color:#ff79c6">while</span> (<span style="color:#bd93f9">1</span>)
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 54</span><span>    {
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 55</span><span>        event_cnt <span style="color:#ff79c6">=</span> epoll_wait(epfd, ep_events, EPOLL_SIZE, <span style="color:#ff79c6">-</span><span style="color:#bd93f9">1</span>); <span style="color:#6272a4">//获取改变了的文件描述符，返回数量
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 56</span><span><span style="color:#6272a4"></span>        <span style="color:#ff79c6">if</span> (event_cnt <span style="color:#ff79c6">==</span> <span style="color:#ff79c6">-</span><span style="color:#bd93f9">1</span>)
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 57</span><span>        {
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 58</span><span>            puts(<span style="color:#f1fa8c">&#34;epoll_wait() error&#34;</span>);
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 59</span><span>            <span style="color:#ff79c6">break</span>;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 60</span><span>        }
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 61</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 62</span><span>        puts(<span style="color:#f1fa8c">&#34;return epoll_wait&#34;</span>);
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 63</span><span>        <span style="color:#ff79c6">for</span> (i <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">0</span>; i <span style="color:#ff79c6">&lt;</span> event_cnt; i<span style="color:#ff79c6">++</span>)
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 64</span><span>        {
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 65</span><span>            <span style="color:#ff79c6">if</span> (ep_events[i].data.fd <span style="color:#ff79c6">==</span> serv_sock) <span style="color:#6272a4">//客户端请求连接时
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 66</span><span><span style="color:#6272a4"></span>            {
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 67</span><span>                adr_sz <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">sizeof</span>(clnt_adr);
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 68</span><span>                clnt_sock <span style="color:#ff79c6">=</span> accept(serv_sock, (<span style="color:#ff79c6">struct</span> <span style="color:#50fa7b">sockaddr</span> <span style="color:#ff79c6">*</span>)<span style="color:#ff79c6">&amp;</span>clnt_adr, <span style="color:#ff79c6">&amp;</span>adr_sz);
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 69</span><span>                setnonblockingmode(clnt_sock);    <span style="color:#6272a4">//将 accept 创建的套接字改为非阻塞模式
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 70</span><span><span style="color:#6272a4"></span>                event.events <span style="color:#ff79c6">=</span> EPOLLIN <span style="color:#ff79c6">|</span> EPOLLET; <span style="color:#6272a4">//改成边缘触发
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 71</span><span><span style="color:#6272a4"></span>                event.data.fd <span style="color:#ff79c6">=</span> clnt_sock;        <span style="color:#6272a4">//把客户端套接字添加进去
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 72</span><span><span style="color:#6272a4"></span>                epoll_ctl(epfd, EPOLL_CTL_ADD, clnt_sock, <span style="color:#ff79c6">&amp;</span>event);
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 73</span><span>                printf(<span style="color:#f1fa8c">&#34;connected client : %d </span><span style="color:#f1fa8c">\n</span><span style="color:#f1fa8c">&#34;</span>, clnt_sock);
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 74</span><span>            }
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 75</span><span>            <span style="color:#ff79c6">else</span> <span style="color:#6272a4">//是客户端套接字时
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 76</span><span><span style="color:#6272a4"></span>            {
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 77</span><span>                <span style="color:#ff79c6">while</span> (<span style="color:#bd93f9">1</span>)
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 78</span><span>                {
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 79</span><span>                    str_len <span style="color:#ff79c6">=</span> read(ep_events[i].data.fd, buf, BUF_SIZE);
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 80</span><span>                    <span style="color:#ff79c6">if</span> (str_len <span style="color:#ff79c6">==</span> <span style="color:#bd93f9">0</span>)
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 81</span><span>                    {
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 82</span><span>                        epoll_ctl(epfd, EPOLL_CTL_DEL, ep_events[i].data.fd, <span style="color:#8be9fd;font-style:italic">NULL</span>); <span style="color:#6272a4">//从epoll中删除套接字
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 83</span><span><span style="color:#6272a4"></span>                        close(ep_events[i].data.fd);
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 84</span><span>                        printf(<span style="color:#f1fa8c">&#34;closed client : %d </span><span style="color:#f1fa8c">\n</span><span style="color:#f1fa8c">&#34;</span>, ep_events[i].data.fd);
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 85</span><span>                        <span style="color:#ff79c6">break</span>;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 86</span><span>                    }
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 87</span><span>                    <span style="color:#ff79c6">else</span> <span style="color:#ff79c6">if</span> (str_len <span style="color:#ff79c6">&lt;</span> <span style="color:#bd93f9">0</span>)
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 88</span><span>                    {
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 89</span><span>                        <span style="color:#ff79c6">if</span> (errno <span style="color:#ff79c6">==</span> EAGAIN) <span style="color:#6272a4">//read 返回-1 且 errno 值为 EAGAIN ，意味读取了输入缓冲的全部数据
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 90</span><span><span style="color:#6272a4"></span>                            <span style="color:#ff79c6">break</span>;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 91</span><span>                    }
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 92</span><span>                    <span style="color:#ff79c6">else</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 93</span><span>                    {
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 94</span><span>                        write(ep_events[i].data.fd, buf, str_len);
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 95</span><span>                    }
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 96</span><span>                }
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 97</span><span>            }
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 98</span><span>        }
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 99</span><span>    }
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">100</span><span>    close(serv_sock);
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">101</span><span>    close(epfd);
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">102</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">103</span><span>    <span style="color:#ff79c6">return</span> <span style="color:#bd93f9">0</span>;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">104</span><span>}
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">105</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">106</span><span><span style="color:#8be9fd">void</span> <span style="color:#50fa7b">error_handling</span>(<span style="color:#8be9fd">char</span> <span style="color:#ff79c6">*</span>message)
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">107</span><span>{
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">108</span><span>    fputs(message, stderr);
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">109</span><span>    fputc(<span style="color:#f1fa8c">&#39;\n&#39;</span>, stderr);
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">110</span><span>    exit(<span style="color:#bd93f9">1</span>);
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">111</span><span>}
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">112</span><span><span style="color:#8be9fd">void</span> <span style="color:#50fa7b">setnonblockingmode</span>(<span style="color:#8be9fd">int</span> fd)
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">113</span><span>{
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">114</span><span>    <span style="color:#8be9fd">int</span> flag <span style="color:#ff79c6">=</span> fcntl(fd, F_GETFL, <span style="color:#bd93f9">0</span>);
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">115</span><span>    fcntl(fd, F_SETFL, flag <span style="color:#ff79c6">|</span> O_NONBLOCK);
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">116</span><span>}
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span><span style="color:#6272a4">// size: epoll实例监听的文件描述符数目。Linux2.6.8之后这个参数可以忽略。
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span><span><span style="color:#6272a4">// retval: epoll实例文件描述符
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span><span><span style="color:#6272a4"></span><span style="color:#8be9fd">int</span> <span style="color:#50fa7b">epoll_create</span>(<span style="color:#8be9fd">int</span> size);
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span><span><span style="color:#6272a4">// op: EPOLL_CTL_ADD, EPOLL_CTL_DEL, EPOLL_CTL_MOD
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span><span><span style="color:#6272a4"></span><span style="color:#8be9fd">int</span> <span style="color:#50fa7b">epoll_ctl</span>(<span style="color:#8be9fd">int</span> epfd, <span style="color:#8be9fd">int</span> op, <span style="color:#8be9fd">int</span> fd, <span style="color:#ff79c6">struct</span> <span style="color:#50fa7b">epoll_event</span> <span style="color:#ff79c6">*</span>event)；
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span><span><span style="color:#6272a4">// events: 保存发生事件的文件描述符
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span><span><span style="color:#6272a4">// maxevents: 第二个参数可以保存的最大事件数，即数组大小
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span><span><span style="color:#6272a4"></span><span style="color:#8be9fd">int</span> epoll_wait(<span style="color:#8be9fd">int</span> epfd, <span style="color:#ff79c6">struct</span> <span style="color:#50fa7b">epoll_event</span> <span style="color:#ff79c6">*</span>events, <span style="color:#8be9fd">int</span> maxevents, <span style="color:#8be9fd">int</span> timeout);
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13</span><span><span style="color:#ff79c6">typedef</span> <span style="color:#ff79c6">union</span> <span style="color:#50fa7b">epoll_data</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14</span><span>{
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15</span><span>  <span style="color:#8be9fd">void</span> <span style="color:#ff79c6">*</span>ptr;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16</span><span>  <span style="color:#8be9fd">int</span> fd;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17</span><span>  <span style="color:#8be9fd">uint32_t</span> u32;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18</span><span>  <span style="color:#8be9fd">uint64_t</span> u64;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19</span><span>} epoll_data_t;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21</span><span><span style="color:#6272a4">// events支持的事件类型：
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22</span><span><span style="color:#6272a4">// EPOLLIN: 需要读取数据的情况
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23</span><span><span style="color:#6272a4">// EPOLLOUT: 输出缓存为空，可以理解发送数据的情况
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24</span><span><span style="color:#6272a4">// EPOLLPRI: 收到OOB数据的情况
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25</span><span><span style="color:#6272a4">// EPOLLRDHUP: 断开连接或半关闭的情况，这在边缘触发方式下非常有用
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26</span><span><span style="color:#6272a4">// EPOLLERR: 发生错误
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27</span><span><span style="color:#6272a4">// EPOLLET: 以边沿触发的方式得到事件通知
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28</span><span><span style="color:#6272a4">// EPOLLONESHOT: 发生一次事件后，相应文件描述符不再收到事件通知。因此需要先epoll_ctl函数的第2个参数传递EPOLL_CTL_MOD再次设置事件。
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29</span><span><span style="color:#6272a4"></span><span style="color:#ff79c6">struct</span> <span style="color:#50fa7b">epoll_event</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30</span><span>{
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31</span><span>  <span style="color:#8be9fd">uint32_t</span> events;	<span style="color:#6272a4">/* Epoll events */</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32</span><span>  epoll_data_t data;	<span style="color:#6272a4">/* User data variable */</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33</span><span>};
+</span></span></code></pre></div><blockquote>
+<p>1.为什么不可以同时设置<code>event.events = EPOLLIN | EPOLLOUT</code>？</p>
+<p>最主要的是这句：at the time of the callback, epoll has no clue of what happened。大概指的回调的时候，<code>epoll</code>是不能区分出是<code>EPOLLIN</code>还是<code>EPOLLOUT</code>的。换句话说如果你同时监听了<code>EPOLLIN</code>和<code>EPOLLOUT</code>，当发生了<code>EPOLLIN</code>，由于<code>epoll</code>无法区分种类，那么将会同时监听到<code>EPOLLIN</code>和<code>EPOLLOUT</code>事件（即使当时没有发生EPOLLOUT）。</p>
+<p>2.什么时候设置为<code>EPOLLOUT</code>呢？</p>
+<p>当需要发送数据的时候，可以使用<code>epoll_ctl</code>来注册事件，第3个参数可以设置为<code>event-&gt;events = EPOLLOUT; event-&gt;data.ptr = dataToBeSent</code>，其中<code>dataToBeSent</code>可以为自定义结构<code>struct { int fd; char *buf; }</code>。当发生<code>EPOLLOUT</code>时候表示可以继续写入，直到发送完毕，然后再设置为<code>EPOLLIN</code>。</p>
+<p><a href="https://www.jianshu.com/p/f1eae48c1211" target="_blank">EPOLL讲解、注意点和使用建议 - 简书 (jianshu.com)</a></p>
+</blockquote>
+<p><strong>epoll默认是水平触发模式。边沿触发ET相比于水平触发LT，改动的地方主要有2处：</strong></p>
+<ul>
+<li>设置为fd为非阻塞IO</li>
+<li>读取时需要使用while(1)读取，读取完成后read返回-1而且errno==EAGAIN</li>
+</ul>
+<p><figure>
+  <a class="paragraph-image">
+    <img data-src="https://cdn.jsdelivr.net/gh/devin0x01/myimages@master/githubpages/image_90475ad986a2c3183867e607e0799f3c.png" data-action="zoom" alt=""  class="lazyload">
+  </a>
+  
+</figure></p>
+<h3 id="3select和epoll的比较">3.select和epoll的比较<a class="anchorjs-link" href="#3select%e5%92%8cepoll%e7%9a%84%e6%af%94%e8%be%83"></a></h3><blockquote>
+<p>1.select相比epoll的速度慢的原因：</p>
+<ul>
+<li>
+<p>调用select函数后需要遍历所有文件描述符</p>
+</li>
+<li>
+<p>每次调用select函数时，都需要向该函数传递监视对象信息。</p>
+</li>
+</ul>
+<p>2.select相比epoll的<strong>优势</strong>：</p>
+<ul>
+<li>epoll只支持Linux平台，而select支持大部分操作系统。因此服务端接入这比较少时适用。</li>
+</ul>
+</blockquote>
+
+
+        <hr style="visibility: hidden;" />
+        <ul class="pager">
+          
+          <li class="previous">
+            <a href="/post/%E5%B7%A5%E5%85%B7/notepad&#43;&#43;%E6%9B%BF%E6%8D%A2/" data-toggle="tooltip" data-placement="top" title="Notepad&#43;&#43;替换">
+              Previous<br>
+              <span>Notepad&#43;&#43;替换</span>
+            </a>
+          </li>
+          
+          
+          <li class="next">
+            <a href="/post/java/java%E5%9F%BA%E7%A1%80/" data-toggle="tooltip" data-placement="top" title="Java基础">
+              Next<br>
+              <span>Java基础</span>
+            </a>
+          </li>
+          
+        </ul>
+        <hr style="visibility: hidden;" />
+
+        
+        
+
+
+
+
+
+
+      </div>
+
+      
+      
+      
+      <div class="
+              col-lg-2 col-lg-offset-0
+              visible-lg-block
+              sidebar-container
+              catalog-container">
+        <div class="side-catalog">
+          <hr class="hidden-sm hidden-xs">
+          <h5>
+            <a class="catalog-toggle" href="#">CATALOG</a>
+          </h5>
+          <ul class="catalog-body"></ul>
+        </div>
+      </div>
+      
+      
+      <div class="
+              col-lg-8 col-lg-offset-2
+              col-md-10 col-md-offset-1
+              sidebar-container">
+
+        
+        
+        <section>
+  
+  
+  <hr class="hidden-sm hidden-xs">
+  
+  <h5>FEATURED TAGS</h5>
+  <div class="tags">
+    
+    <a href="/tags/c&#43;&#43;/">C&#43;&#43;</a>
+    
+    <a href="/tags/clang/">clang</a>
+    
+    <a href="/tags/cmake/">CMake</a>
+    
+    <a href="/tags/docker/">Docker</a>
+    
+    <a href="/tags/frp/">frp</a>
+    
+    <a href="/tags/git/">Git</a>
+    
+    <a href="/tags/java/">Java</a>
+    
+    <a href="/tags/linux%E5%BC%80%E5%8F%91/">Linux开发</a>
+    
+    <a href="/tags/linux%E8%BF%90%E7%BB%B4/">Linux运维</a>
+    
+    <a href="/tags/photoshop/">Photoshop</a>
+    
+    <a href="/tags/qt/">Qt</a>
+    
+    <a href="/tags/rss/">RSS</a>
+    
+    <a href="/tags/shell/">Shell</a>
+    
+    <a href="/tags/vim/">vim</a>
+    
+    <a href="/tags/wireguard/">WireGuard</a>
+    
+    <a href="/tags/%E5%B7%A5%E5%85%B7/">工具</a>
+    
+    <a href="/tags/%E7%BC%96%E8%AF%91%E8%B0%83%E8%AF%95/">编译调试</a>
+    
+  </div>
+</section>
+
+        
+        
+
+<hr>
+<h5>FRIENDS</h5>
+<ul class="list-inline">
+  
+  <li><a href="https://www.inoreader.com" target="_blank">Inoreader</a></li>
+  
+  <li><a href="https://www.v2ex.com" target="_blank">V2EX</a></li>
+  
+  <li><a href="https://www.oschina.net" target="_blank">OSChina</a></li>
+  
+  <li><a href="https://www.infoq.cn" target="_blank">InfoQ</a></li>
+  
+  <li><a href="https://godbolt.org" target="_blank">CompilerExplorer</a></li>
+  
+  <li><a href="https://cppinsights.io" target="_blank">CppInsights</a></li>
+  
+  <li><a href="https://quick-bench.com" target="_blank">QuickBench</a></li>
+  
+</ul>
+
+      </div>
+    </div>
+  </div>
+</article>
+
+
+
+  
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        
+        <ul class="list-inline text-center">
+
+<li>
+  <a href="https://github.com/devin0x01" target="_blank">
+    <span class="fa-stack fa-lg">
+      <i class="fa fa-circle fa-stack-2x"></i>
+      <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+    </span>
+  </a>
+</li>
+
+<li>
+  <a href="https://www.zhihu.com/people/skywind3000" target="_blank">
+    <span class="fa-stack fa-lg">
+      <i class="fa fa-circle fa-stack-2x"></i>
+      <i class="fab fa-stack-1x fa-inverse">知</i>
+    </span>
+  </a>
+</li>
+
+
+<li>
+  <a href="/index.xml" target="_blank">
+    <span class="fa-stack fa-lg">
+      <i class="fa fa-circle fa-stack-2x"></i>
+      <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+    </span>
+  </a>
+</li></ul>
+
+        <p class="copyright text-muted">
+          Copyright &copy; DEVIN&#39;s BLOG 2024  
+          <br>
+          Powered by <a href="https://gohugo.io">Hugo</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src=/js/jquery.min.js></script>
+<script src=/js/bootstrap.min.js crossorigin="anonymous"></script>
+
+
+
+<script src="/js/hux-blog.min.c4ea77041cd3edbfc8b2622cd887a9a5d8760a4162d14489e36d2a3fa4c90172.js"></script>
+
+
+<script src=/js/simple-jekyll-search.min.js></script>
+
+
+<script src="/js/search.min.53bce5da475b4d362500e5ce5dddfa22e20e1b9018777411d2020b4b839c9310.js"></script>
+
+
+
+
+
+
+<script type="text/javascript">
+  function generateCatalog(selector) {
+    _containerSelector = 'div.post-container'
+    
+    var P = $(_containerSelector), a, n, t, l, i, c;
+    a = P.find('h1,h2,h3,h4');
+    
+    $(selector).html('')
+    
+    a.each(function () {
+      n = $(this).prop('tagName').toLowerCase();
+      i = "#" + $(this).prop('id');
+      t = $(this).text();
+      c = $('<a href="' + i + '" rel="nofollow">' + t + '</a>');
+      l = $('<li class="' + n + '_nav"></li>').append(c);
+      $(selector).append(l);
+    });
+    return true;
+  }
+
+  generateCatalog(".catalog-body");
+
+  
+  $(".catalog-toggle").click((function (e) {
+    e.preventDefault();
+    $('.side-catalog').toggleClass("fold")
+  }))
+</script>
+
+
+<script type="text/javascript" src='/js/jquery.nav.min.ade6bde8f9fcc6a4b40852cb892e9f5912340ab8fe1305149d917fdd16fffd8d.js'></script>
+<script>
+   $(document).ready( function () {
+    $('.catalog-body').onePageNav({
+      currentClass: "active",
+      changeHash: !1,
+      easing: "swing",
+      filter: "",
+      scrollSpeed: 700,
+      scrollOffset: 0,
+      scrollThreshold: .2,
+      begin: null,
+      end: null,
+      scrollChange: null,
+      padding: 80
+    });
+  });
+</script>
+
+
+
+
+
+
+
+
+
+<script src="/zoomjs/zoom.min.js"></script>
+
+</body>
+
+</html>

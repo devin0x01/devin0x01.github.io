@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  
+    
+  <title>target_link_libraries中的PRIVATE INTERFACE PUBLIC.md | DEVIN&#39;s BLOG</title>
+  <meta name="author" content="DEVIN">
+  <meta name="description" content="CMake target_link_libraries Interface Dependencies - Stack Overflow CMake的链接选项：PRIVATE，INTERFACE，PUBLIC - 知乎 If you are creating a shared library and your source cpp files #include the headers of another library (Say, QtNetwork for example), but your header">
+  <meta name="keywords" content="blog,developer,personal">
+
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="target_link_libraries中的PRIVATE INTERFACE PUBLIC.md"/>
+<meta name="twitter:description" content="CMake target_link_libraries Interface Dependencies - Stack Overflow CMake的链接选项：PRIVATE，INTERFACE，PUBLIC - 知乎 If you are creating a shared library and your source cpp files #include the headers of another library (Say, QtNetwork for example), but your header"/>
+
+  <meta property="og:title" content="target_link_libraries中的PRIVATE INTERFACE PUBLIC.md" />
+<meta property="og:description" content="CMake target_link_libraries Interface Dependencies - Stack Overflow CMake的链接选项：PRIVATE，INTERFACE，PUBLIC - 知乎 If you are creating a shared library and your source cpp files #include the headers of another library (Say, QtNetwork for example), but your header" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:1313/post/%E7%BC%96%E8%AF%91%E8%B0%83%E8%AF%95/target_link_libraries%E4%B8%AD%E7%9A%84private-interface-public/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2023-07-24T18:05:25+08:00" />
+<meta property="article:modified_time" content="2023-07-24T18:05:25+08:00" />
+
+  <link rel="stylesheet" href="/css/bootstrap.min.css"  crossorigin="anonymous">
+  
+  <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.1/css/all.min.css" rel="stylesheet" type="text/css">
+
+  <link rel="stylesheet" href="/sass/main.css">
+
+  <link rel="stylesheet" href="/zoomjs/zoom.min.css">
+
+  <script src=/js/lazysizes.min.js></script>
+
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  
+
+</head>
+
+
+
+<body ontouchstart="">
+  
+  
+  <nav class="navbar navbar-default navbar-custom navbar-fixed-top invert">
+  <div class="container-fluid">
+    
+    <div class="navbar-header page-scroll">
+      <button type="button" class="navbar-toggle">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="http://localhost:1313">DEVIN&#39;s BLOG</a>
+    </div>
+    
+    <div id="huxblog_navbar">
+      <div class="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          
+          <li><a href="/" title="Home">Home</a></li>
+          
+          <li><a href="/archive/" title="Archive">Archive</a></li>
+          
+          <li><a href="https://www.cnblogs.com" title="CNBLOGS">CNBLOGS</a></li>
+          
+          <li><a href="https://github.com/devin0x01" title="Github">Github</a></li>
+          
+          <li><a href="/about/" title="About">About</a></li>
+          
+
+          <li class="search-icon">
+            <a href="javascript:void(0)">
+              <i class="fa fa-search"></i>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    
+  </div>
+  
+</nav>
+<script>
+  
+  
+  
+  var $body = document.body;
+  var $toggle = document.querySelector(".navbar-toggle");
+  var $navbar = document.querySelector("#huxblog_navbar");
+  var $collapse = document.querySelector(".navbar-collapse");
+
+  var __HuxNav__ = {
+    close: function () {
+      $navbar.className = " ";
+      
+      setTimeout(function () {
+        
+        if ($navbar.className.indexOf("in") < 0) {
+          $collapse.style.height = "0px";
+        }
+      }, 400);
+    },
+    open: function () {
+      $collapse.style.height = "auto";
+      $navbar.className += " in";
+    },
+  };
+
+  
+  $toggle.addEventListener("click", function (e) {
+    if ($navbar.className.indexOf("in") > 0) {
+      __HuxNav__.close();
+    } else {
+      __HuxNav__.open();
+    }
+  });
+
+  
+
+  document.addEventListener("click", function (e) {
+    if (e.target == $toggle) return;
+    if (e.target.className == "icon-bar") return;
+    __HuxNav__.close();
+  });
+</script>
+  
+<div class="search-page">
+  <div class="search-icon-close-container">
+    <span class="search-icon-close">
+      <i class="fa fa-chevron-down"></i>
+    </span>
+  </div>
+  <div class="search-main container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <form></form>
+        <input type="text" id="search-input" placeholder="$ grep...">
+        </form>
+        <div id="search-results" class="mini-post-list"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+  
+  
+
+
+<style type="text/css">
+  header.intro-header {
+    position: relative;
+    background-image: url('');
+  }
+</style>
+
+<header class="intro-header style-text">
+
+  <div class="header-mask"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="post-heading">
+          <div class="tags">
+            
+            <a class="tag" href="/tags/cmake/" title="CMake">CMake</a>
+            
+          </div>
+          <h1>target_link_libraries中的PRIVATE INTERFACE PUBLIC.md</h1>
+          <h2 class="subheading"></h2>
+          <span class="meta">
+            Posted by  DEVIN 
+            on Mon, Jul 24, 2023
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+
+  
+
+
+<article>
+  <div class="container">
+    <div class="row">
+
+      
+      <div class="
+              col-lg-8 col-lg-offset-2
+              col-md-10 col-md-offset-1
+              post-container">
+        <p><a href="https://stackoverflow.com/questions/26037954/cmake-target-link-libraries-interface-dependencies" target="_blank">CMake target_link_libraries Interface Dependencies - Stack Overflow</a>
+<a href="https://zhuanlan.zhihu.com/p/493493849" target="_blank">CMake的链接选项：PRIVATE，INTERFACE，PUBLIC - 知乎</a></p>
+<blockquote>
+<p>If you are creating a shared library and your source cpp files #include the headers of another library (Say, QtNetwork for example), but your header files don&rsquo;t include QtNetwork headers, then QtNetwork is a <code>PRIVATE</code> dependency.</p>
+<p>If your source files and your headers include the headers of another library, then it is a <code>PUBLIC</code> dependency.</p>
+<p>If your header files other than your source files include the headers of another library, then it is an <code>INTERFACE</code> dependency.</p>
+<p>Other build properties of <code>PUBLIC</code> and <code>INTERFACE</code> dependencies are propagated to consuming libraries.</p>
+</blockquote>
+<h1 id="测试public">测试PUBLIC<a class="anchorjs-link" href="#%e6%b5%8b%e8%af%95public"></a></h1><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span><span style="color:#6272a4">// foo.h
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span><span><span style="color:#6272a4"></span><span style="color:#8be9fd">int</span> <span style="color:#50fa7b">foo</span>();
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span><span><span style="color:#ff79c6">struct</span> <span style="color:#50fa7b">A</span> {
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span><span>	<span style="color:#8be9fd">int</span> num1;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span><span>	<span style="color:#8be9fd">double</span> num2;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span><span>};
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span><span><span style="color:#6272a4">// foo.cpp
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span><span><span style="color:#6272a4"></span><span style="color:#ff79c6">#include</span> <span style="color:#ff79c6">&#34;foo.h&#34;</span><span style="color:#ff79c6">
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span><span><span style="color:#ff79c6"></span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12</span><span><span style="color:#8be9fd">int</span> <span style="color:#50fa7b">foo</span>()
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13</span><span>{
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14</span><span>	<span style="color:#ff79c6">return</span> <span style="color:#ff79c6">sizeof</span>(A);
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15</span><span>}
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17</span><span><span style="color:#6272a4">// bar.h
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18</span><span><span style="color:#6272a4"></span><span style="color:#ff79c6">#include</span> <span style="color:#ff79c6">&#34;foo.h&#34;</span><span style="color:#ff79c6">
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19</span><span><span style="color:#ff79c6"></span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20</span><span><span style="color:#8be9fd">int</span> <span style="color:#50fa7b">bar</span>();
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22</span><span><span style="color:#6272a4">// bar.cpp
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23</span><span><span style="color:#6272a4"></span><span style="color:#ff79c6">#include</span> <span style="color:#ff79c6">&#34;foo.h&#34;</span><span style="color:#ff79c6">
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24</span><span><span style="color:#ff79c6"></span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25</span><span><span style="color:#8be9fd">int</span> <span style="color:#50fa7b">bar</span>()
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26</span><span>{
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27</span><span>	<span style="color:#ff79c6">return</span> foo() <span style="color:#ff79c6">*</span> <span style="color:#bd93f9">10</span>;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28</span><span>}
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30</span><span><span style="color:#6272a4">// main.cpp
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31</span><span><span style="color:#6272a4"></span><span style="color:#ff79c6">#include</span> <span style="color:#ff79c6">&lt;iostream&gt;</span><span style="color:#ff79c6">
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32</span><span><span style="color:#ff79c6">#include</span> <span style="color:#ff79c6">&#34;bar.h&#34;</span><span style="color:#ff79c6">
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33</span><span><span style="color:#ff79c6"></span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34</span><span><span style="color:#8be9fd">int</span> <span style="color:#50fa7b">main</span>()
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35</span><span>{
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">36</span><span>	std<span style="color:#ff79c6">::</span>cout <span style="color:#ff79c6">&lt;&lt;</span> foo() <span style="color:#ff79c6">&lt;&lt;</span> std<span style="color:#ff79c6">::</span>endl;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">37</span><span>	std<span style="color:#ff79c6">::</span>cout <span style="color:#ff79c6">&lt;&lt;</span> bar() <span style="color:#ff79c6">&lt;&lt;</span> std<span style="color:#ff79c6">::</span>endl;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">38</span><span>	<span style="color:#ff79c6">return</span> <span style="color:#bd93f9">0</span>;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">39</span><span>}
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">40</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">41</span><span><span style="color:#6272a4">// CMakeLists.txt
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">42</span><span><span style="color:#6272a4"></span>cmake_minimum_required(VERSION <span style="color:#bd93f9">3.16</span>)
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">43</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">44</span><span>project(foobar)
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">45</span><span>set(CMAKE_SKIP_RPATH TRUE)
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">46</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">47</span><span>include_directories(${CMAKE_SOURCE_DIR})
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">48</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">49</span><span>add_library(foo SHARED foo.cpp)
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">50</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">51</span><span>add_library(bar SHARED bar.cpp)
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">52</span><span>target_link_libraries(bar PUBLIC foo)
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">53</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">54</span><span>add_executable(main main.cpp)
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">55</span><span>target_link_libraries(main bar)
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span>$ <span style="color:#8be9fd;font-style:italic">export</span> <span style="color:#8be9fd;font-style:italic">LD_LIBRARY_PATH</span><span style="color:#ff79c6">=</span><span style="color:#8be9fd;font-style:italic">$PWD</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span><span>$ ldd *.so
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span><span>libbar.so:
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span><span>	libfoo.so <span style="color:#ff79c6">=</span>&gt; /usr1/tmp/cmake1/build/libfoo.so <span style="color:#ff79c6">(</span>0x00007f8657389000<span style="color:#ff79c6">)</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span><span>libfoo.so:
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span><span>	statically linked
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span><span>$ ldd main
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span><span>	libbar.so <span style="color:#ff79c6">=</span>&gt; /usr1/tmp/cmake1/build/libbar.so <span style="color:#ff79c6">(</span>0x00007f68298cc000<span style="color:#ff79c6">)</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span><span>	libfoo.so <span style="color:#ff79c6">=</span>&gt; /usr1/tmp/cmake1/build/libfoo.so <span style="color:#ff79c6">(</span>0x00007f68298c7000<span style="color:#ff79c6">)</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13</span><span>$ nm -C libbar.so | grep <span style="color:#f1fa8c">&#34;foo\|bar&#34;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14</span><span><span style="color:#bd93f9">0000000000001119</span> T bar<span style="color:#ff79c6">()</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15</span><span>                 U foo<span style="color:#ff79c6">()</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17</span><span>$ nm -C main | grep <span style="color:#f1fa8c">&#34;foo\|bar&#34;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18</span><span>                 U bar<span style="color:#ff79c6">()</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19</span><span>                 U foo<span style="color:#ff79c6">()</span>
+</span></span></code></pre></div><h1 id="测试private">测试PRIVATE<a class="anchorjs-link" href="#%e6%b5%8b%e8%af%95private"></a></h1><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span><span style="color:#6272a4">// foo.h
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span><span><span style="color:#6272a4"></span><span style="color:#ff79c6">struct</span> <span style="color:#50fa7b">A</span> {
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span><span>	<span style="color:#8be9fd">int</span> num1;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span><span>	<span style="color:#8be9fd">double</span> num2;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span><span>};
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span><span><span style="color:#8be9fd">int</span> <span style="color:#50fa7b">foo</span>();
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span><span><span style="color:#6272a4">// foo.cpp
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span><span><span style="color:#6272a4"></span><span style="color:#ff79c6">#include</span> <span style="color:#ff79c6">&#34;foo.h&#34;</span><span style="color:#ff79c6">
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span><span><span style="color:#ff79c6"></span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12</span><span><span style="color:#8be9fd">int</span> <span style="color:#50fa7b">foo</span>()
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13</span><span>{
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14</span><span>	<span style="color:#ff79c6">return</span> <span style="color:#ff79c6">sizeof</span>(A);
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15</span><span>}
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17</span><span><span style="color:#6272a4">// bar.h
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18</span><span><span style="color:#6272a4"></span><span style="color:#8be9fd">int</span> <span style="color:#50fa7b">bar</span>();
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20</span><span><span style="color:#6272a4">// bar.cpp
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21</span><span><span style="color:#6272a4"></span><span style="color:#ff79c6">#include</span> <span style="color:#ff79c6">&#34;foo.h&#34;</span><span style="color:#ff79c6">
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22</span><span><span style="color:#ff79c6"></span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23</span><span><span style="color:#8be9fd">int</span> <span style="color:#50fa7b">bar</span>()
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24</span><span>{
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25</span><span>	<span style="color:#ff79c6">return</span> foo() <span style="color:#ff79c6">*</span> <span style="color:#bd93f9">10</span>;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26</span><span>}
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28</span><span><span style="color:#6272a4">// main.cpp
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29</span><span><span style="color:#6272a4"></span><span style="color:#ff79c6">#include</span> <span style="color:#ff79c6">&lt;iostream&gt;</span><span style="color:#ff79c6">
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30</span><span><span style="color:#ff79c6">#include</span> <span style="color:#ff79c6">&#34;bar.h&#34;</span><span style="color:#ff79c6">
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31</span><span><span style="color:#ff79c6"></span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32</span><span><span style="color:#8be9fd">int</span> <span style="color:#50fa7b">main</span>()
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33</span><span>{
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34</span><span>	std<span style="color:#ff79c6">::</span>cout <span style="color:#ff79c6">&lt;&lt;</span> bar() <span style="color:#ff79c6">&lt;&lt;</span> std<span style="color:#ff79c6">::</span>endl;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35</span><span>	<span style="color:#ff79c6">return</span> <span style="color:#bd93f9">0</span>;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">36</span><span>}
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">37</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">38</span><span><span style="color:#6272a4">// CMakeLists.txt
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">39</span><span><span style="color:#6272a4"></span>cmake_minimum_required(VERSION <span style="color:#bd93f9">3.16</span>)
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">40</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">41</span><span>project(foobar)
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">42</span><span>set(CMAKE_SKIP_RPATH TRUE)
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">43</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">44</span><span>include_directories(${CMAKE_SOURCE_DIR})
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">45</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">46</span><span>add_library(foo SHARED foo.cpp)
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">47</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">48</span><span>add_library(bar SHARED bar.cpp)
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">49</span><span>target_link_libraries(bar PRIVATE foo)
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">50</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">51</span><span>add_executable(main main.cpp)
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">52</span><span>target_link_libraries(main bar)
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span>$ <span style="color:#8be9fd;font-style:italic">export</span> <span style="color:#8be9fd;font-style:italic">LD_LIBRARY_PATH</span><span style="color:#ff79c6">=</span><span style="color:#8be9fd;font-style:italic">$PWD</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span><span>$ ldd *.so
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span><span>libbar.so:
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span><span>	libfoo.so <span style="color:#ff79c6">=</span>&gt; /usr1/tmp/cmake2/build/libfoo.so <span style="color:#ff79c6">(</span>0x00007fcaaa295000<span style="color:#ff79c6">)</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span><span>libfoo.so:
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span><span>	statically linked
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span><span>$ ldd main
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span><span>	libbar.so <span style="color:#ff79c6">=</span>&gt; /usr1/tmp/cmake2/build/libbar.so <span style="color:#ff79c6">(</span>0x00007fea1beff000<span style="color:#ff79c6">)</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span><span>	libfoo.so <span style="color:#ff79c6">=</span>&gt; /usr1/tmp/cmake2/build/libfoo.so <span style="color:#ff79c6">(</span>0x00007fea1baa0000<span style="color:#ff79c6">)</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13</span><span>$ nm -C libbar.so | grep <span style="color:#f1fa8c">&#34;foo\|bar&#34;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14</span><span><span style="color:#bd93f9">0000000000001119</span> T bar<span style="color:#ff79c6">()</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15</span><span>                 U foo<span style="color:#ff79c6">()</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17</span><span>$ nm -C main | grep <span style="color:#f1fa8c">&#34;foo\|bar&#34;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18</span><span>                 U bar<span style="color:#ff79c6">()</span>
+</span></span></code></pre></div><h1 id="测试interface">测试INTERFACE<a class="anchorjs-link" href="#%e6%b5%8b%e8%af%95interface"></a></h1><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span><span style="color:#6272a4">// foo.h
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span><span><span style="color:#6272a4"></span><span style="color:#ff79c6">struct</span> <span style="color:#50fa7b">A</span> {
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span><span>	<span style="color:#8be9fd">int</span> num1;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span><span>	<span style="color:#8be9fd">double</span> num2;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span><span>};
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span><span><span style="color:#8be9fd">int</span> <span style="color:#50fa7b">foo</span>();
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span><span><span style="color:#6272a4">// foo.cpp
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span><span><span style="color:#6272a4"></span><span style="color:#ff79c6">#include</span> <span style="color:#ff79c6">&#34;foo.h&#34;</span><span style="color:#ff79c6">
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span><span><span style="color:#ff79c6"></span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12</span><span><span style="color:#8be9fd">int</span> <span style="color:#50fa7b">foo</span>()
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13</span><span>{
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14</span><span>	<span style="color:#ff79c6">return</span> <span style="color:#ff79c6">sizeof</span>(A);
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15</span><span>}
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17</span><span><span style="color:#6272a4">// bar.h
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18</span><span><span style="color:#6272a4"></span><span style="color:#ff79c6">#include</span> <span style="color:#ff79c6">&#34;foo.h&#34;</span><span style="color:#ff79c6">
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19</span><span><span style="color:#ff79c6"></span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20</span><span><span style="color:#8be9fd">int</span> <span style="color:#50fa7b">bar</span>();
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22</span><span><span style="color:#6272a4">// bar.cpp
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23</span><span><span style="color:#6272a4"></span><span style="color:#8be9fd">int</span> <span style="color:#50fa7b">bar</span>()
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24</span><span>{
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25</span><span>	<span style="color:#ff79c6">return</span> <span style="color:#bd93f9">123</span> <span style="color:#ff79c6">*</span> <span style="color:#bd93f9">10</span>;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26</span><span>}
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28</span><span><span style="color:#6272a4">// main.cpp
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29</span><span><span style="color:#6272a4"></span><span style="color:#ff79c6">#include</span> <span style="color:#ff79c6">&lt;iostream&gt;</span><span style="color:#ff79c6">
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30</span><span><span style="color:#ff79c6">#include</span> <span style="color:#ff79c6">&#34;bar.h&#34;</span><span style="color:#ff79c6">
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31</span><span><span style="color:#ff79c6"></span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32</span><span><span style="color:#8be9fd">int</span> <span style="color:#50fa7b">main</span>()
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33</span><span>{
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34</span><span>	std<span style="color:#ff79c6">::</span>cout <span style="color:#ff79c6">&lt;&lt;</span> foo() <span style="color:#ff79c6">&lt;&lt;</span> std<span style="color:#ff79c6">::</span>endl;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35</span><span>	std<span style="color:#ff79c6">::</span>cout <span style="color:#ff79c6">&lt;&lt;</span> bar() <span style="color:#ff79c6">&lt;&lt;</span> std<span style="color:#ff79c6">::</span>endl;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">36</span><span>	<span style="color:#ff79c6">return</span> <span style="color:#bd93f9">0</span>;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">37</span><span>}
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">38</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">39</span><span><span style="color:#6272a4">// CMakeLists.txt
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">40</span><span><span style="color:#6272a4"></span>cmake_minimum_required(VERSION <span style="color:#bd93f9">3.16</span>)
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">41</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">42</span><span>project(foobar)
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">43</span><span>set(CMAKE_SKIP_RPATH TRUE)
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">44</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">45</span><span>include_directories(${CMAKE_SOURCE_DIR})
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">46</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">47</span><span>add_library(foo SHARED foo.cpp)
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">48</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">49</span><span>add_library(bar SHARED bar.cpp)
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">50</span><span>target_link_libraries(bar INTERFACE foo)
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">51</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">52</span><span>add_executable(main main.cpp)
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">53</span><span>target_link_libraries(main bar)
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span>$ <span style="color:#8be9fd;font-style:italic">export</span> <span style="color:#8be9fd;font-style:italic">LD_LIBRARY_PATH</span><span style="color:#ff79c6">=</span><span style="color:#8be9fd;font-style:italic">$PWD</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span><span>$ ldd *.so
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span><span>libbar.so:
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span><span>	statically linked
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span><span>libfoo.so:
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span><span>	statically linked
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span><span>$ ldd main
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span><span>	libbar.so <span style="color:#ff79c6">=</span>&gt; /usr1/tmp/cmake3/build/libbar.so <span style="color:#ff79c6">(</span>0x00007f80dd28e000<span style="color:#ff79c6">)</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span><span>	libfoo.so <span style="color:#ff79c6">=</span>&gt; /usr1/tmp/cmake3/build/libfoo.so <span style="color:#ff79c6">(</span>0x00007f80dd289000<span style="color:#ff79c6">)</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13</span><span>$ nm -C libbar.so | grep <span style="color:#f1fa8c">&#34;foo\|bar&#34;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14</span><span>00000000000010f9 T bar<span style="color:#ff79c6">()</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16</span><span>$ nm -C main | grep <span style="color:#f1fa8c">&#34;foo\|bar&#34;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17</span><span>                 U bar<span style="color:#ff79c6">()</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18</span><span>                 U foo<span style="color:#ff79c6">()</span>
+</span></span></code></pre></div>
+
+        <hr style="visibility: hidden;" />
+        <ul class="pager">
+          
+          <li class="previous">
+            <a href="/post/cpp/%E8%B0%83%E7%94%A8%E6%88%90%E5%91%98%E6%A8%A1%E6%9D%BF/" data-toggle="tooltip" data-placement="top" title="调用成员模板">
+              Previous<br>
+              <span>调用成员模板</span>
+            </a>
+          </li>
+          
+          
+          <li class="next">
+            <a href="/post/%E7%BC%96%E8%AF%91%E8%B0%83%E8%AF%95/cmake%E8%AF%AD%E6%B3%95%E5%9F%BA%E7%A1%80/" data-toggle="tooltip" data-placement="top" title="CMake语法基础">
+              Next<br>
+              <span>CMake语法基础</span>
+            </a>
+          </li>
+          
+        </ul>
+        <hr style="visibility: hidden;" />
+
+        
+        
+
+
+
+
+
+
+      </div>
+
+      
+      
+      
+      <div class="
+              col-lg-2 col-lg-offset-0
+              visible-lg-block
+              sidebar-container
+              catalog-container">
+        <div class="side-catalog">
+          <hr class="hidden-sm hidden-xs">
+          <h5>
+            <a class="catalog-toggle" href="#">CATALOG</a>
+          </h5>
+          <ul class="catalog-body"></ul>
+        </div>
+      </div>
+      
+      
+      <div class="
+              col-lg-8 col-lg-offset-2
+              col-md-10 col-md-offset-1
+              sidebar-container">
+
+        
+        
+        <section>
+  
+  
+  <hr class="hidden-sm hidden-xs">
+  
+  <h5>FEATURED TAGS</h5>
+  <div class="tags">
+    
+    <a href="/tags/c&#43;&#43;/">C&#43;&#43;</a>
+    
+    <a href="/tags/clang/">clang</a>
+    
+    <a href="/tags/cmake/">CMake</a>
+    
+    <a href="/tags/docker/">Docker</a>
+    
+    <a href="/tags/frp/">frp</a>
+    
+    <a href="/tags/git/">Git</a>
+    
+    <a href="/tags/java/">Java</a>
+    
+    <a href="/tags/linux%E5%BC%80%E5%8F%91/">Linux开发</a>
+    
+    <a href="/tags/linux%E8%BF%90%E7%BB%B4/">Linux运维</a>
+    
+    <a href="/tags/photoshop/">Photoshop</a>
+    
+    <a href="/tags/qt/">Qt</a>
+    
+    <a href="/tags/rss/">RSS</a>
+    
+    <a href="/tags/shell/">Shell</a>
+    
+    <a href="/tags/vim/">vim</a>
+    
+    <a href="/tags/wireguard/">WireGuard</a>
+    
+    <a href="/tags/%E5%B7%A5%E5%85%B7/">工具</a>
+    
+    <a href="/tags/%E7%BC%96%E8%AF%91%E8%B0%83%E8%AF%95/">编译调试</a>
+    
+  </div>
+</section>
+
+        
+        
+
+<hr>
+<h5>FRIENDS</h5>
+<ul class="list-inline">
+  
+  <li><a href="https://www.inoreader.com" target="_blank">Inoreader</a></li>
+  
+  <li><a href="https://www.v2ex.com" target="_blank">V2EX</a></li>
+  
+  <li><a href="https://www.oschina.net" target="_blank">OSChina</a></li>
+  
+  <li><a href="https://www.infoq.cn" target="_blank">InfoQ</a></li>
+  
+  <li><a href="https://godbolt.org" target="_blank">CompilerExplorer</a></li>
+  
+  <li><a href="https://cppinsights.io" target="_blank">CppInsights</a></li>
+  
+  <li><a href="https://quick-bench.com" target="_blank">QuickBench</a></li>
+  
+</ul>
+
+      </div>
+    </div>
+  </div>
+</article>
+
+
+
+  
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        
+        <ul class="list-inline text-center">
+
+<li>
+  <a href="https://github.com/devin0x01" target="_blank">
+    <span class="fa-stack fa-lg">
+      <i class="fa fa-circle fa-stack-2x"></i>
+      <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+    </span>
+  </a>
+</li>
+
+<li>
+  <a href="https://www.zhihu.com/people/skywind3000" target="_blank">
+    <span class="fa-stack fa-lg">
+      <i class="fa fa-circle fa-stack-2x"></i>
+      <i class="fab fa-stack-1x fa-inverse">知</i>
+    </span>
+  </a>
+</li>
+
+
+<li>
+  <a href="/index.xml" target="_blank">
+    <span class="fa-stack fa-lg">
+      <i class="fa fa-circle fa-stack-2x"></i>
+      <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+    </span>
+  </a>
+</li></ul>
+
+        <p class="copyright text-muted">
+          Copyright &copy; DEVIN&#39;s BLOG 2024  
+          <br>
+          Powered by <a href="https://gohugo.io">Hugo</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src=/js/jquery.min.js></script>
+<script src=/js/bootstrap.min.js crossorigin="anonymous"></script>
+
+
+
+<script src="/js/hux-blog.min.c4ea77041cd3edbfc8b2622cd887a9a5d8760a4162d14489e36d2a3fa4c90172.js"></script>
+
+
+<script src=/js/simple-jekyll-search.min.js></script>
+
+
+<script src="/js/search.min.53bce5da475b4d362500e5ce5dddfa22e20e1b9018777411d2020b4b839c9310.js"></script>
+
+
+
+
+
+
+<script type="text/javascript">
+  function generateCatalog(selector) {
+    _containerSelector = 'div.post-container'
+    
+    var P = $(_containerSelector), a, n, t, l, i, c;
+    a = P.find('h1,h2,h3,h4');
+    
+    $(selector).html('')
+    
+    a.each(function () {
+      n = $(this).prop('tagName').toLowerCase();
+      i = "#" + $(this).prop('id');
+      t = $(this).text();
+      c = $('<a href="' + i + '" rel="nofollow">' + t + '</a>');
+      l = $('<li class="' + n + '_nav"></li>').append(c);
+      $(selector).append(l);
+    });
+    return true;
+  }
+
+  generateCatalog(".catalog-body");
+
+  
+  $(".catalog-toggle").click((function (e) {
+    e.preventDefault();
+    $('.side-catalog').toggleClass("fold")
+  }))
+</script>
+
+
+<script type="text/javascript" src='/js/jquery.nav.min.ade6bde8f9fcc6a4b40852cb892e9f5912340ab8fe1305149d917fdd16fffd8d.js'></script>
+<script>
+   $(document).ready( function () {
+    $('.catalog-body').onePageNav({
+      currentClass: "active",
+      changeHash: !1,
+      easing: "swing",
+      filter: "",
+      scrollSpeed: 700,
+      scrollOffset: 0,
+      scrollThreshold: .2,
+      begin: null,
+      end: null,
+      scrollChange: null,
+      padding: 80
+    });
+  });
+</script>
+
+
+
+
+
+
+
+
+
+<script src="/zoomjs/zoom.min.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  
+    
+  <title>nvim配置教程 | DEVIN&#39;s BLOG</title>
+  <meta name="author" content="DEVIN">
+  <meta name="description" content="1.安装NerdFont字体ryanoasis/nerd-fonts: Iconic font aggregator How do I install fonts? - Ask Ubuntu bash - MobaXTerm Powerline Font Issue - Super User 没有root权限时，ttf文件">
+  <meta name="keywords" content="blog,developer,personal">
+
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="nvim配置教程"/>
+<meta name="twitter:description" content="1.安装NerdFont字体ryanoasis/nerd-fonts: Iconic font aggregator How do I install fonts? - Ask Ubuntu bash - MobaXTerm Powerline Font Issue - Super User 没有root权限时，ttf文件"/>
+
+  <meta property="og:title" content="nvim配置教程" />
+<meta property="og:description" content="1.安装NerdFont字体ryanoasis/nerd-fonts: Iconic font aggregator How do I install fonts? - Ask Ubuntu bash - MobaXTerm Powerline Font Issue - Super User 没有root权限时，ttf文件" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:1313/post/%E5%B7%A5%E5%85%B7/nvim%E9%85%8D%E7%BD%AE%E6%95%99%E7%A8%8B/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2023-08-16T16:05:25+08:00" />
+<meta property="article:modified_time" content="2023-08-16T16:05:25+08:00" />
+
+  <link rel="stylesheet" href="/css/bootstrap.min.css"  crossorigin="anonymous">
+  
+  <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.1/css/all.min.css" rel="stylesheet" type="text/css">
+
+  <link rel="stylesheet" href="/sass/main.css">
+
+  <link rel="stylesheet" href="/zoomjs/zoom.min.css">
+
+  <script src=/js/lazysizes.min.js></script>
+
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  
+
+</head>
+
+
+
+<body ontouchstart="">
+  
+  
+  <nav class="navbar navbar-default navbar-custom navbar-fixed-top invert">
+  <div class="container-fluid">
+    
+    <div class="navbar-header page-scroll">
+      <button type="button" class="navbar-toggle">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="http://localhost:1313">DEVIN&#39;s BLOG</a>
+    </div>
+    
+    <div id="huxblog_navbar">
+      <div class="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          
+          <li><a href="/" title="Home">Home</a></li>
+          
+          <li><a href="/archive/" title="Archive">Archive</a></li>
+          
+          <li><a href="https://www.cnblogs.com" title="CNBLOGS">CNBLOGS</a></li>
+          
+          <li><a href="https://github.com/devin0x01" title="Github">Github</a></li>
+          
+          <li><a href="/about/" title="About">About</a></li>
+          
+
+          <li class="search-icon">
+            <a href="javascript:void(0)">
+              <i class="fa fa-search"></i>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    
+  </div>
+  
+</nav>
+<script>
+  
+  
+  
+  var $body = document.body;
+  var $toggle = document.querySelector(".navbar-toggle");
+  var $navbar = document.querySelector("#huxblog_navbar");
+  var $collapse = document.querySelector(".navbar-collapse");
+
+  var __HuxNav__ = {
+    close: function () {
+      $navbar.className = " ";
+      
+      setTimeout(function () {
+        
+        if ($navbar.className.indexOf("in") < 0) {
+          $collapse.style.height = "0px";
+        }
+      }, 400);
+    },
+    open: function () {
+      $collapse.style.height = "auto";
+      $navbar.className += " in";
+    },
+  };
+
+  
+  $toggle.addEventListener("click", function (e) {
+    if ($navbar.className.indexOf("in") > 0) {
+      __HuxNav__.close();
+    } else {
+      __HuxNav__.open();
+    }
+  });
+
+  
+
+  document.addEventListener("click", function (e) {
+    if (e.target == $toggle) return;
+    if (e.target.className == "icon-bar") return;
+    __HuxNav__.close();
+  });
+</script>
+  
+<div class="search-page">
+  <div class="search-icon-close-container">
+    <span class="search-icon-close">
+      <i class="fa fa-chevron-down"></i>
+    </span>
+  </div>
+  <div class="search-main container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <form></form>
+        <input type="text" id="search-input" placeholder="$ grep...">
+        </form>
+        <div id="search-results" class="mini-post-list"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+  
+  
+
+
+<style type="text/css">
+  header.intro-header {
+    position: relative;
+    background-image: url('');
+  }
+</style>
+
+<header class="intro-header style-text">
+
+  <div class="header-mask"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="post-heading">
+          <div class="tags">
+            
+            <a class="tag" href="/tags/vim/" title="vim">vim</a>
+            
+          </div>
+          <h1>nvim配置教程</h1>
+          <h2 class="subheading"></h2>
+          <span class="meta">
+            Posted by  DEVIN 
+            on Wed, Aug 16, 2023
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+
+  
+
+
+<article>
+  <div class="container">
+    <div class="row">
+
+      
+      <div class="
+              col-lg-8 col-lg-offset-2
+              col-md-10 col-md-offset-1
+              post-container">
+        <h1 id="1安装nerdfont字体">1.安装NerdFont字体<a class="anchorjs-link" href="#1%e5%ae%89%e8%a3%85nerdfont%e5%ad%97%e4%bd%93"></a></h1><p><a href="https://github.com/ryanoasis/nerd-fonts" target="_blank">ryanoasis/nerd-fonts: Iconic font aggregator</a><br>
+<a href="https://askubuntu.com/questions/3697/how-do-i-install-fonts" target="_blank">How do I install fonts? - Ask Ubuntu</a><br>
+<a href="https://superuser.com/questions/1134268/mobaxterm-powerline-font-issue/1251965" target="_blank">bash - MobaXTerm Powerline Font Issue - Super User</a></p>
+<p>没有root权限时，ttf文件放在<code>~/.fonts</code>或者<code>~/.local/share/fonts</code>目录下<br>
+有root权限时，放在<code>/usr/local/share/fonts</code>目录下</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span><span style="color:#6272a4"># 安装字体</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span>fc-cache -fv
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span>fc-list | grep &lt;name-of-font&gt;
+</span></span></code></pre></div><h1 id="2掘金小册配置">2.掘金小册配置<a class="anchorjs-link" href="#2%e6%8e%98%e9%87%91%e5%b0%8f%e5%86%8c%e9%85%8d%e7%bd%ae"></a></h1><h2 id="21目录结构">2.1.目录结构<a class="anchorjs-link" href="#21%e7%9b%ae%e5%bd%95%e7%bb%93%e6%9e%84"></a></h2><p>首先 init.lua 是整个配置的入口文件，负责引用所有其他的模块，基本上想要打开或关闭某个插件只要在这里修改一行代码即可。</p>
+<p>basic.lua： 基础配置，是对默认配置的一个重置。<br>
+colorscheme.lua： 我们安装的主题皮肤配置，在这里切换主题。<br>
+keybindings.lua： 快捷键的设置，所有插件的快捷键也都会放在这里。<br>
+plugins.lua： 插件安装管理，插件安装或卸载全在这里设置。<br>
+lsp 文件夹： 是对 Neovim 内置 LSP 功能的配置，包括常见编程语言与语法提示等。<br>
+config ： 文件夹包含各种语言服务器单独的配置文件。<br>
+setup.lua ： 内置 LSP 的配置。<br>
+cmp.lua ： 语法自动补全补全的配置，包括各种补全源，与自定义代码段。<br>
+ui.lua： 对内置 LSP 功能增强和 UI 美化。<br>
+formatter.lua： 独立代码格式化功能。<br>
+plugin-config 文件夹： 是对第三方插件的配置，未来每添加一个插件，这里就多一个配置文件。<br>
+utils 文件夹： 是对常见问题的修改，包括输入法切换，针对 windows 的特殊配置等。</p>
+<h2 id="22手动下载插件管理器">2.2.手动下载插件管理器<a class="anchorjs-link" href="#22%e6%89%8b%e5%8a%a8%e4%b8%8b%e8%bd%bd%e6%8f%92%e4%bb%b6%e7%ae%a1%e7%90%86%e5%99%a8"></a></h2><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>git clone --depth <span style="color:#bd93f9">1</span> https://github.com/wbthomason/packer.nvim<span style="color:#f1fa8c">\
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span><span style="color:#f1fa8c"></span> ~/.local/share/nvim/site/pack/packer/start/packer.nvim
+</span></span></code></pre></div><p><code>PackerSync</code>下载插件</p>
+<p>Neovim 推荐将数据存储在 标准数据目录下（:h base-directories 查看详细文档），标准数据目录默认是 ~/.local/share/nvim/ ，你可以通过调用 :echo stdpath(&ldquo;data&rdquo;) 命令查看你系统下的实际路径。
+Packer 会将插件默认安装在 标准数据目录/site/pack/packer/start 中，完整目录也就是~/.local/share/nvim/site/pack/packer/start 目录下。</p>
+<h2 id="23安装插件">2.3.安装插件<a class="anchorjs-link" href="#23%e5%ae%89%e8%a3%85%e6%8f%92%e4%bb%b6"></a></h2><h3 id="侧边栏">侧边栏<a class="anchorjs-link" href="#%e4%be%a7%e8%be%b9%e6%a0%8f"></a></h3><h3 id="状态栏">状态栏<a class="anchorjs-link" href="#%e7%8a%b6%e6%80%81%e6%a0%8f"></a></h3><h3 id="标签页">标签页<a class="anchorjs-link" href="#%e6%a0%87%e7%ad%be%e9%a1%b5"></a></h3><h3 id="模糊搜索">模糊搜索<a class="anchorjs-link" href="#%e6%a8%a1%e7%b3%8a%e6%90%9c%e7%b4%a2"></a></h3><p>telescope 依赖 ripgrep 和 fd-find</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span><span style="color:#6272a4">#riggrep</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span>curl -LO https://github.com/BurntSushi/ripgrep/releases/download/12.1.1/ripgrep_12.1.1_amd64.deb
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span>sudo dpkg -i ripgrep_12.1.1_amd64.deb
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span><span><span style="color:#6272a4">#fd-find</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6</span><span>wget https://ghproxy.com/https://github.com/sharkdp/fd/releases/download/v8.5.3/fd_8.5.3_amd64.deb
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7</span><span>sudo dpkg -i fd_8.5.3_amd64.deb
+</span></span></code></pre></div><h3 id="语法高亮">语法高亮<a class="anchorjs-link" href="#%e8%af%ad%e6%b3%95%e9%ab%98%e4%ba%ae"></a></h3><p>Tree-sitter 是一个解析器生成器工具和增量解析库，它可以在源文件编辑的同时高效的实时生成语法树。</p>
+<p><code>:TSInstallInfo</code> 命令查看 language parsers 列表与安装状态。<br>
+<code>:TSInstall &lt;language_to_install&gt;</code> 调用 TSInstall 命令的时候，插件会在目录<code>~/.local/share/nvim/site/pack/packer/start/nvim-treesitter/parser</code>生成一个 <language>.so 语法文件。<br>
+<code>:TSUninstall &lt;language_to_uninstall&gt;</code> 命令用于卸载 language parser 。<br>
+<code>:TSModuleInfo</code> 命令来查看你的模块是否开启成功。<br>
+<code>:TSBufToggle highlight</code> 命令可以切换打开关闭代码高亮功能。</p>
+
+
+        <hr style="visibility: hidden;" />
+        <ul class="pager">
+          
+          <li class="previous">
+            <a href="/post/cpp/%E6%8C%87%E5%90%91%E6%88%90%E5%91%98%E5%87%BD%E6%95%B0%E7%9A%84%E6%8C%87%E9%92%88/" data-toggle="tooltip" data-placement="top" title="指向成员函数的指针">
+              Previous<br>
+              <span>指向成员函数的指针</span>
+            </a>
+          </li>
+          
+          
+          <li class="next">
+            <a href="/post/%E5%B7%A5%E5%85%B7/vim%E9%85%8D%E7%BD%AE%E6%95%99%E7%A8%8B/" data-toggle="tooltip" data-placement="top" title="vim配置教程">
+              Next<br>
+              <span>vim配置教程</span>
+            </a>
+          </li>
+          
+        </ul>
+        <hr style="visibility: hidden;" />
+
+        
+        
+
+
+
+
+
+
+      </div>
+
+      
+      
+      
+      <div class="
+              col-lg-2 col-lg-offset-0
+              visible-lg-block
+              sidebar-container
+              catalog-container">
+        <div class="side-catalog">
+          <hr class="hidden-sm hidden-xs">
+          <h5>
+            <a class="catalog-toggle" href="#">CATALOG</a>
+          </h5>
+          <ul class="catalog-body"></ul>
+        </div>
+      </div>
+      
+      
+      <div class="
+              col-lg-8 col-lg-offset-2
+              col-md-10 col-md-offset-1
+              sidebar-container">
+
+        
+        
+        <section>
+  
+  
+  <hr class="hidden-sm hidden-xs">
+  
+  <h5>FEATURED TAGS</h5>
+  <div class="tags">
+    
+    <a href="/tags/c&#43;&#43;/">C&#43;&#43;</a>
+    
+    <a href="/tags/clang/">clang</a>
+    
+    <a href="/tags/cmake/">CMake</a>
+    
+    <a href="/tags/docker/">Docker</a>
+    
+    <a href="/tags/frp/">frp</a>
+    
+    <a href="/tags/git/">Git</a>
+    
+    <a href="/tags/java/">Java</a>
+    
+    <a href="/tags/linux%E5%BC%80%E5%8F%91/">Linux开发</a>
+    
+    <a href="/tags/linux%E8%BF%90%E7%BB%B4/">Linux运维</a>
+    
+    <a href="/tags/photoshop/">Photoshop</a>
+    
+    <a href="/tags/qt/">Qt</a>
+    
+    <a href="/tags/rss/">RSS</a>
+    
+    <a href="/tags/shell/">Shell</a>
+    
+    <a href="/tags/vim/">vim</a>
+    
+    <a href="/tags/wireguard/">WireGuard</a>
+    
+    <a href="/tags/%E5%B7%A5%E5%85%B7/">工具</a>
+    
+    <a href="/tags/%E7%BC%96%E8%AF%91%E8%B0%83%E8%AF%95/">编译调试</a>
+    
+  </div>
+</section>
+
+        
+        
+
+<hr>
+<h5>FRIENDS</h5>
+<ul class="list-inline">
+  
+  <li><a href="https://www.inoreader.com" target="_blank">Inoreader</a></li>
+  
+  <li><a href="https://www.v2ex.com" target="_blank">V2EX</a></li>
+  
+  <li><a href="https://www.oschina.net" target="_blank">OSChina</a></li>
+  
+  <li><a href="https://www.infoq.cn" target="_blank">InfoQ</a></li>
+  
+  <li><a href="https://godbolt.org" target="_blank">CompilerExplorer</a></li>
+  
+  <li><a href="https://cppinsights.io" target="_blank">CppInsights</a></li>
+  
+  <li><a href="https://quick-bench.com" target="_blank">QuickBench</a></li>
+  
+</ul>
+
+      </div>
+    </div>
+  </div>
+</article>
+
+
+
+  
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        
+        <ul class="list-inline text-center">
+
+<li>
+  <a href="https://github.com/devin0x01" target="_blank">
+    <span class="fa-stack fa-lg">
+      <i class="fa fa-circle fa-stack-2x"></i>
+      <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+    </span>
+  </a>
+</li>
+
+<li>
+  <a href="https://www.zhihu.com/people/skywind3000" target="_blank">
+    <span class="fa-stack fa-lg">
+      <i class="fa fa-circle fa-stack-2x"></i>
+      <i class="fab fa-stack-1x fa-inverse">知</i>
+    </span>
+  </a>
+</li>
+
+
+<li>
+  <a href="/index.xml" target="_blank">
+    <span class="fa-stack fa-lg">
+      <i class="fa fa-circle fa-stack-2x"></i>
+      <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+    </span>
+  </a>
+</li></ul>
+
+        <p class="copyright text-muted">
+          Copyright &copy; DEVIN&#39;s BLOG 2024  
+          <br>
+          Powered by <a href="https://gohugo.io">Hugo</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src=/js/jquery.min.js></script>
+<script src=/js/bootstrap.min.js crossorigin="anonymous"></script>
+
+
+
+<script src="/js/hux-blog.min.c4ea77041cd3edbfc8b2622cd887a9a5d8760a4162d14489e36d2a3fa4c90172.js"></script>
+
+
+<script src=/js/simple-jekyll-search.min.js></script>
+
+
+<script src="/js/search.min.53bce5da475b4d362500e5ce5dddfa22e20e1b9018777411d2020b4b839c9310.js"></script>
+
+
+
+
+
+
+<script type="text/javascript">
+  function generateCatalog(selector) {
+    _containerSelector = 'div.post-container'
+    
+    var P = $(_containerSelector), a, n, t, l, i, c;
+    a = P.find('h1,h2,h3,h4');
+    
+    $(selector).html('')
+    
+    a.each(function () {
+      n = $(this).prop('tagName').toLowerCase();
+      i = "#" + $(this).prop('id');
+      t = $(this).text();
+      c = $('<a href="' + i + '" rel="nofollow">' + t + '</a>');
+      l = $('<li class="' + n + '_nav"></li>').append(c);
+      $(selector).append(l);
+    });
+    return true;
+  }
+
+  generateCatalog(".catalog-body");
+
+  
+  $(".catalog-toggle").click((function (e) {
+    e.preventDefault();
+    $('.side-catalog').toggleClass("fold")
+  }))
+</script>
+
+
+<script type="text/javascript" src='/js/jquery.nav.min.ade6bde8f9fcc6a4b40852cb892e9f5912340ab8fe1305149d917fdd16fffd8d.js'></script>
+<script>
+   $(document).ready( function () {
+    $('.catalog-body').onePageNav({
+      currentClass: "active",
+      changeHash: !1,
+      easing: "swing",
+      filter: "",
+      scrollSpeed: 700,
+      scrollOffset: 0,
+      scrollThreshold: .2,
+      begin: null,
+      end: null,
+      scrollChange: null,
+      padding: 80
+    });
+  });
+</script>
+
+
+
+
+
+
+
+
+
+<script src="/zoomjs/zoom.min.js"></script>
+
+</body>
+
+</html>

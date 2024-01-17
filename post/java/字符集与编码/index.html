@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  
+    
+  <title>字符集与编码 | DEVIN&#39;s BLOG</title>
+  <meta name="author" content="DEVIN">
+  <meta name="description" content="术语 字符(character)是具有语义值的文本的最小单位。 字符集(character set)是可能由多种语言使用的字符的集合。例：拉丁语字">
+  <meta name="keywords" content="blog,developer,personal">
+
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="字符集与编码"/>
+<meta name="twitter:description" content="术语 字符(character)是具有语义值的文本的最小单位。 字符集(character set)是可能由多种语言使用的字符的集合。例：拉丁语字"/>
+
+  <meta property="og:title" content="字符集与编码" />
+<meta property="og:description" content="术语 字符(character)是具有语义值的文本的最小单位。 字符集(character set)是可能由多种语言使用的字符的集合。例：拉丁语字" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:1313/post/java/%E5%AD%97%E7%AC%A6%E9%9B%86%E4%B8%8E%E7%BC%96%E7%A0%81/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2023-06-18T14:05:25+08:00" />
+<meta property="article:modified_time" content="2023-06-18T14:05:25+08:00" />
+
+  <link rel="stylesheet" href="/css/bootstrap.min.css"  crossorigin="anonymous">
+  
+  <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.1/css/all.min.css" rel="stylesheet" type="text/css">
+
+  <link rel="stylesheet" href="/sass/main.css">
+
+  <link rel="stylesheet" href="/zoomjs/zoom.min.css">
+
+  <script src=/js/lazysizes.min.js></script>
+
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  
+
+</head>
+
+
+
+<body ontouchstart="">
+  
+  
+  <nav class="navbar navbar-default navbar-custom navbar-fixed-top invert">
+  <div class="container-fluid">
+    
+    <div class="navbar-header page-scroll">
+      <button type="button" class="navbar-toggle">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="http://localhost:1313">DEVIN&#39;s BLOG</a>
+    </div>
+    
+    <div id="huxblog_navbar">
+      <div class="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          
+          <li><a href="/" title="Home">Home</a></li>
+          
+          <li><a href="/archive/" title="Archive">Archive</a></li>
+          
+          <li><a href="https://www.cnblogs.com" title="CNBLOGS">CNBLOGS</a></li>
+          
+          <li><a href="https://github.com/devin0x01" title="Github">Github</a></li>
+          
+          <li><a href="/about/" title="About">About</a></li>
+          
+
+          <li class="search-icon">
+            <a href="javascript:void(0)">
+              <i class="fa fa-search"></i>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    
+  </div>
+  
+</nav>
+<script>
+  
+  
+  
+  var $body = document.body;
+  var $toggle = document.querySelector(".navbar-toggle");
+  var $navbar = document.querySelector("#huxblog_navbar");
+  var $collapse = document.querySelector(".navbar-collapse");
+
+  var __HuxNav__ = {
+    close: function () {
+      $navbar.className = " ";
+      
+      setTimeout(function () {
+        
+        if ($navbar.className.indexOf("in") < 0) {
+          $collapse.style.height = "0px";
+        }
+      }, 400);
+    },
+    open: function () {
+      $collapse.style.height = "auto";
+      $navbar.className += " in";
+    },
+  };
+
+  
+  $toggle.addEventListener("click", function (e) {
+    if ($navbar.className.indexOf("in") > 0) {
+      __HuxNav__.close();
+    } else {
+      __HuxNav__.open();
+    }
+  });
+
+  
+
+  document.addEventListener("click", function (e) {
+    if (e.target == $toggle) return;
+    if (e.target.className == "icon-bar") return;
+    __HuxNav__.close();
+  });
+</script>
+  
+<div class="search-page">
+  <div class="search-icon-close-container">
+    <span class="search-icon-close">
+      <i class="fa fa-chevron-down"></i>
+    </span>
+  </div>
+  <div class="search-main container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <form></form>
+        <input type="text" id="search-input" placeholder="$ grep...">
+        </form>
+        <div id="search-results" class="mini-post-list"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+  
+  
+
+
+<style type="text/css">
+  header.intro-header {
+    position: relative;
+    background-image: url('');
+  }
+</style>
+
+<header class="intro-header style-text">
+
+  <div class="header-mask"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="post-heading">
+          <div class="tags">
+            
+            <a class="tag" href="/tags/java/" title="Java">Java</a>
+            
+          </div>
+          <h1>字符集与编码</h1>
+          <h2 class="subheading"></h2>
+          <span class="meta">
+            Posted by  DEVIN 
+            on Sun, Jun 18, 2023
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+
+  
+
+
+<article>
+  <div class="container">
+    <div class="row">
+
+      
+      <div class="
+              col-lg-8 col-lg-offset-2
+              col-md-10 col-md-offset-1
+              post-container">
+        <h2 id="术语">术语<a class="anchorjs-link" href="#%e6%9c%af%e8%af%ad"></a></h2><blockquote>
+<p><strong>字符</strong>(character)是具有语义值的文本的最小单位。
+<strong>字符集</strong>(character set)是可能由多种语言使用的字符的集合。例：拉丁语字符集由英语和大多数欧洲语言使用，但希腊语字符集仅由希腊语使用。
+<strong>编码字符集</strong>(coded character set)是一个字符集，其中每个字符对应于一个唯一的数字。
+一个编码字符集的<strong>编码点</strong>(code point)是字符集中或编码空间中允许的任何值。
+<strong>编码空间</strong>(code space)是一个整数范围，其值为编码点。
+<strong>编码单元</strong>(code unit)是一个位序列，用于在给定的编码表单中对库的每个字符进行编码。有的文档中称之为<strong>编码值</strong>(code value)。</p>
+</blockquote>
+<p>编码单元例子：US-ASCII: 7 bits，UTF-8, GB18030: 8 bits，UTF-16: 16 bits，UTF-32: 32 bits</p>
+<p>字符串<code>&quot;abc𐐀&quot;</code> 包括4个字符，4个编码点：
+(1) UTF-32编码时: 4个编码单元，00000061, 00000062, 00000063, 00010400
+(2) UTF-16编码时: 5个编码单元，0061, 0062, 0063, d801, dc00
+(3) UTF-8编码时: 7个编码单元，61, 62, 63, f0, 90, 90, 80</p>
+<p><figure>
+  <a class="paragraph-image">
+    <img data-src="https://cdn.jsdelivr.net/gh/devin0x01/myimages@master/githubpages/image_bbc1f7f685c0d771366f94dbec972ec4.png" data-action="zoom" alt=""  class="lazyload">
+  </a>
+  
+</figure></p>
+<h2 id="编码格式区别">编码格式区别<a class="anchorjs-link" href="#%e7%bc%96%e7%a0%81%e6%a0%bc%e5%bc%8f%e5%8c%ba%e5%88%ab"></a></h2><p>Unicode、GB2312都是<strong>编码字符集</strong>，即一个编号（数字）到字符的一种映射关系，仅仅是一种映射关系。</p>
+<p>GBK、UTF-8都是<strong>编码格式</strong>。GBK和UTF-8都是用来序列化或存储Unicode编码的数据的，但是分别是2种不同的格式。除了格式不一样之外，他们所<strong>关心的unicode编码范围也不一样</strong>，UTF-8考虑了很多种不同国家的字符，涵盖整个Unicode码表，所以其存储一个字符的编码的时候，使用的字节长度也从1字节到4字节不等；而GBK只考虑中文(在Unicode中的一小部分字符的编码），所以它算好了只要2个字节就能涵盖到绝大多数常用中文(2个字节能表示6w多种字符)，所以它存储一个字符的时候，所用的字节长度是固定的。</p>
+<h2 id="java中的编码">Java中的编码<a class="anchorjs-link" href="#java%e4%b8%ad%e7%9a%84%e7%bc%96%e7%a0%81"></a></h2><p>首先Java的String使用的编码是Unicode，但是当String存在于内存中时(也就是当程序运行时，你在代码中用String类型的引用对它进行操作时，也就是String没有被存在文件中且也没有在网络中传输(序列化)时)，是“只有编码而没有编码格式的”，所以Java程序中的任何String对象，说它是GBK还是UTF-8都是错的。GBK和UTF-8是编码格式而不是编码，String在内存中不需要“编码格式”(记住<strong>编码格式是在存文件或序列化的时候使用的</strong>), 它只是一个Unicode的字符串而已。</p>
+<p>所以Java里面String是不带编码格式的，而<code>String.toByteArray(String charsetName)</code>得到的<code>byteArray</code>是带编码格式的，格式就是你传入的<code>charsetName</code>，我们不妨把<code>toByteArray</code>的这个过程叫做==编码==；另外，<code>new String(byte bytes[], String charsetName)</code>是把一个byte数组(带编码格式)以charsetName指定的编码格式翻译为一个不带编码格式的String对象，我们不妨把这个过程叫==解码==。</p>
+<blockquote>
+<p><code>String(byte[] bytes)</code>通过使用平台的默认字符集解码指定的 byte 数组，构造一个新的 String。
+<code>String(byte[] bytes, Charset charset)</code>通过使用指定的 charset 解码指定的 byte 数组，构造一个新的 String。</p>
+<p><code>byte[] getBytes()</code>使用平台的默认字符集将此 String 编码为 byte 序列，并将结果存储到一个新的 byte数组中。
+<code>byte[] getBytes(Charset charset)</code>使用给定的 charset 将此 String 编码到 byte 序列，并将结果存储到新的 byte 数组。</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span><span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd;font-style:italic">class</span> <span style="color:#50fa7b">Test</span> <span style="color:#ff79c6">{</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span><span>    <span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd;font-style:italic">static</span> <span style="color:#8be9fd">void</span> <span style="color:#50fa7b">main</span><span style="color:#ff79c6">(</span>String<span style="color:#ff79c6">[]</span> args<span style="color:#ff79c6">)</span> <span style="color:#8be9fd;font-style:italic">throws</span> UnsupportedEncodingException <span style="color:#ff79c6">{</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span><span>        String str1<span style="color:#ff79c6">;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span><span>        String str2<span style="color:#ff79c6">;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span><span>        <span style="color:#8be9fd">byte</span><span style="color:#ff79c6">[]</span> bytes<span style="color:#ff79c6">;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span><span>        str1 <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#34;你好&#34;</span><span style="color:#ff79c6">;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span><span>        bytes <span style="color:#ff79c6">=</span> str1<span style="color:#ff79c6">.</span><span style="color:#50fa7b">getBytes</span><span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;UTF-8&#34;</span><span style="color:#ff79c6">);</span> <span style="color:#6272a4">// 用UTF-8编码序列化到字节数组中
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span><span><span style="color:#6272a4"></span>        str2 <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> String<span style="color:#ff79c6">(</span>bytes<span style="color:#ff79c6">,</span> <span style="color:#f1fa8c">&#34;UTF-8&#34;</span><span style="color:#ff79c6">);</span> <span style="color:#6272a4">// 使用UTF-8方式解码
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span><span><span style="color:#6272a4"></span>        System<span style="color:#ff79c6">.</span><span style="color:#50fa7b">out</span><span style="color:#ff79c6">.</span><span style="color:#50fa7b">println</span><span style="color:#ff79c6">(</span>str2 <span style="color:#ff79c6">+</span> <span style="color:#f1fa8c">&#34;123&#34;</span><span style="color:#ff79c6">);</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12</span><span>        bytes <span style="color:#ff79c6">=</span> str1<span style="color:#ff79c6">.</span><span style="color:#50fa7b">getBytes</span><span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;GBK&#34;</span><span style="color:#ff79c6">);</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13</span><span>        str2 <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> String<span style="color:#ff79c6">(</span>bytes<span style="color:#ff79c6">,</span> <span style="color:#f1fa8c">&#34;GBK&#34;</span><span style="color:#ff79c6">);</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14</span><span>        System<span style="color:#ff79c6">.</span><span style="color:#50fa7b">out</span><span style="color:#ff79c6">.</span><span style="color:#50fa7b">println</span><span style="color:#ff79c6">(</span>str2 <span style="color:#ff79c6">+</span> <span style="color:#f1fa8c">&#34;123&#34;</span><span style="color:#ff79c6">);</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16</span><span>        bytes <span style="color:#ff79c6">=</span> str1<span style="color:#ff79c6">.</span><span style="color:#50fa7b">getBytes</span><span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;UTF-8&#34;</span><span style="color:#ff79c6">);</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17</span><span>        str2 <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> String<span style="color:#ff79c6">(</span>bytes<span style="color:#ff79c6">,</span> <span style="color:#f1fa8c">&#34;GBK&#34;</span><span style="color:#ff79c6">);</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18</span><span>        System<span style="color:#ff79c6">.</span><span style="color:#50fa7b">out</span><span style="color:#ff79c6">.</span><span style="color:#50fa7b">println</span><span style="color:#ff79c6">(</span>str2 <span style="color:#ff79c6">+</span> <span style="color:#f1fa8c">&#34;123&#34;</span><span style="color:#ff79c6">);</span> <span style="color:#6272a4">// UTF-8编码，GBK解码
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19</span><span><span style="color:#6272a4"></span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20</span><span>        str1 <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#34;浣犲ソ&#34;</span><span style="color:#ff79c6">;</span> <span style="color:#6272a4">// 这是&#34;你好&#34;的GBK编码的字符串
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21</span><span><span style="color:#6272a4"></span>        str2 <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> String<span style="color:#ff79c6">(</span>str1<span style="color:#ff79c6">.</span><span style="color:#50fa7b">getBytes</span><span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;GBK&#34;</span><span style="color:#ff79c6">),</span> <span style="color:#f1fa8c">&#34;UTF-8&#34;</span><span style="color:#ff79c6">);</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22</span><span>        System<span style="color:#ff79c6">.</span><span style="color:#50fa7b">out</span><span style="color:#ff79c6">.</span><span style="color:#50fa7b">println</span><span style="color:#ff79c6">(</span>str2 <span style="color:#ff79c6">+</span> <span style="color:#f1fa8c">&#34;123&#34;</span><span style="color:#ff79c6">);</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23</span><span>    <span style="color:#ff79c6">}</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24</span><span><span style="color:#ff79c6">}</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26</span><span><span style="color:#6272a4">// 输出：
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27</span><span><span style="color:#6272a4">// 你好123
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28</span><span><span style="color:#6272a4">// 你好123
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29</span><span><span style="color:#6272a4">// 浣犲ソ123
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30</span><span><span style="color:#6272a4">// 你好123
+</span></span></span></code></pre></div><h2 id="参考资料">参考资料<a class="anchorjs-link" href="#%e5%8f%82%e8%80%83%e8%b5%84%e6%96%99"></a></h2><p><a href="https://www.zhihu.com/question/20361462" target="_blank">java中GBK编码格式转成UTF8，用一段方法实现怎么做？ - 知乎 (zhihu.com)</a></p>
+
+
+        <hr style="visibility: hidden;" />
+        <ul class="pager">
+          
+          <li class="previous">
+            <a href="/post/cpp/%E8%B0%83%E7%94%A8%E6%8B%B7%E8%B4%9D%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0%E7%9A%84%E5%9C%BA%E6%99%AF/" data-toggle="tooltip" data-placement="top" title="调用拷贝构造函数的场景">
+              Previous<br>
+              <span>调用拷贝构造函数的场景</span>
+            </a>
+          </li>
+          
+          
+          <li class="next">
+            <a href="/post/cpp/%E5%87%BD%E6%95%B0%E9%87%8D%E8%BD%BD%E5%8F%8A%E5%85%B6%E5%8C%B9%E9%85%8D%E9%A1%BA%E5%BA%8F/" data-toggle="tooltip" data-placement="top" title="函数重载及其匹配顺序">
+              Next<br>
+              <span>函数重载及其匹配顺序</span>
+            </a>
+          </li>
+          
+        </ul>
+        <hr style="visibility: hidden;" />
+
+        
+        
+
+
+
+
+
+
+      </div>
+
+      
+      
+      
+      <div class="
+              col-lg-2 col-lg-offset-0
+              visible-lg-block
+              sidebar-container
+              catalog-container">
+        <div class="side-catalog">
+          <hr class="hidden-sm hidden-xs">
+          <h5>
+            <a class="catalog-toggle" href="#">CATALOG</a>
+          </h5>
+          <ul class="catalog-body"></ul>
+        </div>
+      </div>
+      
+      
+      <div class="
+              col-lg-8 col-lg-offset-2
+              col-md-10 col-md-offset-1
+              sidebar-container">
+
+        
+        
+        <section>
+  
+  
+  <hr class="hidden-sm hidden-xs">
+  
+  <h5>FEATURED TAGS</h5>
+  <div class="tags">
+    
+    <a href="/tags/c&#43;&#43;/">C&#43;&#43;</a>
+    
+    <a href="/tags/clang/">clang</a>
+    
+    <a href="/tags/cmake/">CMake</a>
+    
+    <a href="/tags/docker/">Docker</a>
+    
+    <a href="/tags/frp/">frp</a>
+    
+    <a href="/tags/git/">Git</a>
+    
+    <a href="/tags/java/">Java</a>
+    
+    <a href="/tags/linux%E5%BC%80%E5%8F%91/">Linux开发</a>
+    
+    <a href="/tags/linux%E8%BF%90%E7%BB%B4/">Linux运维</a>
+    
+    <a href="/tags/photoshop/">Photoshop</a>
+    
+    <a href="/tags/qt/">Qt</a>
+    
+    <a href="/tags/rss/">RSS</a>
+    
+    <a href="/tags/shell/">Shell</a>
+    
+    <a href="/tags/vim/">vim</a>
+    
+    <a href="/tags/wireguard/">WireGuard</a>
+    
+    <a href="/tags/%E5%B7%A5%E5%85%B7/">工具</a>
+    
+    <a href="/tags/%E7%BC%96%E8%AF%91%E8%B0%83%E8%AF%95/">编译调试</a>
+    
+  </div>
+</section>
+
+        
+        
+
+<hr>
+<h5>FRIENDS</h5>
+<ul class="list-inline">
+  
+  <li><a href="https://www.inoreader.com" target="_blank">Inoreader</a></li>
+  
+  <li><a href="https://www.v2ex.com" target="_blank">V2EX</a></li>
+  
+  <li><a href="https://www.oschina.net" target="_blank">OSChina</a></li>
+  
+  <li><a href="https://www.infoq.cn" target="_blank">InfoQ</a></li>
+  
+  <li><a href="https://godbolt.org" target="_blank">CompilerExplorer</a></li>
+  
+  <li><a href="https://cppinsights.io" target="_blank">CppInsights</a></li>
+  
+  <li><a href="https://quick-bench.com" target="_blank">QuickBench</a></li>
+  
+</ul>
+
+      </div>
+    </div>
+  </div>
+</article>
+
+
+
+  
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        
+        <ul class="list-inline text-center">
+
+<li>
+  <a href="https://github.com/devin0x01" target="_blank">
+    <span class="fa-stack fa-lg">
+      <i class="fa fa-circle fa-stack-2x"></i>
+      <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+    </span>
+  </a>
+</li>
+
+<li>
+  <a href="https://www.zhihu.com/people/skywind3000" target="_blank">
+    <span class="fa-stack fa-lg">
+      <i class="fa fa-circle fa-stack-2x"></i>
+      <i class="fab fa-stack-1x fa-inverse">知</i>
+    </span>
+  </a>
+</li>
+
+
+<li>
+  <a href="/index.xml" target="_blank">
+    <span class="fa-stack fa-lg">
+      <i class="fa fa-circle fa-stack-2x"></i>
+      <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+    </span>
+  </a>
+</li></ul>
+
+        <p class="copyright text-muted">
+          Copyright &copy; DEVIN&#39;s BLOG 2024  
+          <br>
+          Powered by <a href="https://gohugo.io">Hugo</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src=/js/jquery.min.js></script>
+<script src=/js/bootstrap.min.js crossorigin="anonymous"></script>
+
+
+
+<script src="/js/hux-blog.min.c4ea77041cd3edbfc8b2622cd887a9a5d8760a4162d14489e36d2a3fa4c90172.js"></script>
+
+
+<script src=/js/simple-jekyll-search.min.js></script>
+
+
+<script src="/js/search.min.53bce5da475b4d362500e5ce5dddfa22e20e1b9018777411d2020b4b839c9310.js"></script>
+
+
+
+
+
+
+<script type="text/javascript">
+  function generateCatalog(selector) {
+    _containerSelector = 'div.post-container'
+    
+    var P = $(_containerSelector), a, n, t, l, i, c;
+    a = P.find('h1,h2,h3,h4');
+    
+    $(selector).html('')
+    
+    a.each(function () {
+      n = $(this).prop('tagName').toLowerCase();
+      i = "#" + $(this).prop('id');
+      t = $(this).text();
+      c = $('<a href="' + i + '" rel="nofollow">' + t + '</a>');
+      l = $('<li class="' + n + '_nav"></li>').append(c);
+      $(selector).append(l);
+    });
+    return true;
+  }
+
+  generateCatalog(".catalog-body");
+
+  
+  $(".catalog-toggle").click((function (e) {
+    e.preventDefault();
+    $('.side-catalog').toggleClass("fold")
+  }))
+</script>
+
+
+<script type="text/javascript" src='/js/jquery.nav.min.ade6bde8f9fcc6a4b40852cb892e9f5912340ab8fe1305149d917fdd16fffd8d.js'></script>
+<script>
+   $(document).ready( function () {
+    $('.catalog-body').onePageNav({
+      currentClass: "active",
+      changeHash: !1,
+      easing: "swing",
+      filter: "",
+      scrollSpeed: 700,
+      scrollOffset: 0,
+      scrollThreshold: .2,
+      begin: null,
+      end: null,
+      scrollChange: null,
+      padding: 80
+    });
+  });
+</script>
+
+
+
+
+
+
+
+
+
+<script src="/zoomjs/zoom.min.js"></script>
+
+</body>
+
+</html>

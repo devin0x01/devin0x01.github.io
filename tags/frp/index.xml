@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>frp on DEVIN&#39;s BLOG</title>
+    <link>http://localhost:1313/tags/frp/</link>
+    <description>Recent content in frp on DEVIN&#39;s BLOG</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Fri, 04 Aug 2023 16:05:25 +0800</lastBuildDate><atom:link href="http://localhost:1313/tags/frp/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>frp内网穿透配置教程</title>
+      <link>http://localhost:1313/post/linux%E8%BF%90%E7%BB%B4/frp%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F%E9%85%8D%E7%BD%AE%E6%95%99%E7%A8%8B/</link>
+      <pubDate>Fri, 04 Aug 2023 16:05:25 +0800</pubDate>
+      
+      <guid>http://localhost:1313/post/linux%E8%BF%90%E7%BB%B4/frp%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F%E9%85%8D%E7%BD%AE%E6%95%99%E7%A8%8B/</guid>
+      <description>重要资料fatedier/frp - github 官方文档 | frp 司波图/自建内网穿透服务器 - 码云 1$ tree /opt/frp 2/opt/frp 3├── frpc 4├── frpc_full.ini 5├── frpc.ini 6├── frps 7├── frps_full.ini 8</description>
+    </item>
+    
+  </channel>
+</rss>

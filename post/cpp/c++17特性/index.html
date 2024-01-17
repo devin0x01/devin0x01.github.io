@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  
+    
+  <title>C&#43;&#43;17特性 | DEVIN&#39;s BLOG</title>
+  <meta name="author" content="DEVIN">
+  <meta name="description" content="构造函数模板推导在C&#43;&#43;17前构造一个模板类对象需要指明类型： 1pair&lt;int, double&gt; p(1, 2.2); // before c&#43;&#43;17 C&#43;&#43;17就不需要特殊指定，直接可以推导出类型，代码如下： 1pair p(1, 2.2);">
+  <meta name="keywords" content="blog,developer,personal">
+
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="C&#43;&#43;17特性"/>
+<meta name="twitter:description" content="构造函数模板推导在C&#43;&#43;17前构造一个模板类对象需要指明类型： 1pair&lt;int, double&gt; p(1, 2.2); // before c&#43;&#43;17 C&#43;&#43;17就不需要特殊指定，直接可以推导出类型，代码如下： 1pair p(1, 2.2);"/>
+
+  <meta property="og:title" content="C&#43;&#43;17特性" />
+<meta property="og:description" content="构造函数模板推导在C&#43;&#43;17前构造一个模板类对象需要指明类型： 1pair&lt;int, double&gt; p(1, 2.2); // before c&#43;&#43;17 C&#43;&#43;17就不需要特殊指定，直接可以推导出类型，代码如下： 1pair p(1, 2.2);" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:1313/post/cpp/c&#43;&#43;17%E7%89%B9%E6%80%A7/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2023-06-18T14:05:25+08:00" />
+<meta property="article:modified_time" content="2023-06-18T14:05:25+08:00" />
+
+  <link rel="stylesheet" href="/css/bootstrap.min.css"  crossorigin="anonymous">
+  
+  <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.1/css/all.min.css" rel="stylesheet" type="text/css">
+
+  <link rel="stylesheet" href="/sass/main.css">
+
+  <link rel="stylesheet" href="/zoomjs/zoom.min.css">
+
+  <script src=/js/lazysizes.min.js></script>
+
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  
+
+</head>
+
+
+
+<body ontouchstart="">
+  
+  
+  <nav class="navbar navbar-default navbar-custom navbar-fixed-top invert">
+  <div class="container-fluid">
+    
+    <div class="navbar-header page-scroll">
+      <button type="button" class="navbar-toggle">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="http://localhost:1313">DEVIN&#39;s BLOG</a>
+    </div>
+    
+    <div id="huxblog_navbar">
+      <div class="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          
+          <li><a href="/" title="Home">Home</a></li>
+          
+          <li><a href="/archive/" title="Archive">Archive</a></li>
+          
+          <li><a href="https://www.cnblogs.com" title="CNBLOGS">CNBLOGS</a></li>
+          
+          <li><a href="https://github.com/devin0x01" title="Github">Github</a></li>
+          
+          <li><a href="/about/" title="About">About</a></li>
+          
+
+          <li class="search-icon">
+            <a href="javascript:void(0)">
+              <i class="fa fa-search"></i>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    
+  </div>
+  
+</nav>
+<script>
+  
+  
+  
+  var $body = document.body;
+  var $toggle = document.querySelector(".navbar-toggle");
+  var $navbar = document.querySelector("#huxblog_navbar");
+  var $collapse = document.querySelector(".navbar-collapse");
+
+  var __HuxNav__ = {
+    close: function () {
+      $navbar.className = " ";
+      
+      setTimeout(function () {
+        
+        if ($navbar.className.indexOf("in") < 0) {
+          $collapse.style.height = "0px";
+        }
+      }, 400);
+    },
+    open: function () {
+      $collapse.style.height = "auto";
+      $navbar.className += " in";
+    },
+  };
+
+  
+  $toggle.addEventListener("click", function (e) {
+    if ($navbar.className.indexOf("in") > 0) {
+      __HuxNav__.close();
+    } else {
+      __HuxNav__.open();
+    }
+  });
+
+  
+
+  document.addEventListener("click", function (e) {
+    if (e.target == $toggle) return;
+    if (e.target.className == "icon-bar") return;
+    __HuxNav__.close();
+  });
+</script>
+  
+<div class="search-page">
+  <div class="search-icon-close-container">
+    <span class="search-icon-close">
+      <i class="fa fa-chevron-down"></i>
+    </span>
+  </div>
+  <div class="search-main container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <form></form>
+        <input type="text" id="search-input" placeholder="$ grep...">
+        </form>
+        <div id="search-results" class="mini-post-list"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+  
+  
+
+
+<style type="text/css">
+  header.intro-header {
+    position: relative;
+    background-image: url('');
+  }
+</style>
+
+<header class="intro-header style-text">
+
+  <div class="header-mask"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="post-heading">
+          <div class="tags">
+            
+            <a class="tag" href="/tags/c&#43;&#43;/" title="C&#43;&#43;">C&#43;&#43;</a>
+            
+          </div>
+          <h1>C&#43;&#43;17特性</h1>
+          <h2 class="subheading"></h2>
+          <span class="meta">
+            Posted by  DEVIN 
+            on Sun, Jun 18, 2023
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+
+  
+
+
+<article>
+  <div class="container">
+    <div class="row">
+
+      
+      <div class="
+              col-lg-8 col-lg-offset-2
+              col-md-10 col-md-offset-1
+              post-container">
+        <h2 id="构造函数模板推导">构造函数模板推导<a class="anchorjs-link" href="#%e6%9e%84%e9%80%a0%e5%87%bd%e6%95%b0%e6%a8%a1%e6%9d%bf%e6%8e%a8%e5%af%bc"></a></h2><p>在C++17前构造一个模板类对象需要指明类型：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>pair<span style="color:#ff79c6">&lt;</span><span style="color:#8be9fd">int</span>, <span style="color:#8be9fd">double</span><span style="color:#ff79c6">&gt;</span> p(<span style="color:#bd93f9">1</span>, <span style="color:#bd93f9">2.2</span>); <span style="color:#6272a4">// before c++17
+</span></span></span></code></pre></div><p>C++17就不需要特殊指定，直接可以推导出类型，代码如下：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>pair <span style="color:#50fa7b">p</span>(<span style="color:#bd93f9">1</span>, <span style="color:#bd93f9">2.2</span>); <span style="color:#6272a4">// c++17 自动推导
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span><span style="color:#6272a4"></span>vector v <span style="color:#ff79c6">=</span> {<span style="color:#bd93f9">1</span>, <span style="color:#bd93f9">2</span>, <span style="color:#bd93f9">3</span>}; <span style="color:#6272a4">// c++17
+</span></span></span></code></pre></div><h2 id="结构化绑定">结构化绑定<a class="anchorjs-link" href="#%e7%bb%93%e6%9e%84%e5%8c%96%e7%bb%91%e5%ae%9a"></a></h2><h3 id="1获取值">1.获取值<a class="anchorjs-link" href="#1%e8%8e%b7%e5%8f%96%e5%80%bc"></a></h3><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span><span style="color:#6272a4">// 绑定tuple
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span><span><span style="color:#6272a4"></span>std<span style="color:#ff79c6">::</span>tuple<span style="color:#ff79c6">&lt;</span><span style="color:#8be9fd">int</span>, <span style="color:#8be9fd">double</span><span style="color:#ff79c6">&gt;</span> func() {
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span><span>    <span style="color:#ff79c6">return</span> std<span style="color:#ff79c6">::</span>tuple(<span style="color:#bd93f9">1</span>, <span style="color:#bd93f9">2.2</span>);
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span><span>}
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span><span><span style="color:#8be9fd">int</span> <span style="color:#50fa7b">main</span>() {
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span><span>    <span style="color:#ff79c6">auto</span>[i, d] <span style="color:#ff79c6">=</span> func();
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span><span>    cout <span style="color:#ff79c6">&lt;&lt;</span> i <span style="color:#ff79c6">&lt;&lt;</span> endl;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span><span>    cout <span style="color:#ff79c6">&lt;&lt;</span> d <span style="color:#ff79c6">&lt;&lt;</span> endl;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span><span>}
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12</span><span><span style="color:#6272a4">// 绑定map
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13</span><span><span style="color:#6272a4"></span><span style="color:#8be9fd">void</span> <span style="color:#50fa7b">f</span>() {
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14</span><span>    map<span style="color:#ff79c6">&lt;</span><span style="color:#8be9fd">int</span>, string<span style="color:#ff79c6">&gt;</span> m <span style="color:#ff79c6">=</span> {{<span style="color:#bd93f9">0</span>, <span style="color:#f1fa8c">&#34;a&#34;</span>}, {<span style="color:#bd93f9">1</span>, <span style="color:#f1fa8c">&#34;b&#34;</span>}};
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15</span><span>    <span style="color:#ff79c6">for</span> (<span style="color:#ff79c6">const</span> <span style="color:#ff79c6">auto</span> <span style="color:#ff79c6">&amp;</span>[i, s] <span style="color:#ff79c6">:</span> m) {
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16</span><span>        cout <span style="color:#ff79c6">&lt;&lt;</span> i <span style="color:#ff79c6">&lt;&lt;</span> <span style="color:#f1fa8c">&#34; &#34;</span> <span style="color:#ff79c6">&lt;&lt;</span> s <span style="color:#ff79c6">&lt;&lt;</span> endl;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17</span><span>    }
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18</span><span>}
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20</span><span><span style="color:#6272a4">// 绑定pair
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21</span><span><span style="color:#6272a4"></span><span style="color:#8be9fd">int</span> <span style="color:#50fa7b">main</span>() {
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22</span><span>    std<span style="color:#ff79c6">::</span>pair a(<span style="color:#bd93f9">1</span>, <span style="color:#bd93f9">2.3f</span>);
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23</span><span>    <span style="color:#ff79c6">auto</span>[i, f] <span style="color:#ff79c6">=</span> a;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24</span><span>    cout <span style="color:#ff79c6">&lt;&lt;</span> i <span style="color:#ff79c6">&lt;&lt;</span> endl; <span style="color:#6272a4">// 1
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25</span><span><span style="color:#6272a4"></span>    cout <span style="color:#ff79c6">&lt;&lt;</span> f <span style="color:#ff79c6">&lt;&lt;</span> endl; <span style="color:#6272a4">// 2.3f
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26</span><span><span style="color:#6272a4"></span>    <span style="color:#ff79c6">return</span> <span style="color:#bd93f9">0</span>;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27</span><span>}
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29</span><span><span style="color:#6272a4">// 绑定数组
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30</span><span><span style="color:#6272a4"></span><span style="color:#8be9fd">int</span> array[<span style="color:#bd93f9">3</span>] <span style="color:#ff79c6">=</span> {<span style="color:#bd93f9">1</span>, <span style="color:#bd93f9">2</span>, <span style="color:#bd93f9">3</span>};
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31</span><span><span style="color:#ff79c6">auto</span> [a, b, c] <span style="color:#ff79c6">=</span> array;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32</span><span>cout <span style="color:#ff79c6">&lt;&lt;</span> a <span style="color:#ff79c6">&lt;&lt;</span> <span style="color:#f1fa8c">&#34; &#34;</span> <span style="color:#ff79c6">&lt;&lt;</span> b <span style="color:#ff79c6">&lt;&lt;</span> <span style="color:#f1fa8c">&#34; &#34;</span> <span style="color:#ff79c6">&lt;&lt;</span> c <span style="color:#ff79c6">&lt;&lt;</span> endl;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34</span><span><span style="color:#6272a4">// 绑定结构体(注意这里的struct的成员一定要是public的)
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35</span><span><span style="color:#6272a4"></span><span style="color:#ff79c6">struct</span> <span style="color:#50fa7b">Point</span> {
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">36</span><span>    <span style="color:#8be9fd">int</span> x;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">37</span><span>    <span style="color:#8be9fd">int</span> y;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">38</span><span>};
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">39</span><span>Point <span style="color:#50fa7b">func</span>() {
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">40</span><span>    <span style="color:#ff79c6">return</span> {<span style="color:#bd93f9">1</span>, <span style="color:#bd93f9">2</span>};
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">41</span><span>}
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">42</span><span><span style="color:#ff79c6">const</span> <span style="color:#ff79c6">auto</span> [x, y] <span style="color:#ff79c6">=</span> func();
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span><span style="color:#6272a4">// 实现自定义类的结构化绑定
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span><span><span style="color:#6272a4">// 需要实现相关的tuple_size和tuple_element和get&lt;N&gt;方法。
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span><span><span style="color:#6272a4"></span>class Entry {
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span><span><span style="color:#8be9fd;font-style:italic">public</span>:
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span><span>    <span style="color:#8be9fd">void</span> <span style="color:#50fa7b">Init</span>() {
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span><span>        name_ <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#34;name&#34;</span>;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span><span>        age_ <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">10</span>;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span><span>    }
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span><span>    std<span style="color:#ff79c6">::</span>string <span style="color:#50fa7b">GetName</span>() <span style="color:#ff79c6">const</span> { <span style="color:#ff79c6">return</span> name_; }
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span><span>    <span style="color:#8be9fd">int</span> <span style="color:#50fa7b">GetAge</span>() <span style="color:#ff79c6">const</span> { <span style="color:#ff79c6">return</span> age_; }
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12</span><span><span style="color:#8be9fd;font-style:italic">private</span>:
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13</span><span>    std<span style="color:#ff79c6">::</span>string name_;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14</span><span>    <span style="color:#8be9fd">int</span> age_;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15</span><span>};
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17</span><span>template <span style="color:#ff79c6">&lt;</span><span style="color:#8be9fd">size_t</span> I<span style="color:#ff79c6">&gt;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18</span><span><span style="color:#ff79c6">auto</span> <span style="color:#50fa7b">get</span>(<span style="color:#ff79c6">const</span> Entry<span style="color:#ff79c6">&amp;</span> e) {
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19</span><span>    <span style="color:#ff79c6">if</span> <span style="color:#50fa7b">constexpr</span> (I <span style="color:#ff79c6">==</span> <span style="color:#bd93f9">0</span>) <span style="color:#ff79c6">return</span> e.<span style="color:#50fa7b">GetName</span>();
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20</span><span>    <span style="color:#ff79c6">else</span> <span style="color:#ff79c6">if</span> <span style="color:#50fa7b">constexpr</span> (I <span style="color:#ff79c6">==</span> <span style="color:#bd93f9">1</span>) <span style="color:#ff79c6">return</span> e.<span style="color:#50fa7b">GetAge</span>();
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21</span><span>}
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23</span><span>namespace std {
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24</span><span>    template<span style="color:#ff79c6">&lt;&gt;</span> <span style="color:#ff79c6">struct</span> tuple_size<span style="color:#ff79c6">&lt;</span>Entry<span style="color:#ff79c6">&gt;</span> <span style="color:#ff79c6">:</span> integral_constant<span style="color:#ff79c6">&lt;</span><span style="color:#8be9fd">size_t</span>, <span style="color:#bd93f9">2</span><span style="color:#ff79c6">&gt;</span> {};
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25</span><span>    template<span style="color:#ff79c6">&lt;&gt;</span> <span style="color:#ff79c6">struct</span> tuple_element<span style="color:#ff79c6">&lt;</span><span style="color:#bd93f9">0</span>, Entry<span style="color:#ff79c6">&gt;</span> { using type <span style="color:#ff79c6">=</span> std<span style="color:#ff79c6">::</span>string; };
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26</span><span>    template<span style="color:#ff79c6">&lt;&gt;</span> <span style="color:#ff79c6">struct</span> tuple_element<span style="color:#ff79c6">&lt;</span><span style="color:#bd93f9">1</span>, Entry<span style="color:#ff79c6">&gt;</span> { using type <span style="color:#ff79c6">=</span> <span style="color:#8be9fd">int</span>; };
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27</span><span>}
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29</span><span><span style="color:#8be9fd">int</span> <span style="color:#50fa7b">main</span>() {
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30</span><span>    Entry e;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31</span><span>    e.<span style="color:#50fa7b">Init</span>();
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32</span><span>    <span style="color:#ff79c6">auto</span> [name, age] <span style="color:#ff79c6">=</span> e;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33</span><span>    cout <span style="color:#ff79c6">&lt;&lt;</span> name <span style="color:#ff79c6">&lt;&lt;</span> <span style="color:#f1fa8c">&#34; &#34;</span> <span style="color:#ff79c6">&lt;&lt;</span> age <span style="color:#ff79c6">&lt;&lt;</span> endl; <span style="color:#6272a4">// name 10
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34</span><span><span style="color:#6272a4"></span>    <span style="color:#ff79c6">return</span> <span style="color:#bd93f9">0</span>;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35</span><span>}
+</span></span></code></pre></div><h3 id="2改变值">2.改变值<a class="anchorjs-link" href="#2%e6%94%b9%e5%8f%98%e5%80%bc"></a></h3><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span><span style="color:#6272a4">// 可以通过结构化绑定改变对象的值
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span><span><span style="color:#6272a4"></span><span style="color:#8be9fd">int</span> <span style="color:#50fa7b">main</span>() {
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span><span>    std<span style="color:#ff79c6">::</span>pair a(<span style="color:#bd93f9">1</span>, <span style="color:#bd93f9">2.3f</span>);
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span><span>    <span style="color:#ff79c6">auto</span><span style="color:#ff79c6">&amp;</span> [i, f] <span style="color:#ff79c6">=</span> a;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span><span>    i <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">2</span>;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span><span>    cout <span style="color:#ff79c6">&lt;&lt;</span> a.first <span style="color:#ff79c6">&lt;&lt;</span> endl; <span style="color:#6272a4">// 2 
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span><span><span style="color:#6272a4"></span>}
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span><span><span style="color:#6272a4">// 注意结构化绑定不能应用于constexpr
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span><span><span style="color:#6272a4"></span><span style="color:#ff79c6">constexpr</span> <span style="color:#ff79c6">auto</span>[x, y] <span style="color:#ff79c6">=</span> std<span style="color:#ff79c6">::</span>pair(<span style="color:#bd93f9">1</span>, <span style="color:#bd93f9">2.3f</span>); <span style="color:#6272a4">// compile error, C++20可以
+</span></span></span></code></pre></div><h2 id="if-switch语句初始化">if-switch语句初始化<a class="anchorjs-link" href="#if-switch%e8%af%ad%e5%8f%a5%e5%88%9d%e5%a7%8b%e5%8c%96"></a></h2><p>C++17前if语句需要这样写代码：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span><span style="color:#8be9fd">int</span> a <span style="color:#ff79c6">=</span> GetValue();
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span><span style="color:#ff79c6">if</span> (a <span style="color:#ff79c6">&lt;</span> <span style="color:#bd93f9">101</span>) {
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span>    cout <span style="color:#ff79c6">&lt;&lt;</span> a;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span><span>}
+</span></span></code></pre></div><p>C++17之后可以这样：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span><span style="color:#6272a4">// if (init; condition)
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span><span style="color:#6272a4"></span><span style="color:#ff79c6">if</span> (<span style="color:#8be9fd">int</span> a <span style="color:#ff79c6">=</span> GetValue()); a <span style="color:#ff79c6">&lt;</span> <span style="color:#bd93f9">101</span>) {
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span>    cout <span style="color:#ff79c6">&lt;&lt;</span> a;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span><span>}
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6</span><span>string str <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#34;Hi World&#34;</span>;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7</span><span><span style="color:#ff79c6">if</span> (<span style="color:#ff79c6">auto</span> [pos, size] <span style="color:#ff79c6">=</span> pair(str.find(<span style="color:#f1fa8c">&#34;Hi&#34;</span>), str.size()); pos <span style="color:#ff79c6">!=</span> string<span style="color:#ff79c6">::</span>npos) {
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8</span><span>    std<span style="color:#ff79c6">::</span>cout <span style="color:#ff79c6">&lt;&lt;</span> pos <span style="color:#ff79c6">&lt;&lt;</span> <span style="color:#f1fa8c">&#34; Hello, size is &#34;</span> <span style="color:#ff79c6">&lt;&lt;</span> size;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">9</span><span>}
+</span></span></code></pre></div><h2 id="内联变量定义静态成员变量">内联变量(定义静态成员变量)<a class="anchorjs-link" href="#%e5%86%85%e8%81%94%e5%8f%98%e9%87%8f%e5%ae%9a%e4%b9%89%e9%9d%99%e6%80%81%e6%88%90%e5%91%98%e5%8f%98%e9%87%8f"></a></h2><p>在头文件中定义类的静态成员变量</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span><span style="color:#6272a4">// a.h
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span><span><span style="color:#6272a4"></span><span style="color:#ff79c6">struct</span> A {
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span><span>    <span style="color:#ff79c6">static</span> <span style="color:#ff79c6">const</span> <span style="color:#8be9fd">int</span> value;  
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span><span>};
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span><span><span style="color:#ff79c6">inline</span> <span style="color:#8be9fd">int</span> <span style="color:#ff79c6">const</span> A<span style="color:#ff79c6">::</span>value <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">10</span>;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span><span><span style="color:#6272a4">// 或者
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span><span><span style="color:#6272a4"></span><span style="color:#ff79c6">struct</span> A {
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span><span>    <span style="color:#ff79c6">inline</span> <span style="color:#ff79c6">static</span> <span style="color:#ff79c6">const</span> <span style="color:#8be9fd">int</span> value <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">10</span>;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span><span>}
+</span></span></code></pre></div><h2 id="namespace嵌套">namespace嵌套<a class="anchorjs-link" href="#namespace%e5%b5%8c%e5%a5%97"></a></h2><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span><span style="color:#ff79c6">namespace</span> A {
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span><span>    <span style="color:#ff79c6">namespace</span> B {
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span><span>        <span style="color:#ff79c6">namespace</span> C {
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span><span>            <span style="color:#8be9fd">void</span> <span style="color:#50fa7b">func</span>();
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span><span>        }
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span><span>    }
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span><span>}
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span><span><span style="color:#6272a4">// c++17，更方便更舒适
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span><span><span style="color:#6272a4"></span><span style="color:#ff79c6">namespace</span> A<span style="color:#ff79c6">::</span>B<span style="color:#ff79c6">::</span>C {
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span><span>    <span style="color:#8be9fd">void</span> <span style="color:#50fa7b">func</span>();)
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12</span><span>}
+</span></span></code></pre></div><h2 id="在lambda表达式用this捕获对象副本">在lambda表达式用*this捕获对象副本<a class="anchorjs-link" href="#%e5%9c%a8lambda%e8%a1%a8%e8%be%be%e5%bc%8f%e7%94%a8this%e6%8d%95%e8%8e%b7%e5%af%b9%e8%b1%a1%e5%89%af%e6%9c%ac"></a></h2><p>正常情况下，lambda表达式中访问类的对象成员变量需要捕获this，但是这里捕获的是this指针，指向的是对象的引用，正常情况下可能没问题，但是如果多线程情况下，函数的作用域超过了对象的作用域，对象已经被析构了，还访问了成员变量，就会有问题。</p>
+<p>所以C++17增加了新特性，捕获*this，不持有this指针，而是持有对象的拷贝，这样生命周期就与对象的生命周期不相关啦。在并行或异步操作中执行时，按值捕获非常有用，尤其是在某些硬件体系结构（如NUMA）上。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span><span style="color:#ff79c6">struct</span> <span style="color:#50fa7b">A</span> {
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span><span>    <span style="color:#8be9fd">int</span> a;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span><span>    <span style="color:#8be9fd">void</span> <span style="color:#50fa7b">func</span>() {
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span><span>        <span style="color:#ff79c6">auto</span> f <span style="color:#ff79c6">=</span> [<span style="color:#ff79c6">*</span><span style="color:#ff79c6">this</span>] { <span style="color:#6272a4">// 这里
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span><span><span style="color:#6272a4"></span>            cout <span style="color:#ff79c6">&lt;&lt;</span> a <span style="color:#ff79c6">&lt;&lt;</span> endl;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span><span>        };
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span><span>        f();
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span><span>    }  
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span><span>};
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span><span><span style="color:#8be9fd">int</span> <span style="color:#50fa7b">main</span>() {
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span><span>    A a;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12</span><span>    a.func();
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13</span><span>    <span style="color:#ff79c6">return</span> <span style="color:#bd93f9">0</span>;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14</span><span>}
+</span></span></code></pre></div><h2 id="constexpr-lambda表达式">constexpr lambda表达式<a class="anchorjs-link" href="#constexpr-lambda%e8%a1%a8%e8%be%be%e5%bc%8f"></a></h2><p>C++17前lambda表达式只能在运行时使用，C++17引入了constexpr lambda表达式，可以用于在编译期进行计算。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span><span style="color:#8be9fd">int</span> <span style="color:#50fa7b">main</span>() { <span style="color:#6272a4">// c++17可编译
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span><span style="color:#6272a4"></span>    <span style="color:#ff79c6">constexpr</span> <span style="color:#ff79c6">auto</span> lamb <span style="color:#ff79c6">=</span> [] (<span style="color:#8be9fd">int</span> n) { <span style="color:#ff79c6">return</span> n <span style="color:#ff79c6">*</span> n; };
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span>    <span style="color:#ff79c6">static_assert</span>(lamb(<span style="color:#bd93f9">3</span>) <span style="color:#ff79c6">==</span> <span style="color:#bd93f9">9</span>, <span style="color:#f1fa8c">&#34;a&#34;</span>);
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span><span>}
+</span></span></code></pre></div><h2 id="折叠表达式简化模板">折叠表达式(简化模板)<a class="anchorjs-link" href="#%e6%8a%98%e5%8f%a0%e8%a1%a8%e8%be%be%e5%bc%8f%e7%ae%80%e5%8c%96%e6%a8%a1%e6%9d%bf"></a></h2><p>C++11增加了一个新特性变参模板（variadic template）,它可以接受任意个模版参数，参数包不能直接展开，需要通过一些特殊的方法，比如函数参数包的展开可以使用递归方式或者逗号表达式，在使用的时候有点难度。C++17解决了这个问题，通过fold expression（折叠表达式）简化对参数包的展开。<a href="https://cloud.tencent.com/developer/article/1347876" target="_blank">C++17 fold expression - 腾讯云</a></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span><span style="color:#ff79c6">template</span> <span style="color:#ff79c6">&lt;</span><span style="color:#ff79c6">typename</span> ... Ts<span style="color:#ff79c6">&gt;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span><span style="color:#ff79c6">auto</span> sum(Ts ... ts) {
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span>    <span style="color:#ff79c6">return</span> (ts <span style="color:#ff79c6">+</span> ...);
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span><span>}
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span><span><span style="color:#8be9fd">int</span> a {sum(<span style="color:#bd93f9">1</span>, <span style="color:#bd93f9">2</span>, <span style="color:#bd93f9">3</span>, <span style="color:#bd93f9">4</span>, <span style="color:#bd93f9">5</span>)}; <span style="color:#6272a4">// 15
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6</span><span><span style="color:#6272a4"></span>std<span style="color:#ff79c6">::</span>string a{<span style="color:#f1fa8c">&#34;hello &#34;</span>};
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7</span><span>std<span style="color:#ff79c6">::</span>string b{<span style="color:#f1fa8c">&#34;world&#34;</span>};
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8</span><span>cout <span style="color:#ff79c6">&lt;&lt;</span> sum(a, b) <span style="color:#ff79c6">&lt;&lt;</span> endl; <span style="color:#6272a4">// hello world
+</span></span></span></code></pre></div><h2 id="标准库">标准库<a class="anchorjs-link" href="#%e6%a0%87%e5%87%86%e5%ba%93"></a></h2><h3 id="stdfrom_charsto_chars">std::from_chars/to_chars<a class="anchorjs-link" href="#stdfrom_charsto_chars"></a></h3><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span><span style="color:#ff79c6">#include</span> <span style="color:#ff79c6">&lt;charconv&gt;</span><span style="color:#ff79c6">
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span><span><span style="color:#ff79c6"></span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span><span><span style="color:#8be9fd">int</span> <span style="color:#50fa7b">main</span>() {
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span><span>    <span style="color:#ff79c6">const</span> std<span style="color:#ff79c6">::</span>string str{<span style="color:#f1fa8c">&#34;123456098&#34;</span>};
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span><span>    <span style="color:#8be9fd">int</span> value <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">0</span>;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span><span>    <span style="color:#ff79c6">const</span> <span style="color:#ff79c6">auto</span> res <span style="color:#ff79c6">=</span> std<span style="color:#ff79c6">::</span>from_chars(str.data(), str.data() <span style="color:#ff79c6">+</span> <span style="color:#bd93f9">4</span>, value);
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span><span>    <span style="color:#ff79c6">if</span> (res.ec <span style="color:#ff79c6">==</span> std<span style="color:#ff79c6">::</span>errc()) {
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span><span>        cout <span style="color:#ff79c6">&lt;&lt;</span> value <span style="color:#ff79c6">&lt;&lt;</span> <span style="color:#f1fa8c">&#34;, distance &#34;</span> <span style="color:#ff79c6">&lt;&lt;</span> res.ptr <span style="color:#ff79c6">-</span> str.data() <span style="color:#ff79c6">&lt;&lt;</span> endl;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span><span>    } <span style="color:#ff79c6">else</span> <span style="color:#ff79c6">if</span> (res.ec <span style="color:#ff79c6">==</span> std<span style="color:#ff79c6">::</span>errc<span style="color:#ff79c6">::</span>invalid_argument) {
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span><span>        cout <span style="color:#ff79c6">&lt;&lt;</span> <span style="color:#f1fa8c">&#34;invalid&#34;</span> <span style="color:#ff79c6">&lt;&lt;</span> endl;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span><span>    }
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12</span><span>    str <span style="color:#ff79c6">=</span> std<span style="color:#ff79c6">::</span>string(<span style="color:#f1fa8c">&#34;12.34);</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13</span><span>    <span style="color:#8be9fd">double</span> val <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">0</span>;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14</span><span>    <span style="color:#ff79c6">const</span> <span style="color:#ff79c6">auto</span> format <span style="color:#ff79c6">=</span> std<span style="color:#ff79c6">::</span>chars_format<span style="color:#ff79c6">::</span>general;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15</span><span>    res <span style="color:#ff79c6">=</span> std<span style="color:#ff79c6">::</span>from_chars(str.data(), str.data() <span style="color:#ff79c6">+</span> str.size(), value, format);
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16</span><span>    
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17</span><span>    str <span style="color:#ff79c6">=</span> std<span style="color:#ff79c6">::</span>string(<span style="color:#f1fa8c">&#34;xxxxxxxx&#34;</span>);
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18</span><span>    <span style="color:#ff79c6">const</span> <span style="color:#8be9fd">int</span> v <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">1234</span>;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19</span><span>    res <span style="color:#ff79c6">=</span> std<span style="color:#ff79c6">::</span>to_chars(str.data(), str.data() <span style="color:#ff79c6">+</span> str.size(), v);
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20</span><span>    cout <span style="color:#ff79c6">&lt;&lt;</span> str <span style="color:#ff79c6">&lt;&lt;</span> <span style="color:#f1fa8c">&#34;, filled &#34;</span> <span style="color:#ff79c6">&lt;&lt;</span> res.ptr <span style="color:#ff79c6">-</span> str.data() <span style="color:#ff79c6">&lt;&lt;</span> <span style="color:#f1fa8c">&#34; characters </span><span style="color:#f1fa8c">\n</span><span style="color:#f1fa8c">&#34;</span>;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21</span><span>    <span style="color:#6272a4">// 1234xxxx, filled 4 characters
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22</span><span><span style="color:#6272a4"></span>}
+</span></span></code></pre></div><h3 id="stdvariant">std::variant<a class="anchorjs-link" href="#stdvariant"></a></h3><p>C++17增加std::variant实现类似union的功能，但却比union更高级，举个例子union里面不能有string这种类型，但std::variant却可以，还可以支持更多复杂类型，如map等</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span><span style="color:#8be9fd">int</span> <span style="color:#50fa7b">main</span>() { <span style="color:#6272a4">// c++17可编译
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span><span><span style="color:#6272a4"></span>    std<span style="color:#ff79c6">::</span>variant<span style="color:#ff79c6">&lt;</span><span style="color:#8be9fd">int</span>, std<span style="color:#ff79c6">::</span>string<span style="color:#ff79c6">&gt;</span> var(<span style="color:#f1fa8c">&#34;hello&#34;</span>);
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span><span>    cout <span style="color:#ff79c6">&lt;&lt;</span> var.index() <span style="color:#ff79c6">&lt;&lt;</span> endl; <span style="color:#6272a4">// 1
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span><span><span style="color:#6272a4"></span>    var <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">123</span>;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span><span>    cout <span style="color:#ff79c6">&lt;&lt;</span> var.index() <span style="color:#ff79c6">&lt;&lt;</span> endl; <span style="color:#6272a4">// 0
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span><span><span style="color:#6272a4"></span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span><span>    <span style="color:#ff79c6">try</span> {
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span><span>        var <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#34;world&#34;</span>;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span><span>        std<span style="color:#ff79c6">::</span>string str <span style="color:#ff79c6">=</span> std<span style="color:#ff79c6">::</span>get<span style="color:#ff79c6">&lt;</span>std<span style="color:#ff79c6">::</span>string<span style="color:#ff79c6">&gt;</span>(var); <span style="color:#6272a4">// 通过类型获取值
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span><span><span style="color:#6272a4"></span>        var <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">3</span>;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span><span>        <span style="color:#8be9fd">int</span> i <span style="color:#ff79c6">=</span> std<span style="color:#ff79c6">::</span>get<span style="color:#ff79c6">&lt;</span><span style="color:#bd93f9">0</span><span style="color:#ff79c6">&gt;</span>(var); <span style="color:#6272a4">// 通过index获取对应值
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12</span><span><span style="color:#6272a4"></span>        cout <span style="color:#ff79c6">&lt;&lt;</span> str <span style="color:#ff79c6">&lt;&lt;</span> endl; <span style="color:#6272a4">// &#34;world&#34;
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13</span><span><span style="color:#6272a4"></span>        cout <span style="color:#ff79c6">&lt;&lt;</span> i <span style="color:#ff79c6">&lt;&lt;</span> endl; <span style="color:#6272a4">// 3
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14</span><span><span style="color:#6272a4"></span>    } <span style="color:#ff79c6">catch</span>(...) {
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15</span><span>        <span style="color:#6272a4">// xxx;
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16</span><span><span style="color:#6272a4"></span>    }
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17</span><span>    <span style="color:#ff79c6">return</span> <span style="color:#bd93f9">0</span>;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18</span><span>}
+</span></span></code></pre></div><p>注意：一般情况下variant的第一个类型一般要有对应的构造函数，否则编译失败：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span><span style="color:#ff79c6">struct</span> <span style="color:#50fa7b">A</span> {
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span>    A(<span style="color:#8be9fd">int</span> i){}  
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span>};
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span><span><span style="color:#8be9fd">int</span> <span style="color:#50fa7b">main</span>() {
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span><span>    std<span style="color:#ff79c6">::</span>variant<span style="color:#ff79c6">&lt;</span>A, <span style="color:#8be9fd">int</span><span style="color:#ff79c6">&gt;</span> var; <span style="color:#6272a4">// 编译失败
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6</span><span><span style="color:#6272a4"></span>}
+</span></span></code></pre></div><p>如何避免这种情况呢，可以使用std::monostate来打个桩，模拟一个空状态。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>std<span style="color:#ff79c6">::</span>variant<span style="color:#ff79c6">&lt;</span>std<span style="color:#ff79c6">::</span>monostate, A<span style="color:#ff79c6">&gt;</span> var; <span style="color:#6272a4">// 可以编译成功
+</span></span></span></code></pre></div><h3 id="stdoptional">std::optional<a class="anchorjs-link" href="#stdoptional"></a></h3><p>我们有时候可能会有需求，让函数返回一个对象，如下：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span><span style="color:#ff79c6">struct</span> <span style="color:#50fa7b">A</span> {};
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span>A <span style="color:#50fa7b">func</span>() {
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span>    <span style="color:#ff79c6">if</span> (flag) <span style="color:#ff79c6">return</span> A();
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span><span>    <span style="color:#ff79c6">else</span> {
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span><span>        <span style="color:#6272a4">// 异常情况下，怎么返回异常值呢，想返回个空呢
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6</span><span><span style="color:#6272a4"></span>    }
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7</span><span>}
+</span></span></code></pre></div><p>有一种办法是返回对象指针，异常情况下就可以返回nullptr啦，但是这就涉及到了内存管理，也许你会使用智能指针，但这里其实有更方便的办法就是std::optional。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span>std<span style="color:#ff79c6">::</span>optional<span style="color:#ff79c6">&lt;</span><span style="color:#8be9fd">int</span><span style="color:#ff79c6">&gt;</span> StoI(<span style="color:#ff79c6">const</span> std<span style="color:#ff79c6">::</span>string <span style="color:#ff79c6">&amp;</span>s) {
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span><span>    <span style="color:#ff79c6">try</span> {
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span><span>        <span style="color:#ff79c6">return</span> std<span style="color:#ff79c6">::</span>stoi(s);
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span><span>    } <span style="color:#ff79c6">catch</span>(...) {
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span><span>        <span style="color:#ff79c6">return</span> std<span style="color:#ff79c6">::</span>nullopt;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span><span>    }
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span><span>}
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span><span><span style="color:#8be9fd">void</span> <span style="color:#50fa7b">func</span>() {
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span><span>    std<span style="color:#ff79c6">::</span>string s{<span style="color:#f1fa8c">&#34;123&#34;</span>};
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span><span>    std<span style="color:#ff79c6">::</span>optional<span style="color:#ff79c6">&lt;</span><span style="color:#8be9fd">int</span><span style="color:#ff79c6">&gt;</span> o <span style="color:#ff79c6">=</span> StoI(s);
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12</span><span>    <span style="color:#ff79c6">if</span> (o) {
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13</span><span>        cout <span style="color:#ff79c6">&lt;&lt;</span> <span style="color:#ff79c6">*</span>o <span style="color:#ff79c6">&lt;&lt;</span> endl;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14</span><span>    } <span style="color:#ff79c6">else</span> {
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15</span><span>        cout <span style="color:#ff79c6">&lt;&lt;</span> <span style="color:#f1fa8c">&#34;error&#34;</span> <span style="color:#ff79c6">&lt;&lt;</span> endl;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16</span><span>    }
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17</span><span>}
+</span></span></code></pre></div><h3 id="stdany">std::any<a class="anchorjs-link" href="#stdany"></a></h3><p>C++17引入了any可以存储任何类型的单个值</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span><span style="color:#8be9fd">int</span> <span style="color:#50fa7b">main</span>() { <span style="color:#6272a4">// c++17可编译
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span><span><span style="color:#6272a4"></span>    std<span style="color:#ff79c6">::</span>any a <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">1</span>;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span><span>    cout <span style="color:#ff79c6">&lt;&lt;</span> a.type().name() <span style="color:#ff79c6">&lt;&lt;</span> <span style="color:#f1fa8c">&#34; &#34;</span> <span style="color:#ff79c6">&lt;&lt;</span> std<span style="color:#ff79c6">::</span>any_cast<span style="color:#ff79c6">&lt;</span><span style="color:#8be9fd">int</span><span style="color:#ff79c6">&gt;</span>(a) <span style="color:#ff79c6">&lt;&lt;</span> endl;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span><span>    a <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">2.2f</span>;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span><span>    cout <span style="color:#ff79c6">&lt;&lt;</span> a.type().name() <span style="color:#ff79c6">&lt;&lt;</span> <span style="color:#f1fa8c">&#34; &#34;</span> <span style="color:#ff79c6">&lt;&lt;</span> std<span style="color:#ff79c6">::</span>any_cast<span style="color:#ff79c6">&lt;</span><span style="color:#8be9fd">float</span><span style="color:#ff79c6">&gt;</span>(a) <span style="color:#ff79c6">&lt;&lt;</span> endl;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span><span>    <span style="color:#ff79c6">if</span> (a.has_value()) {
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span><span>        cout <span style="color:#ff79c6">&lt;&lt;</span> a.type().name();
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span><span>    }
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span><span>    a.reset();
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span><span>    <span style="color:#ff79c6">if</span> (a.has_value()) {
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span><span>        cout <span style="color:#ff79c6">&lt;&lt;</span> a.type().name();
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12</span><span>    }
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13</span><span>    a <span style="color:#ff79c6">=</span> std<span style="color:#ff79c6">::</span>string(<span style="color:#f1fa8c">&#34;a&#34;</span>);
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14</span><span>    cout <span style="color:#ff79c6">&lt;&lt;</span> a.type().name() <span style="color:#ff79c6">&lt;&lt;</span> <span style="color:#f1fa8c">&#34; &#34;</span> <span style="color:#ff79c6">&lt;&lt;</span> std<span style="color:#ff79c6">::</span>any_cast<span style="color:#ff79c6">&lt;</span>std<span style="color:#ff79c6">::</span>string<span style="color:#ff79c6">&gt;</span>(a) <span style="color:#ff79c6">&lt;&lt;</span> endl;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15</span><span>    <span style="color:#ff79c6">return</span> <span style="color:#bd93f9">0</span>;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16</span><span>}
+</span></span></code></pre></div><h3 id="stdapply">std::apply<a class="anchorjs-link" href="#stdapply"></a></h3><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span><span style="color:#8be9fd">int</span> <span style="color:#50fa7b">add</span>(<span style="color:#8be9fd">int</span> first, <span style="color:#8be9fd">int</span> second) { <span style="color:#ff79c6">return</span> first <span style="color:#ff79c6">+</span> second; }
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span><span style="color:#ff79c6">auto</span> add_lambda <span style="color:#ff79c6">=</span> [](<span style="color:#ff79c6">auto</span> first, <span style="color:#ff79c6">auto</span> second) { <span style="color:#ff79c6">return</span> first <span style="color:#ff79c6">+</span> second; };
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span><span><span style="color:#8be9fd">int</span> <span style="color:#50fa7b">main</span>() {
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6</span><span>    std<span style="color:#ff79c6">::</span>cout <span style="color:#ff79c6">&lt;&lt;</span> std<span style="color:#ff79c6">::</span>apply(add, std<span style="color:#ff79c6">::</span>pair(<span style="color:#bd93f9">1</span>, <span style="color:#bd93f9">2</span>)) <span style="color:#ff79c6">&lt;&lt;</span> <span style="color:#f1fa8c">&#39;\n&#39;</span>;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7</span><span>    std<span style="color:#ff79c6">::</span>cout <span style="color:#ff79c6">&lt;&lt;</span> add(std<span style="color:#ff79c6">::</span>pair(<span style="color:#bd93f9">1</span>, <span style="color:#bd93f9">2</span>)) <span style="color:#ff79c6">&lt;&lt;</span> <span style="color:#f1fa8c">&#34;</span><span style="color:#f1fa8c">\n</span><span style="color:#f1fa8c">&#34;</span>; <span style="color:#6272a4">// error
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8</span><span><span style="color:#6272a4"></span>    std<span style="color:#ff79c6">::</span>cout <span style="color:#ff79c6">&lt;&lt;</span> std<span style="color:#ff79c6">::</span>apply(add_lambda, std<span style="color:#ff79c6">::</span>tuple(<span style="color:#bd93f9">2.0f</span>, <span style="color:#bd93f9">3.0f</span>)) <span style="color:#ff79c6">&lt;&lt;</span> <span style="color:#f1fa8c">&#39;\n&#39;</span>; <span style="color:#6272a4">// 将tuple展开作为函数的参数传入
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">9</span><span><span style="color:#6272a4"></span>}
+</span></span></code></pre></div><h3 id="stdmake_from_tuple">std::make_from_tuple<a class="anchorjs-link" href="#stdmake_from_tuple"></a></h3><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span><span style="color:#ff79c6">struct</span> <span style="color:#50fa7b">Foo</span> {
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span>    Foo(<span style="color:#8be9fd">int</span> first, <span style="color:#8be9fd">float</span> second, <span style="color:#8be9fd">int</span> third) {
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span>        std<span style="color:#ff79c6">::</span>cout <span style="color:#ff79c6">&lt;&lt;</span> first <span style="color:#ff79c6">&lt;&lt;</span> <span style="color:#f1fa8c">&#34;, &#34;</span> <span style="color:#ff79c6">&lt;&lt;</span> second <span style="color:#ff79c6">&lt;&lt;</span> <span style="color:#f1fa8c">&#34;, &#34;</span> <span style="color:#ff79c6">&lt;&lt;</span> third <span style="color:#ff79c6">&lt;&lt;</span> <span style="color:#f1fa8c">&#34;</span><span style="color:#f1fa8c">\n</span><span style="color:#f1fa8c">&#34;</span>;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span><span>    }
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span><span>};
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6</span><span><span style="color:#8be9fd">int</span> <span style="color:#50fa7b">main</span>() {
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7</span><span>   <span style="color:#ff79c6">auto</span> tuple <span style="color:#ff79c6">=</span> std<span style="color:#ff79c6">::</span>make_tuple(<span style="color:#bd93f9">42</span>, <span style="color:#bd93f9">3.14f</span>, <span style="color:#bd93f9">0</span>);
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8</span><span>   std<span style="color:#ff79c6">::</span>make_from_tuple<span style="color:#ff79c6">&lt;</span>Foo<span style="color:#ff79c6">&gt;</span>(std<span style="color:#ff79c6">::</span>move(tuple)); <span style="color:#6272a4">// 使用make_from_tuple可以将tuple展开作为构造函数参数
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">9</span><span><span style="color:#6272a4"></span>}
+</span></span></code></pre></div><h3 id="stdas_const">std::as_const<a class="anchorjs-link" href="#stdas_const"></a></h3><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>std<span style="color:#ff79c6">::</span>string str <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#34;str&#34;</span>;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span><span style="color:#ff79c6">const</span> std<span style="color:#ff79c6">::</span>string<span style="color:#ff79c6">&amp;</span> constStr <span style="color:#ff79c6">=</span> std<span style="color:#ff79c6">::</span>as_const(str); <span style="color:#6272a4">// C++17使用as_const可以将左值转成const类型
+</span></span></span></code></pre></div><blockquote>
+<p>Qt中有对应的qAsConst函数：大概意思是非const类型迭代，在多线程中可能会拷贝一份容器的副本？</p>
+</blockquote>
+<p><figure>
+  <a class="paragraph-image">
+    <img data-src="https://cdn.jsdelivr.net/gh/devin0x01/myimages@master/githubpages/image_56ed5f4d320ef7a970a3671002c06501.png" data-action="zoom" alt=""  class="lazyload">
+  </a>
+  
+</figure></p>
+<h3 id="stdstring_view">std::string_view<a class="anchorjs-link" href="#stdstring_view"></a></h3><p>通常我们传递一个string时会触发对象的拷贝操作，大字符串的拷贝赋值操作会触发堆内存分配，很影响运行效率，有了string_view就可以避免拷贝操作，平时传递过程中传递string_view即可。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span><span style="color:#8be9fd">void</span> <span style="color:#50fa7b">func</span>(std<span style="color:#ff79c6">::</span>string_view stv) { cout <span style="color:#ff79c6">&lt;&lt;</span> stv <span style="color:#ff79c6">&lt;&lt;</span> endl; }
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span><span><span style="color:#8be9fd">int</span> <span style="color:#50fa7b">main</span>(<span style="color:#8be9fd">void</span>) {
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span><span>    std<span style="color:#ff79c6">::</span>string str <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#34;Hello World&#34;</span>;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span><span>    std<span style="color:#ff79c6">::</span>cout <span style="color:#ff79c6">&lt;&lt;</span> str <span style="color:#ff79c6">&lt;&lt;</span> std<span style="color:#ff79c6">::</span>endl;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span><span>    std<span style="color:#ff79c6">::</span>string_view stv(str.c_str(), str.size());
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span><span>    cout <span style="color:#ff79c6">&lt;&lt;</span> stv <span style="color:#ff79c6">&lt;&lt;</span> endl;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span><span>    func(stv);
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span><span>    <span style="color:#ff79c6">return</span> <span style="color:#bd93f9">0</span>;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span><span>}
+</span></span></code></pre></div><h3 id="stdfile_system">std::file_system<a class="anchorjs-link" href="#stdfile_system"></a></h3><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span><span style="color:#ff79c6">namespace</span> fs <span style="color:#ff79c6">=</span> std<span style="color:#ff79c6">::</span>filesystem;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span>fs<span style="color:#ff79c6">::</span>create_directory(dir_path);
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span>fs<span style="color:#ff79c6">::</span>copy_file(src, dst, fs<span style="color:#ff79c6">::</span>copy_options<span style="color:#ff79c6">::</span>skip_existing);
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span><span>fs<span style="color:#ff79c6">::</span>exists(filename);
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span><span>fs<span style="color:#ff79c6">::</span>current_path(err_code);
+</span></span></code></pre></div><h3 id="stdshared_mutex">std::shared_mutex<a class="anchorjs-link" href="#stdshared_mutex"></a></h3><p>实现读写锁</p>
+<h2 id="新增attribute">新增Attribute<a class="anchorjs-link" href="#%e6%96%b0%e5%a2%9eattribute"></a></h2><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span><span style="color:#6272a4">// C++11引入
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span><span style="color:#6272a4"></span><span style="color:#50fa7b">[[carries_dependency]]</span> <span style="color:#6272a4">// 让编译期跳过不必要的内存栅栏指令
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span><span style="color:#6272a4"></span><span style="color:#50fa7b">[[noreturn]]</span> <span style="color:#6272a4">// 函数不会返回
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span><span><span style="color:#6272a4"></span><span style="color:#50fa7b">[[deprecated]]</span> <span style="color:#6272a4">// 函数将弃用的警告
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span><span><span style="color:#6272a4">// C++17引入
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6</span><span><span style="color:#6272a4"></span><span style="color:#50fa7b">[[fallthrough]]</span> <span style="color:#6272a4">// 用在switch中提示不需要break，让编译期忽略警告
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7</span><span><span style="color:#6272a4"></span><span style="color:#50fa7b">[[nodiscard]]</span> <span style="color:#6272a4">// 表示修饰的内容不能被忽略，可用于修饰函数，标明返回值一定要被处理
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8</span><span><span style="color:#6272a4"></span><span style="color:#50fa7b">[[maybe_unused]]</span> <span style="color:#6272a4">// 提示编译器修饰的内容可能暂时没有使用，避免产生警告
+</span></span></span></code></pre></div><p>例子：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span><span style="color:#50fa7b">[[noreturn]]</span> <span style="color:#8be9fd">void</span> terminate() <span style="color:#ff79c6">noexcept</span>;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span><span><span style="color:#50fa7b">[[deprecated(&#34;use new func instead&#34;)]]</span> <span style="color:#8be9fd">void</span> func() {}
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span><span><span style="color:#ff79c6">switch</span> (i) {}
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span><span>    <span style="color:#ff79c6">case</span> <span style="color:#bd93f9">1</span><span style="color:#ff79c6">:</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span><span>        xxx; <span style="color:#6272a4">// warning
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span><span><span style="color:#6272a4"></span>    <span style="color:#ff79c6">case</span> <span style="color:#bd93f9">2</span><span style="color:#ff79c6">:</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span><span>        xxx; 
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span><span>        <span style="color:#50fa7b">[[fallthrough]]</span>;      <span style="color:#6272a4">// 警告消除
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span><span><span style="color:#6272a4"></span>    <span style="color:#ff79c6">case</span> <span style="color:#bd93f9">3</span><span style="color:#ff79c6">:</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span><span>        xxx;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12</span><span>       <span style="color:#ff79c6">break</span>;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13</span><span>}
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15</span><span><span style="color:#50fa7b">[[nodiscard]]</span> <span style="color:#8be9fd">int</span> func();
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16</span><span><span style="color:#8be9fd">void</span> <span style="color:#50fa7b">F</span>() {
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17</span><span>    func(); <span style="color:#6272a4">// warning 没有处理函数返回值
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18</span><span><span style="color:#6272a4"></span>}
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20</span><span><span style="color:#8be9fd">void</span> <span style="color:#50fa7b">func1</span>() {}
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21</span><span><span style="color:#50fa7b">[[maybe_unused]]</span> <span style="color:#8be9fd">void</span> func2() {} <span style="color:#6272a4">// 警告消除
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22</span><span><span style="color:#6272a4"></span><span style="color:#8be9fd">void</span> <span style="color:#50fa7b">func3</span>() {
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23</span><span>    <span style="color:#8be9fd">int</span> x <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">1</span>;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24</span><span>    <span style="color:#50fa7b">[[maybe_unused]]</span> <span style="color:#8be9fd">int</span> y <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">2</span>; <span style="color:#6272a4">// 警告消除
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25</span><span><span style="color:#6272a4"></span>}
+</span></span></code></pre></div><h2 id="预处理表达式__has_include">预处理表达式__has_include<a class="anchorjs-link" href="#%e9%a2%84%e5%a4%84%e7%90%86%e8%a1%a8%e8%be%be%e5%bc%8f__has_include"></a></h2><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span><span style="color:#6272a4">// 可以判断是否有某个头文件
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span><span style="color:#6272a4"></span><span style="color:#ff79c6">#if defined __has_include
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span><span style="color:#ff79c6">#if __has_include(&lt;charconv&gt;)
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span><span><span style="color:#ff79c6">#define has_charconv 1
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span><span><span style="color:#ff79c6">#include</span> <span style="color:#ff79c6">&lt;charconv&gt;</span><span style="color:#ff79c6">
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6</span><span><span style="color:#ff79c6">#endif
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7</span><span><span style="color:#ff79c6">#endif
+</span></span></span></code></pre></div>
+
+        <hr style="visibility: hidden;" />
+        <ul class="pager">
+          
+          <li class="previous">
+            <a href="/post/cpp/c&#43;&#43;%E7%BB%83%E4%B9%A0%E9%A2%98/" data-toggle="tooltip" data-placement="top" title="C&#43;&#43;练习题">
+              Previous<br>
+              <span>C&#43;&#43;练习题</span>
+            </a>
+          </li>
+          
+          
+          <li class="next">
+            <a href="/post/cpp/%E4%BD%8D%E5%9F%9F%E7%94%A8%E6%B3%95/" data-toggle="tooltip" data-placement="top" title="位域用法">
+              Next<br>
+              <span>位域用法</span>
+            </a>
+          </li>
+          
+        </ul>
+        <hr style="visibility: hidden;" />
+
+        
+        
+
+
+
+
+
+
+      </div>
+
+      
+      
+      
+      <div class="
+              col-lg-2 col-lg-offset-0
+              visible-lg-block
+              sidebar-container
+              catalog-container">
+        <div class="side-catalog">
+          <hr class="hidden-sm hidden-xs">
+          <h5>
+            <a class="catalog-toggle" href="#">CATALOG</a>
+          </h5>
+          <ul class="catalog-body"></ul>
+        </div>
+      </div>
+      
+      
+      <div class="
+              col-lg-8 col-lg-offset-2
+              col-md-10 col-md-offset-1
+              sidebar-container">
+
+        
+        
+        <section>
+  
+  
+  <hr class="hidden-sm hidden-xs">
+  
+  <h5>FEATURED TAGS</h5>
+  <div class="tags">
+    
+    <a href="/tags/c&#43;&#43;/">C&#43;&#43;</a>
+    
+    <a href="/tags/clang/">clang</a>
+    
+    <a href="/tags/cmake/">CMake</a>
+    
+    <a href="/tags/docker/">Docker</a>
+    
+    <a href="/tags/frp/">frp</a>
+    
+    <a href="/tags/git/">Git</a>
+    
+    <a href="/tags/java/">Java</a>
+    
+    <a href="/tags/linux%E5%BC%80%E5%8F%91/">Linux开发</a>
+    
+    <a href="/tags/linux%E8%BF%90%E7%BB%B4/">Linux运维</a>
+    
+    <a href="/tags/photoshop/">Photoshop</a>
+    
+    <a href="/tags/qt/">Qt</a>
+    
+    <a href="/tags/rss/">RSS</a>
+    
+    <a href="/tags/shell/">Shell</a>
+    
+    <a href="/tags/vim/">vim</a>
+    
+    <a href="/tags/wireguard/">WireGuard</a>
+    
+    <a href="/tags/%E5%B7%A5%E5%85%B7/">工具</a>
+    
+    <a href="/tags/%E7%BC%96%E8%AF%91%E8%B0%83%E8%AF%95/">编译调试</a>
+    
+  </div>
+</section>
+
+        
+        
+
+<hr>
+<h5>FRIENDS</h5>
+<ul class="list-inline">
+  
+  <li><a href="https://www.inoreader.com" target="_blank">Inoreader</a></li>
+  
+  <li><a href="https://www.v2ex.com" target="_blank">V2EX</a></li>
+  
+  <li><a href="https://www.oschina.net" target="_blank">OSChina</a></li>
+  
+  <li><a href="https://www.infoq.cn" target="_blank">InfoQ</a></li>
+  
+  <li><a href="https://godbolt.org" target="_blank">CompilerExplorer</a></li>
+  
+  <li><a href="https://cppinsights.io" target="_blank">CppInsights</a></li>
+  
+  <li><a href="https://quick-bench.com" target="_blank">QuickBench</a></li>
+  
+</ul>
+
+      </div>
+    </div>
+  </div>
+</article>
+
+
+
+  
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        
+        <ul class="list-inline text-center">
+
+<li>
+  <a href="https://github.com/devin0x01" target="_blank">
+    <span class="fa-stack fa-lg">
+      <i class="fa fa-circle fa-stack-2x"></i>
+      <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+    </span>
+  </a>
+</li>
+
+<li>
+  <a href="https://www.zhihu.com/people/skywind3000" target="_blank">
+    <span class="fa-stack fa-lg">
+      <i class="fa fa-circle fa-stack-2x"></i>
+      <i class="fab fa-stack-1x fa-inverse">知</i>
+    </span>
+  </a>
+</li>
+
+
+<li>
+  <a href="/index.xml" target="_blank">
+    <span class="fa-stack fa-lg">
+      <i class="fa fa-circle fa-stack-2x"></i>
+      <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+    </span>
+  </a>
+</li></ul>
+
+        <p class="copyright text-muted">
+          Copyright &copy; DEVIN&#39;s BLOG 2024  
+          <br>
+          Powered by <a href="https://gohugo.io">Hugo</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src=/js/jquery.min.js></script>
+<script src=/js/bootstrap.min.js crossorigin="anonymous"></script>
+
+
+
+<script src="/js/hux-blog.min.c4ea77041cd3edbfc8b2622cd887a9a5d8760a4162d14489e36d2a3fa4c90172.js"></script>
+
+
+<script src=/js/simple-jekyll-search.min.js></script>
+
+
+<script src="/js/search.min.53bce5da475b4d362500e5ce5dddfa22e20e1b9018777411d2020b4b839c9310.js"></script>
+
+
+
+
+
+
+<script type="text/javascript">
+  function generateCatalog(selector) {
+    _containerSelector = 'div.post-container'
+    
+    var P = $(_containerSelector), a, n, t, l, i, c;
+    a = P.find('h1,h2,h3,h4');
+    
+    $(selector).html('')
+    
+    a.each(function () {
+      n = $(this).prop('tagName').toLowerCase();
+      i = "#" + $(this).prop('id');
+      t = $(this).text();
+      c = $('<a href="' + i + '" rel="nofollow">' + t + '</a>');
+      l = $('<li class="' + n + '_nav"></li>').append(c);
+      $(selector).append(l);
+    });
+    return true;
+  }
+
+  generateCatalog(".catalog-body");
+
+  
+  $(".catalog-toggle").click((function (e) {
+    e.preventDefault();
+    $('.side-catalog').toggleClass("fold")
+  }))
+</script>
+
+
+<script type="text/javascript" src='/js/jquery.nav.min.ade6bde8f9fcc6a4b40852cb892e9f5912340ab8fe1305149d917fdd16fffd8d.js'></script>
+<script>
+   $(document).ready( function () {
+    $('.catalog-body').onePageNav({
+      currentClass: "active",
+      changeHash: !1,
+      easing: "swing",
+      filter: "",
+      scrollSpeed: 700,
+      scrollOffset: 0,
+      scrollThreshold: .2,
+      begin: null,
+      end: null,
+      scrollChange: null,
+      padding: 80
+    });
+  });
+</script>
+
+
+
+
+
+
+
+
+
+<script src="/zoomjs/zoom.min.js"></script>
+
+</body>
+
+</html>

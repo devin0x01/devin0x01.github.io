@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  
+    
+  <title>Java基础 | DEVIN&#39;s BLOG</title>
+  <meta name="author" content="DEVIN">
+  <meta name="description" content="数据类型INFINITY和NaN 1// INFINITY定义 2public static final double POSITIVE_INFINITY = 1.0 / 0.0; 3public static final double NEGATIVE_INFINITY = -1.0 / 0.0; 4 5public static final float POSITIVE_INFINITY = 1.0f / 0.0f; 6public static final float NEGATIVE_INFINITY = -1.0f / 0.0f; 7 8// 无穷大*">
+  <meta name="keywords" content="blog,developer,personal">
+
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Java基础"/>
+<meta name="twitter:description" content="数据类型INFINITY和NaN 1// INFINITY定义 2public static final double POSITIVE_INFINITY = 1.0 / 0.0; 3public static final double NEGATIVE_INFINITY = -1.0 / 0.0; 4 5public static final float POSITIVE_INFINITY = 1.0f / 0.0f; 6public static final float NEGATIVE_INFINITY = -1.0f / 0.0f; 7 8// 无穷大*"/>
+
+  <meta property="og:title" content="Java基础" />
+<meta property="og:description" content="数据类型INFINITY和NaN 1// INFINITY定义 2public static final double POSITIVE_INFINITY = 1.0 / 0.0; 3public static final double NEGATIVE_INFINITY = -1.0 / 0.0; 4 5public static final float POSITIVE_INFINITY = 1.0f / 0.0f; 6public static final float NEGATIVE_INFINITY = -1.0f / 0.0f; 7 8// 无穷大*" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:1313/post/java/java%E5%9F%BA%E7%A1%80/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2023-06-18T14:05:25+08:00" />
+<meta property="article:modified_time" content="2023-06-18T14:05:25+08:00" />
+
+  <link rel="stylesheet" href="/css/bootstrap.min.css"  crossorigin="anonymous">
+  
+  <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.1/css/all.min.css" rel="stylesheet" type="text/css">
+
+  <link rel="stylesheet" href="/sass/main.css">
+
+  <link rel="stylesheet" href="/zoomjs/zoom.min.css">
+
+  <script src=/js/lazysizes.min.js></script>
+
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  
+
+</head>
+
+
+
+<body ontouchstart="">
+  
+  
+  <nav class="navbar navbar-default navbar-custom navbar-fixed-top invert">
+  <div class="container-fluid">
+    
+    <div class="navbar-header page-scroll">
+      <button type="button" class="navbar-toggle">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="http://localhost:1313">DEVIN&#39;s BLOG</a>
+    </div>
+    
+    <div id="huxblog_navbar">
+      <div class="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          
+          <li><a href="/" title="Home">Home</a></li>
+          
+          <li><a href="/archive/" title="Archive">Archive</a></li>
+          
+          <li><a href="https://www.cnblogs.com" title="CNBLOGS">CNBLOGS</a></li>
+          
+          <li><a href="https://github.com/devin0x01" title="Github">Github</a></li>
+          
+          <li><a href="/about/" title="About">About</a></li>
+          
+
+          <li class="search-icon">
+            <a href="javascript:void(0)">
+              <i class="fa fa-search"></i>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    
+  </div>
+  
+</nav>
+<script>
+  
+  
+  
+  var $body = document.body;
+  var $toggle = document.querySelector(".navbar-toggle");
+  var $navbar = document.querySelector("#huxblog_navbar");
+  var $collapse = document.querySelector(".navbar-collapse");
+
+  var __HuxNav__ = {
+    close: function () {
+      $navbar.className = " ";
+      
+      setTimeout(function () {
+        
+        if ($navbar.className.indexOf("in") < 0) {
+          $collapse.style.height = "0px";
+        }
+      }, 400);
+    },
+    open: function () {
+      $collapse.style.height = "auto";
+      $navbar.className += " in";
+    },
+  };
+
+  
+  $toggle.addEventListener("click", function (e) {
+    if ($navbar.className.indexOf("in") > 0) {
+      __HuxNav__.close();
+    } else {
+      __HuxNav__.open();
+    }
+  });
+
+  
+
+  document.addEventListener("click", function (e) {
+    if (e.target == $toggle) return;
+    if (e.target.className == "icon-bar") return;
+    __HuxNav__.close();
+  });
+</script>
+  
+<div class="search-page">
+  <div class="search-icon-close-container">
+    <span class="search-icon-close">
+      <i class="fa fa-chevron-down"></i>
+    </span>
+  </div>
+  <div class="search-main container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <form></form>
+        <input type="text" id="search-input" placeholder="$ grep...">
+        </form>
+        <div id="search-results" class="mini-post-list"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+  
+  
+
+
+<style type="text/css">
+  header.intro-header {
+    position: relative;
+    background-image: url('');
+  }
+</style>
+
+<header class="intro-header style-text">
+
+  <div class="header-mask"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="post-heading">
+          <div class="tags">
+            
+            <a class="tag" href="/tags/java/" title="Java">Java</a>
+            
+          </div>
+          <h1>Java基础</h1>
+          <h2 class="subheading"></h2>
+          <span class="meta">
+            Posted by  DEVIN 
+            on Sun, Jun 18, 2023
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+
+  
+
+
+<article>
+  <div class="container">
+    <div class="row">
+
+      
+      <div class="
+              col-lg-8 col-lg-offset-2
+              col-md-10 col-md-offset-1
+              post-container">
+        <h2 id="数据类型">数据类型<a class="anchorjs-link" href="#%e6%95%b0%e6%8d%ae%e7%b1%bb%e5%9e%8b"></a></h2><h3 id="infinity和nan">INFINITY和NaN<a class="anchorjs-link" href="#infinity%e5%92%8cnan"></a></h3><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span><span style="color:#6272a4">// INFINITY定义
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span><span><span style="color:#6272a4"></span><span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd;font-style:italic">static</span> <span style="color:#8be9fd;font-style:italic">final</span> <span style="color:#8be9fd">double</span> POSITIVE_INFINITY <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">1.0</span> <span style="color:#ff79c6">/</span> <span style="color:#bd93f9">0.0</span><span style="color:#ff79c6">;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span><span><span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd;font-style:italic">static</span> <span style="color:#8be9fd;font-style:italic">final</span> <span style="color:#8be9fd">double</span> NEGATIVE_INFINITY <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">-</span><span style="color:#bd93f9">1.0</span> <span style="color:#ff79c6">/</span> <span style="color:#bd93f9">0.0</span><span style="color:#ff79c6">;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span><span><span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd;font-style:italic">static</span> <span style="color:#8be9fd;font-style:italic">final</span> <span style="color:#8be9fd">float</span> POSITIVE_INFINITY <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">1.0f</span> <span style="color:#ff79c6">/</span> <span style="color:#bd93f9">0.0f</span><span style="color:#ff79c6">;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span><span><span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd;font-style:italic">static</span> <span style="color:#8be9fd;font-style:italic">final</span> <span style="color:#8be9fd">float</span> NEGATIVE_INFINITY <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">-</span><span style="color:#bd93f9">1.0f</span> <span style="color:#ff79c6">/</span> <span style="color:#bd93f9">0.0f</span><span style="color:#ff79c6">;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span><span><span style="color:#6272a4">// 无穷大*0=NAN
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span><span><span style="color:#6272a4"></span>System<span style="color:#ff79c6">.</span><span style="color:#50fa7b">out</span><span style="color:#ff79c6">.</span><span style="color:#50fa7b">println</span><span style="color:#ff79c6">(</span>Float<span style="color:#ff79c6">.</span><span style="color:#50fa7b">POSITIVE_INFINITY</span> <span style="color:#ff79c6">*</span> <span style="color:#bd93f9">0</span><span style="color:#ff79c6">);</span> <span style="color:#6272a4">// output: NAN
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span><span><span style="color:#6272a4"></span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span><span><span style="color:#6272a4">// 无穷大
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12</span><span><span style="color:#6272a4"></span>System<span style="color:#ff79c6">.</span><span style="color:#50fa7b">out</span><span style="color:#ff79c6">.</span><span style="color:#50fa7b">println</span><span style="color:#ff79c6">((</span>Float<span style="color:#ff79c6">.</span><span style="color:#50fa7b">POSITIVE_INFINITY</span> <span style="color:#ff79c6">/</span> <span style="color:#bd93f9">0</span><span style="color:#ff79c6">)</span> <span style="color:#ff79c6">==</span> Float<span style="color:#ff79c6">.</span><span style="color:#50fa7b">POSITIVE_INFINITY</span><span style="color:#ff79c6">);</span> <span style="color:#6272a4">// output: true
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13</span><span><span style="color:#6272a4"></span>System<span style="color:#ff79c6">.</span><span style="color:#50fa7b">out</span><span style="color:#ff79c6">.</span><span style="color:#50fa7b">println</span><span style="color:#ff79c6">(</span>Float<span style="color:#ff79c6">.</span><span style="color:#50fa7b">POSITIVE_INFINITY</span> <span style="color:#ff79c6">==</span> <span style="color:#ff79c6">(</span>Float<span style="color:#ff79c6">.</span><span style="color:#50fa7b">POSITIVE_INFINITY</span> <span style="color:#ff79c6">+</span> <span style="color:#bd93f9">10000</span><span style="color:#ff79c6">));</span> <span style="color:#6272a4">// output: true
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14</span><span><span style="color:#6272a4"></span>System<span style="color:#ff79c6">.</span><span style="color:#50fa7b">out</span><span style="color:#ff79c6">.</span><span style="color:#50fa7b">println</span><span style="color:#ff79c6">(</span>Float<span style="color:#ff79c6">.</span><span style="color:#50fa7b">POSITIVE_INFINITY</span> <span style="color:#ff79c6">==</span> <span style="color:#ff79c6">(</span>Float<span style="color:#ff79c6">.</span><span style="color:#50fa7b">POSITIVE_INFINITY</span> <span style="color:#ff79c6">/</span> <span style="color:#bd93f9">10000</span><span style="color:#ff79c6">));</span> <span style="color:#6272a4">// output: true
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15</span><span><span style="color:#6272a4"></span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16</span><span><span style="color:#6272a4">// 判断是否为INFINITY
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17</span><span><span style="color:#6272a4"></span>System<span style="color:#ff79c6">.</span><span style="color:#50fa7b">out</span><span style="color:#ff79c6">.</span><span style="color:#50fa7b">println</span><span style="color:#ff79c6">(</span>Double<span style="color:#ff79c6">.</span><span style="color:#50fa7b">isInfinite</span><span style="color:#ff79c6">(</span>Float<span style="color:#ff79c6">.</span><span style="color:#50fa7b">POSITIVE_INFINITY</span><span style="color:#ff79c6">));</span> <span style="color:#6272a4">// output: true
+</span></span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span><span style="color:#6272a4">// NAN定义
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span><span style="color:#6272a4"></span><span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd;font-style:italic">static</span> <span style="color:#8be9fd;font-style:italic">final</span> <span style="color:#8be9fd">double</span> NaN <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">0.0d</span> <span style="color:#ff79c6">/</span> <span style="color:#bd93f9">0.0</span><span style="color:#ff79c6">;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span><span><span style="color:#6272a4">// NAN表示非数字，它与任何值都不相等，甚至不等于它自己，所以要判断一个数是否为NAN要用isNAN方法：
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span><span><span style="color:#6272a4"></span>System<span style="color:#ff79c6">.</span><span style="color:#50fa7b">out</span><span style="color:#ff79c6">.</span><span style="color:#50fa7b">println</span><span style="color:#ff79c6">(</span>Float<span style="color:#ff79c6">.</span><span style="color:#50fa7b">NaN</span> <span style="color:#ff79c6">==</span> Float<span style="color:#ff79c6">.</span><span style="color:#50fa7b">NaN</span><span style="color:#ff79c6">);</span> <span style="color:#6272a4">// output: false
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6</span><span><span style="color:#6272a4"></span>System<span style="color:#ff79c6">.</span><span style="color:#50fa7b">out</span><span style="color:#ff79c6">.</span><span style="color:#50fa7b">println</span><span style="color:#ff79c6">(</span>Double<span style="color:#ff79c6">.</span><span style="color:#50fa7b">isNaN</span><span style="color:#ff79c6">(</span>Float<span style="color:#ff79c6">.</span><span style="color:#50fa7b">NaN</span><span style="color:#ff79c6">));</span> <span style="color:#6272a4">// output: true
+</span></span></span></code></pre></div><blockquote>
+<p>需要精确计算时，使用<code>BigDecimal</code>，不要使用float和double</p>
+</blockquote>
+<h3 id="判断相等">判断相等<a class="anchorjs-link" href="#%e5%88%a4%e6%96%ad%e7%9b%b8%e7%ad%89"></a></h3><p><code>float</code>不能使用<code>==</code>判断相等，<code>Float</code>不能使用<code>equals()</code>和<code>flt.compareTo(another) == 0</code>比较大小。可以用使用<code>Math.abs(f1 - f2) &lt; 1e-6f</code></p>
+<p><code>Float f1</code>和<code>float f2</code>使用<code>==</code>比较大小时，会先把f1拆箱，然后相当于float比较。</p>
+<h2 id="io操作">IO操作<a class="anchorjs-link" href="#io%e6%93%8d%e4%bd%9c"></a></h2><p>IO流是一种流式的数据输入/输出模型：</p>
+<ul>
+<li>二进制数据以<code>byte</code>为最小单位在<code>InputStream</code>/<code>OutputStream</code>中单向流动；</li>
+<li>字符数据以<code>char</code>为最小单位在<code>Reader</code>/<code>Writer</code>中单向流动。</li>
+</ul>
+<p>Java标准库的<code>java.io</code>包提供了同步IO功能：</p>
+<ul>
+<li>字节流接口：<code>InputStream</code>/<code>OutputStream</code>；</li>
+<li>字符流接口：<code>Reader</code>/<code>Writer</code>。</li>
+</ul>
+<h3 id="file类">File类<a class="anchorjs-link" href="#file%e7%b1%bb"></a></h3><p>Java标准库的<code>java.io.File</code>对象表示一个文件或者目录：</p>
+<ul>
+<li>创建<code>File</code>对象本身不涉及IO操作；</li>
+<li>可以获取路径／绝对路径／规范路径：<code>getPath()</code>/<code>getAbsolutePath()</code>/<code>getCanonicalPath()</code>；</li>
+<li>可以获取目录的文件和子目录：<code>list()</code>/<code>listFiles()</code>；</li>
+<li>可以创建或删除文件和目录。</li>
+</ul>
+<h3 id="inputstreamoutputstream">InputStream/OutputStream<a class="anchorjs-link" href="#inputstreamoutputstream"></a></h3><p>Java标准库的<code>java.io.InputStream</code>定义了所有输入流的超类：</p>
+<ul>
+<li><code>FileInputStream</code>实现了<strong>文件流</strong>输入，==<strong>需要关闭流</strong>==；</li>
+<li><code>ByteArrayInputStream</code>在内存中模拟一个<strong>字节流</strong>输入，==<strong>不需要关闭流</strong>==。</li>
+</ul>
+<blockquote>
+<p>在解压图片的时候发现<code>ByteArrayOutputStream</code>不需要关闭，为啥呢？</p>
+<p><code>ByteArrayOutputStream</code>或<code>ByteArrayInputStream</code>是内存读写流，不同于指向硬盘的流，它内部是使用字节数组读内存的，这个字节数组是它的成员变量，当这个数组不再使用变成垃圾的时候，Java的垃圾回收机制会将它回收。所以不需要关流。</p>
+</blockquote>
+<h4 id="文件流-fileinputstream">文件流 FileInputStream<a class="anchorjs-link" href="#%e6%96%87%e4%bb%b6%e6%b5%81-fileinputstream"></a></h4><ol>
+<li>try&hellip;finally</li>
+</ol>
+<blockquote>
+<p><strong>切记释放资源</strong>，即<code>input.close();</code></p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span><span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd">void</span> <span style="color:#50fa7b">readFile</span><span style="color:#ff79c6">()</span> <span style="color:#8be9fd;font-style:italic">throws</span> IOException <span style="color:#ff79c6">{</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span><span>    InputStream input <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">null</span><span style="color:#ff79c6">;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span><span>    <span style="color:#ff79c6">try</span> <span style="color:#ff79c6">{</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span><span>        input <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> FileInputStream<span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;src/readme.txt&#34;</span><span style="color:#ff79c6">);</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span><span>        <span style="color:#8be9fd">int</span> n<span style="color:#ff79c6">;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span><span>        <span style="color:#ff79c6">while</span> <span style="color:#ff79c6">((</span>n <span style="color:#ff79c6">=</span> input<span style="color:#ff79c6">.</span><span style="color:#50fa7b">read</span><span style="color:#ff79c6">())</span> <span style="color:#ff79c6">!=</span> <span style="color:#ff79c6">-</span><span style="color:#bd93f9">1</span><span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span> <span style="color:#6272a4">// 利用while同时读取并判断
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span><span><span style="color:#6272a4"></span>            System<span style="color:#ff79c6">.</span><span style="color:#50fa7b">out</span><span style="color:#ff79c6">.</span><span style="color:#50fa7b">println</span><span style="color:#ff79c6">(</span>n<span style="color:#ff79c6">);</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span><span>        <span style="color:#ff79c6">}</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span><span>    <span style="color:#ff79c6">}</span> <span style="color:#ff79c6">finally</span> <span style="color:#ff79c6">{</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span><span>        <span style="color:#ff79c6">if</span> <span style="color:#ff79c6">(</span>input <span style="color:#ff79c6">!=</span> <span style="color:#ff79c6">null</span><span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span> input<span style="color:#ff79c6">.</span><span style="color:#50fa7b">close</span><span style="color:#ff79c6">();</span> <span style="color:#ff79c6">}</span> <span style="color:#6272a4">// 释放资源
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span><span><span style="color:#6272a4"></span>    <span style="color:#ff79c6">}</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12</span><span><span style="color:#ff79c6">}</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15</span><span><span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd">void</span> <span style="color:#50fa7b">writeFile</span><span style="color:#ff79c6">()</span> <span style="color:#8be9fd;font-style:italic">throws</span> IOException <span style="color:#ff79c6">{</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16</span><span>    OutputStream output <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> FileOutputStream<span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;out/readme.txt&#34;</span><span style="color:#ff79c6">);</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17</span><span>    output<span style="color:#ff79c6">.</span><span style="color:#50fa7b">write</span><span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;Hello&#34;</span><span style="color:#ff79c6">.</span><span style="color:#50fa7b">getBytes</span><span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;UTF-8&#34;</span><span style="color:#ff79c6">));</span> <span style="color:#6272a4">// Hello
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18</span><span><span style="color:#6272a4"></span>    output<span style="color:#ff79c6">.</span><span style="color:#50fa7b">close</span><span style="color:#ff79c6">();</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19</span><span><span style="color:#ff79c6">}</span>
+</span></span></code></pre></div><ol start="2">
+<li>try(resource)  Java7引入</li>
+</ol>
+<blockquote>
+<p>实际上，编译器并不会特别地为<code>InputStream</code>加上自动关闭。编译器只看<code>try(resource = ...)</code>中的对象是否实现了<code>java.lang.AutoCloseable</code>接口，如果实现了，就自动加上<code>finally</code>语句并调用<code>close()</code>方法。<code>InputStream</code>和<code>OutputStream</code>都实现了这个接口，因此，都可以用在<code>try(resource)</code>中。</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span><span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd">void</span> <span style="color:#50fa7b">readFile</span><span style="color:#ff79c6">()</span> <span style="color:#8be9fd;font-style:italic">throws</span> IOException <span style="color:#ff79c6">{</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span>    <span style="color:#ff79c6">try</span> <span style="color:#ff79c6">(</span>InputStream input <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> FileInputStream<span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;src/readme.txt&#34;</span><span style="color:#ff79c6">))</span> <span style="color:#ff79c6">{</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span>        <span style="color:#8be9fd">int</span> n<span style="color:#ff79c6">;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span><span>        <span style="color:#ff79c6">while</span> <span style="color:#ff79c6">((</span>n <span style="color:#ff79c6">=</span> input<span style="color:#ff79c6">.</span><span style="color:#50fa7b">read</span><span style="color:#ff79c6">())</span> <span style="color:#ff79c6">!=</span> <span style="color:#ff79c6">-</span><span style="color:#bd93f9">1</span><span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span><span>            System<span style="color:#ff79c6">.</span><span style="color:#50fa7b">out</span><span style="color:#ff79c6">.</span><span style="color:#50fa7b">println</span><span style="color:#ff79c6">(</span>n<span style="color:#ff79c6">);</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6</span><span>        <span style="color:#ff79c6">}</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7</span><span>    <span style="color:#ff79c6">}</span> <span style="color:#6272a4">// 编译器在此自动为我们写入finally并调用close()
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8</span><span><span style="color:#6272a4"></span><span style="color:#ff79c6">}</span>
+</span></span></code></pre></div><ol start="3">
+<li>阻塞</li>
+</ol>
+<p>在调用<code>InputStream</code>的<code>read()</code>方法读取数据时，我们说<code>read()</code>方法是阻塞（Blocking）的。它的意思是，对于下面的代码：
+和<code>InputStream</code>一样，<code>OutputStream</code>的<code>write()</code>方法也是阻塞的。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span><span style="color:#8be9fd">int</span> n<span style="color:#ff79c6">;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span>n <span style="color:#ff79c6">=</span> input<span style="color:#ff79c6">.</span><span style="color:#50fa7b">read</span><span style="color:#ff79c6">();</span> <span style="color:#6272a4">// 必须等待read()方法返回才能执行下一行代码
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span><span style="color:#6272a4"></span><span style="color:#8be9fd">int</span> m <span style="color:#ff79c6">=</span> n<span style="color:#ff79c6">;</span>
+</span></span></code></pre></div><h4 id="字节流-bytearrayinputstream">字节流 ByteArrayInputStream<a class="anchorjs-link" href="#%e5%ad%97%e8%8a%82%e6%b5%81-bytearrayinputstream"></a></h4><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span><span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd">void</span> readBuffer <span style="color:#8be9fd;font-style:italic">throws</span> IOException <span style="color:#ff79c6">{</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span>    <span style="color:#8be9fd">byte</span><span style="color:#ff79c6">[]</span> data <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">{</span> <span style="color:#bd93f9">72</span><span style="color:#ff79c6">,</span> <span style="color:#bd93f9">101</span><span style="color:#ff79c6">,</span> <span style="color:#bd93f9">108</span><span style="color:#ff79c6">,</span> <span style="color:#bd93f9">108</span><span style="color:#ff79c6">,</span> <span style="color:#bd93f9">111</span><span style="color:#ff79c6">,</span> <span style="color:#bd93f9">33</span> <span style="color:#ff79c6">};</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span>    <span style="color:#ff79c6">try</span> <span style="color:#ff79c6">(</span>InputStream input <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> ByteArrayInputStream<span style="color:#ff79c6">(</span>data<span style="color:#ff79c6">))</span> <span style="color:#ff79c6">{</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span><span>        <span style="color:#8be9fd">int</span> n<span style="color:#ff79c6">;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span><span>        <span style="color:#ff79c6">while</span> <span style="color:#ff79c6">((</span>n <span style="color:#ff79c6">=</span> input<span style="color:#ff79c6">.</span><span style="color:#50fa7b">read</span><span style="color:#ff79c6">())</span> <span style="color:#ff79c6">!=</span> <span style="color:#ff79c6">-</span><span style="color:#bd93f9">1</span><span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6</span><span>            System<span style="color:#ff79c6">.</span><span style="color:#50fa7b">out</span><span style="color:#ff79c6">.</span><span style="color:#50fa7b">println</span><span style="color:#ff79c6">((</span><span style="color:#8be9fd">char</span><span style="color:#ff79c6">)</span>n<span style="color:#ff79c6">);</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7</span><span>        <span style="color:#ff79c6">}</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8</span><span>    <span style="color:#ff79c6">}</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">9</span><span><span style="color:#ff79c6">}</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span><span style="color:#6272a4">// 读取input.txt，写入output.txt:
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span><span style="color:#6272a4"></span><span style="color:#ff79c6">try</span> <span style="color:#ff79c6">(</span>InputStream input <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> FileInputStream<span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;input.txt&#34;</span><span style="color:#ff79c6">);</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span>     OutputStream output <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> FileOutputStream<span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;output.txt&#34;</span><span style="color:#ff79c6">))</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span><span><span style="color:#ff79c6">{</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span><span>    input<span style="color:#ff79c6">.</span><span style="color:#50fa7b">transferTo</span><span style="color:#ff79c6">(</span>output<span style="color:#ff79c6">);</span> <span style="color:#6272a4">// transferTo的作用是?
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6</span><span><span style="color:#6272a4"></span><span style="color:#ff79c6">}</span>
+</span></span></code></pre></div><h3 id="序列化-objectouputstream">序列化 ObjectOuputStream<a class="anchorjs-link" href="#%e5%ba%8f%e5%88%97%e5%8c%96-objectouputstream"></a></h3><blockquote>
+<p>序列化是指把一个Java对象变成二进制内容，本质上就是一个<code>byte[]</code>数组。</p>
+<p>一个类的对象要想序列化成功，必须满足两个条件：</p>
+<ol>
+<li>该类必须实现<code>java.io.Serializable</code>接口。<code>Serializable</code>接口没有定义任何方法，它是一个空接口。我们把这样的空接口称为“标记接口”（Marker Interface），实现了标记接口的类仅仅是给自身贴了个“标记”，并没有增加任何方法。</li>
+<li>该类的所有属性必须是可序列化的。如果有一个属性不是可序列化的，则该属性必须注明是<strong>短暂</strong>(transient)的。</li>
+<li>static修饰的属性将不被序列化。</li>
+</ol>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span><span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd;font-style:italic">class</span> <span style="color:#50fa7b">Employee</span> <span style="color:#8be9fd;font-style:italic">implements</span> java<span style="color:#ff79c6">.</span><span style="color:#50fa7b">io</span><span style="color:#ff79c6">.</span><span style="color:#50fa7b">Serializable</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span><span><span style="color:#ff79c6">{</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span><span>    <span style="color:#8be9fd;font-style:italic">public</span> String name<span style="color:#ff79c6">;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span><span>    <span style="color:#8be9fd;font-style:italic">public</span> String address<span style="color:#ff79c6">;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span><span>    <span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd;font-style:italic">transient</span> <span style="color:#8be9fd">int</span> SSN<span style="color:#ff79c6">;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span><span>    <span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd">int</span> number<span style="color:#ff79c6">;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span><span>    <span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd">void</span> <span style="color:#50fa7b">mailCheck</span><span style="color:#ff79c6">()</span> <span style="color:#ff79c6">{</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span><span>        System<span style="color:#ff79c6">.</span><span style="color:#50fa7b">out</span><span style="color:#ff79c6">.</span><span style="color:#50fa7b">println</span><span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;Mailing a check to &#34;</span> <span style="color:#ff79c6">+</span> name <span style="color:#ff79c6">+</span> <span style="color:#f1fa8c">&#34; &#34;</span> <span style="color:#ff79c6">+</span> address<span style="color:#ff79c6">);</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span><span>    <span style="color:#ff79c6">}</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span><span><span style="color:#ff79c6">}</span>
+</span></span></code></pre></div><p>把一个Java对象变为<code>byte[]</code>数组，需要使用<code>ObjectOutputStream</code>。它负责把一个Java对象写入一个字节流：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span><span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd">void</span> <span style="color:#50fa7b">test</span><span style="color:#ff79c6">(</span>String<span style="color:#ff79c6">[]</span> args<span style="color:#ff79c6">)</span> <span style="color:#8be9fd;font-style:italic">throws</span> IOException <span style="color:#ff79c6">{</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span><span>    ByteArrayOutputStream buffer <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> ByteArrayOutputStream<span style="color:#ff79c6">();</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span><span>    <span style="color:#6272a4">// FileOutputStream stream = new FileOutputStream(new File(&#34;person.out&#34;)); // 也可以用文件流，但是记得关闭流
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span><span><span style="color:#6272a4"></span>    <span style="color:#ff79c6">try</span> <span style="color:#ff79c6">(</span>ObjectOutputStream output <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> ObjectOutputStream<span style="color:#ff79c6">(</span>buffer<span style="color:#ff79c6">))</span> <span style="color:#ff79c6">{</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span><span>        <span style="color:#6272a4">// 写入int:
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span><span><span style="color:#6272a4"></span>        output<span style="color:#ff79c6">.</span><span style="color:#50fa7b">writeInt</span><span style="color:#ff79c6">(</span><span style="color:#bd93f9">12345</span><span style="color:#ff79c6">);</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span><span>        <span style="color:#6272a4">// 写入String:
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span><span><span style="color:#6272a4"></span>        output<span style="color:#ff79c6">.</span><span style="color:#50fa7b">writeUTF</span><span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;Hello&#34;</span><span style="color:#ff79c6">);</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span><span>        <span style="color:#6272a4">// 写入实现了Serializable接口的Object:
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span><span><span style="color:#6272a4"></span>        output<span style="color:#ff79c6">.</span><span style="color:#50fa7b">writeObject</span><span style="color:#ff79c6">(</span>Double<span style="color:#ff79c6">.</span><span style="color:#50fa7b">valueOf</span><span style="color:#ff79c6">(</span><span style="color:#bd93f9">123.456</span><span style="color:#ff79c6">));</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span><span>    <span style="color:#ff79c6">}</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13</span><span>    System<span style="color:#ff79c6">.</span><span style="color:#50fa7b">out</span><span style="color:#ff79c6">.</span><span style="color:#50fa7b">println</span><span style="color:#ff79c6">(</span>Arrays<span style="color:#ff79c6">.</span><span style="color:#50fa7b">toString</span><span style="color:#ff79c6">(</span>buffer<span style="color:#ff79c6">.</span><span style="color:#50fa7b">toByteArray</span><span style="color:#ff79c6">()));</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14</span><span><span style="color:#ff79c6">}</span>
+</span></span></code></pre></div><h3 id="反序列化-objectinputstream">反序列化 ObjectInputStream<a class="anchorjs-link" href="#%e5%8f%8d%e5%ba%8f%e5%88%97%e5%8c%96-objectinputstream"></a></h3><blockquote>
+<p>除了能读取基本类型和<code>String</code>类型外，调用<code>readObject()</code>可以直接返回一个<code>Object</code>对象。要把它变成一个特定类型，必须强制转型。</p>
+<p><code>readObject()</code>可能抛出的异常有：</p>
+<ul>
+<li><code>ClassNotFoundException</code>：没有找到对应的Class；</li>
+<li><code>InvalidClassException</code>：Class不匹配。</li>
+</ul>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span><span style="color:#ff79c6">try</span> <span style="color:#ff79c6">(</span>ObjectInputStream input <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> ObjectInputStream<span style="color:#ff79c6">(...))</span> <span style="color:#ff79c6">{</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span>    <span style="color:#8be9fd">int</span> n <span style="color:#ff79c6">=</span> input<span style="color:#ff79c6">.</span><span style="color:#50fa7b">readInt</span><span style="color:#ff79c6">();</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span>    String s <span style="color:#ff79c6">=</span> input<span style="color:#ff79c6">.</span><span style="color:#50fa7b">readUTF</span><span style="color:#ff79c6">();</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span><span>    Double d <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">(</span>Double<span style="color:#ff79c6">)</span> input<span style="color:#ff79c6">.</span><span style="color:#50fa7b">readObject</span><span style="color:#ff79c6">();</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span><span><span style="color:#ff79c6">}</span>
+</span></span></code></pre></div><p>对于<code>ClassNotFoundException</code>，这种情况常见于一台电脑上的Java程序把一个Java对象，例如，<code>Person</code>对象序列化以后，通过网络传给另一台电脑上的另一个Java程序，但是这台电脑的Java程序并没有定义<code>Person</code>类，所以无法反序列化。</p>
+<p>对于<code>InvalidClassException</code>，为了避免class定义变动导致的不兼容，Java的序列化允许class定义一个特殊的<code>serialVersionUID</code>静态变量，用于标识Java类的序列化“版本”，通常可以由IDE自动生成。如果增加或修改了字段，可以改变<code>serialVersionUID</code>的值，不兼容时就会抛出此异常。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span><span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd;font-style:italic">class</span> <span style="color:#50fa7b">Person</span> <span style="color:#8be9fd;font-style:italic">implements</span> Serializable <span style="color:#ff79c6">{</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span>    <span style="color:#8be9fd;font-style:italic">private</span> <span style="color:#8be9fd;font-style:italic">static</span> <span style="color:#8be9fd;font-style:italic">final</span> <span style="color:#8be9fd">long</span> serialVersionUID <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">2709425275741743919L</span><span style="color:#ff79c6">;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span><span style="color:#ff79c6">}</span>
+</span></span></code></pre></div><h2 id="垃圾回收">垃圾回收<a class="anchorjs-link" href="#%e5%9e%83%e5%9c%be%e5%9b%9e%e6%94%b6"></a></h2><h3 id="finalize用法">finalize用法<a class="anchorjs-link" href="#finalize%e7%94%a8%e6%b3%95"></a></h3><p>finalize()是Object类里的protected类型的方法，子类（所有类都是Object的子类）可以通过覆盖这个方法来实现回收前的资源清理工作。</p>
+<p>由于重写finalize不当，会导致该对象无法回收，所以在项目里，我们一般不重写该方法，而会采用Object类自带的空的finalize方法。</p>
+<blockquote>
+<ol>
+<li>Java虚拟机一旦通过刚才提到的“根搜索算法”判断出某对象处于可回收状态时，会判断该对象是否重写了Object类的finalize方法，如果没，则直接回收。</li>
+<li>如重写过finalize方法，而且未执行过该方法，则把该对象其放入F-Queue队列，另个线程会定时遍历F-Queue队列，并执行该队列中各对象的finalize方法。</li>
+<li>finalize方法执行完毕后，GC会再次判断该对象是否可被回收，如果可以，则进行回收，如果此时该对象上有强引用，则该对象“复活”，即处于“不可回收状态”。</li>
+</ol>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span><span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd;font-style:italic">class</span> <span style="color:#50fa7b">FinalizeDemo</span> <span style="color:#ff79c6">{</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span><span>    <span style="color:#8be9fd;font-style:italic">static</span> FinalizeDemo obj <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">null</span><span style="color:#ff79c6">;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span><span>    <span style="color:#6272a4">//重写Object里的finalize方法
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span><span><span style="color:#6272a4"></span>    <span style="color:#8be9fd;font-style:italic">protected</span> <span style="color:#8be9fd">void</span> <span style="color:#50fa7b">finalize</span><span style="color:#ff79c6">()</span> <span style="color:#8be9fd;font-style:italic">throws</span> Throwable <span style="color:#ff79c6">{</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span><span>       System<span style="color:#ff79c6">.</span><span style="color:#50fa7b">out</span><span style="color:#ff79c6">.</span><span style="color:#50fa7b">println</span><span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;In finalize()&#34;</span><span style="color:#ff79c6">);</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span><span>       obj <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">this</span><span style="color:#ff79c6">;</span> <span style="color:#6272a4">//给obj加个强引用
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span><span><span style="color:#6272a4"></span>    <span style="color:#ff79c6">}</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span><span>    <span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd;font-style:italic">static</span> <span style="color:#8be9fd">void</span> <span style="color:#50fa7b">main</span><span style="color:#ff79c6">(</span>String<span style="color:#ff79c6">[]</span> args<span style="color:#ff79c6">)</span> <span style="color:#8be9fd;font-style:italic">throws</span> InterruptedException <span style="color:#ff79c6">{</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span><span>        obj <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> FinalizeDemo<span style="color:#ff79c6">();</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span><span>        obj <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">null</span><span style="color:#ff79c6">;</span> <span style="color:#6272a4">//去掉强引用
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span><span><span style="color:#6272a4"></span>        System<span style="color:#ff79c6">.</span><span style="color:#50fa7b">gc</span><span style="color:#ff79c6">();</span> <span style="color:#6272a4">//垃圾回收
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12</span><span><span style="color:#6272a4"></span>        <span style="color:#6272a4">// sleep 1秒，以便垃圾回收线程清理obj对象
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13</span><span><span style="color:#6272a4"></span>        Thread<span style="color:#ff79c6">.</span><span style="color:#50fa7b">sleep</span><span style="color:#ff79c6">(</span><span style="color:#bd93f9">1000</span><span style="color:#ff79c6">);</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14</span><span>        <span style="color:#ff79c6">if</span> <span style="color:#ff79c6">(</span><span style="color:#ff79c6">null</span> <span style="color:#ff79c6">!=</span> obj<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span> <span style="color:#6272a4">// 在finalize方法复活
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15</span><span><span style="color:#6272a4"></span>            System<span style="color:#ff79c6">.</span><span style="color:#50fa7b">out</span><span style="color:#ff79c6">.</span><span style="color:#50fa7b">println</span><span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;Still alive.&#34;</span><span style="color:#ff79c6">);</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16</span><span>        <span style="color:#ff79c6">}</span> <span style="color:#ff79c6">else</span> <span style="color:#ff79c6">{</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17</span><span>            System<span style="color:#ff79c6">.</span><span style="color:#50fa7b">out</span><span style="color:#ff79c6">.</span><span style="color:#50fa7b">println</span><span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;Not alive.&#34;</span><span style="color:#ff79c6">);</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18</span><span>        <span style="color:#ff79c6">}</span> 
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19</span><span>    <span style="color:#ff79c6">}</span>  
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20</span><span><span style="color:#ff79c6">}</span>
+</span></span></code></pre></div><h3 id="强引用软引用弱引用虚引用">强引用、软引用、弱引用、虚引用<a class="anchorjs-link" href="#%e5%bc%ba%e5%bc%95%e7%94%a8%e8%bd%af%e5%bc%95%e7%94%a8%e5%bc%b1%e5%bc%95%e7%94%a8%e8%99%9a%e5%bc%95%e7%94%a8"></a></h3><blockquote>
+<p><a href="https://juejin.cn/post/6844903665241686029" target="_blank">理解Java的强引用、软引用、弱引用和虚引用 - 掘金 (juejin.cn)</a></p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>引用类型</th>
+<th>被垃圾回收时间</th>
+<th>用途</th>
+<th>生存时间</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>强引用</td>
+<td>从来不会</td>
+<td>对象的一般状态</td>
+<td>JVM停止运行时终止</td>
+</tr>
+<tr>
+<td>软引用</td>
+<td>当内存不足时</td>
+<td>对象缓存</td>
+<td>内存不足时终止</td>
+</tr>
+<tr>
+<td>弱引用</td>
+<td>正常垃圾回收时</td>
+<td>对象缓存</td>
+<td>垃圾回收后终止</td>
+</tr>
+<tr>
+<td>虚引用</td>
+<td>正常垃圾回收时</td>
+<td>跟踪对象的垃圾回收</td>
+<td>垃圾回收后终止</td>
+</tr>
+</tbody>
+</table>
+<h4 id="强引用">强引用<a class="anchorjs-link" href="#%e5%bc%ba%e5%bc%95%e7%94%a8"></a></h4><p><strong>强引用</strong>是使用最普遍的引用。如果一个对象具有强引用，那<strong>垃圾回收器</strong>绝不会回收它。当<strong>内存空间不足</strong>时，<code>Java</code>虚拟机宁愿抛出<code>OutOfMemoryError</code>错误，使程序<strong>异常终止</strong>。如下：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>	Object strongReference <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> Object<span style="color:#ff79c6">();</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span>	<span style="color:#6272a4">// 如果强引用对象不使用时，需要弱化从而使GC能够回收
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span><span><span style="color:#6272a4"></span>	strongReference <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">null</span><span style="color:#ff79c6">;</span>
+</span></span></code></pre></div><blockquote>
+<p>显式地设置<code>strongReference</code>对象为<code>null</code>，或让其<strong>超出</strong>对象的<strong>生命周期</strong>范围，则<code>gc</code>认为该对象<strong>不存在引用</strong>，这时就可以回收这个对象。具体什么时候收集这要取决于<code>GC</code>算法。</p>
+<p>在一个<strong>方法的内部</strong>有一个<strong>强引用</strong>，这个引用保存在<code>Java</code><strong>栈</strong>中，而真正的引用内容(<code>Object</code>)保存在<code>Java</code><strong>堆</strong>中。 当这个<strong>方法运行完成</strong>后，就会退出<strong>方法栈</strong>，则引用对象的<strong>引用数</strong>为<code>0</code>，这个对象会被回收。但是如果这个<code>strongReference</code>是<strong>全局变量</strong>时，就需要在不用这个对象时赋值为<code>null</code>，因为<strong>强引用</strong>不会被垃圾回收。</p>
+</blockquote>
+<h4 id="软引用">软引用<a class="anchorjs-link" href="#%e8%bd%af%e5%bc%95%e7%94%a8"></a></h4><p>如果一个对象只具有<strong>软引用</strong>，则<strong>内存空间充足</strong>时，<strong>垃圾回收器</strong>就<strong>不会</strong>回收它；如果<strong>内存空间不足</strong>了，就会<strong>回收</strong>这些对象的内存。只要垃圾回收器没有回收它，该对象就可以被程序使用。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>    <span style="color:#6272a4">// 强引用
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span><span style="color:#6272a4"></span>    String strongReference <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> String<span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;abc&#34;</span><span style="color:#ff79c6">);</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span>    <span style="color:#6272a4">// 软引用
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span><span><span style="color:#6272a4"></span>    String str <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> String<span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;abc&#34;</span><span style="color:#ff79c6">);</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span><span>    SoftReference<span style="color:#ff79c6">&lt;</span>String<span style="color:#ff79c6">&gt;</span> softReference <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> SoftReference<span style="color:#ff79c6">&lt;</span>String<span style="color:#ff79c6">&gt;(</span>str<span style="color:#ff79c6">);</span>
+</span></span></code></pre></div><blockquote>
+<p>软引用可用来实现内存敏感的高速缓存。</p>
+<p>注意：软引用对象是在jvm内存不够的时候才会被回收，我们调用System.gc()方法只是起通知作用，JVM什么时候扫描回收对象是JVM自己的状态决定的。就算扫描到软引用对象也不一定会回收它，只有内存不够的时候才会回收。</p>
+</blockquote>
+<p><strong>应用场景：</strong></p>
+<p>浏览器的后退按钮。按后退时，这个后退时显示的网页内容是重新进行请求还是从缓存中取出呢？这就要看具体的实现策略了。</p>
+<ol>
+<li>如果一个网页在浏览结束时就进行内容的回收，则按后退查看前面浏览过的页面时，需要重新构建；</li>
+<li>如果将浏览过的网页存储到内存中会造成内存的大量浪费，甚至会造成内存溢出。</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span>    <span style="color:#6272a4">// 获取浏览器对象进行浏览
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span><span><span style="color:#6272a4"></span>    Browser browser <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> Browser<span style="color:#ff79c6">();</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span><span>    <span style="color:#6272a4">// 从后台程序加载浏览页面
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span><span><span style="color:#6272a4"></span>    BrowserPage page <span style="color:#ff79c6">=</span> browser<span style="color:#ff79c6">.</span><span style="color:#50fa7b">getPage</span><span style="color:#ff79c6">();</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span><span>    <span style="color:#6272a4">// 将浏览完毕的页面置为软引用
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span><span><span style="color:#6272a4"></span>    SoftReference softReference <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> SoftReference<span style="color:#ff79c6">(</span>page<span style="color:#ff79c6">);</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span><span>    <span style="color:#6272a4">// 回退或者再次浏览此页面时
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span><span><span style="color:#6272a4"></span>    <span style="color:#ff79c6">if</span> <span style="color:#ff79c6">(</span>softReference<span style="color:#ff79c6">.</span><span style="color:#50fa7b">get</span><span style="color:#ff79c6">()</span> <span style="color:#ff79c6">!=</span> <span style="color:#ff79c6">null</span><span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span><span>        <span style="color:#6272a4">// 内存充足，还没有被回收器回收，直接获取缓存
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span><span><span style="color:#6272a4"></span>        page <span style="color:#ff79c6">=</span> softReference<span style="color:#ff79c6">.</span><span style="color:#50fa7b">get</span><span style="color:#ff79c6">();</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12</span><span>    <span style="color:#ff79c6">}</span> <span style="color:#ff79c6">else</span> <span style="color:#ff79c6">{</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13</span><span>        <span style="color:#6272a4">// 内存不足，软引用的对象已经回收
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14</span><span><span style="color:#6272a4"></span>        page <span style="color:#ff79c6">=</span> browser<span style="color:#ff79c6">.</span><span style="color:#50fa7b">getPage</span><span style="color:#ff79c6">();</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15</span><span>        <span style="color:#6272a4">// 重新构建软引用
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16</span><span><span style="color:#6272a4"></span>        softReference <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> SoftReference<span style="color:#ff79c6">(</span>page<span style="color:#ff79c6">);</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17</span><span>    <span style="color:#ff79c6">}</span>
+</span></span></code></pre></div><h4 id="弱引用">弱引用<a class="anchorjs-link" href="#%e5%bc%b1%e5%bc%95%e7%94%a8"></a></h4><p><strong>弱引用</strong>与<strong>软引用</strong>的区别在于：只具有<strong>弱引用</strong>的对象拥有<strong>更短暂</strong>的<strong>生命周期</strong>。在垃圾回收器线程扫描它所管辖的内存区域的过程中，一旦发现了只具有<strong>弱引用</strong>的对象，不管当前<strong>内存空间足够与否</strong>，都会<strong>回收</strong>它的内存。不过，由于垃圾回收器是一个<strong>优先级很低的线程</strong>，因此<strong>不一定</strong>会<strong>很快</strong>发现那些只具有<strong>弱引用</strong>的对象。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>    String str <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> String<span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;abc&#34;</span><span style="color:#ff79c6">);</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span>    WeakReference<span style="color:#ff79c6">&lt;</span>String<span style="color:#ff79c6">&gt;</span> weakReference <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> WeakReference<span style="color:#ff79c6">&lt;&gt;(</span>str<span style="color:#ff79c6">);</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span>    str <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">null</span><span style="color:#ff79c6">;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span><span>	<span style="color:#6272a4">// JVM首先将软引用中的对象引用置为null，然后通知垃圾回收器进行回收：
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6</span><span><span style="color:#6272a4"></span>    str <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">null</span><span style="color:#ff79c6">;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7</span><span>    System<span style="color:#ff79c6">.</span><span style="color:#50fa7b">gc</span><span style="color:#ff79c6">();</span>
+</span></span></code></pre></div><blockquote>
+<p>如果一个对象是偶尔(很少)的使用，并且希望在使用时随时就能获取到，但又不想影响此对象的垃圾收集，那么你应该用Weak Reference来记住此对象。</p>
+<p><strong>弱引用</strong>可以和一个<strong>引用队列</strong>(<code>ReferenceQueue</code>)联合使用，如果<strong>弱引用</strong>所引用的<strong>对象</strong>被<strong>垃圾回收</strong>，<code>Java</code>虚拟机就会把这个<strong>弱引用</strong>加入到与之关联的<strong>引用队列</strong>中。</p>
+</blockquote>
+<h4 id="虚引用">虚引用<a class="anchorjs-link" href="#%e8%99%9a%e5%bc%95%e7%94%a8"></a></h4><p><strong>虚引用</strong>顾名思义，就是<strong>形同虚设</strong>。与其他几种引用都不同，<strong>虚引用</strong>并<strong>不会</strong>决定对象的<strong>生命周期</strong>。如果一个对象<strong>仅持有虚引用</strong>，那么它就和<strong>没有任何引用</strong>一样，在任何时候都可能被垃圾回收器回收。</p>
+<blockquote>
+<p><strong>虚引用</strong>主要用来<strong>跟踪对象</strong>被垃圾回收器<strong>回收</strong>的活动。</p>
+<p><strong>虚引用</strong>与<strong>软引用</strong>和<strong>弱引用</strong>的一个区别在于：虚引用必须和引用队列(ReferenceQueue)联合使用。当垃圾回收器准备回收一个对象时，如果发现它还有虚引用，就会在回收对象的内存之前，把这个虚引用加入到与之关联的引用队列中。</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>    String str <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> String<span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;abc&#34;</span><span style="color:#ff79c6">);</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span>    ReferenceQueue queue <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> ReferenceQueue<span style="color:#ff79c6">();</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span>    <span style="color:#6272a4">// 创建虚引用，要求必须与一个引用队列关联
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span><span><span style="color:#6272a4"></span>    PhantomReference pr <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> PhantomReference<span style="color:#ff79c6">(</span>str<span style="color:#ff79c6">,</span> queue<span style="color:#ff79c6">);</span>
+</span></span></code></pre></div>
+
+        <hr style="visibility: hidden;" />
+        <ul class="pager">
+          
+          <li class="previous">
+            <a href="/post/linux%E5%BC%80%E5%8F%91/linux%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/" data-toggle="tooltip" data-placement="top" title="Linux网络编程">
+              Previous<br>
+              <span>Linux网络编程</span>
+            </a>
+          </li>
+          
+          
+          <li class="next">
+            <a href="/post/%E5%B7%A5%E5%85%B7/git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" data-toggle="tooltip" data-placement="top" title="Git常用命令">
+              Next<br>
+              <span>Git常用命令</span>
+            </a>
+          </li>
+          
+        </ul>
+        <hr style="visibility: hidden;" />
+
+        
+        
+
+
+
+
+
+
+      </div>
+
+      
+      
+      
+      <div class="
+              col-lg-2 col-lg-offset-0
+              visible-lg-block
+              sidebar-container
+              catalog-container">
+        <div class="side-catalog">
+          <hr class="hidden-sm hidden-xs">
+          <h5>
+            <a class="catalog-toggle" href="#">CATALOG</a>
+          </h5>
+          <ul class="catalog-body"></ul>
+        </div>
+      </div>
+      
+      
+      <div class="
+              col-lg-8 col-lg-offset-2
+              col-md-10 col-md-offset-1
+              sidebar-container">
+
+        
+        
+        <section>
+  
+  
+  <hr class="hidden-sm hidden-xs">
+  
+  <h5>FEATURED TAGS</h5>
+  <div class="tags">
+    
+    <a href="/tags/c&#43;&#43;/">C&#43;&#43;</a>
+    
+    <a href="/tags/clang/">clang</a>
+    
+    <a href="/tags/cmake/">CMake</a>
+    
+    <a href="/tags/docker/">Docker</a>
+    
+    <a href="/tags/frp/">frp</a>
+    
+    <a href="/tags/git/">Git</a>
+    
+    <a href="/tags/java/">Java</a>
+    
+    <a href="/tags/linux%E5%BC%80%E5%8F%91/">Linux开发</a>
+    
+    <a href="/tags/linux%E8%BF%90%E7%BB%B4/">Linux运维</a>
+    
+    <a href="/tags/photoshop/">Photoshop</a>
+    
+    <a href="/tags/qt/">Qt</a>
+    
+    <a href="/tags/rss/">RSS</a>
+    
+    <a href="/tags/shell/">Shell</a>
+    
+    <a href="/tags/vim/">vim</a>
+    
+    <a href="/tags/wireguard/">WireGuard</a>
+    
+    <a href="/tags/%E5%B7%A5%E5%85%B7/">工具</a>
+    
+    <a href="/tags/%E7%BC%96%E8%AF%91%E8%B0%83%E8%AF%95/">编译调试</a>
+    
+  </div>
+</section>
+
+        
+        
+
+<hr>
+<h5>FRIENDS</h5>
+<ul class="list-inline">
+  
+  <li><a href="https://www.inoreader.com" target="_blank">Inoreader</a></li>
+  
+  <li><a href="https://www.v2ex.com" target="_blank">V2EX</a></li>
+  
+  <li><a href="https://www.oschina.net" target="_blank">OSChina</a></li>
+  
+  <li><a href="https://www.infoq.cn" target="_blank">InfoQ</a></li>
+  
+  <li><a href="https://godbolt.org" target="_blank">CompilerExplorer</a></li>
+  
+  <li><a href="https://cppinsights.io" target="_blank">CppInsights</a></li>
+  
+  <li><a href="https://quick-bench.com" target="_blank">QuickBench</a></li>
+  
+</ul>
+
+      </div>
+    </div>
+  </div>
+</article>
+
+
+
+  
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        
+        <ul class="list-inline text-center">
+
+<li>
+  <a href="https://github.com/devin0x01" target="_blank">
+    <span class="fa-stack fa-lg">
+      <i class="fa fa-circle fa-stack-2x"></i>
+      <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+    </span>
+  </a>
+</li>
+
+<li>
+  <a href="https://www.zhihu.com/people/skywind3000" target="_blank">
+    <span class="fa-stack fa-lg">
+      <i class="fa fa-circle fa-stack-2x"></i>
+      <i class="fab fa-stack-1x fa-inverse">知</i>
+    </span>
+  </a>
+</li>
+
+
+<li>
+  <a href="/index.xml" target="_blank">
+    <span class="fa-stack fa-lg">
+      <i class="fa fa-circle fa-stack-2x"></i>
+      <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+    </span>
+  </a>
+</li></ul>
+
+        <p class="copyright text-muted">
+          Copyright &copy; DEVIN&#39;s BLOG 2024  
+          <br>
+          Powered by <a href="https://gohugo.io">Hugo</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src=/js/jquery.min.js></script>
+<script src=/js/bootstrap.min.js crossorigin="anonymous"></script>
+
+
+
+<script src="/js/hux-blog.min.c4ea77041cd3edbfc8b2622cd887a9a5d8760a4162d14489e36d2a3fa4c90172.js"></script>
+
+
+<script src=/js/simple-jekyll-search.min.js></script>
+
+
+<script src="/js/search.min.53bce5da475b4d362500e5ce5dddfa22e20e1b9018777411d2020b4b839c9310.js"></script>
+
+
+
+
+
+
+<script type="text/javascript">
+  function generateCatalog(selector) {
+    _containerSelector = 'div.post-container'
+    
+    var P = $(_containerSelector), a, n, t, l, i, c;
+    a = P.find('h1,h2,h3,h4');
+    
+    $(selector).html('')
+    
+    a.each(function () {
+      n = $(this).prop('tagName').toLowerCase();
+      i = "#" + $(this).prop('id');
+      t = $(this).text();
+      c = $('<a href="' + i + '" rel="nofollow">' + t + '</a>');
+      l = $('<li class="' + n + '_nav"></li>').append(c);
+      $(selector).append(l);
+    });
+    return true;
+  }
+
+  generateCatalog(".catalog-body");
+
+  
+  $(".catalog-toggle").click((function (e) {
+    e.preventDefault();
+    $('.side-catalog').toggleClass("fold")
+  }))
+</script>
+
+
+<script type="text/javascript" src='/js/jquery.nav.min.ade6bde8f9fcc6a4b40852cb892e9f5912340ab8fe1305149d917fdd16fffd8d.js'></script>
+<script>
+   $(document).ready( function () {
+    $('.catalog-body').onePageNav({
+      currentClass: "active",
+      changeHash: !1,
+      easing: "swing",
+      filter: "",
+      scrollSpeed: 700,
+      scrollOffset: 0,
+      scrollThreshold: .2,
+      begin: null,
+      end: null,
+      scrollChange: null,
+      padding: 80
+    });
+  });
+</script>
+
+
+
+
+
+
+
+
+
+<script src="/zoomjs/zoom.min.js"></script>
+
+</body>
+
+</html>

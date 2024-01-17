@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Java on DEVIN&#39;s BLOG</title>
+    <link>http://localhost:1313/tags/java/</link>
+    <description>Recent content in Java on DEVIN&#39;s BLOG</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 18 Jun 2023 14:05:25 +0800</lastBuildDate><atom:link href="http://localhost:1313/tags/java/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Java基础</title>
+      <link>http://localhost:1313/post/java/java%E5%9F%BA%E7%A1%80/</link>
+      <pubDate>Sun, 18 Jun 2023 14:05:25 +0800</pubDate>
+      
+      <guid>http://localhost:1313/post/java/java%E5%9F%BA%E7%A1%80/</guid>
+      <description>数据类型INFINITY和NaN 1// INFINITY定义 2public static final double POSITIVE_INFINITY = 1.0 / 0.0; 3public static final double NEGATIVE_INFINITY = -1.0 / 0.0; 4 5public static final float POSITIVE_INFINITY = 1.0f / 0.0f; 6public static final float NEGATIVE_INFINITY = -1.0f / 0.0f; 7 8// 无穷大*</description>
+    </item>
+    
+    <item>
+      <title>字符集与编码</title>
+      <link>http://localhost:1313/post/java/%E5%AD%97%E7%AC%A6%E9%9B%86%E4%B8%8E%E7%BC%96%E7%A0%81/</link>
+      <pubDate>Sun, 18 Jun 2023 14:05:25 +0800</pubDate>
+      
+      <guid>http://localhost:1313/post/java/%E5%AD%97%E7%AC%A6%E9%9B%86%E4%B8%8E%E7%BC%96%E7%A0%81/</guid>
+      <description>术语 字符(character)是具有语义值的文本的最小单位。 字符集(character set)是可能由多种语言使用的字符的集合。例：拉丁语字</description>
+    </item>
+    
+  </channel>
+</rss>

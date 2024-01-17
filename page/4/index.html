@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta name="generator" content="Hugo 0.115.2">
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <title></title>
+  <meta name="author" content="DEVIN">
+  <meta name="description" content="Home Index Content">
+  <meta name="keywords" content="blog,developer,personal">
+
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content=""/>
+<meta name="twitter:description" content="千里之行始于足下"/>
+
+  <meta property="og:title" content="" />
+<meta property="og:description" content="千里之行始于足下" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="http://localhost:1313/" />
+
+  <link rel="stylesheet" href="/css/bootstrap.min.css"  crossorigin="anonymous">
+  
+  <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.1/css/all.min.css" rel="stylesheet" type="text/css">
+
+  <link rel="stylesheet" href="/sass/main.css">
+
+  <link rel="stylesheet" href="/zoomjs/zoom.min.css">
+
+  <script src=/js/lazysizes.min.js></script>
+
+  <link rel="alternate" type="application/json" href="/index.json" title="DEVIN's BLOG" />
+  <link rel="alternate" type="application/rss+xml" href="/index.xml" title="DEVIN's BLOG" />
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  
+
+</head>
+
+
+
+<body ontouchstart="">
+  <nav class="navbar navbar-default navbar-custom navbar-fixed-top ">
+  <div class="container-fluid">
+    
+    <div class="navbar-header page-scroll">
+      <button type="button" class="navbar-toggle">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="http://localhost:1313">DEVIN&#39;s BLOG</a>
+    </div>
+    
+    <div id="huxblog_navbar">
+      <div class="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          
+          <li><a href="/" title="Home">Home</a></li>
+          
+          <li><a href="/archive/" title="Archive">Archive</a></li>
+          
+          <li><a href="https://www.cnblogs.com" title="CNBLOGS">CNBLOGS</a></li>
+          
+          <li><a href="https://github.com/devin0x01" title="Github">Github</a></li>
+          
+          <li><a href="/about/" title="About">About</a></li>
+          
+
+          <li class="search-icon">
+            <a href="javascript:void(0)">
+              <i class="fa fa-search"></i>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    
+  </div>
+  
+</nav>
+<script>
+  
+  
+  
+  var $body = document.body;
+  var $toggle = document.querySelector(".navbar-toggle");
+  var $navbar = document.querySelector("#huxblog_navbar");
+  var $collapse = document.querySelector(".navbar-collapse");
+
+  var __HuxNav__ = {
+    close: function () {
+      $navbar.className = " ";
+      
+      setTimeout(function () {
+        
+        if ($navbar.className.indexOf("in") < 0) {
+          $collapse.style.height = "0px";
+        }
+      }, 400);
+    },
+    open: function () {
+      $collapse.style.height = "auto";
+      $navbar.className += " in";
+    },
+  };
+
+  
+  $toggle.addEventListener("click", function (e) {
+    if ($navbar.className.indexOf("in") > 0) {
+      __HuxNav__.close();
+    } else {
+      __HuxNav__.open();
+    }
+  });
+
+  
+
+  document.addEventListener("click", function (e) {
+    if (e.target == $toggle) return;
+    if (e.target.className == "icon-bar") return;
+    __HuxNav__.close();
+  });
+</script>
+  
+<div class="search-page">
+  <div class="search-icon-close-container">
+    <span class="search-icon-close">
+      <i class="fa fa-chevron-down"></i>
+    </span>
+  </div>
+  <div class="search-main container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <form></form>
+        <input type="text" id="search-input" placeholder="$ grep...">
+        </form>
+        <div id="search-results" class="mini-post-list"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+  
+  
+
+
+
+<header class="intro-header" style="background-image: url('/homepage.jpg')">
+
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        
+        <div class="site-heading">
+        
+          <h1>DEVIN&#39;s BLOG</h1>
+          
+          
+          
+          
+          <span class="subheading">千里之行始于足下</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+
+  
+
+  
+  <div class="container">
+    <div class="row">
+      
+      
+      
+      <div class="col-lg-8 col-lg-offset-1 col-md-8 col-md-offset-1 col-sm-12
+      col-xs-12 postlist-container">
+        
+
+
+   <div class="post-preview">
+  <a href="/post/cpp/%E8%B0%83%E7%94%A8%E6%88%90%E5%91%98%E6%A8%A1%E6%9D%BF/">
+      <h2 class="post-title">调用成员模板</h2>
+      
+      <div class="post-content-preview">
+        
+        C++访问成员模板需要加template关键字 1#include &amp;lt;iostream&amp;gt; 2using namespace std; 3 4class A { 5public: 6 template &amp;lt;typename TypeNum&amp;gt; 7 int getSize() 8 { 9 return sizeof(TypeNum); 10 …
+         
+      </div>
+  </a>
+  <p class="post-meta">
+      Posted by  DEVIN  on Thu, Jul 20, 2023
+  </p>
+</div>
+<hr>
+
+   <div class="post-preview">
+  <a href="/post/cpp/vector%E7%9A%84push_back%E4%B8%8Eemplace_back/">
+      <h2 class="post-title">vector的push_back与emplace_back.md</h2>
+      
+      <div class="post-content-preview">
+        
+        push_back与emplace_back 1#include &amp;lt;iostream&amp;gt; 2#include &amp;lt;vector&amp;gt; 3using namespace std; 4 5class A { 6public: 7 A() = default; 8 A(string name) : _name(name) { cout …
+         
+      </div>
+  </a>
+  <p class="post-meta">
+      Posted by  DEVIN  on Mon, Jul 17, 2023
+  </p>
+</div>
+<hr>
+
+   <div class="post-preview">
+  <a href="/post/cpp/%E4%BD%8D%E5%9F%9F%E7%94%A8%E6%B3%95/">
+      <h2 class="post-title">位域用法</h2>
+      
+      <div class="post-content-preview">
+        
+        [toc] 如果有字段定义为int类型的话，那么符号位的判断需要特别注意。 例如：下面的 B::f2 字段是有符号类型，其符号位是f2的最高位，可以表示的范围是-6
+         
+      </div>
+  </a>
+  <p class="post-meta">
+      Posted by  DEVIN  on Thu, Jul 13, 2023
+  </p>
+</div>
+<hr>
+
+   <div class="post-preview">
+  <a href="/post/cpp/c&#43;&#43;17%E7%89%B9%E6%80%A7/">
+      <h2 class="post-title">C&#43;&#43;17特性</h2>
+      
+      <div class="post-content-preview">
+        
+        构造函数模板推导在C++17前构造一个模板类对象需要指明类型： 1pair&amp;lt;int, double&amp;gt; p(1, 2.2); // before c++17 C++17就不需要特殊指定，直接可以推导出类型，代码如下： 1pair p(1, 2.2);
+         
+      </div>
+  </a>
+  <p class="post-meta">
+      Posted by  DEVIN  on Sun, Jun 18, 2023
+  </p>
+</div>
+<hr>
+
+   <div class="post-preview">
+  <a href="/post/cpp/c&#43;&#43;%E7%BB%83%E4%B9%A0%E9%A2%98/">
+      <h2 class="post-title">C&#43;&#43;练习题</h2>
+      
+      <div class="post-content-preview">
+        
+        多态判断 Q1: 虚函数可以是内联的？ A1: 错误。内联是编译时刻决定的，虚函数是运行时刻动态决定的，所以虚函数不能是内联函数。虚函数前加上inline不
+         
+      </div>
+  </a>
+  <p class="post-meta">
+      Posted by  DEVIN  on Sun, Jun 18, 2023
+  </p>
+</div>
+<hr>
+
+
+
+<ul class="pager">
+  
+  <li class="previous">
+      <a href="/page/3/">&larr; Newer Posts</a>
+  </li>
+  
+  
+  <li class="next">
+      <a href="/page/5/">Older Posts &rarr;</a>
+  </li>
+  
+</ul>
+
+
+      </div>
+      
+      <div class="col-lg-3 col-lg-offset-0 col-md-3 col-md-offset-0 col-sm-12
+      col-xs-12 sidebar-container">
+
+        
+        <section>
+  
+  
+  <h5>FEATURED TAGS</h5>
+  <div class="tags">
+    
+    <a href="/tags/c&#43;&#43;/">C&#43;&#43;</a>
+    
+    <a href="/tags/clang/">clang</a>
+    
+    <a href="/tags/cmake/">CMake</a>
+    
+    <a href="/tags/docker/">Docker</a>
+    
+    <a href="/tags/frp/">frp</a>
+    
+    <a href="/tags/git/">Git</a>
+    
+    <a href="/tags/java/">Java</a>
+    
+    <a href="/tags/linux%E5%BC%80%E5%8F%91/">Linux开发</a>
+    
+    <a href="/tags/linux%E8%BF%90%E7%BB%B4/">Linux运维</a>
+    
+    <a href="/tags/photoshop/">Photoshop</a>
+    
+    <a href="/tags/qt/">Qt</a>
+    
+    <a href="/tags/rss/">RSS</a>
+    
+    <a href="/tags/shell/">Shell</a>
+    
+    <a href="/tags/vim/">vim</a>
+    
+    <a href="/tags/wireguard/">WireGuard</a>
+    
+    <a href="/tags/%E5%B7%A5%E5%85%B7/">工具</a>
+    
+    <a href="/tags/%E7%BC%96%E8%AF%91%E8%B0%83%E8%AF%95/">编译调试</a>
+    
+  </div>
+</section>
+        
+<section class="visible-md visible-lg">
+  <hr>
+  
+  <h5><a href=/about/>ABOUT ME</a></h5>
+  
+
+  
+  <div class="short-about">
+    
+    <img src="/myavatar.jpg" />
+    
+    
+    <p>a personal website</p>
+    
+    
+    <ul class="list-inline">
+
+<li>
+  <a href="https://github.com/devin0x01" target="_blank">
+    <span class="fa-stack fa-lg">
+      <i class="fa fa-circle fa-stack-2x"></i>
+      <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+    </span>
+  </a>
+</li>
+
+<li>
+  <a href="https://www.zhihu.com/people/skywind3000" target="_blank">
+    <span class="fa-stack fa-lg">
+      <i class="fa fa-circle fa-stack-2x"></i>
+      <i class="fab fa-stack-1x fa-inverse">知</i>
+    </span>
+  </a>
+</li>
+
+
+<li>
+  <a href="/index.xml" target="_blank">
+    <span class="fa-stack fa-lg">
+      <i class="fa fa-circle fa-stack-2x"></i>
+      <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+    </span>
+  </a>
+</li></ul>
+
+  </div>
+</section>
+
+        
+        
+
+<hr>
+<h5>FRIENDS</h5>
+<ul class="list-inline">
+  
+  <li><a href="https://www.inoreader.com" target="_blank">Inoreader</a></li>
+  
+  <li><a href="https://www.v2ex.com" target="_blank">V2EX</a></li>
+  
+  <li><a href="https://www.oschina.net" target="_blank">OSChina</a></li>
+  
+  <li><a href="https://www.infoq.cn" target="_blank">InfoQ</a></li>
+  
+  <li><a href="https://godbolt.org" target="_blank">CompilerExplorer</a></li>
+  
+  <li><a href="https://cppinsights.io" target="_blank">CppInsights</a></li>
+  
+  <li><a href="https://quick-bench.com" target="_blank">QuickBench</a></li>
+  
+</ul>
+
+
+      </div>
+      
+
+    </div>
+  </div>
+
+  
+
+  
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        
+        <ul class="list-inline text-center">
+
+<li>
+  <a href="https://github.com/devin0x01" target="_blank">
+    <span class="fa-stack fa-lg">
+      <i class="fa fa-circle fa-stack-2x"></i>
+      <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+    </span>
+  </a>
+</li>
+
+<li>
+  <a href="https://www.zhihu.com/people/skywind3000" target="_blank">
+    <span class="fa-stack fa-lg">
+      <i class="fa fa-circle fa-stack-2x"></i>
+      <i class="fab fa-stack-1x fa-inverse">知</i>
+    </span>
+  </a>
+</li>
+
+
+<li>
+  <a href="/index.xml" target="_blank">
+    <span class="fa-stack fa-lg">
+      <i class="fa fa-circle fa-stack-2x"></i>
+      <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+    </span>
+  </a>
+</li></ul>
+
+        <p class="copyright text-muted">
+          Copyright &copy; DEVIN&#39;s BLOG 2024  
+          <br>
+          Powered by <a href="https://gohugo.io">Hugo</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src=/js/jquery.min.js></script>
+<script src=/js/bootstrap.min.js crossorigin="anonymous"></script>
+
+
+
+<script src="/js/hux-blog.min.c4ea77041cd3edbfc8b2622cd887a9a5d8760a4162d14489e36d2a3fa4c90172.js"></script>
+
+
+<script src=/js/simple-jekyll-search.min.js></script>
+
+
+<script src="/js/search.min.53bce5da475b4d362500e5ce5dddfa22e20e1b9018777411d2020b4b839c9310.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="/zoomjs/zoom.min.js"></script>
+
+</body>
+
+</html>
