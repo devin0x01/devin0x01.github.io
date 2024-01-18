@@ -40,7 +40,7 @@
       <pubDate>Fri, 25 Aug 2023 16:05:25 +0800</pubDate>
       
       <guid>https://devin0x01.github.io/post/%E5%B7%A5%E5%85%B7/vim%E9%85%8D%E7%BD%AE%E6%95%99%E7%A8%8B/</guid>
-      <description>vim 快速入门 — z42-doc 0.1 文档 编译vim91./configure --with-luajit --enable-pythoninterp=yes --enable-python3interp=yes \ 2 --enable-multibyte --prefix=$HOME/.local/vim9 插件1.vim-plug插件管理 junegunn/vim-plug: 🌺 Minimalist Vim Plugin Manager 1curl -fLo ~/.vim/autoload/plug.vim --create-dirs \ 2 https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim PlugInstall [name &amp;hellip;] PlugUpdate [name &amp;hellip;]</description>
+      <description>编译vim9vim/vim: The official Vim repository 1./configure --with-luajit --enable-pythoninterp=yes --enable-python3interp=yes \ 2 --enable-multibyte --prefix=$HOME/.local/vim9 3make -j 4make install 插件1.vim-plug插件管理 junegunn/vim-plug: 🌺 Minimalist Vim Plugin Manager 1curl -fLo ~/.vim/autoload/plug.vim --create-dirs \ 2 https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim PlugInstall [name &amp;hellip;] PlugUpdate [name &amp;hellip;] PlugClean[!] PlugUpgrade: Upgrade vim-plug itself</description>
     </item>
     
     <item>
