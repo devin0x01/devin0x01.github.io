@@ -211,7 +211,30 @@
 <li><code>:e</code> 文件名后缀</li>
 <li><code>:r</code> 文件名主体（相对于 &lsquo;:e&rsquo; 而言，不包括后缀，但可能包含父目录）</li>
 </ul>
-<h2 id="函数">函数<a class="anchorjs-link" href="#%e5%87%bd%e6%95%b0"></a></h2><p>强制创建一个全局函数（使用感叹号），参数使用 &hellip; 这种不定长的参数形式时，a:1 表示 &hellip; 部分的第一个参数，a:2 表示第二个，如此类推，a:0 用来表示 &hellip; 部分共有多少参数。</p>
+<h2 id="变量">变量<a class="anchorjs-link" href="#%e5%8f%98%e9%87%8f"></a></h2><ul>
+<li><code>let</code> 命令用来对变量进行初始化或者赋值。</li>
+<li><code>unlet</code> 命令用来删除一个变量。</li>
+<li><code>unlet!</code> 命令同样可以用来删除变量，但是会忽略诸如变量不存在的错误提示。</li>
+</ul>
+<p>默认情况下，如果一个变量在函数体以外初始化的，那么它的作用域是全局变量；而如果它是在函数体以内初始化的，那它的作用于是局部变量。同时你可以通过变量名称前加冒号前缀明确的指明变量的作用域：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>g:var - 全局
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span>a:var - 函数参数
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span>l:var - 函数局部变量
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span><span>b:var - buffer 局部变量
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span><span>w:var - window 局部变量
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6</span><span>t:var - tab 局部变量
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7</span><span>s:var - 当前脚本内可见的局部变量
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8</span><span>v:var - Vim 预定义的内部变量
+</span></span></code></pre></div><h2 id="字符串比较">字符串比较<a class="anchorjs-link" href="#%e5%ad%97%e7%ac%a6%e4%b8%b2%e6%af%94%e8%be%83"></a></h2><ul>
+<li><code>&lt;string&gt;</code> == <code>&lt;string&gt;</code>: 字符串相等</li>
+<li><code>&lt;string&gt;</code> != <code>&lt;string&gt;</code>: 字符串不等</li>
+<li><code>&lt;string&gt;</code> =~ <code>&lt;pattern&gt;</code>: 匹配 pattern</li>
+<li><code>&lt;string&gt;</code> !~ <code>&lt;pattern&gt;</code>: 不匹配 pattern</li>
+<li><code>&lt;operator&gt;#</code>: 匹配大小写</li>
+<li><code>&lt;operator&gt;?</code>: 不匹配大小写</li>
+</ul>
+<p>注意：设置选项 <code>ignorecase</code> 会影响 == 和 != 的默认比较结果，可以在比较符号添加 ? 或者 # 来明确指定大小写是否忽略。</p>
+<h2 id="函数">函数<a class="anchorjs-link" href="#%e5%87%bd%e6%95%b0"></a></h2><p>强制创建一个全局函数（使用感叹号），参数使用 <code>...</code> 这种不定长的参数形式时，a:1 表示 <code>...</code> 部分的第一个参数，a:2 表示第二个，如此类推，a:0 用来表示 <code>...</code> 部分一共有多少个参数。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-vim" data-lang="vim"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span><span style="color:#ff79c6">function</span>! g:Foobar(arg1, arg2, ...)
 </span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span>    <span style="color:#ff79c6">let</span> first_argument = a:arg1
 </span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span>    <span style="color:#ff79c6">let</span> index = <span style="color:#bd93f9">1</span>
@@ -242,8 +265,7 @@
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>:echo $MYVIMRC
 </span></span></code></pre></div><p>查看当前你运行的 vim 启动时读取 vimrc。如果显示是 ~/.vimrc ，则建议将其移至 ~/.vim/vimrc 或软链接指向它。vim 会尝试读取 vimrc 的几个位置及顺序，也可用如下命令查看：</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>:version
-</span></span></code></pre></div><p>然后提一下，如果是 windows 操作系统，没有 ~/.vim/ 目录。但它肯定有 $VIM 安装目录，然后用户目录就是 $VIM/vimfi les 。当了解了用户目录 ~/.vim/ ，就可以参照官方目录 $VIMRUNTIME 来组织管理自己的 vim 个性化配置及扩展脚本（插件）。</p>
-
+</span></span></code></pre></div>
 
         <hr style="visibility: hidden;" />
         <ul class="pager">
