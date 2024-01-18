@@ -2,35 +2,35 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>编译调试 on DEVIN&#39;s BLOG</title>
-    <link>http://localhost:1313/tags/%E7%BC%96%E8%AF%91%E8%B0%83%E8%AF%95/</link>
+    <link>https://devin0x01.github.io/tags/%E7%BC%96%E8%AF%91%E8%B0%83%E8%AF%95/</link>
     <description>Recent content in 编译调试 on DEVIN&#39;s BLOG</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 18 Jun 2023 14:05:25 +0800</lastBuildDate><atom:link href="http://localhost:1313/tags/%E7%BC%96%E8%AF%91%E8%B0%83%E8%AF%95/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 18 Jun 2023 14:05:25 +0800</lastBuildDate><atom:link href="https://devin0x01.github.io/tags/%E7%BC%96%E8%AF%91%E8%B0%83%E8%AF%95/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>cgdb配置</title>
-      <link>http://localhost:1313/post/%E7%BC%96%E8%AF%91%E8%B0%83%E8%AF%95/cgdb%E9%85%8D%E7%BD%AE/</link>
+      <link>https://devin0x01.github.io/post/%E7%BC%96%E8%AF%91%E8%B0%83%E8%AF%95/cgdb%E9%85%8D%E7%BD%AE/</link>
       <pubDate>Sun, 18 Jun 2023 14:05:25 +0800</pubDate>
       
-      <guid>http://localhost:1313/post/%E7%BC%96%E8%AF%91%E8%B0%83%E8%AF%95/cgdb%E9%85%8D%E7%BD%AE/</guid>
+      <guid>https://devin0x01.github.io/post/%E7%BC%96%E8%AF%91%E8%B0%83%E8%AF%95/cgdb%E9%85%8D%E7%BD%AE/</guid>
       <description>1.安装1git clone git://github.com/cgdb/cgdb.git 2cd cgdb 3./autogen.sh 4./configure --prefix=/usr/local 5make 6sudo make install 7 8# 报错解决方法 9sudo apt-get install automake libncurses5-dev flex texinfo libreadline-dev 2.配置1vim ~/.cgdb/cgdbrc 2 3set ignorecaseset 4ts=4 5set wso=vertical 6set eld=shortarrow 7set hls 8map &amp;lt;F9&amp;gt; :until&amp;lt;cr&amp;gt; 3.快捷键 F5 - Send a run command to GDB.</description>
     </item>
     
     <item>
       <title>coredump配置</title>
-      <link>http://localhost:1313/post/%E7%BC%96%E8%AF%91%E8%B0%83%E8%AF%95/coreddump%E9%85%8D%E7%BD%AE/</link>
+      <link>https://devin0x01.github.io/post/%E7%BC%96%E8%AF%91%E8%B0%83%E8%AF%95/coreddump%E9%85%8D%E7%BD%AE/</link>
       <pubDate>Sun, 18 Jun 2023 14:05:25 +0800</pubDate>
       
-      <guid>http://localhost:1313/post/%E7%BC%96%E8%AF%91%E8%B0%83%E8%AF%95/coreddump%E9%85%8D%E7%BD%AE/</guid>
+      <guid>https://devin0x01.github.io/post/%E7%BC%96%E8%AF%91%E8%B0%83%E8%AF%95/coreddump%E9%85%8D%E7%BD%AE/</guid>
       <description>1ulimit -c unlimited 2echo &amp;#34;1&amp;#34; &amp;gt; /proc/sys/kernel/core_uses_pid 3mkdir -p /opt/debug 4echo &amp;#34;/opt/debug/core-%e-%p-%t&amp;#34; &amp;gt; /proc/sys/kernel/core_pattern 5 6 7gdb &amp;lt;program&amp;gt; -c &amp;lt;coredump_file&amp;gt; 8up &amp;lt;n&amp;gt; #调用栈向上n次</description>
     </item>
     
     <item>
       <title>共享库搜索路径</title>
-      <link>http://localhost:1313/post/%E7%BC%96%E8%AF%91%E8%B0%83%E8%AF%95/%E5%85%B1%E4%BA%AB%E5%BA%93%E6%90%9C%E7%B4%A2%E8%B7%AF%E5%BE%84/</link>
+      <link>https://devin0x01.github.io/post/%E7%BC%96%E8%AF%91%E8%B0%83%E8%AF%95/%E5%85%B1%E4%BA%AB%E5%BA%93%E6%90%9C%E7%B4%A2%E8%B7%AF%E5%BE%84/</link>
       <pubDate>Sun, 18 Jun 2023 14:05:25 +0800</pubDate>
       
-      <guid>http://localhost:1313/post/%E7%BC%96%E8%AF%91%E8%B0%83%E8%AF%95/%E5%85%B1%E4%BA%AB%E5%BA%93%E6%90%9C%E7%B4%A2%E8%B7%AF%E5%BE%84/</guid>
+      <guid>https://devin0x01.github.io/post/%E7%BC%96%E8%AF%91%E8%B0%83%E8%AF%95/%E5%85%B1%E4%BA%AB%E5%BA%93%E6%90%9C%E7%B4%A2%E8%B7%AF%E5%BE%84/</guid>
       <description>基本原理 -L编译选项是编译期间使用 LD_LIBRARY_PATH环境变量是运行期间使用，可以用来指定so的加载路径，并且优先级高于系统默认的</description>
     </item>
     

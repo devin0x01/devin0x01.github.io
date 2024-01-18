@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Linux开发 on DEVIN&#39;s BLOG</title>
-    <link>http://localhost:1313/tags/linux%E5%BC%80%E5%8F%91/</link>
+    <link>https://devin0x01.github.io/tags/linux%E5%BC%80%E5%8F%91/</link>
     <description>Recent content in Linux开发 on DEVIN&#39;s BLOG</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 18 Jun 2023 14:05:25 +0800</lastBuildDate><atom:link href="http://localhost:1313/tags/linux%E5%BC%80%E5%8F%91/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 18 Jun 2023 14:05:25 +0800</lastBuildDate><atom:link href="https://devin0x01.github.io/tags/linux%E5%BC%80%E5%8F%91/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Linux网络编程</title>
-      <link>http://localhost:1313/post/linux%E5%BC%80%E5%8F%91/linux%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/</link>
+      <link>https://devin0x01.github.io/post/linux%E5%BC%80%E5%8F%91/linux%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/</link>
       <pubDate>Sun, 18 Jun 2023 14:05:25 +0800</pubDate>
       
-      <guid>http://localhost:1313/post/linux%E5%BC%80%E5%8F%91/linux%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/</guid>
+      <guid>https://devin0x01.github.io/post/linux%E5%BC%80%E5%8F%91/linux%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/</guid>
       <description>查看端口占用情况 netstat -tunlp -t (tcp) 仅显示tcp相关选项 -u (udp) 仅显示udp相关选项 -n 拒绝显示列名，能显示数字的全部转化为数字 -l 仅显示出在listen(监听</description>
     </item>
     

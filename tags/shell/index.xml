@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Shell on DEVIN&#39;s BLOG</title>
-    <link>http://localhost:1313/tags/shell/</link>
+    <link>https://devin0x01.github.io/tags/shell/</link>
     <description>Recent content in Shell on DEVIN&#39;s BLOG</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 18 Jun 2023 14:05:25 +0800</lastBuildDate><atom:link href="http://localhost:1313/tags/shell/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 18 Jun 2023 14:05:25 +0800</lastBuildDate><atom:link href="https://devin0x01.github.io/tags/shell/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>expect实现交互式输入</title>
-      <link>http://localhost:1313/post/shell/expect%E5%AE%9E%E7%8E%B0%E4%BA%A4%E4%BA%92%E5%BC%8F%E8%BE%93%E5%85%A5/</link>
+      <link>https://devin0x01.github.io/post/shell/expect%E5%AE%9E%E7%8E%B0%E4%BA%A4%E4%BA%92%E5%BC%8F%E8%BE%93%E5%85%A5/</link>
       <pubDate>Sun, 18 Jun 2023 14:05:25 +0800</pubDate>
       
-      <guid>http://localhost:1313/post/shell/expect%E5%AE%9E%E7%8E%B0%E4%BA%A4%E4%BA%92%E5%BC%8F%E8%BE%93%E5%85%A5/</guid>
+      <guid>https://devin0x01.github.io/post/shell/expect%E5%AE%9E%E7%8E%B0%E4%BA%A4%E4%BA%92%E5%BC%8F%E8%BE%93%E5%85%A5/</guid>
       <description>1.常用命令 选项： -c:执行脚本前先执行的命令，可多次使用。 -d:debug模式，可以在运行时输出一些诊断信息，与在脚本开始处使用exp_i</description>
     </item>
     

@@ -2,107 +2,107 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>C&#43;&#43; on DEVIN&#39;s BLOG</title>
-    <link>http://localhost:1313/tags/c&#43;&#43;/</link>
+    <link>https://devin0x01.github.io/tags/c&#43;&#43;/</link>
     <description>Recent content in C&#43;&#43; on DEVIN&#39;s BLOG</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 02 Nov 2023 01:05:25 +0800</lastBuildDate><atom:link href="http://localhost:1313/tags/c++/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 02 Nov 2023 01:05:25 +0800</lastBuildDate><atom:link href="https://devin0x01.github.io/tags/c++/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>C&#43;&#43;模板例子</title>
-      <link>http://localhost:1313/post/cpp/c&#43;&#43;%E6%A8%A1%E6%9D%BF%E4%BE%8B%E5%AD%90/</link>
+      <link>https://devin0x01.github.io/post/cpp/c&#43;&#43;%E6%A8%A1%E6%9D%BF%E4%BE%8B%E5%AD%90/</link>
       <pubDate>Thu, 02 Nov 2023 01:05:25 +0800</pubDate>
       
-      <guid>http://localhost:1313/post/cpp/c&#43;&#43;%E6%A8%A1%E6%9D%BF%E4%BE%8B%E5%AD%90/</guid>
+      <guid>https://devin0x01.github.io/post/cpp/c&#43;&#43;%E6%A8%A1%E6%9D%BF%E4%BE%8B%E5%AD%90/</guid>
       <description>1#include &amp;lt;vector&amp;gt; 2#include &amp;lt;type_traits&amp;gt; 3using namespace std; 4 5class AA {}; 6class BB {}; 7 8 9class Test { 10public: 11 template &amp;lt;class T, template &amp;lt;class&amp;gt; class Container, std::enable_if_t&amp;lt;std::is_same_v&amp;lt;T, int&amp;gt;&amp;gt; * = nullptr&amp;gt; 12 void f1(Container&amp;lt;T&amp;gt; &amp;amp;ret); 13 14 template&amp;lt;template&amp;lt;class&amp;gt; class Container&amp;gt; 15 void f2(Container&amp;lt;AA&amp;gt; *); 16 17 template&amp;lt;template&amp;lt;class&amp;gt; class Container&amp;gt; 18 void f3(Container&amp;lt;BB&amp;gt; *); 19}; 20 21 22template &amp;lt;class T, template &amp;lt;class&amp;gt; class Container, std::enable_if_t&amp;lt;std::is_same_v&amp;lt;T, int&amp;gt;&amp;gt; * = nullptr&amp;gt;</description>
     </item>
     
     <item>
       <title>指向成员函数的指针</title>
-      <link>http://localhost:1313/post/cpp/%E6%8C%87%E5%90%91%E6%88%90%E5%91%98%E5%87%BD%E6%95%B0%E7%9A%84%E6%8C%87%E9%92%88/</link>
+      <link>https://devin0x01.github.io/post/cpp/%E6%8C%87%E5%90%91%E6%88%90%E5%91%98%E5%87%BD%E6%95%B0%E7%9A%84%E6%8C%87%E9%92%88/</link>
       <pubDate>Tue, 15 Aug 2023 14:05:25 +0800</pubDate>
       
-      <guid>http://localhost:1313/post/cpp/%E6%8C%87%E5%90%91%E6%88%90%E5%91%98%E5%87%BD%E6%95%B0%E7%9A%84%E6%8C%87%E9%92%88/</guid>
+      <guid>https://devin0x01.github.io/post/cpp/%E6%8C%87%E5%90%91%E6%88%90%E5%91%98%E5%87%BD%E6%95%B0%E7%9A%84%E6%8C%87%E9%92%88/</guid>
       <description>c++ - How do I typedef a function pointer with the C++11 using syntax? - Stack Overflow 1#include &amp;lt;iostream&amp;gt; 2 3class A { 4public: 5 void display() { std::cout &amp;lt;&amp;lt; &amp;#34;A display&amp;#34; &amp;lt;&amp;lt; std::endl; } 6}; 7 8int main() { 9 typedef void (A::*PF1)(); 10 PF1 pf1 = &amp;amp;A::display; 11 A a1; 12 (a1.*pf1)(); 13 14 using PF2 = void (A::*)(); 15 PF2 pf2 = &amp;amp;A::display; 16 A* a2 =</description>
     </item>
     
     <item>
       <title>operator bool 函数</title>
-      <link>http://localhost:1313/post/cpp/operator-bool-%E5%87%BD%E6%95%B0/</link>
+      <link>https://devin0x01.github.io/post/cpp/operator-bool-%E5%87%BD%E6%95%B0/</link>
       <pubDate>Mon, 14 Aug 2023 16:05:25 +0800</pubDate>
       
-      <guid>http://localhost:1313/post/cpp/operator-bool-%E5%87%BD%E6%95%B0/</guid>
+      <guid>https://devin0x01.github.io/post/cpp/operator-bool-%E5%87%BD%E6%95%B0/</guid>
       <description>参考文档user-defined conversion function - cppreference.com The Safe Bool Idiom - 知乎 为什么operator bool()需要用explicit修饰?c++ - Why does declaring an operator bool() const member</description>
     </item>
     
     <item>
       <title>调用成员模板</title>
-      <link>http://localhost:1313/post/cpp/%E8%B0%83%E7%94%A8%E6%88%90%E5%91%98%E6%A8%A1%E6%9D%BF/</link>
+      <link>https://devin0x01.github.io/post/cpp/%E8%B0%83%E7%94%A8%E6%88%90%E5%91%98%E6%A8%A1%E6%9D%BF/</link>
       <pubDate>Thu, 20 Jul 2023 14:05:25 +0800</pubDate>
       
-      <guid>http://localhost:1313/post/cpp/%E8%B0%83%E7%94%A8%E6%88%90%E5%91%98%E6%A8%A1%E6%9D%BF/</guid>
+      <guid>https://devin0x01.github.io/post/cpp/%E8%B0%83%E7%94%A8%E6%88%90%E5%91%98%E6%A8%A1%E6%9D%BF/</guid>
       <description>C++访问成员模板需要加template关键字 1#include &amp;lt;iostream&amp;gt; 2using namespace std; 3 4class A { 5public: 6 template &amp;lt;typename TypeNum&amp;gt; 7 int getSize() 8 { 9 return sizeof(TypeNum); 10 } 11}; 12 13// 调用成员模板函数需要加template 14template</description>
     </item>
     
     <item>
       <title>vector的push_back与emplace_back.md</title>
-      <link>http://localhost:1313/post/cpp/vector%E7%9A%84push_back%E4%B8%8Eemplace_back/</link>
+      <link>https://devin0x01.github.io/post/cpp/vector%E7%9A%84push_back%E4%B8%8Eemplace_back/</link>
       <pubDate>Mon, 17 Jul 2023 14:05:25 +0800</pubDate>
       
-      <guid>http://localhost:1313/post/cpp/vector%E7%9A%84push_back%E4%B8%8Eemplace_back/</guid>
+      <guid>https://devin0x01.github.io/post/cpp/vector%E7%9A%84push_back%E4%B8%8Eemplace_back/</guid>
       <description>push_back与emplace_back 1#include &amp;lt;iostream&amp;gt; 2#include &amp;lt;vector&amp;gt; 3using namespace std; 4 5class A { 6public: 7 A() = default; 8 A(string name) : _name(name) { cout &amp;lt;&amp;lt; &amp;#34;ctor: &amp;#34; &amp;lt;&amp;lt; _name &amp;lt;&amp;lt; endl; } 9 ~A() { cout &amp;lt;&amp;lt; &amp;#34;dtor: &amp;#34; &amp;lt;&amp;lt; _name &amp;lt;&amp;lt; endl; } 10 // 拷贝构</description>
     </item>
     
     <item>
       <title>位域用法</title>
-      <link>http://localhost:1313/post/cpp/%E4%BD%8D%E5%9F%9F%E7%94%A8%E6%B3%95/</link>
+      <link>https://devin0x01.github.io/post/cpp/%E4%BD%8D%E5%9F%9F%E7%94%A8%E6%B3%95/</link>
       <pubDate>Thu, 13 Jul 2023 14:05:25 +0800</pubDate>
       
-      <guid>http://localhost:1313/post/cpp/%E4%BD%8D%E5%9F%9F%E7%94%A8%E6%B3%95/</guid>
+      <guid>https://devin0x01.github.io/post/cpp/%E4%BD%8D%E5%9F%9F%E7%94%A8%E6%B3%95/</guid>
       <description>如果有字段定义为int类型的话，那么符号位的判断需要特别注意。 例如：下面的 B::f2 字段是有符号类型，其符号位是f2的最高位，可以表示的范围是-64</description>
     </item>
     
     <item>
       <title>C&#43;&#43;17特性</title>
-      <link>http://localhost:1313/post/cpp/c&#43;&#43;17%E7%89%B9%E6%80%A7/</link>
+      <link>https://devin0x01.github.io/post/cpp/c&#43;&#43;17%E7%89%B9%E6%80%A7/</link>
       <pubDate>Sun, 18 Jun 2023 14:05:25 +0800</pubDate>
       
-      <guid>http://localhost:1313/post/cpp/c&#43;&#43;17%E7%89%B9%E6%80%A7/</guid>
+      <guid>https://devin0x01.github.io/post/cpp/c&#43;&#43;17%E7%89%B9%E6%80%A7/</guid>
       <description>构造函数模板推导在C++17前构造一个模板类对象需要指明类型： 1pair&amp;lt;int, double&amp;gt; p(1, 2.2); // before c++17 C++17就不需要特殊指定，直接可以推导出类型，代码如下： 1pair p(1, 2.2);</description>
     </item>
     
     <item>
       <title>C&#43;&#43;练习题</title>
-      <link>http://localhost:1313/post/cpp/c&#43;&#43;%E7%BB%83%E4%B9%A0%E9%A2%98/</link>
+      <link>https://devin0x01.github.io/post/cpp/c&#43;&#43;%E7%BB%83%E4%B9%A0%E9%A2%98/</link>
       <pubDate>Sun, 18 Jun 2023 14:05:25 +0800</pubDate>
       
-      <guid>http://localhost:1313/post/cpp/c&#43;&#43;%E7%BB%83%E4%B9%A0%E9%A2%98/</guid>
+      <guid>https://devin0x01.github.io/post/cpp/c&#43;&#43;%E7%BB%83%E4%B9%A0%E9%A2%98/</guid>
       <description>多态判断 Q1: 虚函数可以是内联的？ A1: 错误。内联是编译时刻决定的，虚函数是运行时刻动态决定的，所以虚函数不能是内联函数。虚函数前加上inline不</description>
     </item>
     
     <item>
       <title>函数重载及其匹配顺序</title>
-      <link>http://localhost:1313/post/cpp/%E5%87%BD%E6%95%B0%E9%87%8D%E8%BD%BD%E5%8F%8A%E5%85%B6%E5%8C%B9%E9%85%8D%E9%A1%BA%E5%BA%8F/</link>
+      <link>https://devin0x01.github.io/post/cpp/%E5%87%BD%E6%95%B0%E9%87%8D%E8%BD%BD%E5%8F%8A%E5%85%B6%E5%8C%B9%E9%85%8D%E9%A1%BA%E5%BA%8F/</link>
       <pubDate>Sun, 18 Jun 2023 14:05:25 +0800</pubDate>
       
-      <guid>http://localhost:1313/post/cpp/%E5%87%BD%E6%95%B0%E9%87%8D%E8%BD%BD%E5%8F%8A%E5%85%B6%E5%8C%B9%E9%85%8D%E9%A1%BA%E5%BA%8F/</guid>
+      <guid>https://devin0x01.github.io/post/cpp/%E5%87%BD%E6%95%B0%E9%87%8D%E8%BD%BD%E5%8F%8A%E5%85%B6%E5%8C%B9%E9%85%8D%E9%A1%BA%E5%BA%8F/</guid>
       <description>1.函数重载概念：同一个作用域内，同名函数，参数列表不同(参数个数、类型或顺序不同)。 与返回值类型没有关系。如果函数名和参数列表相同，无论返</description>
     </item>
     
     <item>
       <title>调用拷贝构造函数的场景</title>
-      <link>http://localhost:1313/post/cpp/%E8%B0%83%E7%94%A8%E6%8B%B7%E8%B4%9D%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0%E7%9A%84%E5%9C%BA%E6%99%AF/</link>
+      <link>https://devin0x01.github.io/post/cpp/%E8%B0%83%E7%94%A8%E6%8B%B7%E8%B4%9D%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0%E7%9A%84%E5%9C%BA%E6%99%AF/</link>
       <pubDate>Sun, 18 Jun 2023 14:05:25 +0800</pubDate>
       
-      <guid>http://localhost:1313/post/cpp/%E8%B0%83%E7%94%A8%E6%8B%B7%E8%B4%9D%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0%E7%9A%84%E5%9C%BA%E6%99%AF/</guid>
+      <guid>https://devin0x01.github.io/post/cpp/%E8%B0%83%E7%94%A8%E6%8B%B7%E8%B4%9D%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0%E7%9A%84%E5%9C%BA%E6%99%AF/</guid>
       <description>1.默认构造函数默认构造函数是一个系统生成的，参数列表和函数体都为空的函数。 如果类中声明了默认构造函数（无论是否有参数），编译器便不再会为之</description>
     </item>
     
     <item>
       <title>重载、覆盖、隐藏</title>
-      <link>http://localhost:1313/post/cpp/%E9%87%8D%E8%BD%BD%E8%A6%86%E7%9B%96%E9%9A%90%E8%97%8F/</link>
+      <link>https://devin0x01.github.io/post/cpp/%E9%87%8D%E8%BD%BD%E8%A6%86%E7%9B%96%E9%9A%90%E8%97%8F/</link>
       <pubDate>Sun, 18 Jun 2023 14:05:25 +0800</pubDate>
       
-      <guid>http://localhost:1313/post/cpp/%E9%87%8D%E8%BD%BD%E8%A6%86%E7%9B%96%E9%9A%90%E8%97%8F/</guid>
+      <guid>https://devin0x01.github.io/post/cpp/%E9%87%8D%E8%BD%BD%E8%A6%86%E7%9B%96%E9%9A%90%E8%97%8F/</guid>
       <description>C++类层次中的同名函数，有三种关系： 1.重载**（overload）** 概念：相同的范围（同一个类）中的同名函数，参数列表不同。 1)与返回</description>
     </item>
     

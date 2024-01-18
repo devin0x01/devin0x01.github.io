@@ -2,9 +2,9 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Themes Guide on DEVIN&#39;s BLOG</title>
-    <link>http://localhost:1313/series/themes-guide/</link>
+    <link>https://devin0x01.github.io/series/themes-guide/</link>
     <description>Recent content in Themes Guide on DEVIN&#39;s BLOG</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en</language><atom:link href="http://localhost:1313/series/themes-guide/index.xml" rel="self" type="application/rss+xml" />
+    <language>en</language><atom:link href="https://devin0x01.github.io/series/themes-guide/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

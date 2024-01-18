@@ -20,7 +20,7 @@
   <meta property="og:title" content="Systemd教程" />
 <meta property="og:description" content="Systemd 入门教程：实战篇 - 阮一峰的网络日志 配置文件 1$ systemctl cat sshd.service 2 3[Unit] 4Description=OpenSSH server daemon 5Documentation=man:sshd(8) man:sshd_config(5) 6After=network.target sshd-keygen.service 7Wants=sshd-keygen.service 8 9[Service] 10EnvironmentFile=/etc/sysconfig/sshd 11ExecStart=/usr/sbin/sshd -D $OPTIONS 12ExecReload=/bin/kill -HUP $MAINPID 13Type=simple 14KillMode=process 15Restart=on-failure 16RestartSec=42s 17 18[Install] 19WantedBy=multi-user.target Unit区块：启动顺序和依赖关系De" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://localhost:1313/post/linux%E8%BF%90%E7%BB%B4/systemd%E6%95%99%E7%A8%8B/" /><meta property="article:section" content="post" />
+<meta property="og:url" content="https://devin0x01.github.io/post/linux%E8%BF%90%E7%BB%B4/systemd%E6%95%99%E7%A8%8B/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2023-07-31T16:05:25+08:00" />
 <meta property="article:modified_time" content="2023-07-31T16:05:25+08:00" />
 
@@ -58,7 +58,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="http://localhost:1313">DEVIN&#39;s BLOG</a>
+      <a class="navbar-brand" href="https://devin0x01.github.io">DEVIN&#39;s BLOG</a>
     </div>
     
     <div id="huxblog_navbar">
@@ -69,7 +69,7 @@
           
           <li><a href="/archive/" title="Archive">Archive</a></li>
           
-          <li><a href="https://www.cnblogs.com" title="CNBLOGS">CNBLOGS</a></li>
+          <li><a href="https://www.cnblogs.com/devin1024" title="CNBLOGS">CNBLOGS</a></li>
           
           <li><a href="https://github.com/devin0x01" title="Github">Github</a></li>
           
@@ -352,17 +352,21 @@
   
   <li><a href="https://www.inoreader.com" target="_blank">Inoreader</a></li>
   
-  <li><a href="https://www.v2ex.com" target="_blank">V2EX</a></li>
+  <li><a href="https://hellogithub.com" target="_blank">HelloGithub</a></li>
   
   <li><a href="https://www.oschina.net" target="_blank">OSChina</a></li>
-  
-  <li><a href="https://www.infoq.cn" target="_blank">InfoQ</a></li>
   
   <li><a href="https://godbolt.org" target="_blank">CompilerExplorer</a></li>
   
   <li><a href="https://cppinsights.io" target="_blank">CppInsights</a></li>
   
   <li><a href="https://quick-bench.com" target="_blank">QuickBench</a></li>
+  
+  <li><a href="https://github.com/skywind3000/awesome-cheatsheets/blob/master/tools/git.txt" target="_blank">GitCheatsheet</a></li>
+  
+  <li><a href="https://github.com/skywind3000/awesome-cheatsheets/blob/master/editors/vim.txt" target="_blank">VimCheatsheet</a></li>
+  
+  <li><a href="https://github.com/skywind3000/awesome-cheatsheets/blob/master/languages/vimscript.md" target="_blank">VimL</a></li>
   
 </ul>
 
