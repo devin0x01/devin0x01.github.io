@@ -445,17 +445,20 @@ Taglist其实是一个vim的插件，能将当前vim打开的文件中函数名�
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-vimrc" data-lang="vimrc"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span><span style="color:#6272a4">&#34;let g:Lf_WindowPosition = &#39;popup&#39;</span>
 </span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span>nnoremap &lt;leader&gt;f :Leaderf file&lt;CR&gt;
 </span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span>nnoremap &lt;leader&gt;rg :Leaderf rg&lt;CR&gt;
-</span></span></code></pre></div><p>1.下载<code>rg</code>并加入PATH<br>
+</span></span></code></pre></div><p>1.下载<code>ctags</code>并生成索引<br>
+<a href="https://github.com/universal-ctags/ctags" target="_blank">universal-ctags/ctags: A maintained ctags implementation</a>
+<code>:LeaderfTag</code>命令可以全局查找tag，其依赖ctags生成的tags文件。</p>
+<p>2.下载<code>rg</code>并加入PATH<br>
 <a href="https://github.com/BurntSushi/ripgrep/releases" target="_blank">Releases · BurntSushi/ripgrep</a><br>
 ripgrep-14.1.0-x86_64-unknown-linux-musl.tar.gz<br>
 下载文件名中包含musl的版本，这个是静态链接的，可以解决动态库版本不匹配的问题。</p>
-<p>2.下载<code>gtags</code>并加入PATH<br>
-<a href="https://ftp.gnu.org/pub/gnu/global/" target="_blank">gtags下载</a></p>
+<p>3.下载<code>gtags</code>并加入PATH<br>
+<a href="https://ftp.gnu.org/pub/gnu/global/" target="_blank">gtags下载</a><br>
+leaderf生成的gtags文件是在<code>~/.cache/LeaderF/gtags/</code>目录下。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>./configure
 </span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span>make -j
 </span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span>make install
-</span></span></code></pre></div><p>leaderf生成的gtags文件是在<code>~/.cache</code>目录下。<br>
-<a href="https://zhuanlan.zhihu.com/p/36279445" target="_blank">Vim 8 中 C/C++ 符号索引：GTags 篇 - 知乎</a></p>
+</span></span></code></pre></div><h2 id="自动生成gtags文件">自动生成gtags文件<a class="anchorjs-link" href="#%e8%87%aa%e5%8a%a8%e7%94%9f%e6%88%90gtags%e6%96%87%e4%bb%b6"></a></h2><p><a href="https://zhuanlan.zhihu.com/p/36279445" target="_blank">Vim 8 中 C/C++ 符号索引：GTags 篇 - 知乎</a></p>
 
 
         <hr style="visibility: hidden;" />
