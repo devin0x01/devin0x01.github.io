@@ -318,10 +318,10 @@ ctags文件只能查看函数、类或变量的定义，而没有被调用信息
 </span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span>ctags -R --c++-kinds<span style="color:#ff79c6">=</span>+p --fields<span style="color:#ff79c6">=</span>+iaS --extra<span style="color:#ff79c6">=</span>+q
 </span></span></code></pre></div><p>ctags的选项:</p>
 <blockquote>
-<p>-R表示递归创建，也就包括源代码根目录（当前目录）下的所有子目录;<br>
-&ndash;c++-kinds=+ps是为c/c+语言添加函数原型信息;<br>
-&ndash;fields=+iaS是为标签添加继承信息（inheritance），访问控制信息（access）和函数特征（Signature）如参数表或原型等;<br>
-&ndash;extra=+q是为类成员添加标签;</p>
+<p>-R 表示递归创建，也就包括源代码根目录（当前目录）下的所有子目录;<br>
+&ndash;c++-kinds=+p 是为c/c+语言添加函数原型信息;<br>
+&ndash;fields=+iaS 是为标签添加继承信息（inheritance），访问控制信息（access）和函数特征（Signature）如参数表或原型等;<br>
+&ndash;extra=+q 是为类成员添加标签;</p>
 </blockquote>
 <p>当用户在当前目录中运行vi时，会自动载入此tags文件。假如你想让你当前目录文件中的函数名在<strong>其他目录</strong>中打开vim时也能被定位到的话，那么可以把当前目录的tags文件路径添加到.vimrc中: <code>set tags+=/home/ubuntu/code/tags</code></p>
 <p>Ctrl＋] 跳到当前光标下单词的标签<br>
@@ -446,12 +446,11 @@ Taglist其实是一个vim的插件，能将当前vim打开的文件中函数名�
 </span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span>nnoremap &lt;leader&gt;f :Leaderf file&lt;CR&gt;
 </span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span>nnoremap &lt;leader&gt;rg :Leaderf rg&lt;CR&gt;
 </span></span></code></pre></div><p>1.下载<code>ctags</code>并生成索引<br>
-<a href="https://github.com/universal-ctags/ctags" target="_blank">universal-ctags/ctags: A maintained ctags implementation</a>
+<a href="https://github.com/universal-ctags/ctags" target="_blank">universal-ctags/ctags: A maintained ctags implementation</a><br>
 <code>:LeaderfTag</code>命令可以全局查找tag，其依赖ctags生成的tags文件。</p>
 <p>2.下载<code>rg</code>并加入PATH<br>
 <a href="https://github.com/BurntSushi/ripgrep/releases" target="_blank">Releases · BurntSushi/ripgrep</a><br>
-ripgrep-14.1.0-x86_64-unknown-linux-musl.tar.gz<br>
-下载文件名中包含musl的版本，这个是静态链接的，可以解决动态库版本不匹配的问题。</p>
+下载文件名中包含musl的版本(ripgrep-14.1.0-x86_64-unknown-linux-musl.tar.gz)，这个是静态链接的，可以解决动态库版本不匹配的问题。</p>
 <p>3.下载<code>gtags</code>并加入PATH<br>
 <a href="https://ftp.gnu.org/pub/gnu/global/" target="_blank">gtags下载</a><br>
 leaderf生成的gtags文件是在<code>~/.cache/LeaderF/gtags/</code>目录下。</p>
