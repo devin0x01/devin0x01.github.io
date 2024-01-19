@@ -207,10 +207,10 @@
     
     <item>
       <title>coredump配置</title>
-      <link>https://devin0x01.github.io/post/%E7%BC%96%E8%AF%91%E8%B0%83%E8%AF%95/coreddump%E9%85%8D%E7%BD%AE/</link>
+      <link>https://devin0x01.github.io/post/%E7%BC%96%E8%AF%91%E8%B0%83%E8%AF%95/coredump%E9%85%8D%E7%BD%AE/</link>
       <pubDate>Sun, 18 Jun 2023 14:05:25 +0800</pubDate>
       
-      <guid>https://devin0x01.github.io/post/%E7%BC%96%E8%AF%91%E8%B0%83%E8%AF%95/coreddump%E9%85%8D%E7%BD%AE/</guid>
+      <guid>https://devin0x01.github.io/post/%E7%BC%96%E8%AF%91%E8%B0%83%E8%AF%95/coredump%E9%85%8D%E7%BD%AE/</guid>
       <description>1ulimit -c unlimited 2echo &amp;#34;1&amp;#34; &amp;gt; /proc/sys/kernel/core_uses_pid 3mkdir -p /opt/debug 4echo &amp;#34;/opt/debug/core-%e-%p-%t&amp;#34; &amp;gt; /proc/sys/kernel/core_pattern 5 6 7gdb &amp;lt;program&amp;gt; -c &amp;lt;coredump_file&amp;gt; 8up &amp;lt;n&amp;gt; #调用栈向上n次</description>
     </item>
     
