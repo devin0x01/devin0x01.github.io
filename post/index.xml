@@ -9,10 +9,10 @@
     <lastBuildDate>Wed, 17 Jan 2024 15:05:25 +0800</lastBuildDate><atom:link href="https://devin0x01.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>VimScript笔记</title>
-      <link>https://devin0x01.github.io/post/%E5%B7%A5%E5%85%B7/vimscript%E7%AC%94%E8%AE%B0/</link>
+      <link>https://devin0x01.github.io/post/tools/vimscript%E7%AC%94%E8%AE%B0/</link>
       <pubDate>Wed, 17 Jan 2024 15:05:25 +0800</pubDate>
       
-      <guid>https://devin0x01.github.io/post/%E5%B7%A5%E5%85%B7/vimscript%E7%AC%94%E8%AE%B0/</guid>
+      <guid>https://devin0x01.github.io/post/tools/vimscript%E7%AC%94%E8%AE%B0/</guid>
       <description>VimScript 五分钟入门（翻译） - 知乎 wsdjeg/vim-plugin-dev-guide: Vim 插件开发指南 基本语法:source %: %表示当前文件的路径 e #: 切换到最近编辑的另一个文件 expand() 将具有特殊意义的标记（</description>
     </item>
     
@@ -27,28 +27,28 @@
     
     <item>
       <title>clang-format配置教程</title>
-      <link>https://devin0x01.github.io/post/%E5%B7%A5%E5%85%B7/clang-format%E9%85%8D%E7%BD%AE%E6%95%99%E7%A8%8B/</link>
+      <link>https://devin0x01.github.io/post/tools/clang-format%E9%85%8D%E7%BD%AE%E6%95%99%E7%A8%8B/</link>
       <pubDate>Tue, 29 Aug 2023 16:05:25 +0800</pubDate>
       
-      <guid>https://devin0x01.github.io/post/%E5%B7%A5%E5%85%B7/clang-format%E9%85%8D%E7%BD%AE%E6%95%99%E7%A8%8B/</guid>
+      <guid>https://devin0x01.github.io/post/tools/clang-format%E9%85%8D%E7%BD%AE%E6%95%99%E7%A8%8B/</guid>
       <description>配置clang-formatQt Creator使用clang-format_利白的博客-CSDN博客 Git 如何将clang-formatting</description>
     </item>
     
     <item>
       <title>vim配置教程</title>
-      <link>https://devin0x01.github.io/post/%E5%B7%A5%E5%85%B7/vim%E9%85%8D%E7%BD%AE%E6%95%99%E7%A8%8B/</link>
+      <link>https://devin0x01.github.io/post/tools/vim%E9%85%8D%E7%BD%AE%E6%95%99%E7%A8%8B/</link>
       <pubDate>Fri, 25 Aug 2023 16:05:25 +0800</pubDate>
       
-      <guid>https://devin0x01.github.io/post/%E5%B7%A5%E5%85%B7/vim%E9%85%8D%E7%BD%AE%E6%95%99%E7%A8%8B/</guid>
+      <guid>https://devin0x01.github.io/post/tools/vim%E9%85%8D%E7%BD%AE%E6%95%99%E7%A8%8B/</guid>
       <description>编译vim9vim/vim: The official Vim repository 1./configure --with-luajit --enable-pythoninterp=yes --enable-python3interp=yes \ 2 --enable-multibyte --prefix=$HOME/.local/vim9 3make -j 4make install 插件1.vim-plug插件管理 junegunn/vim-plug: 🌺 Minimalist Vim Plugin Manager 1curl -fLo ~/.vim/autoload/plug.vim --create-dirs \ 2 https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim PlugInstall [name &amp;hellip;] PlugUpdate [name &amp;hellip;] PlugClean[!] PlugUpgrade: Upgrade vim-plug itself</description>
     </item>
     
     <item>
       <title>nvim配置教程</title>
-      <link>https://devin0x01.github.io/post/%E5%B7%A5%E5%85%B7/nvim%E9%85%8D%E7%BD%AE%E6%95%99%E7%A8%8B/</link>
+      <link>https://devin0x01.github.io/post/tools/nvim%E9%85%8D%E7%BD%AE%E6%95%99%E7%A8%8B/</link>
       <pubDate>Wed, 16 Aug 2023 16:05:25 +0800</pubDate>
       
-      <guid>https://devin0x01.github.io/post/%E5%B7%A5%E5%85%B7/nvim%E9%85%8D%E7%BD%AE%E6%95%99%E7%A8%8B/</guid>
+      <guid>https://devin0x01.github.io/post/tools/nvim%E9%85%8D%E7%BD%AE%E6%95%99%E7%A8%8B/</guid>
       <description>1.安装NerdFont字体ryanoasis/nerd-fonts: Iconic font aggregator How do I install fonts? - Ask Ubuntu bash - MobaXTerm Powerline Font Issue - Super User 没有root权限时，ttf文件</description>
     </item>
     
@@ -72,82 +72,82 @@
     
     <item>
       <title>自建RSS服务</title>
-      <link>https://devin0x01.github.io/post/linux%E8%BF%90%E7%BB%B4/%E8%87%AA%E5%BB%BArss%E6%9C%8D%E5%8A%A1/</link>
+      <link>https://devin0x01.github.io/post/linuxops/%E8%87%AA%E5%BB%BArss%E6%9C%8D%E5%8A%A1/</link>
       <pubDate>Tue, 08 Aug 2023 16:05:25 +0800</pubDate>
       
-      <guid>https://devin0x01.github.io/post/linux%E8%BF%90%E7%BB%B4/%E8%87%AA%E5%BB%BArss%E6%9C%8D%E5%8A%A1/</guid>
+      <guid>https://devin0x01.github.io/post/linuxops/%E8%87%AA%E5%BB%BArss%E6%9C%8D%E5%8A%A1/</guid>
       <description>我的 RSS 最佳实践 1.部署Fresh RSS笔记｜Docker 快速搭建 FreshRSS | Jack‘s Space Docker 时区调整方案-腾讯云开发者社区-腾讯云 Android可以</description>
     </item>
     
     <item>
       <title>frp内网穿透配置教程</title>
-      <link>https://devin0x01.github.io/post/linux%E8%BF%90%E7%BB%B4/frp%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F%E9%85%8D%E7%BD%AE%E6%95%99%E7%A8%8B/</link>
+      <link>https://devin0x01.github.io/post/linuxops/frp%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F%E9%85%8D%E7%BD%AE%E6%95%99%E7%A8%8B/</link>
       <pubDate>Fri, 04 Aug 2023 16:05:25 +0800</pubDate>
       
-      <guid>https://devin0x01.github.io/post/linux%E8%BF%90%E7%BB%B4/frp%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F%E9%85%8D%E7%BD%AE%E6%95%99%E7%A8%8B/</guid>
+      <guid>https://devin0x01.github.io/post/linuxops/frp%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F%E9%85%8D%E7%BD%AE%E6%95%99%E7%A8%8B/</guid>
       <description>重要资料fatedier/frp - github 官方文档 | frp 司波图/自建内网穿透服务器 - 码云 1$ tree /opt/frp 2/opt/frp 3├── frpc 4├── frpc_full.ini 5├── frpc.ini 6├── frps 7├── frps_full.ini 8</description>
     </item>
     
     <item>
       <title>Photoshop按比例裁剪压缩图片</title>
-      <link>https://devin0x01.github.io/post/%E5%8A%9E%E5%85%AC/photoshop%E6%8C%89%E6%AF%94%E4%BE%8B%E8%A3%81%E5%89%AA%E5%8E%8B%E7%BC%A9%E5%9B%BE%E7%89%87/</link>
+      <link>https://devin0x01.github.io/post/office/photoshop%E6%8C%89%E6%AF%94%E4%BE%8B%E8%A3%81%E5%89%AA%E5%8E%8B%E7%BC%A9%E5%9B%BE%E7%89%87/</link>
       <pubDate>Thu, 03 Aug 2023 14:05:25 +0800</pubDate>
       
-      <guid>https://devin0x01.github.io/post/%E5%8A%9E%E5%85%AC/photoshop%E6%8C%89%E6%AF%94%E4%BE%8B%E8%A3%81%E5%89%AA%E5%8E%8B%E7%BC%A9%E5%9B%BE%E7%89%87/</guid>
+      <guid>https://devin0x01.github.io/post/office/photoshop%E6%8C%89%E6%AF%94%E4%BE%8B%E8%A3%81%E5%89%AA%E5%8E%8B%E7%BC%A9%E5%9B%BE%E7%89%87/</guid>
       <description>1.选择侧边栏的裁剪工具，然后修改裁剪比例，点击对号 2.点击 文件/存储为 菜单会跳出下面的对话框，可以修改图片的大小</description>
     </item>
     
     <item>
       <title>Systemd教程</title>
-      <link>https://devin0x01.github.io/post/linux%E8%BF%90%E7%BB%B4/systemd%E6%95%99%E7%A8%8B/</link>
+      <link>https://devin0x01.github.io/post/linuxops/systemd%E6%95%99%E7%A8%8B/</link>
       <pubDate>Mon, 31 Jul 2023 16:05:25 +0800</pubDate>
       
-      <guid>https://devin0x01.github.io/post/linux%E8%BF%90%E7%BB%B4/systemd%E6%95%99%E7%A8%8B/</guid>
+      <guid>https://devin0x01.github.io/post/linuxops/systemd%E6%95%99%E7%A8%8B/</guid>
       <description>Systemd 入门教程：实战篇 - 阮一峰的网络日志 配置文件 1$ systemctl cat sshd.service 2 3[Unit] 4Description=OpenSSH server daemon 5Documentation=man:sshd(8) man:sshd_config(5) 6After=network.target sshd-keygen.service 7Wants=sshd-keygen.service 8 9[Service] 10EnvironmentFile=/etc/sysconfig/sshd 11ExecStart=/usr/sbin/sshd -D $OPTIONS 12ExecReload=/bin/kill -HUP $MAINPID 13Type=simple 14KillMode=process 15Restart=on-failure 16RestartSec=42s 17 18[Install] 19WantedBy=multi-user.target Unit区块：启动顺序和依赖关系De</description>
     </item>
     
     <item>
       <title>Docker常用命令</title>
-      <link>https://devin0x01.github.io/post/linux%E8%BF%90%E7%BB%B4/docker%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</link>
+      <link>https://devin0x01.github.io/post/linuxops/docker%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</link>
       <pubDate>Mon, 31 Jul 2023 12:05:25 +0800</pubDate>
       
-      <guid>https://devin0x01.github.io/post/linux%E8%BF%90%E7%BB%B4/docker%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</guid>
+      <guid>https://devin0x01.github.io/post/linuxops/docker%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</guid>
       <description>Docker — 从入门到实践 Docker Guide 清理Docker的container，image与volume · 零壹軒·笔记 docker 1docker info #docker配置信息 2docker inspect $cid #查看容器</description>
     </item>
     
     <item>
       <title>WireGuard配置教程</title>
-      <link>https://devin0x01.github.io/post/linux%E8%BF%90%E7%BB%B4/wireguard%E9%85%8D%E7%BD%AE%E6%95%99%E7%A8%8B/</link>
+      <link>https://devin0x01.github.io/post/linuxops/wireguard%E9%85%8D%E7%BD%AE%E6%95%99%E7%A8%8B/</link>
       <pubDate>Sun, 30 Jul 2023 12:10:05 +0800</pubDate>
       
-      <guid>https://devin0x01.github.io/post/linux%E8%BF%90%E7%BB%B4/wireguard%E9%85%8D%E7%BD%AE%E6%95%99%E7%A8%8B/</guid>
+      <guid>https://devin0x01.github.io/post/linuxops/wireguard%E9%85%8D%E7%BD%AE%E6%95%99%E7%A8%8B/</guid>
       <description>Run WireGuard VPN Server in Docker Container with Docker Compose - TechViewLeo &amp;ndash; 主要参考这个 基于Wireguard技术的虚拟个人网络搭建: 基于wireguard的内网穿透技术~ 搭建WireGua</description>
     </item>
     
     <item>
       <title>Docker内显示图形界面</title>
-      <link>https://devin0x01.github.io/post/linux%E8%BF%90%E7%BB%B4/docker%E5%86%85%E6%98%BE%E7%A4%BA%E5%9B%BE%E5%BD%A2%E7%95%8C%E9%9D%A2/</link>
+      <link>https://devin0x01.github.io/post/linuxops/docker%E5%86%85%E6%98%BE%E7%A4%BA%E5%9B%BE%E5%BD%A2%E7%95%8C%E9%9D%A2/</link>
       <pubDate>Fri, 28 Jul 2023 16:05:25 +0800</pubDate>
       
-      <guid>https://devin0x01.github.io/post/linux%E8%BF%90%E7%BB%B4/docker%E5%86%85%E6%98%BE%E7%A4%BA%E5%9B%BE%E5%BD%A2%E7%95%8C%E9%9D%A2/</guid>
+      <guid>https://devin0x01.github.io/post/linuxops/docker%E5%86%85%E6%98%BE%E7%A4%BA%E5%9B%BE%E5%BD%A2%E7%95%8C%E9%9D%A2/</guid>
       <description>关于X11x(7) - Linux man page Cygwin系列（十二）：了解X - 知乎 X11采用了C/S的架构，在其设计下，整个图形视窗系统主要分为3个部分： 1.X S</description>
     </item>
     
     <item>
       <title>CMake语法基础</title>
-      <link>https://devin0x01.github.io/post/%E7%BC%96%E8%AF%91%E8%B0%83%E8%AF%95/cmake%E8%AF%AD%E6%B3%95%E5%9F%BA%E7%A1%80/</link>
+      <link>https://devin0x01.github.io/post/compile/cmake%E8%AF%AD%E6%B3%95%E5%9F%BA%E7%A1%80/</link>
       <pubDate>Wed, 26 Jul 2023 14:05:25 +0800</pubDate>
       
-      <guid>https://devin0x01.github.io/post/%E7%BC%96%E8%AF%91%E8%B0%83%E8%AF%95/cmake%E8%AF%AD%E6%B3%95%E5%9F%BA%E7%A1%80/</guid>
+      <guid>https://devin0x01.github.io/post/compile/cmake%E8%AF%AD%E6%B3%95%E5%9F%BA%E7%A1%80/</guid>
       <description>基本表达式if — CMake 3.27.1 Documentation Cmake中的条件判断if/elseif/else - 简书 if(&amp;lt;constant&amp;gt;) True if the constant is 1, ON, YES, TRUE, Y, or a non-zero number (including floating point numbers). False if the constant is 0, OFF, NO, FALSE, N, IGNORE, NOTFOUND,</description>
     </item>
     
     <item>
       <title>target_link_libraries中的PRIVATE INTERFACE PUBLIC</title>
-      <link>https://devin0x01.github.io/post/%E7%BC%96%E8%AF%91%E8%B0%83%E8%AF%95/target_link_libraries%E4%B8%AD%E7%9A%84private-interface-public/</link>
+      <link>https://devin0x01.github.io/post/compile/target_link_libraries%E4%B8%AD%E7%9A%84private-interface-public/</link>
       <pubDate>Mon, 24 Jul 2023 18:05:25 +0800</pubDate>
       
-      <guid>https://devin0x01.github.io/post/%E7%BC%96%E8%AF%91%E8%B0%83%E8%AF%95/target_link_libraries%E4%B8%AD%E7%9A%84private-interface-public/</guid>
+      <guid>https://devin0x01.github.io/post/compile/target_link_libraries%E4%B8%AD%E7%9A%84private-interface-public/</guid>
       <description>CMake target_link_libraries Interface Dependencies - Stack Overflow CMake的链接选项：PRIVATE，INTERFACE，PUBLIC - 知乎 If you are creating a shared library and your source cpp files #include the headers of another library (Say, QtNetwork for example), but your header</description>
     </item>
     
@@ -198,19 +198,19 @@
     
     <item>
       <title>cgdb配置</title>
-      <link>https://devin0x01.github.io/post/%E7%BC%96%E8%AF%91%E8%B0%83%E8%AF%95/cgdb%E9%85%8D%E7%BD%AE/</link>
+      <link>https://devin0x01.github.io/post/compile/cgdb%E9%85%8D%E7%BD%AE/</link>
       <pubDate>Sun, 18 Jun 2023 14:05:25 +0800</pubDate>
       
-      <guid>https://devin0x01.github.io/post/%E7%BC%96%E8%AF%91%E8%B0%83%E8%AF%95/cgdb%E9%85%8D%E7%BD%AE/</guid>
+      <guid>https://devin0x01.github.io/post/compile/cgdb%E9%85%8D%E7%BD%AE/</guid>
       <description>1.安装1git clone git://github.com/cgdb/cgdb.git 2cd cgdb 3./autogen.sh 4./configure --prefix=/usr/local 5make 6sudo make install 7 8# 报错解决方法 9sudo apt-get install automake libncurses5-dev flex texinfo libreadline-dev 2.配置1vim ~/.cgdb/cgdbrc 2 3set ignorecaseset 4ts=4 5set wso=vertical 6set eld=shortarrow 7set hls 8map &amp;lt;F9&amp;gt; :until&amp;lt;cr&amp;gt; 3.快捷键 F5 - Send a run command to GDB.</description>
     </item>
     
     <item>
       <title>coredump配置</title>
-      <link>https://devin0x01.github.io/post/%E7%BC%96%E8%AF%91%E8%B0%83%E8%AF%95/coredump%E9%85%8D%E7%BD%AE/</link>
+      <link>https://devin0x01.github.io/post/compile/coredump%E9%85%8D%E7%BD%AE/</link>
       <pubDate>Sun, 18 Jun 2023 14:05:25 +0800</pubDate>
       
-      <guid>https://devin0x01.github.io/post/%E7%BC%96%E8%AF%91%E8%B0%83%E8%AF%95/coredump%E9%85%8D%E7%BD%AE/</guid>
+      <guid>https://devin0x01.github.io/post/compile/coredump%E9%85%8D%E7%BD%AE/</guid>
       <description>1ulimit -c unlimited 2echo &amp;#34;1&amp;#34; &amp;gt; /proc/sys/kernel/core_uses_pid 3mkdir -p /opt/debug 4echo &amp;#34;/opt/debug/core-%e-%p-%t&amp;#34; &amp;gt; /proc/sys/kernel/core_pattern 5 6 7gdb &amp;lt;program&amp;gt; -c &amp;lt;coredump_file&amp;gt; 8up &amp;lt;n&amp;gt; #调用栈向上n次</description>
     </item>
     
@@ -225,10 +225,10 @@
     
     <item>
       <title>Git常用命令</title>
-      <link>https://devin0x01.github.io/post/%E5%B7%A5%E5%85%B7/git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</link>
+      <link>https://devin0x01.github.io/post/tools/git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</link>
       <pubDate>Sun, 18 Jun 2023 14:05:25 +0800</pubDate>
       
-      <guid>https://devin0x01.github.io/post/%E5%B7%A5%E5%85%B7/git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</guid>
+      <guid>https://devin0x01.github.io/post/tools/git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</guid>
       <description>1.git remote1关联远端仓库 2git remote add origin git@github.com:git_username/repository_name.git 3git remote remove origin 4 5git remote -v 2.git branch 1本地分支关联远程分支(目的是在执行git pull/push操作时就不需要指定对应</description>
     </item>
     
@@ -243,19 +243,19 @@
     
     <item>
       <title>Linux网络编程</title>
-      <link>https://devin0x01.github.io/post/linux%E5%BC%80%E5%8F%91/linux%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/</link>
+      <link>https://devin0x01.github.io/post/linuxdevelop/linux%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/</link>
       <pubDate>Sun, 18 Jun 2023 14:05:25 +0800</pubDate>
       
-      <guid>https://devin0x01.github.io/post/linux%E5%BC%80%E5%8F%91/linux%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/</guid>
+      <guid>https://devin0x01.github.io/post/linuxdevelop/linux%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/</guid>
       <description>查看端口占用情况 netstat -tunlp -t (tcp) 仅显示tcp相关选项 -u (udp) 仅显示udp相关选项 -n 拒绝显示列名，能显示数字的全部转化为数字 -l 仅显示出在listen(监听</description>
     </item>
     
     <item>
       <title>Notepad&#43;&#43;替换</title>
-      <link>https://devin0x01.github.io/post/%E5%B7%A5%E5%85%B7/notepad&#43;&#43;%E6%9B%BF%E6%8D%A2/</link>
+      <link>https://devin0x01.github.io/post/tools/notepad&#43;&#43;%E6%9B%BF%E6%8D%A2/</link>
       <pubDate>Sun, 18 Jun 2023 14:05:25 +0800</pubDate>
       
-      <guid>https://devin0x01.github.io/post/%E5%B7%A5%E5%85%B7/notepad&#43;&#43;%E6%9B%BF%E6%8D%A2/</guid>
+      <guid>https://devin0x01.github.io/post/tools/notepad&#43;&#43;%E6%9B%BF%E6%8D%A2/</guid>
       <description>\1表示匹配的第一组括号</description>
     </item>
     
@@ -270,19 +270,19 @@
     
     <item>
       <title>Terminal快捷键</title>
-      <link>https://devin0x01.github.io/post/%E5%B7%A5%E5%85%B7/terminal%E5%BF%AB%E6%8D%B7%E9%94%AE/</link>
+      <link>https://devin0x01.github.io/post/tools/terminal%E5%BF%AB%E6%8D%B7%E9%94%AE/</link>
       <pubDate>Sun, 18 Jun 2023 14:05:25 +0800</pubDate>
       
-      <guid>https://devin0x01.github.io/post/%E5%B7%A5%E5%85%B7/terminal%E5%BF%AB%E6%8D%B7%E9%94%AE/</guid>
+      <guid>https://devin0x01.github.io/post/tools/terminal%E5%BF%AB%E6%8D%B7%E9%94%AE/</guid>
       <description>命令行快速移动光标Ctrl+A/E 行首/行末 Alt+F/B 按单词前后移动 Alt . 上条命令行的最后一个参数 Ctrl+W/K 删除光标前后的内容</description>
     </item>
     
     <item>
       <title>共享库搜索路径</title>
-      <link>https://devin0x01.github.io/post/%E7%BC%96%E8%AF%91%E8%B0%83%E8%AF%95/%E5%85%B1%E4%BA%AB%E5%BA%93%E6%90%9C%E7%B4%A2%E8%B7%AF%E5%BE%84/</link>
+      <link>https://devin0x01.github.io/post/compile/%E5%85%B1%E4%BA%AB%E5%BA%93%E6%90%9C%E7%B4%A2%E8%B7%AF%E5%BE%84/</link>
       <pubDate>Sun, 18 Jun 2023 14:05:25 +0800</pubDate>
       
-      <guid>https://devin0x01.github.io/post/%E7%BC%96%E8%AF%91%E8%B0%83%E8%AF%95/%E5%85%B1%E4%BA%AB%E5%BA%93%E6%90%9C%E7%B4%A2%E8%B7%AF%E5%BE%84/</guid>
+      <guid>https://devin0x01.github.io/post/compile/%E5%85%B1%E4%BA%AB%E5%BA%93%E6%90%9C%E7%B4%A2%E8%B7%AF%E5%BE%84/</guid>
       <description>基本原理 -L编译选项是编译期间使用 LD_LIBRARY_PATH环境变量是运行期间使用，可以用来指定so的加载路径，并且优先级高于系统默认的</description>
     </item>
     
@@ -324,10 +324,10 @@
     
     <item>
       <title>配置github pages教程</title>
-      <link>https://devin0x01.github.io/post/%E5%B7%A5%E5%85%B7/%E9%85%8D%E7%BD%AEgithub-pages%E6%95%99%E7%A8%8B/</link>
+      <link>https://devin0x01.github.io/post/tools/%E9%85%8D%E7%BD%AEgithub-pages%E6%95%99%E7%A8%8B/</link>
       <pubDate>Sat, 13 May 2023 14:05:25 +0800</pubDate>
       
-      <guid>https://devin0x01.github.io/post/%E5%B7%A5%E5%85%B7/%E9%85%8D%E7%BD%AEgithub-pages%E6%95%99%E7%A8%8B/</guid>
+      <guid>https://devin0x01.github.io/post/tools/%E9%85%8D%E7%BD%AEgithub-pages%E6%95%99%E7%A8%8B/</guid>
       <description>1.基础配置关于删除submodule: Git中submodule的使用 - 知乎 Git submodule add: &amp;ldquo;a git directory is found locally&amp;rdquo; issue - Stack Overflow 1mkdir myblog &amp;amp;&amp;amp; cd myblog 2hugo new site . 3 4git init 5git submodule add git@github.com:MeiK2333/github-style.git themes/github-style 6vim</description>
     </item>
     

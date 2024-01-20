@@ -9,19 +9,19 @@
     <lastBuildDate>Wed, 26 Jul 2023 14:05:25 +0800</lastBuildDate><atom:link href="https://devin0x01.github.io/tags/cmake/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>CMake语法基础</title>
-      <link>https://devin0x01.github.io/post/%E7%BC%96%E8%AF%91%E8%B0%83%E8%AF%95/cmake%E8%AF%AD%E6%B3%95%E5%9F%BA%E7%A1%80/</link>
+      <link>https://devin0x01.github.io/post/compile/cmake%E8%AF%AD%E6%B3%95%E5%9F%BA%E7%A1%80/</link>
       <pubDate>Wed, 26 Jul 2023 14:05:25 +0800</pubDate>
       
-      <guid>https://devin0x01.github.io/post/%E7%BC%96%E8%AF%91%E8%B0%83%E8%AF%95/cmake%E8%AF%AD%E6%B3%95%E5%9F%BA%E7%A1%80/</guid>
+      <guid>https://devin0x01.github.io/post/compile/cmake%E8%AF%AD%E6%B3%95%E5%9F%BA%E7%A1%80/</guid>
       <description>基本表达式if — CMake 3.27.1 Documentation Cmake中的条件判断if/elseif/else - 简书 if(&amp;lt;constant&amp;gt;) True if the constant is 1, ON, YES, TRUE, Y, or a non-zero number (including floating point numbers). False if the constant is 0, OFF, NO, FALSE, N, IGNORE, NOTFOUND,</description>
     </item>
     
     <item>
       <title>target_link_libraries中的PRIVATE INTERFACE PUBLIC</title>
-      <link>https://devin0x01.github.io/post/%E7%BC%96%E8%AF%91%E8%B0%83%E8%AF%95/target_link_libraries%E4%B8%AD%E7%9A%84private-interface-public/</link>
+      <link>https://devin0x01.github.io/post/compile/target_link_libraries%E4%B8%AD%E7%9A%84private-interface-public/</link>
       <pubDate>Mon, 24 Jul 2023 18:05:25 +0800</pubDate>
       
-      <guid>https://devin0x01.github.io/post/%E7%BC%96%E8%AF%91%E8%B0%83%E8%AF%95/target_link_libraries%E4%B8%AD%E7%9A%84private-interface-public/</guid>
+      <guid>https://devin0x01.github.io/post/compile/target_link_libraries%E4%B8%AD%E7%9A%84private-interface-public/</guid>
       <description>CMake target_link_libraries Interface Dependencies - Stack Overflow CMake的链接选项：PRIVATE，INTERFACE，PUBLIC - 知乎 If you are creating a shared library and your source cpp files #include the headers of another library (Say, QtNetwork for example), but your header</description>
     </item>
     
