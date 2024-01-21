@@ -31,7 +31,7 @@
       <pubDate>Sat, 13 May 2023 14:05:25 +0800</pubDate>
       
       <guid>https://devin0x01.github.io/post/tools/%E9%85%8D%E7%BD%AEgithub-pages%E6%95%99%E7%A8%8B/</guid>
-      <description>1.基础配置关于删除submodule: Git中submodule的使用 - 知乎 Git submodule add: &amp;ldquo;a git directory is found locally&amp;rdquo; issue - Stack Overflow 1mkdir myblog &amp;amp;&amp;amp; cd myblog 2hugo new site . 3 4git init 5git submodule add git@github.com:MeiK2333/github-style.git themes/github-style 6vim</description>
+      <description>1.基础配置1mkdir myblog &amp;amp;&amp;amp; cd myblog 2hugo new site . 3 4git init 5git submodule add git@github.com:MeiK2333/github-style.git themes/github-style 6vim .gitignore 7git add . 8git push -u origin master git submodule 相关命令git子模块的修改和更新操作_子模块怎么修改上传-C</description>
     </item>
     
   </channel>
