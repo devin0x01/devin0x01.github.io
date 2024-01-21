@@ -222,13 +222,14 @@
 -w 修改后本地服务器可以立即变化<br>
 -D 也显示 <code>draft: true</code>的帖子</p>
 </blockquote>
-<p>如果出现了下面的报错，检查下：<br>
+<h3 id="错误1">错误1<a class="anchorjs-link" href="#%e9%94%99%e8%af%af1"></a></h3><p>如果出现了下面的报错，检查下：<br>
 1.使用的配置文件是哪个<br>
 2.<code>config.toml</code>文件中的<code>themeDir</code>的路径以及<code>theme</code>的名称是否和下载的文件夹名称一致</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>WARN 2019/05/31 16:14:35 found no layout file for &#34;HTML&#34; for &#34;section&#34;: You should create a template file which matches Hugo Layouts Lookup Rules for this combination.
 </span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span>WARN 2019/05/31 16:14:35 found no layout file for &#34;HTML&#34; for &#34;section&#34;: You should create a template file which matches Hugo Layouts Lookup Rules for this combination.
 </span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span>WARN 2019/05/31 16:14:35 found no layout file for &#34;HTML&#34; for &#34;taxonomyTerm&#34;: You should create a template file which matches Hugo Layouts Lookup Rules for this combination.
-</span></span></code></pre></div><h2 id="4部署到-github-pages">4.部署到 Github Pages<a class="anchorjs-link" href="#4%e9%83%a8%e7%bd%b2%e5%88%b0-github-pages"></a></h2><p>注意确认下 <code>${username}.github.io</code> 这个repo下面 <code>Settings/Pages/Branch</code> 是否和部署的分支一样。</p>
+</span></span></code></pre></div><h3 id="错误2">错误2<a class="anchorjs-link" href="#%e9%94%99%e8%af%af2"></a></h3><p>有些主题（比如puppet）依赖hugo名字中带extended的版本：<code>hugo_extended_0.121.2_linux-amd64.tar.gz</code>，否则会执行报错。</p>
+<h2 id="4部署到-github-pages">4.部署到 Github Pages<a class="anchorjs-link" href="#4%e9%83%a8%e7%bd%b2%e5%88%b0-github-pages"></a></h2><p>注意确认下 <code>${username}.github.io</code> 这个repo下面 <code>Settings/Pages/Branch</code> 是否和部署的分支一样。</p>
 <h3 id="手动部署">手动部署<a class="anchorjs-link" href="#%e6%89%8b%e5%8a%a8%e9%83%a8%e7%bd%b2"></a></h3><p>生成 <code>hugo --theme=your_theme --baseUrl=&quot;your_server_or_domain&quot; --buildDrafts</code><br>
 提交 <code>public</code> 目录到 <code>${username}.github.io</code> 仓库<br>
 在仓库的 <code>https://github.com/${username}/${username}.github.io/settings/pages</code> 页面可以设置部署哪个分支</p>
