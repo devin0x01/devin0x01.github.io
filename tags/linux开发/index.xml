@@ -9,10 +9,10 @@
     <lastBuildDate>Sun, 18 Jun 2023 14:05:25 +0800</lastBuildDate><atom:link href="https://devin0x01.github.io/tags/linux%E5%BC%80%E5%8F%91/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Linux网络编程</title>
-      <link>https://devin0x01.github.io/post/linuxdevelop/linux%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/</link>
+      <link>https://devin0x01.github.io/post/linux_dev/linux%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/</link>
       <pubDate>Sun, 18 Jun 2023 14:05:25 +0800</pubDate>
       
-      <guid>https://devin0x01.github.io/post/linuxdevelop/linux%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/</guid>
+      <guid>https://devin0x01.github.io/post/linux_dev/linux%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/</guid>
       <description>查看端口占用情况 netstat -tunlp -t (tcp) 仅显示tcp相关选项 -u (udp) 仅显示udp相关选项 -n 拒绝显示列名，能显示数字的全部转化为数字 -l 仅显示出在listen(监听</description>
     </item>
     
