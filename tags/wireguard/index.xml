@@ -9,10 +9,10 @@
     <lastBuildDate>Sun, 30 Jul 2023 12:10:05 +0800</lastBuildDate><atom:link href="https://devin0x01.github.io/tags/wireguard/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>WireGuard配置教程</title>
-      <link>https://devin0x01.github.io/post/linux_ops/wireguard%E9%85%8D%E7%BD%AE%E6%95%99%E7%A8%8B/</link>
+      <link>https://devin0x01.github.io/post/linuxops/wireguard%E9%85%8D%E7%BD%AE%E6%95%99%E7%A8%8B/</link>
       <pubDate>Sun, 30 Jul 2023 12:10:05 +0800</pubDate>
       
-      <guid>https://devin0x01.github.io/post/linux_ops/wireguard%E9%85%8D%E7%BD%AE%E6%95%99%E7%A8%8B/</guid>
+      <guid>https://devin0x01.github.io/post/linuxops/wireguard%E9%85%8D%E7%BD%AE%E6%95%99%E7%A8%8B/</guid>
       <description>Run WireGuard VPN Server in Docker Container with Docker Compose - TechViewLeo &amp;ndash; 主要参考这个 基于Wireguard技术的虚拟个人网络搭建: 基于wireguard的内网穿透技术~ 搭建WireGua</description>
     </item>
     

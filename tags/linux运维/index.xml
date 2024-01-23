@@ -9,46 +9,46 @@
     <lastBuildDate>Fri, 04 Aug 2023 16:05:25 +0800</lastBuildDate><atom:link href="https://devin0x01.github.io/tags/linux%E8%BF%90%E7%BB%B4/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>frp内网穿透配置教程</title>
-      <link>https://devin0x01.github.io/post/linux_ops/frp%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F%E9%85%8D%E7%BD%AE%E6%95%99%E7%A8%8B/</link>
+      <link>https://devin0x01.github.io/post/linuxops/frp%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F%E9%85%8D%E7%BD%AE%E6%95%99%E7%A8%8B/</link>
       <pubDate>Fri, 04 Aug 2023 16:05:25 +0800</pubDate>
       
-      <guid>https://devin0x01.github.io/post/linux_ops/frp%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F%E9%85%8D%E7%BD%AE%E6%95%99%E7%A8%8B/</guid>
+      <guid>https://devin0x01.github.io/post/linuxops/frp%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F%E9%85%8D%E7%BD%AE%E6%95%99%E7%A8%8B/</guid>
       <description>重要资料fatedier/frp - github 官方文档 | frp 司波图/自建内网穿透服务器 - 码云 1$ tree /opt/frp 2/opt/frp 3├── frpc 4├── frpc_full.ini 5├── frpc.ini 6├── frps 7├── frps_full.ini 8</description>
     </item>
     
     <item>
       <title>Systemd教程</title>
-      <link>https://devin0x01.github.io/post/linux_ops/systemd%E6%95%99%E7%A8%8B/</link>
+      <link>https://devin0x01.github.io/post/linuxops/systemd%E6%95%99%E7%A8%8B/</link>
       <pubDate>Mon, 31 Jul 2023 16:05:25 +0800</pubDate>
       
-      <guid>https://devin0x01.github.io/post/linux_ops/systemd%E6%95%99%E7%A8%8B/</guid>
+      <guid>https://devin0x01.github.io/post/linuxops/systemd%E6%95%99%E7%A8%8B/</guid>
       <description>Systemd 入门教程：实战篇 - 阮一峰的网络日志 配置文件 1$ systemctl cat sshd.service 2 3[Unit] 4Description=OpenSSH server daemon 5Documentation=man:sshd(8) man:sshd_config(5) 6After=network.target sshd-keygen.service 7Wants=sshd-keygen.service 8 9[Service] 10EnvironmentFile=/etc/sysconfig/sshd 11ExecStart=/usr/sbin/sshd -D $OPTIONS 12ExecReload=/bin/kill -HUP $MAINPID 13Type=simple 14KillMode=process 15Restart=on-failure 16RestartSec=42s 17 18[Install] 19WantedBy=multi-user.target Unit区块：启动顺序和依赖关系De</description>
     </item>
     
     <item>
       <title>Docker常用命令</title>
-      <link>https://devin0x01.github.io/post/linux_ops/docker%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</link>
+      <link>https://devin0x01.github.io/post/linuxops/docker%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</link>
       <pubDate>Mon, 31 Jul 2023 12:05:25 +0800</pubDate>
       
-      <guid>https://devin0x01.github.io/post/linux_ops/docker%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</guid>
+      <guid>https://devin0x01.github.io/post/linuxops/docker%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</guid>
       <description>Docker — 从入门到实践 Docker Guide 清理Docker的container，image与volume · 零壹軒·笔记 docker 1docker info #docker配置信息 2docker inspect $cid #查看容器</description>
     </item>
     
     <item>
       <title>WireGuard配置教程</title>
-      <link>https://devin0x01.github.io/post/linux_ops/wireguard%E9%85%8D%E7%BD%AE%E6%95%99%E7%A8%8B/</link>
+      <link>https://devin0x01.github.io/post/linuxops/wireguard%E9%85%8D%E7%BD%AE%E6%95%99%E7%A8%8B/</link>
       <pubDate>Sun, 30 Jul 2023 12:10:05 +0800</pubDate>
       
-      <guid>https://devin0x01.github.io/post/linux_ops/wireguard%E9%85%8D%E7%BD%AE%E6%95%99%E7%A8%8B/</guid>
+      <guid>https://devin0x01.github.io/post/linuxops/wireguard%E9%85%8D%E7%BD%AE%E6%95%99%E7%A8%8B/</guid>
       <description>Run WireGuard VPN Server in Docker Container with Docker Compose - TechViewLeo &amp;ndash; 主要参考这个 基于Wireguard技术的虚拟个人网络搭建: 基于wireguard的内网穿透技术~ 搭建WireGua</description>
     </item>
     
     <item>
       <title>Docker内显示图形界面</title>
-      <link>https://devin0x01.github.io/post/linux_ops/docker%E5%86%85%E6%98%BE%E7%A4%BA%E5%9B%BE%E5%BD%A2%E7%95%8C%E9%9D%A2/</link>
+      <link>https://devin0x01.github.io/post/linuxops/docker%E5%86%85%E6%98%BE%E7%A4%BA%E5%9B%BE%E5%BD%A2%E7%95%8C%E9%9D%A2/</link>
       <pubDate>Fri, 28 Jul 2023 16:05:25 +0800</pubDate>
       
-      <guid>https://devin0x01.github.io/post/linux_ops/docker%E5%86%85%E6%98%BE%E7%A4%BA%E5%9B%BE%E5%BD%A2%E7%95%8C%E9%9D%A2/</guid>
+      <guid>https://devin0x01.github.io/post/linuxops/docker%E5%86%85%E6%98%BE%E7%A4%BA%E5%9B%BE%E5%BD%A2%E7%95%8C%E9%9D%A2/</guid>
       <description>关于X11x(7) - Linux man page Cygwin系列（十二）：了解X - 知乎 X11采用了C/S的架构，在其设计下，整个图形视窗系统主要分为3个部分： 1.X S</description>
     </item>
     

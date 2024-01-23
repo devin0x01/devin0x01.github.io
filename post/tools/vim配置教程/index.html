@@ -228,7 +228,7 @@
 </span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">9</span><span>&gt;             <span style="color:#f1fa8c">\ </span><span style="color:#f1fa8c">&#39;^https://git::@github\.com&#39;</span>, <span style="color:#f1fa8c">&#39;https://github.com&#39;</span>, <span style="color:#f1fa8c">&#39;&#39;</span><span style="color:#ff79c6">)</span>
 </span></span></code></pre></div><h2 id="2nerdtree">2.NERDTree<a class="anchorjs-link" href="#2nerdtree"></a></h2><p>文件浏览器
 <a href="https://github.com/preservim/nerdtree" target="_blank">preservim/nerdtree: A tree explorer plugin for vim.</a></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-vimrc" data-lang="vimrc"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span><span style="color:#6272a4">&#34;官方推荐的map</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-vim" data-lang="vim"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span><span style="color:#6272a4">&#34;官方推荐的map</span>
 </span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span>nnoremap &lt;leader&gt;n :NERDTreeFocus&lt;CR&gt;
 </span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span>nnoremap &lt;C-n&gt; :NERDTree&lt;CR&gt;
 </span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span><span>nnoremap &lt;C-t&gt; :NERDTreeToggle&lt;CR&gt;
@@ -305,7 +305,7 @@
 </table>
 <h2 id="3vim-devicons">3.vim-devicons<a class="anchorjs-link" href="#3vim-devicons"></a></h2><p>用于支持Nerd Fonts, Nerd Fonts需要额外安装
 <a href="https://github.com/ryanoasis/vim-devicons" target="_blank">ryanoasis/vim-devicons: Adds file type icons to Vim plugins such as: NERDTree, vim-airline, CtrlP, unite, Denite, lightline, vim-startify and many more</a></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-vimrc" data-lang="vimrc"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>set encoding=UTF<span style="color:#bd93f9">-8</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-vim" data-lang="vim"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>set encoding=UTF<span style="color:#bd93f9">-8</span>
 </span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span>
 </span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span>call plug#begin()
 </span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span><span>Plug <span style="color:#f1fa8c">&#39;ryanoasis/vim-devicons&#39;</span>
@@ -376,7 +376,7 @@ Ctrl＋W + } 预览窗口显示当前光标下单词的标签，光标跳到标�
 </span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22</span><span>    :cscope find 3 vim_free
 </span></span></code></pre></div><h2 id="6taglist">6.taglist<a class="anchorjs-link" href="#6taglist"></a></h2><p><a href="https://github.com/vim-scripts/taglist.vim" target="_blank">vim-scripts/taglist.vim: Source code browser (supports C/C++, java, perl, python, tcl, sql, php, etc)</a><br>
 Taglist其实是一个vim的插件，能将当前vim打开的文件中函数名、变量名等在一个窗口中列出来，并支持通过列出的函数名实现跳转。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-vimrc" data-lang="vimrc"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>map &lt;F2&gt; :Tlist &lt;CR&gt;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-vim" data-lang="vim"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>map &lt;F2&gt; :Tlist &lt;CR&gt;
 </span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span>
 </span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span><span style="color:#ff79c6">let</span> Tlist_Show_One_File=<span style="color:#bd93f9">1</span>
 </span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span><span><span style="color:#ff79c6">let</span> Tlist_Exit_OnlyWindow=<span style="color:#bd93f9">1</span>
@@ -384,7 +384,7 @@ Taglist其实是一个vim的插件，能将当前vim打开的文件中函数名�
 </span></span></code></pre></div><p>进入vim后用命令:Tlist打开/关闭taglist窗口，或者使用:TlistToggle在打开和关闭间切换。<br>
 可以用:TlistOpen打开taglist窗口，用:TlistClose关闭taglist窗口。</p>
 <h2 id="7winmanager">7.winmanager<a class="anchorjs-link" href="#7winmanager"></a></h2><p><a href="https://github.com/anscoral/winmanager.vim" target="_blank">anscoral/winmanager.vim: winmanager : A windows style IDE for Vim</a></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-vimrc" data-lang="vimrc"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span><span style="color:#ff79c6">let</span> g:winManagerWindowLayout=<span style="color:#f1fa8c">&#39;FileExplorer|TagList&#39;</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-vim" data-lang="vim"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span><span style="color:#ff79c6">let</span> g:winManagerWindowLayout=<span style="color:#f1fa8c">&#39;FileExplorer|TagList&#39;</span>
 </span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span>nmap wm :WMToggle&lt;cr&gt;
 </span></span></code></pre></div><table>
 <thead>
@@ -442,7 +442,7 @@ Taglist其实是一个vim的插件，能将当前vim打开的文件中函数名�
 </table>
 <h1 id="7leaderf">7.LeaderF<a class="anchorjs-link" href="#7leaderf"></a></h1><p><a href="https://github.com/Yggdroot/LeaderF" target="_blank">Yggdroot/LeaderF: An efficient fuzzy finder that helps to locate files, buffers, mrus, gtags, etc. on the fly for both vim and neovim.</a><br>
 <a href="https://retzzz.github.io/dc9af5aa/" target="_blank">vim plugin介绍之LeaderF | Mingjian&rsquo;s Blog</a></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-vimrc" data-lang="vimrc"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span><span style="color:#6272a4">&#34;let g:Lf_WindowPosition = &#39;popup&#39;</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-vim" data-lang="vim"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span><span style="color:#6272a4">&#34;let g:Lf_WindowPosition = &#39;popup&#39;</span>
 </span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span>nnoremap &lt;leader&gt;f :Leaderf file&lt;CR&gt;
 </span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span>nnoremap &lt;leader&gt;rg :Leaderf rg&lt;CR&gt;
 </span></span></code></pre></div><p>1.下载<code>ctags</code>并生成索引<br>
@@ -457,8 +457,11 @@ leaderf生成的gtags文件是在<code>~/.cache/LeaderF/gtags/</code>目录下�
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>./configure
 </span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span>make -j
 </span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span>make install
-</span></span></code></pre></div><h2 id="自动生成gtags文件">自动生成gtags文件<a class="anchorjs-link" href="#%e8%87%aa%e5%8a%a8%e7%94%9f%e6%88%90gtags%e6%96%87%e4%bb%b6"></a></h2><p><a href="https://zhuanlan.zhihu.com/p/36279445" target="_blank">Vim 8 中 C/C++ 符号索引：GTags 篇 - 知乎</a></p>
-
+</span></span></code></pre></div><h1 id="8自动生成gtags文件">8.自动生成gtags文件<a class="anchorjs-link" href="#8%e8%87%aa%e5%8a%a8%e7%94%9f%e6%88%90gtags%e6%96%87%e4%bb%b6"></a></h1><p><a href="https://zhuanlan.zhihu.com/p/36279445" target="_blank">Vim 8 中 C/C++ 符号索引：GTags 篇 - 知乎</a><br>
+<a href="https://github.com/universal-ctags/ctags-nightly-build/releases" target="_blank">Releases · universal-ctags/ctags-nightly-build</a></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-vim" data-lang="vim"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span><span style="color:#6272a4">&#34; 如果使用 universal ctags 需要增加下面一行，老的 Exuberant-ctags 不能加下一行</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span><span style="color:#ff79c6">let</span> g:gutentags_ctags_extra_args += [<span style="color:#f1fa8c">&#39;--output-format=e-ctags&#39;</span>]
+</span></span></code></pre></div>
 
         <hr style="visibility: hidden;" />
         <ul class="pager">
@@ -570,6 +573,8 @@ leaderf生成的gtags文件是在<code>~/.cache/LeaderF/gtags/</code>目录下�
   
   <li><a href="https://www.inoreader.com" target="_blank">Inoreader</a></li>
   
+  <li><a href="https://hellogithub.com" target="_blank">HelloGithub</a></li>
+  
   <li><a href="https://www.oschina.net" target="_blank">OSChina</a></li>
   
   <li><a href="https://godbolt.org" target="_blank">CompilerExplorer</a></li>
@@ -583,8 +588,6 @@ leaderf生成的gtags文件是在<code>~/.cache/LeaderF/gtags/</code>目录下�
   <li><a href="https://github.com/skywind3000/awesome-cheatsheets/blob/master/editors/vim.txt" target="_blank">VimCheatsheet</a></li>
   
   <li><a href="https://github.com/skywind3000/awesome-cheatsheets/blob/master/languages/vimscript.md" target="_blank">VimL</a></li>
-  
-  <li><a href="https://web.qianguyihao.com" target="_blank">LearnWeb</a></li>
   
 </ul>
 
