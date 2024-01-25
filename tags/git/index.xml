@@ -13,7 +13,7 @@
       <pubDate>Sun, 18 Jun 2023 14:05:25 +0800</pubDate>
       
       <guid>https://devin0x01.github.io/post/tools/git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</guid>
-      <description>1.git remote1关联远端仓库 2git remote add origin git@github.com:git_username/repository_name.git 3git remote remove origin 4 5git remote -v 2.git branch 1本地分支关联远程分支(目的是在执行git pull/push操作时就不需要指定对应</description>
+      <description>1.git remote1# 关联远端仓库 2git remote add origin git@github.com:git_username/repository_name.git 3git remote remove origin 4 5git remote -v 2.git branch 1# 本地分支关联远程分支(目的是在执行git pull/push操作时就不需要指定对应的远程分支)</description>
     </item>
     
     <item>
