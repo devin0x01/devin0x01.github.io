@@ -226,7 +226,8 @@
 </span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7</span><span>s:var - 当前脚本内可见的局部变量
 </span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8</span><span>v:var - Vim 预定义的内部变量
 </span></span></code></pre></div><p>含<code>$</code>前缀的变量是环境变量。<br>
-含<code>v:1前缀的变量是 vim 内部提供的预定义常量或变量。用户不能增删这类特殊变量，也不能修改其类型与含义。</code>v:<code>本身也是个字典集合变量，可用</code>:echo v:<code>命令查看所有这类变量。比如</code>v:lnum<code>表示和折叠功能相关的行号。   含</code>&amp;<code>前缀的变量表示选项的值，相当于把选项变量化，以便于在 VimL 中编程。比如</code>&amp;filetype`表示文件类型。</p>
+含<code>v:</code>前缀的变量是 vim 内部提供的预定义常量或变量。用户不能增删这类特殊变量，也不能修改其类型与含义。<code>v:</code>本身也是个字典集合变量，可用<code>:echo v:</code>命令查看所有这类变量。比如<code>v:lnum</code>表示和折叠功能相关的行号。<br>
+含<code>&amp;</code>前缀的变量表示选项的值，相当于把选项变量化，以便于在 VimL 中编程。比如<code>&amp;filetype</code>表示文件类型。</p>
 <h2 id="字符串比较">字符串比较<a class="anchorjs-link" href="#%e5%ad%97%e7%ac%a6%e4%b8%b2%e6%af%94%e8%be%83"></a></h2><ul>
 <li><code>&lt;string&gt;</code> == <code>&lt;string&gt;</code>: 字符串相等</li>
 <li><code>&lt;string&gt;</code> != <code>&lt;string&gt;</code>: 字符串不等</li>
