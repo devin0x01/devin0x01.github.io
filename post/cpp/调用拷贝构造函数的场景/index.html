@@ -37,10 +37,10 @@ Point fun() { Point a(1, 2); return a; // 调用复制构造函数 } b = fun(); 
 3.拷贝构造函数 拷贝构造函数的参数**必须是引用类型。**参数是指针不会编译报错，但是3.1中的场景不能触发调用拷贝构造函数。
 3.1 调用拷贝构造函数的3种场景 用一个类的对象去初始化另一个类的对象时 Point a(1, 2); Point b(a); // 调用复制构造函数 Point c = a; // 调用复制构造函数 函数的形参是类对象，当调用函数，进行形参和实参结合时 void fun(Point obj) {} int main() { Point a(1, 2); fun(a); // 调用复制构造函数 } 如果函数的返回值是类对象，当函数执行完成返回调用者时 实际上，由于编译器的优化，可能不会调用。例如：gcc需要指定**-fno-elide-constructors**编译选项才会调用。
 Point fun() { Point a(1, 2); return a; // 调用复制构造函数 } b = fun(); 4.赋值运算符 4.1 注意点 **拷贝构造函数必须以引用的方式传递参数，**基本上都是传常量引用的方式传递函数参数。 赋值运算符函数的返回值类型要声明为该类型的引用，并在函数结束前返回实例自身的的引用（this）*。**只有返回一个引用，才能进行连续赋值。否则，如果函数的返回值是void，则应用该赋值运算符将不能进行连续赋值。假设有3个Person对象：p1、p2、p3，在程序中语句p1=p2=p3将不能通过编译。 关于深拷贝和浅拷贝：当类有指针成员或有动态分配空间，都应实现自定义的拷贝构造函数。提供了拷贝构造函数，最后也实现赋值运算符。 4.2 和拷贝构造函数的区别 区别：拷贝构造函数使用已有的对象创建一个新的对象，赋值运算符是将一个对象的值复制给另一个已存在的对象。区分是调用拷贝构造函数还是赋值运算符，主要是否有新的对象产生。 #include &amp;lt;iostream&amp;gt; using namespace std; class A { public: A(string str) : name(str) { cout &amp;lt;&amp;lt; &amp;#34;construct &amp;#34; &amp;lt;&amp;lt; name &amp;lt;&amp;lt; endl; } // 构造函数 A(const A &amp;amp;other) { // 拷贝构造函数 name = &amp;#34;copy &amp;#34; &#43; other." />
-<meta name="twitter:site" content="https://devin0x01.github.io" />
+<meta name="twitter:site" content="https://devin0x01.github.io/" />
 <meta name="twitter:creator" content="" />
 <meta name="twitter:image"
-  content="https://devin0x01.github.io">
+  content="https://devin0x01.github.io/">
 
 
 <meta property="og:type" content="article" />
@@ -54,7 +54,7 @@ Point fun() { Point a(1, 2); return a; // 调用复制构造函数 } b = fun(); 
 <meta property="og:url" content="https://devin0x01.github.io/post/cpp/%E8%B0%83%E7%94%A8%E6%8B%B7%E8%B4%9D%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0%E7%9A%84%E5%9C%BA%E6%99%AF/" />
 <meta property="og:site_name" content="调用拷贝构造函数的场景" />
 <meta property="og:image"
-  content="https://devin0x01.github.io">
+  content="https://devin0x01.github.io/">
 <meta property="og:image:width" content="2048">
 <meta property="og:image:height" content="1024">
 
@@ -75,7 +75,7 @@ Point fun() { Point a(1, 2); return a; // 调用复制构造函数 } b = fun(); 
   <div style="position: relative">
   <header class="Header js-details-container Details px-3 px-md-4 px-lg-5 flex-wrap flex-md-nowrap open Details--on">
     <div class="Header-item mobile-none" style="margin-top: -4px; margin-bottom: -4px;">
-      <a class="Header-link" href="https://devin0x01.github.io">
+      <a class="Header-link" href="https://devin0x01.github.io/">
         <svg class="octicon" height="32" viewBox="0 0 16 16" version="1.1" width="32">
           <path fill-rule="evenodd"
             d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z">
@@ -105,7 +105,7 @@ Point fun() { Point a(1, 2); return a; // 调用复制构造函数 } b = fun(); 
               <input type="text"
                 class="Header-search-input form-control input-sm header-search-input jump-to-field js-jump-to-field js-site-search-focus js-site-search-field is-clearable"
                 name="q" value="" placeholder="Search" autocomplete="off">
-              <input type="hidden" name="q" value="site:https://devin0x01.github.io">
+              <input type="hidden" name="q" value="site:https://devin0x01.github.io/">
             </label>
           </form>
         </div>
@@ -113,7 +113,7 @@ Point fun() { Point a(1, 2); return a; // 调用复制构造函数 } b = fun(); 
     </div>
 
     <div class="Header-item Header-item--full flex-justify-center d-md-none position-relative">
-      <a class="Header-link " href="https://devin0x01.github.io">
+      <a class="Header-link " href="https://devin0x01.github.io/">
         <svg class="octicon octicon-mark-github v-align-middle" height="32" viewBox="0 0 16 16" version="1.1"
           width="32">
           <path fill-rule="evenodd"
@@ -143,7 +143,7 @@ Point fun() { Point a(1, 2); return a; // 调用复制构造函数 } b = fun(); 
           <div class="flex-auto min-width-0 width-fit mr-3">
             <div class="d-flex">
               <div class="d-none d-md-block">
-                <a class="avatar mr-2 flex-shrink-0" href="https://devin0x01.github.io">
+                <a class="avatar mr-2 flex-shrink-0" href="https://devin0x01.github.io/">
                   <img class=" avatar-user"
                     src="https://devin0x01.github.io/images/avatar.png"
                     width="32" height="32"></a>
@@ -151,7 +151,7 @@ Point fun() { Point a(1, 2); return a; // 调用复制构造函数 } b = fun(); 
               <div class="d-flex flex-column">
                 <h1 class="break-word f3 text-normal mb-md-0 mb-1">
                   <span class="author">
-                    <a href="https://devin0x01.github.io">DEVIN</a></span><span
+                    <a href="https://devin0x01.github.io/">DEVIN</a></span><span
                     class="path-divider">/</span><strong class="css-truncate-target mr-1" style="max-width: 410px"><a
                       href="https://devin0x01.github.io/post/cpp/%E8%B0%83%E7%94%A8%E6%8B%B7%E8%B4%9D%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0%E7%9A%84%E5%9C%BA%E6%99%AF/">调用拷贝构造函数的场景</a></strong>
                 </h1>
@@ -162,9 +162,9 @@ Point fun() { Point a(1, 2); return a; // 调用复制构造函数 } b = fun(); 
 
                   
                   <span class="file-info-divider"></span>
-                  Modified <relative-time datetime="Thu, 11 Jan 2024 08:21:20 &#43;0000"
+                  Modified <relative-time datetime="Mon, 25 Mar 2024 16:53:43 &#43;0000"
                     class="no-wrap">
-                    Thu, 11 Jan 2024 08:21:20 &#43;0000</relative-time>
+                    Mon, 25 Mar 2024 16:53:43 &#43;0000</relative-time>
                   
                 </div>
               </div>
@@ -337,7 +337,7 @@ Point fun() { Point a(1, 2); return a; // 调用复制构造函数 } b = fun(); 
   <div class="footer container-xl width-full p-responsive">
   <div
     class="position-relative d-flex flex-row-reverse flex-lg-row flex-wrap flex-lg-nowrap flex-justify-center flex-lg-justify-between flex-sm-items-center pt-6 pb-2 mt-6 f6 text-gray border-top border-gray-light ">
-    <a aria-label="Homepage" title="GitHub" class="footer-octicon d-none d-lg-block mr-lg-4" href="https://devin0x01.github.io">
+    <a aria-label="Homepage" title="GitHub" class="footer-octicon d-none d-lg-block mr-lg-4" href="https://devin0x01.github.io/">
       <svg height="24" class="octicon octicon-mark-github" viewBox="0 0 16 16" version="1.1" width="24">
         <path fill-rule="evenodd"
           d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z">

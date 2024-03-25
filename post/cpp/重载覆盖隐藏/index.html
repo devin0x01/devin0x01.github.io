@@ -41,10 +41,10 @@ class Base { public: virtual void f(int) { std::cout &amp;lt;&amp;lt; &amp;#34;B
 3.隐藏**（hide，oversee）** 概念：隐藏指在某些情况下，派生类中的函数屏蔽了基类中的同名函数。这些情况包括两个函数参数相同，但是基类不是虚函数。&amp;mdash;（参数不同可以实现重载） 区别：和覆盖的区别在于基类函数是否是虚函数。
 可以使用using声明解决基类成员被隐藏的问题，例如：
 class Base { public: virtual void f(int) { std::cout &amp;lt;&amp;lt; &amp;#34;Base::f\n&amp;#34;; } void g(char) { std::cout &amp;lt;&amp;lt; &amp;#34;Base::g\n&amp;#34;; } void h(int) { std::cout &amp;lt;&amp;lt; &amp;#34;Base::h\n&amp;#34;; } protected: int m; private: int k; }; class Derived : public Base { public: using Base::m; // 此时 m 为public // using Base::k; // error报错 using Base::f; void f(int) { std::cout &amp;lt;&amp;lt; &amp;#34;Derived::f\n&amp;#34;; } // D::f(int) 覆盖 B::f(int) using Base::g; // 不声明的话，需要通过 obj." />
-<meta name="twitter:site" content="https://devin0x01.github.io" />
+<meta name="twitter:site" content="https://devin0x01.github.io/" />
 <meta name="twitter:creator" content="" />
 <meta name="twitter:image"
-  content="https://devin0x01.github.io">
+  content="https://devin0x01.github.io/">
 
 
 <meta property="og:type" content="article" />
@@ -60,7 +60,7 @@ class Base { public: virtual void f(int) { std::cout &amp;lt;&amp;lt; &amp;#34;B
 <meta property="og:url" content="https://devin0x01.github.io/post/cpp/%E9%87%8D%E8%BD%BD%E8%A6%86%E7%9B%96%E9%9A%90%E8%97%8F/" />
 <meta property="og:site_name" content="重载、覆盖、隐藏" />
 <meta property="og:image"
-  content="https://devin0x01.github.io">
+  content="https://devin0x01.github.io/">
 <meta property="og:image:width" content="2048">
 <meta property="og:image:height" content="1024">
 
@@ -81,7 +81,7 @@ class Base { public: virtual void f(int) { std::cout &amp;lt;&amp;lt; &amp;#34;B
   <div style="position: relative">
   <header class="Header js-details-container Details px-3 px-md-4 px-lg-5 flex-wrap flex-md-nowrap open Details--on">
     <div class="Header-item mobile-none" style="margin-top: -4px; margin-bottom: -4px;">
-      <a class="Header-link" href="https://devin0x01.github.io">
+      <a class="Header-link" href="https://devin0x01.github.io/">
         <svg class="octicon" height="32" viewBox="0 0 16 16" version="1.1" width="32">
           <path fill-rule="evenodd"
             d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z">
@@ -111,7 +111,7 @@ class Base { public: virtual void f(int) { std::cout &amp;lt;&amp;lt; &amp;#34;B
               <input type="text"
                 class="Header-search-input form-control input-sm header-search-input jump-to-field js-jump-to-field js-site-search-focus js-site-search-field is-clearable"
                 name="q" value="" placeholder="Search" autocomplete="off">
-              <input type="hidden" name="q" value="site:https://devin0x01.github.io">
+              <input type="hidden" name="q" value="site:https://devin0x01.github.io/">
             </label>
           </form>
         </div>
@@ -119,7 +119,7 @@ class Base { public: virtual void f(int) { std::cout &amp;lt;&amp;lt; &amp;#34;B
     </div>
 
     <div class="Header-item Header-item--full flex-justify-center d-md-none position-relative">
-      <a class="Header-link " href="https://devin0x01.github.io">
+      <a class="Header-link " href="https://devin0x01.github.io/">
         <svg class="octicon octicon-mark-github v-align-middle" height="32" viewBox="0 0 16 16" version="1.1"
           width="32">
           <path fill-rule="evenodd"
@@ -149,7 +149,7 @@ class Base { public: virtual void f(int) { std::cout &amp;lt;&amp;lt; &amp;#34;B
           <div class="flex-auto min-width-0 width-fit mr-3">
             <div class="d-flex">
               <div class="d-none d-md-block">
-                <a class="avatar mr-2 flex-shrink-0" href="https://devin0x01.github.io">
+                <a class="avatar mr-2 flex-shrink-0" href="https://devin0x01.github.io/">
                   <img class=" avatar-user"
                     src="https://devin0x01.github.io/images/avatar.png"
                     width="32" height="32"></a>
@@ -157,7 +157,7 @@ class Base { public: virtual void f(int) { std::cout &amp;lt;&amp;lt; &amp;#34;B
               <div class="d-flex flex-column">
                 <h1 class="break-word f3 text-normal mb-md-0 mb-1">
                   <span class="author">
-                    <a href="https://devin0x01.github.io">DEVIN</a></span><span
+                    <a href="https://devin0x01.github.io/">DEVIN</a></span><span
                     class="path-divider">/</span><strong class="css-truncate-target mr-1" style="max-width: 410px"><a
                       href="https://devin0x01.github.io/post/cpp/%E9%87%8D%E8%BD%BD%E8%A6%86%E7%9B%96%E9%9A%90%E8%97%8F/">重载、覆盖、隐藏</a></strong>
                 </h1>
@@ -168,9 +168,9 @@ class Base { public: virtual void f(int) { std::cout &amp;lt;&amp;lt; &amp;#34;B
 
                   
                   <span class="file-info-divider"></span>
-                  Modified <relative-time datetime="Thu, 11 Jan 2024 08:21:20 &#43;0000"
+                  Modified <relative-time datetime="Mon, 25 Mar 2024 16:53:43 &#43;0000"
                     class="no-wrap">
-                    Thu, 11 Jan 2024 08:21:20 &#43;0000</relative-time>
+                    Mon, 25 Mar 2024 16:53:43 &#43;0000</relative-time>
                   
                 </div>
               </div>
@@ -299,7 +299,7 @@ class Base { public: virtual void f(int) { std::cout &amp;lt;&amp;lt; &amp;#34;B
   <div class="footer container-xl width-full p-responsive">
   <div
     class="position-relative d-flex flex-row-reverse flex-lg-row flex-wrap flex-lg-nowrap flex-justify-center flex-lg-justify-between flex-sm-items-center pt-6 pb-2 mt-6 f6 text-gray border-top border-gray-light ">
-    <a aria-label="Homepage" title="GitHub" class="footer-octicon d-none d-lg-block mr-lg-4" href="https://devin0x01.github.io">
+    <a aria-label="Homepage" title="GitHub" class="footer-octicon d-none d-lg-block mr-lg-4" href="https://devin0x01.github.io/">
       <svg height="24" class="octicon octicon-mark-github" viewBox="0 0 16 16" version="1.1" width="24">
         <path fill-rule="evenodd"
           d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z">
