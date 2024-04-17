@@ -67,7 +67,7 @@
       <pubDate>Mon, 14 Aug 2023 16:05:25 +0800</pubDate>
       
       <guid>https://devin0x01.github.io/post/cpp/conversion-operator/</guid>
-      <description>参考文档user-defined conversion function - cppreference.com The Safe Bool Idiom - 知乎 一般形式为operator *type*() const, 比如: operator int() const; operator bool() const; operator AA() const; 自定义类型转换 1struct To 2{ 3 To() = default; 4 To(const</description>
+      <description>参考文档user-defined conversion function - cppreference.com The Safe Bool Idiom - 知乎 一般形式为operator type() const, 比如: 1operator int() const; 2operator bool() const; 3operator AA() const; 自定义类型转换 1struct To 2{ 3 To() = default; 4 To(const</description>
     </item>
     
     <item>
