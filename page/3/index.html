@@ -187,22 +187,6 @@
 
 
    <div class="post-preview">
-  <a href="/post/linux_ops/systemd%E6%95%99%E7%A8%8B/">
-      <h2 class="post-title">Systemd教程</h2>
-      
-      <div class="post-content-preview">
-        
-        Systemd 入门教程：实战篇 - 阮一峰的网络日志 配置文件 1$ systemctl cat sshd.service 2 3[Unit] 4Description=OpenSSH server daemon 5Documentation=man:sshd(8) man:sshd_config(5) 6After=network.target …
-         
-      </div>
-  </a>
-  <p class="post-meta">
-      Posted by  DEVIN  on Mon, Jul 31, 2023
-  </p>
-</div>
-<hr>
-
-   <div class="post-preview">
   <a href="/post/linux_ops/docker%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">
       <h2 class="post-title">Docker常用命令</h2>
       
@@ -251,17 +235,33 @@
 <hr>
 
    <div class="post-preview">
-  <a href="/post/compile/cmake%E8%AF%AD%E6%B3%95%E5%9F%BA%E7%A1%80/">
-      <h2 class="post-title">CMake语法基础</h2>
+  <a href="/post/cpp/%E8%B0%83%E7%94%A8%E6%88%90%E5%91%98%E6%A8%A1%E6%9D%BF/">
+      <h2 class="post-title">调用成员模板</h2>
       
       <div class="post-content-preview">
         
-        基本表达式if — CMake 3.27.1 Documentation Cmake中的条件判断if/elseif/else - 简书 if(&amp;lt;constant&amp;gt;) True if the constant is 1, ON, YES, TRUE, Y, or a non-zero number (including floating point …
+        C++访问成员模板需要加template关键字 1#include &amp;lt;iostream&amp;gt; 2using namespace std; 3 4class A { 5public: 6 template &amp;lt;typename TypeNum&amp;gt; 7 int getSize() 8 { 9 return sizeof(TypeNum); 10 …
          
       </div>
   </a>
   <p class="post-meta">
-      Posted by  DEVIN  on Wed, Jul 26, 2023
+      Posted by  DEVIN  on Thu, Jul 20, 2023
+  </p>
+</div>
+<hr>
+
+   <div class="post-preview">
+  <a href="/post/cpp/vector%E7%9A%84push_back%E4%B8%8Eemplace_back/">
+      <h2 class="post-title">vector的push_back与emplace_back</h2>
+      
+      <div class="post-content-preview">
+        
+        push_back与emplace_back 1#include &amp;lt;iostream&amp;gt; 2#include &amp;lt;vector&amp;gt; 3using namespace std; 4 5class A { 6public: 7 A() = default; 8 A(string name) : _name(name) { cout …
+         
+      </div>
+  </a>
+  <p class="post-meta">
+      Posted by  DEVIN  on Mon, Jul 17, 2023
   </p>
 </div>
 <hr>
@@ -297,8 +297,6 @@
     <a href="/tags/c&#43;&#43;/">C&#43;&#43;</a>
     
     <a href="/tags/clang/">Clang</a>
-    
-    <a href="/tags/cmake/">CMake</a>
     
     <a href="/tags/docker/">Docker</a>
     
@@ -452,7 +450,7 @@
 </li></ul>
 
         <p class="copyright text-muted">
-          Copyright &copy; DEVIN&#39;s BLOG 2024  
+          Copyright &copy; DEVIN&#39;s BLOG 2025  
           <br>
           Powered by <a href="https://gohugo.io">Hugo</a>
         </p>

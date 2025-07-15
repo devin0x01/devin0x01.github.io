@@ -17,15 +17,6 @@
     </item>
     
     <item>
-      <title>C&#43;&#43;模板例子</title>
-      <link>https://devin0x01.github.io/post/cpp/c&#43;&#43;%E6%A8%A1%E6%9D%BF%E4%BE%8B%E5%AD%90/</link>
-      <pubDate>Thu, 02 Nov 2023 01:05:25 +0800</pubDate>
-      
-      <guid>https://devin0x01.github.io/post/cpp/c&#43;&#43;%E6%A8%A1%E6%9D%BF%E4%BE%8B%E5%AD%90/</guid>
-      <description>1#include &amp;lt;vector&amp;gt; 2#include &amp;lt;type_traits&amp;gt; 3using namespace std; 4 5class AA {}; 6class BB {}; 7 8 9class Test { 10public: 11 template &amp;lt;class T, template &amp;lt;class&amp;gt; class Container, std::enable_if_t&amp;lt;std::is_same_v&amp;lt;T, int&amp;gt;&amp;gt; * = nullptr&amp;gt; 12 void f1(Container&amp;lt;T&amp;gt; &amp;amp;ret); 13 14 template&amp;lt;template&amp;lt;class&amp;gt; class Container&amp;gt; 15 void f2(Container&amp;lt;AA&amp;gt; *); 16 17 template&amp;lt;template&amp;lt;class&amp;gt; class Container&amp;gt; 18 void f3(Container&amp;lt;BB&amp;gt; *); 19}; 20 21 22template &amp;lt;class T, template &amp;lt;class&amp;gt; class Container, std::enable_if_t&amp;lt;std::is_same_v&amp;lt;T, int&amp;gt;&amp;gt; * = nullptr&amp;gt;</description>
-    </item>
-    
-    <item>
       <title>clang-format配置教程</title>
       <link>https://devin0x01.github.io/post/tools/clang-format%E9%85%8D%E7%BD%AE%E6%95%99%E7%A8%8B/</link>
       <pubDate>Tue, 29 Aug 2023 16:05:25 +0800</pubDate>
@@ -131,24 +122,6 @@
       
       <guid>https://devin0x01.github.io/post/linux_ops/docker%E5%86%85%E6%98%BE%E7%A4%BA%E5%9B%BE%E5%BD%A2%E7%95%8C%E9%9D%A2/</guid>
       <description>关于X11x(7) - Linux man page Cygwin系列（十二）：了解X - 知乎 X11采用了C/S的架构，在其设计下，整个图形视窗系统主要分为3个部分： 1.X S</description>
-    </item>
-    
-    <item>
-      <title>CMake语法基础</title>
-      <link>https://devin0x01.github.io/post/compile/cmake%E8%AF%AD%E6%B3%95%E5%9F%BA%E7%A1%80/</link>
-      <pubDate>Wed, 26 Jul 2023 14:05:25 +0800</pubDate>
-      
-      <guid>https://devin0x01.github.io/post/compile/cmake%E8%AF%AD%E6%B3%95%E5%9F%BA%E7%A1%80/</guid>
-      <description>基本表达式if — CMake 3.27.1 Documentation Cmake中的条件判断if/elseif/else - 简书 if(&amp;lt;constant&amp;gt;) True if the constant is 1, ON, YES, TRUE, Y, or a non-zero number (including floating point numbers). False if the constant is 0, OFF, NO, FALSE, N, IGNORE, NOTFOUND,</description>
-    </item>
-    
-    <item>
-      <title>target_link_libraries中的PRIVATE INTERFACE PUBLIC</title>
-      <link>https://devin0x01.github.io/post/compile/target_link_libraries%E4%B8%AD%E7%9A%84private-interface-public/</link>
-      <pubDate>Mon, 24 Jul 2023 18:05:25 +0800</pubDate>
-      
-      <guid>https://devin0x01.github.io/post/compile/target_link_libraries%E4%B8%AD%E7%9A%84private-interface-public/</guid>
-      <description>CMake target_link_libraries Interface Dependencies - Stack Overflow CMake的链接选项：PRIVATE，INTERFACE，PUBLIC - 知乎 If you are creating a shared library and your source cpp files #include the headers of another library (Say, QtNetwork for example), but your header</description>
     </item>
     
     <item>
@@ -266,15 +239,6 @@
       
       <guid>https://devin0x01.github.io/post/qt/qt%E5%BC%80%E5%8F%91%E6%80%BB%E7%BB%93%E7%AF%87%E4%B8%80/</guid>
       <description>GUI界面限制输入的内容1QValidator *validator = new QIntValidator(100, 999, this); 2// 这样文本框只能输入100~999之间的数字 3ui-&amp;gt;lineEdit-&amp;gt;setValidator(validator); 显示格式控制1ui-&amp;gt;text</description>
-    </item>
-    
-    <item>
-      <title>Terminal快捷键</title>
-      <link>https://devin0x01.github.io/post/tools/terminal%E5%BF%AB%E6%8D%B7%E9%94%AE/</link>
-      <pubDate>Sun, 18 Jun 2023 14:05:25 +0800</pubDate>
-      
-      <guid>https://devin0x01.github.io/post/tools/terminal%E5%BF%AB%E6%8D%B7%E9%94%AE/</guid>
-      <description>命令行快速移动光标Ctrl+A/E 行首/行末 Alt+F/B 按单词前后移动 Alt . 上条命令行的最后一个参数 Ctrl+W/K 删除光标前后的内容</description>
     </item>
     
     <item>

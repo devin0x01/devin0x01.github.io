@@ -17,15 +17,6 @@
     </item>
     
     <item>
-      <title>Terminal快捷键</title>
-      <link>https://devin0x01.github.io/post/tools/terminal%E5%BF%AB%E6%8D%B7%E9%94%AE/</link>
-      <pubDate>Sun, 18 Jun 2023 14:05:25 +0800</pubDate>
-      
-      <guid>https://devin0x01.github.io/post/tools/terminal%E5%BF%AB%E6%8D%B7%E9%94%AE/</guid>
-      <description>命令行快速移动光标Ctrl+A/E 行首/行末 Alt+F/B 按单词前后移动 Alt . 上条命令行的最后一个参数 Ctrl+W/K 删除光标前后的内容</description>
-    </item>
-    
-    <item>
       <title>配置github pages教程</title>
       <link>https://devin0x01.github.io/post/tools/%E9%85%8D%E7%BD%AEgithub-pages%E6%95%99%E7%A8%8B/</link>
       <pubDate>Sat, 13 May 2023 14:05:25 +0800</pubDate>
